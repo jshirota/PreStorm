@@ -38,7 +38,7 @@ namespace PreStorm.Tool
 
         private void txtUrl_TextChanged(object sender, EventArgs e)
         {
-            var projectName = Regex.Match(txtUrl.Text, @"(?<=(/))\w+(?=(/(MapServer|FeatureServer)))", RegexOptions.IgnoreCase).Value;
+            var projectName = Regex.Match(txtUrl.Text, @"(?<=(/))(\w|\-)+(?=(/(MapServer|FeatureServer)))", RegexOptions.IgnoreCase).Value;
 
             if (projectName == "")
                 return;
@@ -159,7 +159,7 @@ using System.Runtime.InteropServices;
 ";
 
                 var displayField = layerInfo.displayField != null && layerInfo.fields.Any(f => f.name == layerInfo.displayField)
-                    ? layerInfo.displayField.ToSafeName(false)
+                    ? layerInfo.displayField.ToSafeName(false, null, null, className)
                     : "OID";
 
                 if (useLayerId)

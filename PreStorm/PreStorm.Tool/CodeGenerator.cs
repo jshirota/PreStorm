@@ -24,7 +24,7 @@ namespace PreStorm.Tool
             _code.AppendFormat("public class {0} : Feature{1}\r\n{2}{{", className, _geometryType == null ? "" : string.Format("<{0}>", _geometryType), "    ");
         }
 
-        private void AppendProperty(Field field)
+        private void AppendProperty(Field field, string className)
         {
             if (field.type == "esriFieldTypeOID")
                 return;
@@ -61,7 +61,7 @@ namespace PreStorm.Tool
                 csType += "?";
 
             var indentation = _hasNamespace ? "    " : "";
-            var propertyName = field.name.ToSafeName(false);
+            var propertyName = field.name.ToSafeName(false, null, null, className);
 
             if (field.domain != null && field.domain.type == "codedValue")
                 _code.AppendFormat("\r\n{0}    [Mapped(\"{1}\")]//, \"{2}\")]{3}\r\n{0}    public virtual {4} {5} {{ get; {6}set; }}\r\n",
@@ -118,7 +118,7 @@ namespace PreStorm.Tool
             AppendBeginning(namespaceName, className);
 
             foreach (var field in fields)
-                AppendProperty(field);
+                AppendProperty(field, className);
 
             AppendEnding();
         }

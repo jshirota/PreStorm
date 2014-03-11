@@ -9,7 +9,7 @@ namespace PreStorm.Tool
         private static readonly string[] Keywords = { "abstract", "add", "addhandler", "addressof", "aggregate", "alias", "and", "andalso", "ansi", "as", "ascending", "assembly", "async", "auto", "await", "base", "binary", "bool", "boolean", "break", "by", "byref", "byte", "byval", "call", "case", "catch", "cbool", "cbyte", "cchar", "cdate", "cdbl", "cdec", "char", "checked", "cint", "class", "clng", "cobj", "compare", "const", "continue", "csbyte", "cshort", "csng", "cstr", "ctype", "cuint", "culng", "cushort", "custom", "date", "decimal", "declare", "default", "delegate", "descending", "dim", "directcast", "distinct", "do", "double", "dynamic", "each", "else", "elseif", "end", "endif", "enum", "equals", "erase", "error", "event", "exit", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach", "friend", "from", "function", "get", "gettype", "getxmlnamespace", "global", "gosub", "goto", "group", "handles", "if", "implements", "implicit", "imports", "in", "inherits", "int", "integer", "interface", "internal", "into", "is", "isfalse", "isnot", "istrue", "iterator", "join", "key", "let", "lib", "like", "lock", "long", "loop", "me", "mid", "mod", "module", "mustinherit", "mustoverride", "mybase", "myclass", "namespace", "narrowing", "new", "next", "not", "nothing", "notinheritable", "notoverridable", "null", "object", "of", "off", "on", "operator", "option", "optional", "or", "order", "orderby", "orelse", "out", "overloads", "overridable", "override", "overrides", "paramarray", "params", "partial", "preserve", "private", "property", "protected", "public", "raiseevent", "readonly", "redim", "ref", "rem", "remove", "removehandler", "resume", "return", "sbyte", "sealed", "select", "set", "shadows", "shared", "short", "single", "sizeof", "skip", "stackalloc", "static", "step", "stop", "strict", "string", "struct", "structure", "sub", "switch", "synclock", "take", "text", "then", "this", "throw", "to", "true", "try", "trycast", "typeof", "uint", "uinteger", "ulong", "unchecked", "unicode", "unsafe", "until", "ushort", "using", "value", "var", "variant", "virtual", "void", "volatile", "wend", "when", "where", "while", "widening", "with", "withevents", "writeonly", "xor", "yield", 
             "editor", "feature", "geometry", "mapped", "service", "oid", "isdirty", "point", "multipoint", "polyline", "polygon" };
 
-        public static string ToSafeName(this string text, bool singular, bool? capital = null, Func<string, bool> notConflicting = null)
+        public static string ToSafeName(this string text, bool singular, bool? capital = null, Func<string, bool> notConflicting = null, params string[] moreKeywords)
         {
             var length = text.Length;
 
@@ -42,6 +42,7 @@ namespace PreStorm.Tool
             }
 
             text = Keywords.Contains(text.ToLower()) ? text + "_" : text;
+            text = moreKeywords != null && moreKeywords.Contains(text) ? text + "_" : text;
 
             if (notConflicting == null)
                 return text;
