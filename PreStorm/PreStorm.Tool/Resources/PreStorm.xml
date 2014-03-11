@@ -4,6 +4,36 @@
         <name>PreStorm</name>
     </assembly>
     <members>
+        <member name="T:PreStorm.Domain">
+            <summary>
+            Represents the coded value domain.
+            </summary>
+        </member>
+        <member name="P:PreStorm.Domain.name">
+            <summary>
+            The name of the domain.
+            </summary>
+        </member>
+        <member name="P:PreStorm.Domain.codedValues">
+            <summary>
+            The array of coded values.
+            </summary>
+        </member>
+        <member name="T:PreStorm.CodedValue">
+            <summary>
+            Represents the coded value.
+            </summary>
+        </member>
+        <member name="P:PreStorm.CodedValue.name">
+            <summary>
+            The name of the coded value.
+            </summary>
+        </member>
+        <member name="P:PreStorm.CodedValue.code">
+            <summary>
+            The actual value stored in the database.
+            </summary>
+        </member>
         <member name="T:PreStorm.Editor">
             <summary>
             Provides editing capabilities to features.
@@ -175,6 +205,11 @@
             <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
             <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
             <returns></returns>
+        </member>
+        <member name="P:PreStorm.Service.CodedValueDomains">
+            <summary>
+            The array of coded value domains.
+            </summary>
         </member>
         <member name="T:PreStorm.Geometry">
             <summary>

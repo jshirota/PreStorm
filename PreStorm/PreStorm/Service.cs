@@ -16,6 +16,11 @@ namespace PreStorm
 
         private readonly Esri.Layer[] _layers;
 
+        /// <summary>
+        /// The array of coded value domains.
+        /// </summary>
+        public Domain[] CodedValueDomains { get; private set; }
+
         private Service(string url, ICredentials credentials, string userName, string password)
         {
             Url = url;
@@ -25,7 +30,16 @@ namespace PreStorm
                 Token = new Token(url, userName, password);
 
             var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
+
             _layers = serviceInfo.layers.Concat(serviceInfo.tables).ToArray();
+
+            CodedValueDomains = serviceInfo.layers.Concat(serviceInfo.tables)
+                .SelectMany(l => l.fields)
+                .Where(f => f.domain != null && f.domain.type == "codedValue")
+                .GroupBy(d => d.name)
+                .Select(g => g.First())
+                .Select(d => new Domain { name = d.name, codedValues = d.domain.codedValues.Select(c => new CodedValue { code = c.code, name = c.name }).ToArray() })
+                .ToArray();
         }
 
         /// <summary>

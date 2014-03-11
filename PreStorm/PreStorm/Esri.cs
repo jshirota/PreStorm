@@ -111,10 +111,10 @@ namespace PreStorm
         {
             public string type { get; set; }
             public string name { get; set; }
-            public Codedvalue[] codedValues { get; set; }
+            public CodedValue[] codedValues { get; set; }
         }
 
-        public class Codedvalue
+        public class CodedValue
         {
             public string name { get; set; }
             public object code { get; set; }
@@ -179,7 +179,7 @@ namespace PreStorm
             return objectIdFields.Single().name;
         }
 
-        private static Codedvalue[] GetCodeValues(this Layer layer, string domainName)
+        private static CodedValue[] GetCodeValues(this Layer layer, string domainName)
         {
             var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
 
@@ -189,7 +189,7 @@ namespace PreStorm
             return domain.codedValues;
         }
 
-        public static Codedvalue GetCodedValueByCode(this Layer layer, string domainName, object code)
+        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code)
         {
             var codedValues = layer.GetCodeValues(domainName).Where(c => c.code.ToString() == code.ToString()).ToArray();
 
@@ -202,7 +202,7 @@ namespace PreStorm
             throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
         }
 
-        public static Codedvalue GetCodedValueByName(this Layer layer, string domainName, object name)
+        public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
         {
             var codedValues = layer.GetCodeValues(domainName).Where(c => c.name == name.ToString()).ToArray();
 
