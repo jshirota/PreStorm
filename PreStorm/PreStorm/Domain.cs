@@ -8,12 +8,12 @@
         /// <summary>
         /// The name of the domain.
         /// </summary>
-        public string name { get; internal set; }
+        public string name { get; set; }
 
         /// <summary>
         /// The array of coded values.
         /// </summary>
-        public CodedValue[] codedValues { get; internal set; }
+        public CodedValue[] codedValues { get; set; }
     }
 
     /// <summary>
@@ -24,11 +24,11 @@
         /// <summary>
         /// The name of the coded value.
         /// </summary>
-        public string name { get; internal set; }
+        public string name { get; set; }
 
         /// <summary>
         /// The actual value stored in the database.
         /// </summary>
-        public object code { get; internal set; }
+        public object code { get; set; }
     }
 }
