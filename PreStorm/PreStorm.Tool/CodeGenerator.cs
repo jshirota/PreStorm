@@ -68,7 +68,7 @@ namespace PreStorm.Tool
                     indentation,
                     field.name,
                     field.domain.name,
-                    csType != "string" ? string.Format("  //If applying this domain conversion, change the property type to from {0} to string.", csType) : "",
+                    csType != "string" ? string.Format("  //If applying this domain conversion, change the property type from {0} to string.", csType) : "",
                     csType,
                     propertyName,
                     field.editable ? "" : "private ");

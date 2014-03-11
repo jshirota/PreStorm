@@ -200,7 +200,7 @@
             Downloads records and them as a lazy sequence of features of the specified type.
             </summary>
             <typeparam name="T">The type the record should be mapped to.</typeparam>
-            <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use one of the overloads that take the layer ID rather than the name.</param>
+            <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
             <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
             <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
             <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
