@@ -98,7 +98,7 @@ namespace PreStorm.Tool
                     _geometryType = "Point";
                     break;
                 case "esriGeometryMultipoint":
-                    _geometryType = "MultiPoint";
+                    _geometryType = "Multipoint";
                     break;
                 case "esriGeometryPolyline":
                     _geometryType = "Polyline";
