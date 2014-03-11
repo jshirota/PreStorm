@@ -34,6 +34,7 @@ namespace PreStorm
             _layers = serviceInfo.layers.Concat(serviceInfo.tables).ToArray();
 
             CodedValueDomains = serviceInfo.layers.Concat(serviceInfo.tables)
+                .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
                 .Where(f => f.domain != null && f.domain.type == "codedValue")
                 .GroupBy(d => d.name)
