@@ -51,6 +51,7 @@
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(376, 22);
             this.txtProjectName.TabIndex = 3;
+            this.txtProjectName.TextChanged += new System.EventHandler(this.txtProjectName_TextChanged);
             // 
             // txtUrl
             // 
@@ -94,6 +95,7 @@
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.Size = new System.Drawing.Size(376, 22);
             this.txtFolder.TabIndex = 2;
+            this.txtFolder.TextChanged += new System.EventHandler(this.txtFolder_TextChanged);
             // 
             // lblUrl
             // 

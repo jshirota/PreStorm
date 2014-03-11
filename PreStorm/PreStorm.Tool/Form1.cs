@@ -190,5 +190,20 @@ using System.Runtime.InteropServices;
 
             Close();
         }
+
+        private void ValidateInput()
+        {
+            btnGenerate.Enabled = txtProjectName.Text != "" && Directory.Exists(txtFolder.Text);
+        }
+
+        private void txtFolder_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void txtProjectName_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
     }
 }
