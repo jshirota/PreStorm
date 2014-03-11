@@ -94,6 +94,7 @@ namespace PreStorm
 
         public class Layer
         {
+            public double currentVersion { get; set; }
             public int id { get; set; }
             public string name { get; set; }
             public string type { get; set; }

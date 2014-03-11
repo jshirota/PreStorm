@@ -13,13 +13,12 @@ namespace PreStorm
         internal readonly string Url;
         internal readonly ICredentials Credentials;
         internal readonly Token Token;
-
         private readonly Esri.Layer[] _layers;
 
         /// <summary>
-        /// The array of coded value domains.
+        /// The array of coded value domains used by this service.
         /// </summary>
-        public Domain[] CodedValueDomains { get; private set; }
+        public Domain[] Domains { get; private set; }
 
         private Service(string url, ICredentials credentials, string userName, string password)
         {
@@ -31,9 +30,12 @@ namespace PreStorm
 
             var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
 
-            _layers = serviceInfo.layers.Concat(serviceInfo.tables).ToArray();
+            _layers = (serviceInfo.layers ?? new Esri.Layer[] { }).Concat(serviceInfo.tables ?? new Esri.Layer[] { }).ToArray();
 
-            CodedValueDomains = serviceInfo.layers.Concat(serviceInfo.tables)
+            if (_layers.Length > 0 && _layers.Max(l => l.currentVersion) < 10)
+                throw new Exception("Versions prior to 10.0 are not supported.");
+
+            Domains = _layers
                 .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
                 .Where(f => f.domain != null && f.domain.type == "codedValue")

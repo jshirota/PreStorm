@@ -206,9 +206,9 @@
             <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
             <returns></returns>
         </member>
-        <member name="P:PreStorm.Service.CodedValueDomains">
+        <member name="P:PreStorm.Service.Domains">
             <summary>
-            The array of coded value domains.
+            The array of coded value domains used by this service.
             </summary>
         </member>
         <member name="T:PreStorm.Geometry">
