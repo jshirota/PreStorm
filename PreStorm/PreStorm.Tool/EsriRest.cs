@@ -14,6 +14,7 @@
 
     internal class ServiceInfo : Response
     {
+        public double currentVersion { get; set; }
         public Layer[] layers { get; set; }
         public Layer[] tables { get; set; }
         public string capabilities { get; set; }

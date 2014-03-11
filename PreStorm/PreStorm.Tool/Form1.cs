@@ -74,13 +74,19 @@ namespace PreStorm.Tool
                 if (error != null)
                     throw new Exception(error.message);
 
+                if (serviceInfo.currentVersion < 10)
+                {
+                    MessageBox.Show("Versions prior to 10.0 are not supported.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
                 if (serviceInfo.capabilities != null && !serviceInfo.capabilities.Contains("Query"))
                 {
                     MessageBox.Show("This service does not support querying.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
-                _layers = (serviceInfo.layers ?? new Layer[] { }).Concat(serviceInfo.tables ?? new Layer[] { }).Where(l => l.subLayerIds == null).ToArray();
+                _layers = serviceInfo.layers.Concat(serviceInfo.tables).Where(l => l.subLayerIds == null).ToArray();
             }
             catch (Exception ex)
             {

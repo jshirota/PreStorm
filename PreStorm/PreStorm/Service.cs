@@ -25,7 +25,7 @@ namespace PreStorm
                 Token = new Token(url, userName, password);
 
             var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
-            _layers = (serviceInfo.layers ?? new Esri.Layer[] { }).Concat(serviceInfo.tables ?? new Esri.Layer[] { }).ToArray();
+            _layers = serviceInfo.layers.Concat(serviceInfo.tables).ToArray();
         }
 
         /// <summary>
