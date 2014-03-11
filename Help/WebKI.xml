@@ -12,7 +12,6 @@
   <HelpKINode Title="CodedValue.code property" Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
   <HelpKINode Title="CodedValue.CodedValue constructor" Url="html/6ba7d9df-0e3e-b4ea-dbbe-9c273023b0b0.htm" />
   <HelpKINode Title="CodedValue.name property" Url="html/7853ddda-6324-b61d-0e19-be60200b9864.htm" />
-  <HelpKINode Title="CodedValueDomains property" Url="html/bc11777d-4010-b95c-9501-ada6b9b3d545.htm" />
   <HelpKINode Title="codedValues property" Url="html/5af68820-4481-c84c-8eee-74f5e8e66e6b.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
   <HelpKINode Title="Domain class">
@@ -26,6 +25,7 @@
   <HelpKINode Title="Domain.codedValues property" Url="html/5af68820-4481-c84c-8eee-74f5e8e66e6b.htm" />
   <HelpKINode Title="Domain.Domain constructor" Url="html/99e61cb0-3daa-e2f1-02f3-816d6059f12b.htm" />
   <HelpKINode Title="Domain.name property" Url="html/2b03cea7-62e2-4cea-4484-6931f1c515a1.htm" />
+  <HelpKINode Title="Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   <HelpKINode Title="Editor class">
     <HelpKINode Title="Editor Class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
@@ -222,7 +222,7 @@
     <HelpKINode Title="methods" Url="html/6ad014e1-2b54-5bb0-fa6d-f1211bb60bfe.htm" />
     <HelpKINode Title="properties" Url="html/232eb98f-48fd-e056-bd38-276b28af2e5f.htm" />
   </HelpKINode>
-  <HelpKINode Title="Service.CodedValueDomains property" Url="html/bc11777d-4010-b95c-9501-ada6b9b3d545.htm" />
+  <HelpKINode Title="Service.Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Service.Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   <HelpKINode Title="Service.Service constructor" Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm" />
   <HelpKINode Title="ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
