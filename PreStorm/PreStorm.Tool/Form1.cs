@@ -80,7 +80,7 @@ namespace PreStorm.Tool
                     return;
                 }
 
-                _layers = serviceInfo.layers.Concat(serviceInfo.tables).Where(l => l.subLayerIds == null).ToArray();
+                _layers = (serviceInfo.layers ?? new Layer[] { }).Concat(serviceInfo.tables ?? new Layer[] { }).Where(l => l.subLayerIds == null).ToArray();
             }
             catch (Exception ex)
             {

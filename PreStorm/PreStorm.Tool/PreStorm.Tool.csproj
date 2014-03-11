@@ -26,10 +26,10 @@
     <InstallUrl>http://jshirota.github.io/PreStorm/</InstallUrl>
     <ProductName>PreStorm</ProductName>
     <PublisherName>ArcGIS</PublisherName>
-    <MinimumRequiredVersion>0.9.0.7</MinimumRequiredVersion>
+    <MinimumRequiredVersion>0.9.1.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>7</ApplicationRevision>
-    <ApplicationVersion>0.9.0.7</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.9.1.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
