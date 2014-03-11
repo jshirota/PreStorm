@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://sampleserver6.arcgisonline.com/arcgis/rest/services/NapervilleShelters/FeatureServer</Value>
+      <Value Profile="(Default)">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer</Value>
     </Setting>
     <Setting Name="UseWindowsCredentials" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

@@ -25,8 +25,8 @@ namespace PreStorm.Tool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NapervilleShelters/Fea" +
-            "tureServer")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServ" +
+            "er")]
         public string Url {
             get {
                 return ((string)(this["Url"]));
