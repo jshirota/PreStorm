@@ -32,9 +32,6 @@ namespace PreStorm
 
             _layers = (serviceInfo.layers ?? new Esri.Layer[] { }).Concat(serviceInfo.tables ?? new Esri.Layer[] { }).ToArray();
 
-            if (_layers.Length > 0 && _layers.Max(l => l.currentVersion) < 10)
-                throw new Exception("Versions prior to 10.0 are not supported.");
-
             Domains = _layers
                 .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
