@@ -12,7 +12,7 @@ namespace PreStorm
         private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token) where T : Response
         {
             var json = data == null
-                ? Http.Get(url, credentials)
+                ? Http.Get(string.Format("{0}{1}token={2}&f=json", url, url.Contains("?") ? "&" : "?", token), credentials)
                 : Http.Post(url, string.Format("{0}&token={1}&f=json", data, token), credentials);
 
             var response = json.Deserialize<T>();
@@ -23,42 +23,41 @@ namespace PreStorm
             return response;
         }
 
-        private static T GetResponse<T>(string url, ICredentials credentials, Token token) where T : Response
-        {
-            return GetResponse<T>(string.Format("{0}{1}token={2}&f=json", url, url.Contains("?") ? "&" : "?", token), null, credentials, null);
-        }
-
-        private static readonly Func<string, ICredentials, Token, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<string, ICredentials, Token, ServiceInfo>(GetResponse<ServiceInfo>);
+        private static readonly Func<string, ICredentials, Token, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<string, ICredentials, Token, ServiceInfo>((u, c, t) => GetResponse<ServiceInfo>(u, null, c, t));
 
         public static ServiceInfo GetServiceInfo(string url, ICredentials credentials, Token token)
         {
-            return GetServiceInfoMemoized(Regex.Replace(url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers", credentials, token);
+            var url2 = Regex.Replace(url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+
+            return GetServiceInfoMemoized(url2, credentials, token);
         }
 
         public static OIDSet GetOIDSet(string url, int layerId, ICredentials credentials, Token token, string whereClause)
         {
+            var url2 = url + "/" + layerId + "/query";
             var data = string.Format("where={0}&returnIdsOnly=true",
                 HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
 
-            return GetResponse<OIDSet>(url + "/" + layerId + "/query", data, credentials, token);
+            return GetResponse<OIDSet>(url2, data, credentials, token);
         }
 
         public static FeatureSet GetFeatureSet(string url, int layerId, ICredentials credentials, Token token, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
         {
+            var url2 = url + "/" + layerId + "/query";
             var data = string.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
                 HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
                 objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 
-            return GetResponse<FeatureSet>(url + "/" + layerId + "/query", data, credentials, token);
+            return GetResponse<FeatureSet>(url2, data, credentials, token);
         }
 
         public static TokenInfo GetTokenInfo(string url, string userName, string password)
         {
-            var tokenUrl = string.Format("{0}/tokens/generateToken?userName={1}&password={2}&clientid=requestip",
+            var url2 = string.Format("{0}/tokens/generateToken?userName={1}&password={2}&clientid=requestip",
                 Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value, userName, password);
 
-            return GetResponse<TokenInfo>(tokenUrl, null, null);
+            return GetResponse<TokenInfo>(url2, null, null, null);
         }
 
         public static EditResultInfo ApplyEdits(string url, Layer layer, ICredentials credentials, Token token, string operation, string json)
@@ -66,10 +65,10 @@ namespace PreStorm
             if (url == null || layer == null)
                 throw new Exception("The features cannot be edited because they are not bound to a layer.");
 
-            var u = string.Format("{0}/{1}/applyEdits", url, layer.id);
+            var url2 = string.Format("{0}/{1}/applyEdits", url, layer.id);
             var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
-            return GetResponse<EditResultInfo>(u, data, credentials, token);
+            return GetResponse<EditResultInfo>(url2, data, credentials, token);
         }
 
         #region Esri REST API
