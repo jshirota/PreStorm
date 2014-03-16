@@ -35,8 +35,8 @@ namespace PreStorm
             Domains = _layers
                 .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
-                .Where(f => f.domain != null && f.domain.type == "codedValue")
                 .Select(f => f.domain)
+                .Where(d => d != null && d.type == "codedValue")
                 .GroupBy(d => d.name)
                 .Select(g => g.First())
                 .Select(d => new Domain { name = d.name, codedValues = d.codedValues.Select(c => new CodedValue { code = c.code, name = c.name }).ToArray() })
