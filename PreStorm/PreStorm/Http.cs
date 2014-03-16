@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text;
 
 namespace PreStorm
 {
@@ -14,10 +15,7 @@ namespace PreStorm
         public static string Post(string url, string data, ICredentials credentials)
         {
             using (var c = new GZipWebClient(credentials))
-            {
-                c.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 return c.UploadString(url, data);
-            }
         }
 
         private class GZipWebClient : WebClient
@@ -27,6 +25,9 @@ namespace PreStorm
             public GZipWebClient(ICredentials credentials)
             {
                 _credentials = credentials;
+
+                Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                Encoding = Encoding.UTF8;
             }
 
             protected override WebRequest GetWebRequest(Uri address)
