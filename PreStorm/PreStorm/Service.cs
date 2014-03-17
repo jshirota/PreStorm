@@ -110,7 +110,7 @@ namespace PreStorm
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            return Download<T>(layer, objectIds, returnGeometry, 100, degreeOfParallelism);
+            return Download<T>(layer, objectIds, returnGeometry, batchSize, degreeOfParallelism);
         }
 
         /// <summary>
