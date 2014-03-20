@@ -30,7 +30,10 @@ namespace PreStorm
 
             var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
 
-            _layers = (serviceInfo.layers ?? new Esri.Layer[] { }).Concat(serviceInfo.tables ?? new Esri.Layer[] { }).ToArray();
+            _layers = (serviceInfo.layers ?? new Esri.Layer[] { })
+                .Where(l => l.type == "Feature Layer")
+                .Concat(serviceInfo.tables ?? new Esri.Layer[] { })                
+                .ToArray();
 
             Domains = _layers
                 .Where(l => l.fields != null)
