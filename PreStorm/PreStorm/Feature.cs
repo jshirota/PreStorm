@@ -33,6 +33,14 @@ namespace PreStorm
         /// </summary>
         public int OID { get; internal set; }
 
+        /// <summary>
+        /// Indicates if this instance is bound to an actual row in the underlying table.
+        /// </summary>
+        public bool IsDataBound
+        {
+            get { return OID > -1; }
+        }
+
         private bool _isDirty;
 
         /// <summary>
