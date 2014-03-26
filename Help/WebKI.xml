@@ -65,7 +65,7 @@
   <HelpKINode Title="Feature.IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="Feature.OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
   <HelpKINode Title="Feature.PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
-  <HelpKINode Title="Feature.RaisePropertyChanged method" Url="html/0eeadd11-b11b-68d6-f2b6-a7a2a3bd79ca.htm" />
+  <HelpKINode Title="Feature.RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="Feature&lt;T&gt; class">
     <HelpKINode Title="Feature(T) Class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm" />
     <HelpKINode Title="Feature(T) Members" Url="html/4fe640df-e40e-801f-16e8-249fac2d7109.htm" />
@@ -213,7 +213,7 @@
   </HelpKINode>
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
-  <HelpKINode Title="RaisePropertyChanged method" Url="html/0eeadd11-b11b-68d6-f2b6-a7a2a3bd79ca.htm" />
+  <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
   <HelpKINode Title="Service class">
     <HelpKINode Title="Service Class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
