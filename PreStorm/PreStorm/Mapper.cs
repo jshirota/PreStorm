@@ -75,7 +75,7 @@ namespace PreStorm
 
         public static object ToGraphic(this Feature feature, Esri.Layer layer, bool changesOnly)
         {
-            if (changesOnly && feature.ChangedFields.Count == 0)
+            if (changesOnly && feature.ChangedFields.Count == 0 && !feature.GeometryChanged)
                 return null;
 
             var t = feature.GetType();

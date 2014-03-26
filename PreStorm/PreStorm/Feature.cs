@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 
 namespace PreStorm
@@ -62,7 +64,7 @@ namespace PreStorm
                     GeometryChanged = false;
                 }
 
-                RaisePropertyChanged("IsDirty");
+                RaisePropertyChanged(() => IsDirty);
             }
         }
 
@@ -80,13 +82,29 @@ namespace PreStorm
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 
-            if (propertyName != "IsDirty")
-            {
-                IsDirty = true;
+            if (propertyName == "IsDirty")
+                return;
 
-                if (_propertyToField.ContainsKey(propertyName))
-                    ChangedFields.Add(_propertyToField[propertyName]);
-            }
+            IsDirty = true;
+
+            if (_propertyToField.ContainsKey(propertyName))
+                ChangedFields.Add(_propertyToField[propertyName]);
+
+            else if (propertyName == "Geometry")
+                GeometryChanged = true;
+        }
+
+        /// <summary>
+        /// Called from a property setter to notify the framework that a member has changed.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertySelector"></param>
+        public void RaisePropertyChanged<T>(Expression<Func<T>> propertySelector)
+        {
+            var memberExpression = propertySelector.Body as MemberExpression;
+
+            if (memberExpression != null)
+                RaisePropertyChanged(memberExpression.Member.Name);
         }
     }
 
@@ -116,8 +134,7 @@ namespace PreStorm
         /// </summary>
         public void RaiseGeometryChanged()
         {
-            GeometryChanged = true;
-            RaisePropertyChanged("Geometry");
+            RaisePropertyChanged(() => Geometry);
         }
     }
 }
