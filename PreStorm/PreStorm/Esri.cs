@@ -62,9 +62,6 @@ namespace PreStorm
 
         public static EditResultInfo ApplyEdits(string url, Layer layer, ICredentials credentials, Token token, string operation, string json)
         {
-            if (url == null || layer == null)
-                throw new Exception("The features cannot be edited because they are not bound to a layer.");
-
             var url2 = string.Format("{0}/{1}/applyEdits", url, layer.id);
             var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 

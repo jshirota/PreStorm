@@ -93,6 +93,9 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Update<T>(this T[] features) where T : Feature
         {
+            if (features.Any(f => !f.IsDataBound))
+                throw new Exception("All features must be bound to a data source before updating.");
+
             var url = GetUnique(features, f => f.Url, "url");
             var layer = GetUnique(features, f => f.Layer, "layer");
             var credentials = GetUnique(features, f => f.Credentials, "credentials");
@@ -122,6 +125,9 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Update<T>(this T feature) where T : Feature
         {
+            if (!feature.IsDataBound)
+                throw new Exception("The feature cannot be updated because it is not bound to a data source.");
+
             return new[] { feature }.Update();
         }
 
@@ -137,14 +143,17 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Delete<T>(this T[] features) where T : Feature
         {
+            if (features.Any(f => !f.IsDataBound))
+                throw new Exception("All features must be bound to a data source before deleting.");
+
             var url = GetUnique(features, f => f.Url, "url");
-            var Layer = GetUnique(features, f => f.Layer, "layer");
+            var layer = GetUnique(features, f => f.Layer, "layer");
             var credentials = GetUnique(features, f => f.Credentials, "credentials");
             var token = GetUnique(features, f => f.Token, "token");
 
             var deletes = string.Join(",", features.Select(f => f.OID));
 
-            var editResultInfo = Esri.ApplyEdits(url, Layer, credentials, token, "deletes", deletes);
+            var editResultInfo = Esri.ApplyEdits(url, layer, credentials, token, "deletes", deletes);
 
             if (editResultInfo.deleteResults.Any(r => !r.success))
                 return false;
@@ -170,6 +179,9 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Delete<T>(this T feature) where T : Feature
         {
+            if (!feature.IsDataBound)
+                throw new Exception("The feature cannot be deleted because it is not bound to a data source.");
+
             return new[] { feature }.Delete();
         }
 
