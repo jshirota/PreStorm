@@ -42,9 +42,9 @@ namespace PreStorm
                         {
                             value = Convert.ChangeType(value, t);
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            throw new Exception(string.Format("'{0}.{1}' is not defined with the correct type.  Error trying to convert {2} to {3}.", typeof(T), m.Property.Name, value.GetType(), t));
+                            throw new Exception(string.Format("'{0}.{1}' is not defined with the correct type.  Error trying to convert {2} to {3}.", typeof(T), m.Property.Name, value.GetType(), t), ex);
                         }
                     }
                 }
