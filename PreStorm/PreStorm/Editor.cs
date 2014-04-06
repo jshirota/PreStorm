@@ -31,6 +31,9 @@ namespace PreStorm
         /// <returns></returns>
         public static T[] InsertInto<T>(this T[] features, Service service, int layerId) where T : Feature
         {
+            if (features.Length == 0)
+                return new T[] { };
+
             var layer = service.GetLayer(layerId);
 
             var adds = features.Select(f => f.ToGraphic(service.GetLayer(layerId), false)).ToArray();
@@ -93,6 +96,9 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Update<T>(this T[] features) where T : Feature
         {
+            if (features.Length == 0)
+                return true;
+
             if (features.Any(f => !f.IsDataBound))
                 throw new Exception("All features must be bound to a data source before updating.");
 
@@ -143,6 +149,9 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Delete<T>(this T[] features) where T : Feature
         {
+            if (features.Length == 0)
+                return true;
+
             if (features.Any(f => !f.IsDataBound))
                 throw new Exception("All features must be bound to a data source before deleting.");
 

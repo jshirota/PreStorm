@@ -77,7 +77,7 @@ namespace PreStorm
         /// Called from a property setter to notify the framework that a member has changed.
         /// </summary>
         /// <param name="propertyName"></param>
-        protected void RaisePropertyChanged(string propertyName)
+        public void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

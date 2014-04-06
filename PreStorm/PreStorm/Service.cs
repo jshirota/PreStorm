@@ -32,7 +32,7 @@ namespace PreStorm
 
             _layers = (serviceInfo.layers ?? new Esri.Layer[] { })
                 .Where(l => l.type == "Feature Layer")
-                .Concat(serviceInfo.tables ?? new Esri.Layer[] { })                
+                .Concat(serviceInfo.tables ?? new Esri.Layer[] { })
                 .ToArray();
 
             Domains = _layers
@@ -87,6 +87,16 @@ namespace PreStorm
                 case 0: throw new Exception(string.Format("The service does not contain '{0}'.", layerName));
                 default: throw new Exception(string.Format("The service contains {0} layers called '{1}'.  Please try specifying the layer ID.", layers.Length, layerName));
             }
+        }
+
+        /// <summary>
+        /// Finds the layer based on the name and returns the layer ID.
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <returns></returns>
+        public int GetLayerID(string layerName)
+        {
+            return GetLayer(layerName).id;
         }
 
         private T ToFeature<T>(Esri.Graphic graphic, Esri.Layer layer) where T : Feature
