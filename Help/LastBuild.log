@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="1.9.8.0" projectFile="C:\Users\Jiro\Documents\GitHub\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="4/6/2014 1:02:16 PM">
+<shfbBuild product="Sandcastle Help File Builder" version="1.9.8.0" projectFile="C:\Users\Jiro\Documents\GitHub\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="4/6/2014 1:09:05 PM">
 <buildStep step="Initializing">
 Finding tools...
 Found Sandcastle tools in &#39;C:\Program Files (x86)\Sandcastle\&#39;
@@ -20,11 +20,11 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0050
+    Last step completed in 00:00:00.0270
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
@@ -38,11 +38,11 @@ Generating reflection information...
   Copyright c 2006-2013, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2013, Eric Woodruff, All Rights Reserved.
   Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\MergeDuplicates.xsl&#39;.
-    Last step completed in 00:00:01.4661
+    Last step completed in 00:00:01.5121
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="ApplyVisibilityProperties">
 Applying visibility properties to reflection information file
@@ -50,7 +50,7 @@ Applying visibility properties to reflection information file
     0 explicit interface implementations removed
     4 local and base class EII elements removed
     64 inherited member elements removed
-    Last step completed in 00:00:00.5720
+    Last step completed in 00:00:00.5490
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
@@ -186,12 +186,12 @@ C:\Program Files (x86)\Sandcastle\\Presentation\VS2010\branding -&gt; C:\Users\J
     C:\Program Files (x86)\Sandcastle\Presentation\VS2010\branding\ps-instrumentedLink.xslt -> C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\branding\ps-instrumentedLink.xslt
     C:\Program Files (x86)\Sandcastle\Presentation\VS2010\branding\ps-languageSpecificText.xslt -> C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\branding\ps-languageSpecificText.xslt
     C:\Program Files (x86)\Sandcastle\Presentation\VS2010\branding\ps-codesnippet.xslt -> C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\branding\ps-codesnippet.xslt
-    Last step completed in 00:00:01.2211
+    Last step completed in 00:00:01.2031
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -205,17 +205,17 @@ Generating intermediate table of contents file...
   Portions Copyright c 2006-2013, Eric Woodruff, All Rights Reserved.
   Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\\ProductionTransforms\CreateVSToc.xsl&#39;.
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.3530
+    Last step completed in 00:00:00.3070
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1690
+    Last step completed in 00:00:00.1760
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\sandcastle.config
-    Last step completed in 00:00:00.5860
+    Last step completed in 00:00:00.4000
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
@@ -228,7 +228,7 @@ Building reference help topics...
   Info: Processed 100 topic(s)
   Diagnostic: CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 6 of 15.
   Diagnostic: CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
-    Last step completed in 00:00:11.7517
+    Last step completed in 00:00:12.3637
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -250,7 +250,7 @@ Processed 100 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\WebKI.xml
 Saving website table of contents to C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\WebTOC.xml
-    Last step completed in 00:00:00.1960
+    Last step completed in 00:00:00.2040
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -350,16 +350,16 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SyncTOC.gif 
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.css -&gt; C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.js -&gt; C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Web.Config -&gt; C:\Users\Jiro\Documents\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\Web.Config
-    Last step completed in 00:00:00.0780
+    Last step completed in 00:00:00.0800
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.2640
+    Last step completed in 00:00:00.2690
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
@@ -367,15 +367,15 @@ Copying website files to output folder...
 Copied 100 files
 Copied 200 files
 Copied 220 files for the website content
-    Last step completed in 00:00:00.1710
+    Last step completed in 00:00:00.1820
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.2100
+    Last step completed in 00:00:00.1190
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 04/06/2014 01:02 PM.  Total time: 00:00:17.7430
+Build completed successfully at 04/06/2014 01:09 PM.  Total time: 00:00:18.2500
 
 </buildStep>
 </shfbBuild>
