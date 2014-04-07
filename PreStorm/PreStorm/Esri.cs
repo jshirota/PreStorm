@@ -88,35 +88,6 @@ namespace PreStorm
             public Layer[] tables { get; set; }
         }
 
-        public class Layer
-        {
-            public double currentVersion { get; set; }
-            public int id { get; set; }
-            public string name { get; set; }
-            public string type { get; set; }
-            public Field[] fields { get; set; }
-        }
-
-        public class Field
-        {
-            public string name { get; set; }
-            public string type { get; set; }
-            public Domain domain { get; set; }
-        }
-
-        public class Domain
-        {
-            public string type { get; set; }
-            public string name { get; set; }
-            public CodedValue[] codedValues { get; set; }
-        }
-
-        public class CodedValue
-        {
-            public string name { get; set; }
-            public object code { get; set; }
-        }
-
         public class EditResultInfo : Response
         {
             public EditResult[] addResults { get; set; }
@@ -160,56 +131,6 @@ namespace PreStorm
             public double[][] points { get; set; }
             public double[][][] paths { get; set; }
             public double[][][] rings { get; set; }
-        }
-
-        #endregion
-
-        #region Esri REST API Helper
-
-        public static string GetObjectIdFieldName(this Layer layer)
-        {
-            var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
-
-            if (objectIdFields.Length != 1)
-                throw new Exception("Layer must have one and only one field of type esriFieldTypeOID.");
-
-            return objectIdFields.Single().name;
-        }
-
-        private static CodedValue[] GetCodeValues(this Layer layer, string domainName)
-        {
-            var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
-
-            if (domain == null)
-                throw new Exception(string.Format("Coded value domain '{0}' does not exist.", domainName));
-
-            return domain.codedValues;
-        }
-
-        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code)
-        {
-            var codedValues = layer.GetCodeValues(domainName).Where(c => c.code.ToString() == code.ToString()).ToArray();
-
-            if (codedValues.Length == 1)
-                return codedValues.Single();
-
-            if (codedValues.Length == 0)
-                throw new Exception(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
-
-            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
-        }
-
-        public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
-        {
-            var codedValues = layer.GetCodeValues(domainName).Where(c => c.name == name.ToString()).ToArray();
-
-            if (codedValues.Length == 1)
-                return codedValues.Single();
-
-            if (codedValues.Length == 0)
-                throw new Exception(string.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
-
-            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
         }
 
         #endregion

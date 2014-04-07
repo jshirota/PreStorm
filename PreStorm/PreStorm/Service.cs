@@ -13,7 +13,11 @@ namespace PreStorm
         internal readonly string Url;
         internal readonly ICredentials Credentials;
         internal readonly Token Token;
-        private readonly Esri.Layer[] _layers;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Layer[] Layers { get; private set; }
 
         /// <summary>
         /// The array of coded value domains used by this service.
@@ -30,19 +34,18 @@ namespace PreStorm
 
             var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
 
-            _layers = (serviceInfo.layers ?? new Esri.Layer[] { })
+            Layers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
-                .Concat(serviceInfo.tables ?? new Esri.Layer[] { })
+                .Concat(serviceInfo.tables ?? new Layer[] { })
                 .ToArray();
 
-            Domains = _layers
+            Domains = Layers
                 .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
                 .Select(f => f.domain)
                 .Where(d => d != null && d.type == "codedValue")
                 .GroupBy(d => d.name)
                 .Select(g => g.First())
-                .Select(d => new Domain { name = d.name, codedValues = d.codedValues.Select(c => new CodedValue { code = c.code, name = c.name }).ToArray() })
                 .ToArray();
         }
 
@@ -67,9 +70,9 @@ namespace PreStorm
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         public Service(string url) : this(url, null, null, null) { }
 
-        internal Esri.Layer GetLayer(int layerId)
+        internal Layer GetLayer(int layerId)
         {
-            var layer = _layers.FirstOrDefault(l => l.id == layerId);
+            var layer = Layers.FirstOrDefault(l => l.id == layerId);
 
             if (layer == null)
                 throw new Exception(string.Format("The service does not contain layer ID '{0}'.", layerId));
@@ -77,9 +80,9 @@ namespace PreStorm
             return layer;
         }
 
-        internal Esri.Layer GetLayer(string layerName)
+        internal Layer GetLayer(string layerName)
         {
-            var layers = _layers.Where(l => l.name == layerName).ToArray();
+            var layers = Layers.Where(l => l.name == layerName).ToArray();
 
             switch (layers.Length)
             {
@@ -89,17 +92,7 @@ namespace PreStorm
             }
         }
 
-        /// <summary>
-        /// Finds the layer based on the name and returns the layer ID.
-        /// </summary>
-        /// <param name="layerName"></param>
-        /// <returns></returns>
-        public int GetLayerID(string layerName)
-        {
-            return GetLayer(layerName).id;
-        }
-
-        private T ToFeature<T>(Esri.Graphic graphic, Esri.Layer layer) where T : Feature
+        private T ToFeature<T>(Esri.Graphic graphic, Layer layer) where T : Feature
         {
             var f = graphic.ToFeature<T>(layer);
             f.Url = Url;
@@ -108,7 +101,7 @@ namespace PreStorm
             return f;
         }
 
-        private IEnumerable<T> Download<T>(Esri.Layer layer, IEnumerable<int> objectIds, bool returnGeometry, int batchSize, int degreeOfParallelism) where T : Feature
+        private IEnumerable<T> Download<T>(Layer layer, IEnumerable<int> objectIds, bool returnGeometry, int batchSize, int degreeOfParallelism) where T : Feature
         {
             return objectIds.Partition(batchSize)
                 .AsParallel()

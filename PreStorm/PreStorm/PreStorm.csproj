@@ -54,10 +54,10 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain.cs" />
     <Compile Include="Editor.cs" />
     <Compile Include="Esri.cs" />
     <Compile Include="Feature.cs" />
+    <Compile Include="Layer.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="Http.cs" />

@@ -13,7 +13,7 @@ namespace PreStorm
     public abstract class Feature : INotifyPropertyChanged
     {
         internal string Url;
-        internal Esri.Layer Layer;
+        internal Layer Layer;
         internal ICredentials Credentials;
         internal Token Token;
 

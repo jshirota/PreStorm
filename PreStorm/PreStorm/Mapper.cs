@@ -6,7 +6,7 @@ namespace PreStorm
 {
     internal static class Mapper
     {
-        public static T ToFeature<T>(this Esri.Graphic graphic, Esri.Layer layer) where T : Feature
+        public static T ToFeature<T>(this Esri.Graphic graphic, Layer layer) where T : Feature
         {
             var feature = Proxy.Create<T>();
 
@@ -73,7 +73,7 @@ namespace PreStorm
             return feature;
         }
 
-        public static object ToGraphic(this Feature feature, Esri.Layer layer, bool changesOnly)
+        public static object ToGraphic(this Feature feature, Layer layer, bool changesOnly)
         {
             if (changesOnly && feature.ChangedFields.Count == 0 && !feature.GeometryChanged)
                 return null;
