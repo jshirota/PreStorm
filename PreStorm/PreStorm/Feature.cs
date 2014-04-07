@@ -106,25 +106,6 @@ namespace PreStorm
             if (memberExpression != null)
                 RaisePropertyChanged(memberExpression.Member.Name);
         }
-
-        /// <summary>
-        /// Returns the JSON representation of the feature.
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return ToString(false);
-        }
-
-        /// <summary>
-        /// Returns the JSON representation of the feature.
-        /// </summary>
-        /// <param name="includeGeometry"></param>
-        /// <returns></returns>
-        public string ToString(bool includeGeometry)
-        {
-            return this.ToGraphic(Layer, false, includeGeometry).Serialize();
-        }
     }
 
     /// <summary>

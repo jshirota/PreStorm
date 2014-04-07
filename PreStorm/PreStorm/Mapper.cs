@@ -73,7 +73,7 @@ namespace PreStorm
             return feature;
         }
 
-        public static object ToGraphic(this Feature feature, Esri.Layer layer, bool changesOnly, bool includeGeometry)
+        public static object ToGraphic(this Feature feature, Esri.Layer layer, bool changesOnly)
         {
             if (changesOnly && feature.ChangedFields.Count == 0 && !feature.GeometryChanged)
                 return null;
@@ -113,7 +113,7 @@ namespace PreStorm
                 attributes.Add(m.Mapped.FieldName, value);
             }
 
-            return includeGeometry && !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
+            return !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
                 ? new { attributes, geometry = ((dynamic)feature).Geometry }
                 : new { attributes } as object;
         }
