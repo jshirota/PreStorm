@@ -36,7 +36,7 @@ namespace PreStorm
 
             var layer = service.GetLayer(layerId);
 
-            var adds = features.Select(f => f.ToGraphic(service.GetLayer(layerId), false)).ToArray();
+            var adds = features.Select(f => f.ToGraphic(service.GetLayer(layerId), false, true)).ToArray();
 
             var editResultInfo = Esri.ApplyEdits(service.Url, layer, service.Credentials, service.Token, "adds", adds.Serialize());
 
@@ -107,7 +107,7 @@ namespace PreStorm
             var credentials = GetUnique(features, f => f.Credentials, "credentials");
             var token = GetUnique(features, f => f.Token, "token");
 
-            var updates = features.Select(f => f.ToGraphic(layer, true)).Where(o => o != null).ToArray();
+            var updates = features.Select(f => f.ToGraphic(layer, true, true)).Where(o => o != null).ToArray();
 
             if (updates.Length == 0)
                 return true;
