@@ -15,7 +15,7 @@ namespace PreStorm
         internal readonly Token Token;
 
         /// <summary>
-        /// 
+        /// The feature layers and tables exposed by this service.
         /// </summary>
         public Layer[] Layers { get; private set; }
 
