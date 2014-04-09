@@ -29,6 +29,16 @@
         /// The Y coordinate.
         /// </summary>
         public double y { get; set; }
+
+        /// <summary>
+        /// Deserializes the JSON string into a Point object.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static implicit operator Point(string json)
+        {
+            return json.Deserialize<Point>();
+        }
     }
 
     /// <summary>
@@ -40,6 +50,16 @@
         /// The array of points.
         /// </summary>
         public double[][] points { get; set; }
+
+        /// <summary>
+        /// Deserializes the JSON string into a Multipoint object.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static implicit operator Multipoint(string json)
+        {
+            return json.Deserialize<Multipoint>();
+        }
     }
 
     /// <summary>
@@ -51,6 +71,16 @@
         /// The array of paths.
         /// </summary>
         public double[][][] paths { get; set; }
+
+        /// <summary>
+        /// Deserializes the JSON string into a Polyline object.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static implicit operator Polyline(string json)
+        {
+            return json.Deserialize<Polyline>();
+        }
     }
 
     /// <summary>
@@ -62,5 +92,15 @@
         /// The array of rings.
         /// </summary>
         public double[][][] rings { get; set; }
+
+        /// <summary>
+        /// Deserializes the JSON string into a Polygon object.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static implicit operator Polygon(string json)
+        {
+            return json.Deserialize<Polygon>();
+        }
     }
 }
