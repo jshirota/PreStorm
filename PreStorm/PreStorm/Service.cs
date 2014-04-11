@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace PreStorm
 {
@@ -120,7 +121,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and them as a lazy sequence of features of the specified type.
+        /// Downloads records and yields them as a lazy sequence of features of the specified type.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -150,7 +151,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and them as a lazy sequence of features of the specified type.
+        /// Downloads records and yields them as a lazy sequence of features of the specified type.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
@@ -161,6 +162,34 @@ namespace PreStorm
         public IEnumerable<T> Download<T>(string layerName, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
             return Download<T>(GetLayer(layerName).id, whereClause, keepQuerying, degreeOfParallelism);
+        }
+
+        /// <summary>
+        /// Downloads records and returns them as features of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
+        /// <param name="layerId">The layer ID of the feature layer or table.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public Task<T[]> DownloadAsync<T>(int layerId, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        {
+            return Task<T[]>.Factory.StartNew(() => Download<T>(layerId, whereClause, keepQuerying, degreeOfParallelism).ToArray());
+        }
+
+        /// <summary>
+        /// Downloads records and returns them as features of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
+        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public Task<T[]> DownloadAsync<T>(string layerName, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        {
+            return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, whereClause, keepQuerying, degreeOfParallelism).ToArray());
         }
     }
 }
