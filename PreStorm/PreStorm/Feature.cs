@@ -53,7 +53,7 @@ namespace PreStorm
             if (_fieldToProperty.ContainsKey(fieldName))
                 return GetType().GetProperty(_fieldToProperty[fieldName]).GetValue(this, null);
 
-            throw new Exception(string.Format("'{0}' does not exist in this table.", fieldName));
+            throw new Exception(string.Format("Field '{0}' does not exist.", fieldName));
         }
 
         private void SetValue(string fieldName, object value)
