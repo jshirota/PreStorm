@@ -70,6 +70,7 @@
   <HelpKINode Title="Feature.Feature constructor" Url="html/0d7bf573-8a45-173a-2d96-acf1de2e6733.htm" />
   <HelpKINode Title="Feature.IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="Feature.IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
+  <HelpKINode Title="Feature.Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Feature.OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
   <HelpKINode Title="Feature.PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="Feature.RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
@@ -117,6 +118,7 @@
   <HelpKINode Title="InsertIntoAsync method" Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
+  <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Layer class">
     <HelpKINode Title="Layer Class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
     <HelpKINode Title="Layer Members" Url="html/670de22f-1552-7833-c2bd-c812f4a4cda4.htm" />
@@ -152,6 +154,7 @@
     <HelpKINode Title="properties" Url="html/a8a8970a-5f4b-e61c-574b-fe26607255d8.htm" />
     <HelpKINode Title="type conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm" />
   </HelpKINode>
+  <HelpKINode Title="Multipoint to String conversion" Url="html/52510435-5f09-c4e5-f9c1-062d53fed3d1.htm" />
   <HelpKINode Title="Multipoint.Multipoint constructor" Url="html/be54ad31-18eb-f001-7902-6a6030a7c7ae.htm" />
   <HelpKINode Title="Multipoint.points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
   <HelpKINode Title="name property">
@@ -172,6 +175,7 @@
     <HelpKINode Title="properties" Url="html/748f4f9e-ac4c-41fc-369c-8c48589e83f9.htm" />
     <HelpKINode Title="type conversions" Url="html/e14587d8-f845-d1cf-3e83-51c2ad7e09eb.htm" />
   </HelpKINode>
+  <HelpKINode Title="Point to String conversion" Url="html/9ecca7a3-4efa-47ae-bf0e-c3f313dfbee1.htm" />
   <HelpKINode Title="Point.Point constructor" Url="html/a3090fa0-2327-5edc-bc2b-d5bfdf2eb910.htm" />
   <HelpKINode Title="Point.x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="Point.y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
@@ -186,6 +190,7 @@
     <HelpKINode Title="properties" Url="html/ac1cc0cd-14ea-1996-b23f-02abc123611c.htm" />
     <HelpKINode Title="type conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm" />
   </HelpKINode>
+  <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
   <HelpKINode Title="Polygon.rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
   <HelpKINode Title="Polyline class">
@@ -198,6 +203,7 @@
     <HelpKINode Title="properties" Url="html/7310aeeb-3cc4-50ba-444c-a0f5499dcab8.htm" />
     <HelpKINode Title="type conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm" />
   </HelpKINode>
+  <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
   <HelpKINode Title="PreStorm namespace" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm" />
