@@ -57,7 +57,7 @@ namespace PreStorm
 
             foreach (var a in graphic.attributes)
                 if (a.Key != layer.GetObjectIdFieldName() && mappings.All(m => m.Mapped.FieldName != a.Key))
-                    feature.UnmappedAttributes.Add(a.Key, a.Value);
+                    feature.UnmappedFields.Add(a.Key, a.Value);
 
             var g = graphic.geometry;
 
@@ -122,7 +122,7 @@ namespace PreStorm
                 attributes.Add(m.Mapped.FieldName, value);
             }
 
-            foreach (var a in feature.UnmappedAttributes)
+            foreach (var a in feature.UnmappedFields)
                 if (feature.ChangedFields.Contains(a.Key))
                     attributes.Add(a.Key, a.Value);
 

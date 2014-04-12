@@ -19,7 +19,7 @@ namespace PreStorm
 
         private readonly Dictionary<string, string> _propertyToField;
         private readonly Dictionary<string, string> _fieldToProperty;
-        internal readonly Dictionary<string, object> UnmappedAttributes = new Dictionary<string, object>();
+        internal readonly Dictionary<string, object> UnmappedFields = new Dictionary<string, object>();
         internal readonly List<string> ChangedFields = new List<string>();
         internal bool GeometryChanged;
 
@@ -46,37 +46,37 @@ namespace PreStorm
             get { return OID > -1; }
         }
 
-        private object GetValue(string key)
+        private object GetValue(string fieldName)
         {
-            if (UnmappedAttributes.ContainsKey(key))
-                return UnmappedAttributes[key];
-            if (_fieldToProperty.ContainsKey(key))
-                return GetType().GetProperty(_fieldToProperty[key]).GetValue(this, null);
+            if (UnmappedFields.ContainsKey(fieldName))
+                return UnmappedFields[fieldName];
+            if (_fieldToProperty.ContainsKey(fieldName))
+                return GetType().GetProperty(_fieldToProperty[fieldName]).GetValue(this, null);
 
-            throw new Exception(string.Format("'{0}' does not exist in this table.", key));
+            throw new Exception(string.Format("'{0}' does not exist in this table.", fieldName));
         }
 
-        private void SetValue(string key, object value)
+        private void SetValue(string fieldName, object value)
         {
-            if (UnmappedAttributes.ContainsKey(key))
-                UnmappedAttributes[key] = value;
-            else if (_fieldToProperty.ContainsKey(key))
-                GetType().GetProperty(_fieldToProperty[key]).SetValue(this, value, null);
+            if (UnmappedFields.ContainsKey(fieldName))
+                UnmappedFields[fieldName] = value;
+            else if (_fieldToProperty.ContainsKey(fieldName))
+                GetType().GetProperty(_fieldToProperty[fieldName]).SetValue(this, value, null);
             else
-                UnmappedAttributes.Add(key, value);
+                UnmappedFields.Add(fieldName, value);
 
-            ChangedFields.Add(key);
+            ChangedFields.Add(fieldName);
         }
 
         /// <summary>
-        /// Gets or sets a field value based on the field name.  This allows for manipulating fields that are not mapped to a property (but exists in the database).  If the field is mapped to a property, the property value is accessed via Reflection.
+        /// Gets or sets a field value based on the field name.  This allows for manipulating fields that are not mapped to a property.  If the field is mapped to a property, the property value is accessed via Reflection.
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="fieldName"></param>
         /// <returns></returns>
-        public object this[string key]
+        public object this[string fieldName]
         {
-            get { return GetValue(key); }
-            set { SetValue(key, value); }
+            get { return GetValue(fieldName); }
+            set { SetValue(fieldName, value); }
         }
 
         private bool _isDirty;
