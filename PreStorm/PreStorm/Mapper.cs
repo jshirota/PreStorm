@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace PreStorm
 {
@@ -13,7 +14,9 @@ namespace PreStorm
             feature.Layer = layer;
             feature.OID = Convert.ToInt32(graphic.attributes[layer.GetObjectIdFieldName()]);
 
-            foreach (var m in typeof(T).GetMappings())
+            var mappings = typeof(T).GetMappings().ToList();
+
+            foreach (var m in mappings)
             {
                 if (!graphic.attributes.ContainsKey(m.Mapped.FieldName))
                     throw new Exception(string.Format("Field '{0}' does not exist.", m.Mapped.FieldName));
@@ -52,6 +55,10 @@ namespace PreStorm
                 m.Property.SetValue(feature, value, null);
             }
 
+            foreach (var a in graphic.attributes)
+                if (a.Key != layer.GetObjectIdFieldName() && mappings.All(m => m.Mapped.FieldName != a.Key))
+                    feature.UnmappedAttributes.Add(a.Key, a.Value);
+
             var g = graphic.geometry;
 
             if (g != null)
@@ -85,7 +92,9 @@ namespace PreStorm
             if (changesOnly)
                 attributes.Add(layer.GetObjectIdFieldName(), feature.OID);
 
-            foreach (var m in t.GetMappings())
+            var mappings = t.GetMappings().ToList();
+
+            foreach (var m in mappings)
             {
                 if (changesOnly && !feature.ChangedFields.Contains(m.Mapped.FieldName))
                     continue;
@@ -112,6 +121,10 @@ namespace PreStorm
 
                 attributes.Add(m.Mapped.FieldName, value);
             }
+
+            foreach (var a in feature.UnmappedAttributes)
+                if (feature.ChangedFields.Contains(a.Key))
+                    attributes.Add(a.Key, a.Value);
 
             return !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
                 ? new { attributes, geometry = ((dynamic)feature).Geometry }

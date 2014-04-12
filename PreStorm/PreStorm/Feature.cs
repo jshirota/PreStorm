@@ -18,6 +18,8 @@ namespace PreStorm
         internal Token Token;
 
         private readonly Dictionary<string, string> _propertyToField;
+        private readonly Dictionary<string, string> _fieldToProperty;
+        internal readonly Dictionary<string, object> UnmappedAttributes = new Dictionary<string, object>();
         internal readonly List<string> ChangedFields = new List<string>();
         internal bool GeometryChanged;
 
@@ -28,6 +30,7 @@ namespace PreStorm
         {
             OID = -1;
             _propertyToField = GetType().GetMappings().ToDictionary(m => m.Property.Name, m => m.Mapped.FieldName);
+            _fieldToProperty = GetType().GetMappings().ToDictionary(m => m.Mapped.FieldName, m => m.Property.Name);
         }
 
         /// <summary>
@@ -41,6 +44,39 @@ namespace PreStorm
         public bool IsDataBound
         {
             get { return OID > -1; }
+        }
+
+        private object GetValue(string key)
+        {
+            if (UnmappedAttributes.ContainsKey(key))
+                return UnmappedAttributes[key];
+            if (_fieldToProperty.ContainsKey(key))
+                return GetType().GetProperty(_fieldToProperty[key]).GetValue(this, null);
+
+            throw new Exception(string.Format("'{0}' does not exist in this table.", key));
+        }
+
+        private void SetValue(string key, object value)
+        {
+            if (UnmappedAttributes.ContainsKey(key))
+                UnmappedAttributes[key] = value;
+            else if (_fieldToProperty.ContainsKey(key))
+                GetType().GetProperty(_fieldToProperty[key]).SetValue(this, value, null);
+            else
+                UnmappedAttributes.Add(key, value);
+
+            ChangedFields.Add(key);
+        }
+
+        /// <summary>
+        /// Gets or sets a field value based on the field name.  This allows for manipulating fields that are not mapped to a property (but exists in the database).  If the field is mapped to a property, the property value is accessed via Reflection.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public object this[string key]
+        {
+            get { return GetValue(key); }
+            set { SetValue(key, value); }
         }
 
         private bool _isDirty;

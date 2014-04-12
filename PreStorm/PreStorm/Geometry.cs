@@ -39,6 +39,16 @@
         {
             return json.Deserialize<Point>();
         }
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public static implicit operator string(Point point)
+        {
+            return point.ToString();
+        }
     }
 
     /// <summary>
@@ -59,6 +69,16 @@
         public static implicit operator Multipoint(string json)
         {
             return json.Deserialize<Multipoint>();
+        }
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="multipoint"></param>
+        /// <returns></returns>
+        public static implicit operator string(Multipoint multipoint)
+        {
+            return multipoint.ToString();
         }
     }
 
@@ -81,6 +101,16 @@
         {
             return json.Deserialize<Polyline>();
         }
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="polyline"></param>
+        /// <returns></returns>
+        public static implicit operator string(Polyline polyline)
+        {
+            return polyline.ToString();
+        }
     }
 
     /// <summary>
@@ -101,6 +131,16 @@
         public static implicit operator Polygon(string json)
         {
             return json.Deserialize<Polygon>();
+        }
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static implicit operator string(Polygon polygon)
+        {
+            return polygon.ToString();
         }
     }
 }
