@@ -59,11 +59,20 @@ namespace PreStorm
         private void SetValue(string fieldName, object value)
         {
             if (UnmappedFields.ContainsKey(fieldName))
+            {
                 UnmappedFields[fieldName] = value;
+
+                if (IsDataBound)
+                    IsDirty = true;
+            }
             else if (_fieldToProperty.ContainsKey(fieldName))
+            {
                 GetType().GetProperty(_fieldToProperty[fieldName]).SetValue(this, value, null);
+            }
             else
+            {
                 UnmappedFields.Add(fieldName, value);
+            }
 
             ChangedFields.Add(fieldName);
         }
