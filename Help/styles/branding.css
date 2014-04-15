@@ -54,7 +54,7 @@ pre
 	overflow: hidden;
 }
 
-DIV.OH_outerContent table
+div.OH_outerContent table
 {
 	width: 100%;
 	border-collapse: collapse;
@@ -63,7 +63,7 @@ DIV.OH_outerContent table
 	border-style: solid;
 }
 
-DIV.OH_outerContent table th
+div.OH_outerContent table th
 {
 	border-color: #bbb;
 	border-width: 1px;
@@ -77,7 +77,7 @@ DIV.OH_outerContent table th
 	background-color: rgb(229,229,229);
 }
 
-DIV.OH_outerContent table td
+div.OH_outerContent table td
 {
 	border-color: #bbb;
 	border-width: 1px;
@@ -85,14 +85,14 @@ DIV.OH_outerContent table td
 	margin: 1px;
 }
 
-DIV.OH_outerContent table.TitleTable
+div.OH_outerContent table.TitleTable
 {
 	width: 100%;
 	border-collapse: collapse;
 	border-width: 0px;
 }
 
-DIV.OH_outerContent table.TitleTable td
+div.OH_outerContent table.TitleTable td
 {
 	border-width: 0px;
 }
@@ -102,7 +102,7 @@ DIV.OH_outerContent table.TitleTable td
 	margin: 13px;
 }
 
-DIV.OH_title
+div.OH_title
 {
 	clear: both;
 	font-family: Segoe UI, Verdana, Arial;
@@ -110,7 +110,7 @@ DIV.OH_title
 	margin-right: -13px;
 }
 
-DIV.OH_title table
+div.OH_title table
 {
 	border: 0;
 	border-color: #ffffff;
@@ -121,7 +121,7 @@ DIV.OH_title table
 	border-spacing: 0;
 }
 
-DIV.OH_title table tr td
+div.OH_title table tr td
 {
 	border: 0px;
 	height: 22px;
@@ -179,7 +179,7 @@ DIV.OH_title table tr td
 	vertical-align: middle;
 }
 
-DIV.majorTitle
+div.majorTitle
 {
 	font-size: 0.5em; /*6pt*/
 	font-weight: normal;
@@ -229,13 +229,14 @@ td.header
 	right: 0;
 }
 
-H1
+h1
 {
 	font-size: 2em; /*24pt*/
 	font-weight: 400;
+	margin-top: 0px;
 }
 
-H1.heading
+h1.heading
 {
 	font-size: 1.2em; /*14pt*/
 	font-family: Segoe UI, Verdana, Arial;
@@ -243,19 +244,19 @@ H1.heading
 	line-height: 120%;
 }
 
-H2
+h2
 {
 	font-size: 1.15em; /*13.5pt*/
 	font-weight: bold;
 }
 
-H2.subtitle
+h2.subtitle
 {
 	font-size: 1.8em; /*22pt*/
 	font-weight: 400;
 	margin-bottom: 0.6em;
 }
-H3
+h3
 {
 	font-size: 1.1em; /*13pt*/
 	font-weight: bold;
@@ -268,13 +269,13 @@ H3
 	margin: 0px;
 	margin-top: 18px;
 }
-H4.subHeading
+h4.subHeading
 {
 	margin-top: 10px;
 	font-size: 1em; /*12pt*/
 }
 
-H4.subHeading, .subHeading
+h4.subHeading, .subHeading
 {
 	font-size: 0.85em; /*10pt*/
 	font-family: Segoe UI, Verdana, Arial;
@@ -399,7 +400,7 @@ div#mainSection
 	padding-right: 10px;
 }
 
-DIV.OH_outerContent div#mainSection table
+div.OH_outerContent div#mainSection table
 {
 	border-collapse: collapse;
 	border: 1px solid #bbbbbb;
@@ -410,7 +411,7 @@ DIV.OH_outerContent div#mainSection table
 	width: auto;
 }
 
-DIV.OH_outerContent div#mainSection table th
+div.OH_outerContent div#mainSection table th
 {
 	font-family: Segoe UI, Verdana, Arial;
 	font-size: 0.85em; /*10pt*/
@@ -423,7 +424,7 @@ DIV.OH_outerContent div#mainSection table th
 	text-align: left;
 }
 
-DIV.OH_outerContent div#mainSection table td
+div.OH_outerContent div#mainSection table td
 {
 	font-family: Segoe UI, Verdana, Arial;
 	font-size: 0.85em; /*10pt*/
@@ -434,34 +435,34 @@ DIV.OH_outerContent div#mainSection table td
 	vertical-align: top;
 }
 
-DIV.OH_outerContent div#mainSection table td p
+div.OH_outerContent div#mainSection table td p
 {
 	padding: 5px;
 }
 
-DIV.OH_outerContent div#mainSection table td.imageCell
+div.OH_outerContent div#mainSection table td.imageCell
 {
 	white-space: nowrap;
 }
 
-DIV.OH_outerContent div#mainSection table td img
+div.OH_outerContent div#mainSection table td img
 {
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
-DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout
+div.OH_outerContent div#mainSection table.MtpsTableLayout
 {
 	border: 0px;
 }
 
-DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout1
+div.OH_outerContent div#mainSection table.MtpsTableLayout1
 {
 	border: 0px;
 	width: 700px;
 }
 
-DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout TD
+div.OH_outerContent div#mainSection table.MtpsTableLayout td
 {
 	padding-right: 5px;
 	padding-left: 5px;
@@ -469,7 +470,7 @@ DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout TD
 	border: 0px;
 }
 
-DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout1 TD
+div.OH_outerContent div#mainSection table.MtpsTableLayout1 td
 {
 	padding-left: 15px;
 	border: 0px;
@@ -479,7 +480,7 @@ DIV.OH_outerContent DIV#mainSection TABLE.MtpsTableLayout1 TD
 	font-weight: normal;
 }
 
-DIV.OH_outerContent div#mainSection table table td
+div.OH_outerContent div#mainSection table table td
 {
 	border-right: 0px;
 }
@@ -842,13 +843,13 @@ pre.ideCScode
 
 .OH_CodeSnippetContainerTabLeftActive, .OH_CodeSnippetContainerTabLeft, .OH_CodeSnippetContainerTabLeftDisabled
 {
-	/*  background-image: url(tabLeftBG.gif); generated from XSLT */
+	/*  background-image: url(tabLeftBG.gif); Added by script */
 	background-repeat: no-repeat;
 }
 
 .OH_CodeSnippetContainerTabRightActive, .OH_CodeSnippetContainerTabRight, .OH_CodeSnippetContainerTabRightDisabled
 {
-	/*  background-image: url(tabRightBG.gif); generated from XSLT */
+	/*  background-image: url(tabRightBG.gif); Added by script */
 	background-repeat: no-repeat;
 }
 
@@ -938,7 +939,7 @@ pre.ideCScode
 	margin: 0px;
 	padding-top: 0px;
 }
-.OH_MultiViewContainerPanelDhtmlTable TBODY TR TD.OH_MultiViewTableCellContentCell
+.OH_MultiViewContainerPanelDhtmlTable tbody tr td.OH_MultiViewTableCellContentCell
 {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -986,7 +987,7 @@ pre.ideCScode
 	width: auto;
 	padding-top: 4px;
 }
-.OH_mvt_ListBtn A
+.OH_mvt_ListBtn a
 {
 	padding-right: 4px;
 	padding-left: 4px;
@@ -996,7 +997,7 @@ pre.ideCScode
 	color: #000;
 	padding-top: 4px;
 }
-.OH_mvt_ListBtn A:active
+.OH_mvt_ListBtn a:active
 {
 	padding-right: 4px;
 	padding-left: 4px;
@@ -1007,7 +1008,7 @@ pre.ideCScode
 	padding-top: 4px;
 	background-color: #999;
 }
-.OH_mvt_ListBtn A:hover
+.OH_mvt_ListBtn a:hover
 {
 	padding-right: 4px;
 	padding-left: 4px;
@@ -1040,7 +1041,7 @@ pre.ideCScode
 	top: 0px;
 }
 
-.OH_MultiViewTableCellContentCell TABLE.clsStd
+.OH_MultiViewTableCellContentCell table.clsStd
 {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -1051,7 +1052,7 @@ pre.ideCScode
 	top: 0px;
 	background-color: #ffffff;
 }
-TABLE.clsStd TBODY TR TH
+table.clsStd tbody tr th
 {
 	padding-right: 2px;
 	padding-left: 2px;
@@ -1062,7 +1063,7 @@ TABLE.clsStd TBODY TR TH
 	background-color: #ddd;
 	text-align: left;
 }
-TABLE.clsStd TBODY TR TD
+table.clsStd tbody tr td
 {
 	padding-right: 2px;
 	padding-left: 2px;
@@ -1072,7 +1073,7 @@ TABLE.clsStd TBODY TR TD
 	padding-top: 2px;
 	background-color: #eee;
 }
-TABLE.clsStd TD SPAN A
+table.clsStd td span a
 {
 	font-size: x-small;
 	color: #039;
@@ -1184,6 +1185,9 @@ span.OH_mtps-th
 	clear: both;
 	border-top: solid 1px #bbb;
 	padding: 0px 10px 5px 10px;
+	/*  background-image: url(footer_slice.gif); Added by script */
+	background-position: top;
+	background-repeat: repeat-x;
 }
 .OH_feedbacklink
 {
@@ -1196,14 +1200,14 @@ span.OH_mtps-th
 	padding-left: 0px;
 }
 
-.OH_leftNav DIV#searchDiv
+.OH_leftNav div#searchDiv
 {
 	clear: both;
 	padding: 1px 0px 1px 3px;
 	width: 280px;
 }
 
-.OH_leftNav DIV#searchBox
+.OH_leftNav div#searchBox
 {
 	background-color: transparent;
 	border: solid 1px #bbbbbb;
@@ -1211,7 +1215,7 @@ span.OH_mtps-th
 	margin: 6px 8px 4px 4px;
 }
 
-.OH_leftNav INPUT.OH_searchTextbox
+.OH_leftNav input.OH_searchTextbox
 {
 	border: none;
 	background-color: transparent;
@@ -1233,7 +1237,7 @@ span.OH_mtps-th
 	vertical-align: middle;
 }
 
-.OH_leftNav BUTTON#btnS
+.OH_leftNav button#btnS
 {
 	border: none;
 	background-color: transparent;
@@ -1243,24 +1247,24 @@ span.OH_mtps-th
 	cursor: pointer;
 }
 
-.OH_leftNav DIV#toc
+.OH_leftNav div#toc
 {
 	font-size: 0.9em;
 }
 
-DIV.OH_parentTocLinks
+div.OH_parentTocLinks
 {
 	padding: 5px 0px 0px 10px;
 	white-space: nowrap;
 	overflow: hidden;
 	background-color: White;
 }
-DIV.OH_parentTocLinks a:visited
+div.OH_parentTocLinks a:visited
 {
 	text-decoration: none;
 }
 
-DIV.OH_selfTocHeader
+div.OH_selfTocHeader
 {
 	padding: 0px 0px 0px 20px;
 	color: #250c58;
@@ -1268,7 +1272,7 @@ DIV.OH_selfTocHeader
 	white-space: nowrap;
 }
 
-DIV.OH_selfTocLinks
+div.OH_selfTocLinks
 {
 	padding: 0px 0px 5px 25px;
 	white-space: nowrap;
@@ -1277,33 +1281,33 @@ DIV.OH_selfTocLinks
 	border-bottom: solid 1px #bbbbbb;
 }
 
-DIV.OH_selfTocLinks a:visited
+div.OH_selfTocLinks a:visited
 {
 	text-decoration: none;
 }
 
-DIV.OH_selectedChild
+div.OH_selectedChild
 {
 	font-weight: bold;
 	color: #250c58;
 	overflow: hidden;
 }
 
-DIV.OH_siblingTocHeader
+div.OH_siblingTocHeader
 {
 	padding: 5px 0px 0px 10px;
 	color: #6e6e6e;
 	font-weight: bold;
 	border-top: solid 3px #f1f1f1;
 }
-DIV.OH_siblingTocLinks
+div.OH_siblingTocLinks
 {
 	padding: 5px 0px 5px 10px;
 	white-space: nowrap;
 	overflow: hidden;
 	background-color: White;
 }
-DIV.OH_siblingTocLinks a:visited
+div.OH_siblingTocLinks a:visited
 {
 	text-decoration: none;
 }
@@ -1354,18 +1358,18 @@ DIV.OH_siblingTocLinks a:visited
 	clear: both;
 }
 
-DIV.OH_outerContent div#mainSection table.OH_borderlessTable, DIV.OH_outerContent div#mainSection table.OH_borderlessTable TR, DIV.OH_outerContent div#mainSection table.OH_borderlessTable TD
+div.OH_outerContent div#mainSection table.OH_borderlessTable, div.OH_outerContent div#mainSection table.OH_borderlessTable tr, div.OH_outerContent div#mainSection table.OH_borderlessTable td
 {
 	border: 0;
 	vertical-align: top;
 }
-DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP
+div.OH_outerContent div#mainSection table.OH_borderlessTableSP
 {
 	width: 800px;
 	background-color: #d3d3d3;
 }
 
-DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP, DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP TR, DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP TD
+div.OH_outerContent div#mainSection table.OH_borderlessTableSP, div.OH_outerContent div#mainSection table.OH_borderlessTableSP tr, div.OH_outerContent div#mainSection table.OH_borderlessTableSP td
 {
 	border: 0;
 	vertical-align: top;
@@ -1373,13 +1377,13 @@ DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP, DIV.OH_outerCont
 	padding-bottom: 0px;
 }
 
-DIV.OH_outerContent div#mainSection table.OH_borderlessTableSP TD
+div.OH_outerContent div#mainSection table.OH_borderlessTableSP td
 {
 	width: 300px;
 	background-color: #e5e5e5;
 }
 
-IMG.OH_offlineIcon
+img.OH_offlineIcon
 {
 	border: 0;
 	vertical-align: top;
@@ -1395,73 +1399,73 @@ td.nsrBottom
 	height: 0.6em;
 	width: 100%;
 }
-SPAN.code, SPAN.command
+span.code, span.command
 {
 	font-size: 105%;
 	color: #000066;
 	font-family: Monospace, Courier New, Courier;
 }
-SPAN.ui
+span.ui
 {
 	font-weight: bold;
 }
-SPAN.math
+span.math
 {
 	font-style: italic;
 }
-SPAN.input
+span.input
 {
 	font-weight: 700;
 }
-SPAN.term
+span.term
 {
 	font-style: italic;
 }
-SPAN.label
+span.label
 {
 	font-weight: bold;
 }
-SPAN.foreignPhrase, SPAN.phrase
+span.foreignPhrase, span.phrase
 {
 	font-style: italic;
 }
-SPAN.placeholder
+span.placeholder
 {
 	font-style: italic;
 }
-SPAN.keyword
+span.keyword
 {
 	font-weight: bold;
 }
-SPAN.typeparameter
+span.typeparameter
 {
 	font-style: italic;
 }
-SPAN.identifier
+span.identifier
 {
 }
-SPAN.keyword
+span.keyword
 {
 	color: #871f78;
 }
-SPAN.parameter
+span.parameter
 {
 	font-style: italic;
 }
-SPAN.literal, SPAN.literalValue
+span.literal, span.literalValue
 {
 	color: maroon;
 }
-SPAN.comment
+span.comment
 {
 	color: green;
 }
-SPAN.syntaxLabel
+span.syntaxLabel
 {
 	font-weight: bold;
 	color: #0481da;
 }
-SPAN.introStyle
+span.introStyle
 {
 	color: DarkGray;
 }
@@ -1548,7 +1552,7 @@ span.ps_captionLead
 
 /* Glossary ******************************************************************/
 
-DIV.clsTooltip
+div.clsTooltip
 {
 	border: 1px solid black;
 	padding: 2px;
