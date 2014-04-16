@@ -60,9 +60,9 @@ namespace PreStorm
             return GetResponse<TokenInfo>(url2, null, null, null);
         }
 
-        public static EditResultInfo ApplyEdits(string url, Layer layer, ICredentials credentials, Token token, string operation, string json)
+        public static EditResultInfo ApplyEdits(string url, int layerId, ICredentials credentials, Token token, string operation, string json)
         {
-            var url2 = string.Format("{0}/{1}/applyEdits", url, layer.id);
+            var url2 = string.Format("{0}/{1}/applyEdits", url, layerId);
             var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
             return GetResponse<EditResultInfo>(url2, data, credentials, token);

@@ -37,9 +37,9 @@ namespace PreStorm
 
             var layer = service.GetLayer(layerId);
 
-            var adds = features.Select(f => f.ToGraphic(service.GetLayer(layerId), false)).ToArray();
+            var adds = features.Select(f => f.ToGraphic(layer, false)).ToArray();
 
-            var editResultInfo = Esri.ApplyEdits(service.Url, layer, service.Credentials, service.Token, "adds", adds.Serialize());
+            var editResultInfo = Esri.ApplyEdits(service.Url, layer.id, service.Credentials, service.Token, "adds", adds.Serialize());
 
             return editResultInfo.addResults.Any(r => !r.success)
                 ? new T[] { }
@@ -165,7 +165,7 @@ namespace PreStorm
             if (updates.Length == 0)
                 return true;
 
-            var editResultInfo = Esri.ApplyEdits(url, layer, credentials, token, "updates", updates.Serialize());
+            var editResultInfo = Esri.ApplyEdits(url, layer.id, credentials, token, "updates", updates.Serialize());
 
             if (editResultInfo.updateResults.Any(r => !r.success))
                 return false;
@@ -237,7 +237,7 @@ namespace PreStorm
 
             var deletes = string.Join(",", features.Select(f => f.OID));
 
-            var editResultInfo = Esri.ApplyEdits(url, layer, credentials, token, "deletes", deletes);
+            var editResultInfo = Esri.ApplyEdits(url, layer.id, credentials, token, "deletes", deletes);
 
             if (editResultInfo.deleteResults.Any(r => !r.success))
                 return false;
