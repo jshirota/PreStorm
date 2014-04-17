@@ -210,6 +210,7 @@
   <HelpKINode Title="Service.DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
   <HelpKINode Title="Service.Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   <HelpKINode Title="Service.Service constructor" Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm" />
+  <HelpKINode Title="Service.Url property" Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   <HelpKINode Title="String to Multipoint conversion" Url="html/2e145664-c934-b2f5-9d04-f099fbfc5400.htm" />
   <HelpKINode Title="String to Point conversion" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
@@ -222,6 +223,7 @@
   </HelpKINode>
   <HelpKINode Title="Update method" Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm" />
   <HelpKINode Title="UpdateAsync method" Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm" />
+  <HelpKINode Title="Url property" Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
 </HelpKI>
