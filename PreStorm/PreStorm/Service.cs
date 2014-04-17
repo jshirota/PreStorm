@@ -11,9 +11,13 @@ namespace PreStorm
     /// </summary>
     public class Service
     {
-        internal readonly string Url;
         internal readonly ICredentials Credentials;
         internal readonly Token Token;
+
+        /// <summary>
+        /// The url of the service.
+        /// </summary>
+        public string Url { get; private set; }
 
         /// <summary>
         /// The feature layers and tables exposed by this service.
