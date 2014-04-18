@@ -5,7 +5,10 @@ using System.Reflection.Emit;
 
 namespace PreStorm
 {
-    internal static class Proxy
+    /// <summary>
+    /// Encapsulates the process of generating inherited classes via Reflection.Emit.
+    /// </summary>
+    public static class Proxy
     {
         private static readonly Func<Type, Type> DeriveMemoized = Memoization.Memoize<Type, Type>(Derive);
 
@@ -53,7 +56,12 @@ namespace PreStorm
             return typeBuilder.CreateType();
         }
 
-        public static T Create<T>()
+        /// <summary>
+        /// Instantiates a new object of the specified type.  Use this method instead of the constructor to ensure that the mapped properties automatically raise the PropertyChanged event.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T Create<T>() where T : Feature
         {
             return (T)Activator.CreateInstance(DeriveMemoized(typeof(T)));
         }

@@ -9,130 +9,306 @@ namespace PreStorm
 {
     internal static class Esri
     {
-        private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token) where T : Response
+        private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
             var json = data == null
-                ? Http.Get(string.Format("{0}{1}token={2}&f=json", url, url.Contains("?") ? "&" : "?", token), credentials)
-                : Http.Post(url, string.Format("{0}&token={1}&f=json", data, token), credentials);
+                ? Http.Get(String.Format("{0}{1}token={2}&gdbVersion={3}&f=json", url, url.Contains("?") ? "&" : "?", token, gdbVersion), credentials)
+                : Http.Post(url, String.Format("{0}&token={1}&gdbVersion={2}&f=json", data, token, gdbVersion), credentials);
 
             var response = json.Deserialize<T>();
 
             if (response.error != null)
-                throw new Exception(string.Join("  ", new[] { response.error.message }.Concat(response.error.details)));
+                throw new Exception(String.Join("  ", new[] { response.error.message }.Concat(response.error.details)));
 
             return response;
         }
 
-        private static readonly Func<string, ICredentials, Token, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<string, ICredentials, Token, ServiceInfo>((u, c, t) => GetResponse<ServiceInfo>(u, null, c, t));
+        private static readonly Func<string, ICredentials, Token, string, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<string, ICredentials, Token, string, ServiceInfo>((u, c, t, v) => GetResponse<ServiceInfo>(u, null, c, t, v));
 
-        public static ServiceInfo GetServiceInfo(string url, ICredentials credentials, Token token)
+        public static ServiceInfo GetServiceInfo(string url, ICredentials credentials, Token token, string gdbVersion)
         {
             var url2 = Regex.Replace(url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
 
-            return GetServiceInfoMemoized(url2, credentials, token);
+            return GetServiceInfoMemoized(url2, credentials, token, gdbVersion);
         }
 
-        public static OIDSet GetOIDSet(string url, int layerId, ICredentials credentials, Token token, string whereClause)
+        public static OIDSet GetOIDSet(string url, int layerId, ICredentials credentials, Token token, string whereClause, string gdbVersion)
         {
             var url2 = url + "/" + layerId + "/query";
-            var data = string.Format("where={0}&returnIdsOnly=true",
-                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
+            var data = String.Format("where={0}&returnIdsOnly=true",
+                HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
 
-            return GetResponse<OIDSet>(url2, data, credentials, token);
+            return GetResponse<OIDSet>(url2, data, credentials, token, gdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(string url, int layerId, ICredentials credentials, Token token, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(string url, int layerId, ICredentials credentials, Token token, string gdbVersion, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
         {
             var url2 = url + "/" + layerId + "/query";
-            var data = string.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
-                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
-                objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds)),
+            var data = String.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
+                HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
+                objectIds == null ? "" : HttpUtility.UrlEncode(String.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 
-            return GetResponse<FeatureSet>(url2, data, credentials, token);
+            return GetResponse<FeatureSet>(url2, data, credentials, token, gdbVersion);
         }
 
         public static TokenInfo GetTokenInfo(string url, string userName, string password)
         {
-            var url2 = string.Format("{0}/tokens/generateToken?userName={1}&password={2}&clientid=requestip",
+            var url2 = String.Format("{0}/tokens/generateToken?userName={1}&password={2}&clientid=requestip",
                 Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value, userName, password);
 
-            return GetResponse<TokenInfo>(url2, null, null, null);
+            return GetResponse<TokenInfo>(url2, null, null, null, null);
         }
 
-        public static EditResultInfo ApplyEdits(string url, int layerId, ICredentials credentials, Token token, string operation, string json)
+        public static EditResultSet ApplyEdits(string url, int layerId, ICredentials credentials, Token token, string gdbVersion, string operation, string json)
         {
-            var url2 = string.Format("{0}/{1}/applyEdits", url, layerId);
-            var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
+            var url2 = String.Format("{0}/{1}/applyEdits", url, layerId);
+            var data = String.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
-            return GetResponse<EditResultInfo>(url2, data, credentials, token);
+            return GetResponse<EditResultSet>(url2, data, credentials, token, gdbVersion);
         }
 
-        #region Esri REST API
+        #region Esri REST API Helper
 
-        public class Response
+        public static string GetObjectIdFieldName(this Layer layer)
         {
-            public Error error { get; set; }
+            var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
+
+            if (objectIdFields.Length != 1)
+                throw new Exception("Layer must have one and only one field of type esriFieldTypeOID.");
+
+            return objectIdFields.Single().name;
         }
 
-        public class Error
+        private static IEnumerable<CodedValue> GetCodeValues(this Layer layer, string domainName)
         {
-            public int code { get; set; }
-            public string message { get; set; }
-            public string[] details { get; set; }
+            var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
+
+            if (domain == null)
+                throw new Exception(String.Format("Coded value domain '{0}' does not exist.", domainName));
+
+            return domain.codedValues;
         }
 
-        public class ServiceInfo : Response
+        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code)
         {
-            public Layer[] layers { get; set; }
-            public Layer[] tables { get; set; }
+            var codedValues = layer.GetCodeValues(domainName).Where(c => c.code.ToString() == code.ToString()).ToArray();
+
+            if (codedValues.Length == 1)
+                return codedValues.Single();
+
+            if (codedValues.Length == 0)
+                throw new Exception(String.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
+
+            throw new Exception(String.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
         }
 
-        public class EditResultInfo : Response
+        public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
         {
-            public EditResult[] addResults { get; set; }
-            public EditResult[] updateResults { get; set; }
-            public EditResult[] deleteResults { get; set; }
-        }
+            var codedValues = layer.GetCodeValues(domainName).Where(c => c.name == name.ToString()).ToArray();
 
-        public class EditResult
-        {
-            public int objectId { get; set; }
-            public bool success { get; set; }
-        }
+            if (codedValues.Length == 1)
+                return codedValues.Single();
 
-        public class TokenInfo : Response
-        {
-            public string token { get; set; }
-            public long expires { get; set; }
-        }
+            if (codedValues.Length == 0)
+                throw new Exception(String.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
 
-        public class OIDSet : Response
-        {
-            public string objectIdFieldName { get; set; }
-            public int[] objectIds { get; set; }
-        }
-
-        public class FeatureSet : Response
-        {
-            public Graphic[] features { get; set; }
-        }
-
-        public class Graphic
-        {
-            public Dictionary<string, object> attributes { get; set; }
-            public Geometry geometry { get; set; }
-        }
-
-        public class Geometry
-        {
-            public double x { get; set; }
-            public double y { get; set; }
-            public double[][] points { get; set; }
-            public double[][][] paths { get; set; }
-            public double[][][] rings { get; set; }
+            throw new Exception(String.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
         }
 
         #endregion
     }
+
+    #region Esri REST API
+
+    #region Public
+
+    /// <summary>
+    /// Represents the error object as defined in the Esri REST API.
+    /// </summary>
+    public class Error
+    {
+        /// <summary>
+        /// The error code.
+        /// </summary>
+        public int code { get; set; }
+
+        /// <summary>
+        /// The error message.
+        /// </summary>
+        public string message { get; set; }
+
+        /// <summary>
+        /// The error details.
+        /// </summary>
+        public string[] details { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the edit result object as defined in the Esri REST API.
+    /// </summary>
+    public class EditResult
+    {
+        /// <summary>
+        /// The Object ID of the feature.
+        /// </summary>
+        public int objectId { get; set; }
+
+        /// <summary>
+        /// The Global ID of the feature.
+        /// </summary>
+        public string globalId { get; set; }
+
+        /// <summary>
+        /// Indicates if the edit was successful.
+        /// </summary>
+        public bool success { get; set; }
+
+        /// <summary>
+        /// Any error that occurred during the edit.
+        /// </summary>
+        public Error error { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the layer object as defined in the Esri REST API.
+    /// </summary>
+    public class Layer
+    {
+        /// <summary>
+        /// The layer ID.
+        /// </summary>
+        public int id { get; set; }
+
+        /// <summary>
+        /// The name of the layer.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
+        /// The type of the layer.
+        /// </summary>
+        public string type { get; set; }
+
+        /// <summary>
+        /// The fields of the layer.
+        /// </summary>
+        public Field[] fields { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the field object as defined in the Esri REST API.
+    /// </summary>
+    public class Field
+    {
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
+        /// The type of the field.
+        /// </summary>
+        public string type { get; set; }
+
+        /// <summary>
+        /// The domain this field depends on.
+        /// </summary>
+        public Domain domain { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the domain object as defined in the Esri REST API.
+    /// </summary>
+    public class Domain
+    {
+        /// <summary>
+        /// The type of the domain.
+        /// </summary>
+        public string type { get; set; }
+
+        /// <summary>
+        /// The name of the domain.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
+        /// The coded values.
+        /// </summary>
+        public CodedValue[] codedValues { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the coded value object as defined in the Esri REST API.
+    /// </summary>
+    public class CodedValue
+    {
+        /// <summary>
+        /// The name of the coded value.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
+        /// The actual value stored in the database.
+        /// </summary>
+        public object code { get; set; }
+    }
+
+    #endregion
+
+    #region Internal
+
+    internal class Response
+    {
+        public Error error { get; set; }
+    }
+
+    internal class ServiceInfo : Response
+    {
+        public Layer[] layers { get; set; }
+        public Layer[] tables { get; set; }
+    }
+
+    internal class EditResultSet : Response
+    {
+        public EditResult[] addResults { get; set; }
+        public EditResult[] updateResults { get; set; }
+        public EditResult[] deleteResults { get; set; }
+    }
+
+    internal class TokenInfo : Response
+    {
+        public string token { get; set; }
+        public long expires { get; set; }
+    }
+
+    internal class OIDSet : Response
+    {
+        public string objectIdFieldName { get; set; }
+        public int[] objectIds { get; set; }
+    }
+
+    internal class FeatureSet : Response
+    {
+        public Graphic[] features { get; set; }
+    }
+
+    internal class Graphic
+    {
+        public Dictionary<string, object> attributes { get; set; }
+        public Geometry2 geometry { get; set; }
+    }
+
+    internal class Geometry2
+    {
+        public double x { get; set; }
+        public double y { get; set; }
+        public double[][] points { get; set; }
+        public double[][][] paths { get; set; }
+        public double[][][] rings { get; set; }
+    }
+
+    #endregion
+
+    #endregion
 }

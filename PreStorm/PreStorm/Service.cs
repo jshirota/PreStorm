@@ -13,6 +13,7 @@ namespace PreStorm
     {
         internal readonly ICredentials Credentials;
         internal readonly Token Token;
+        internal readonly string GdbVersion;
 
         /// <summary>
         /// The url of the service.
@@ -29,15 +30,18 @@ namespace PreStorm
         /// </summary>
         public Domain[] Domains { get; private set; }
 
-        private Service(string url, ICredentials credentials, string userName, string password)
+        private Service(string url, ICredentials credentials, string userName, string password, string gdbVersion)
         {
             Url = url;
+
             Credentials = credentials;
 
             if (userName != null)
                 Token = new Token(url, userName, password);
 
-            var serviceInfo = Esri.GetServiceInfo(url, credentials, Token);
+            GdbVersion = gdbVersion;
+
+            var serviceInfo = Esri.GetServiceInfo(url, credentials, Token, gdbVersion);
 
             Layers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -59,7 +63,8 @@ namespace PreStorm
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="credentials">The windows crendentials used for secured services.</param>
-        public Service(string url, ICredentials credentials) : this(url, credentials, null, null) { }
+        /// <param name="gdbVersion">The geodatabase version.</param>
+        public Service(string url, ICredentials credentials, string gdbVersion = null) : this(url, credentials, null, null, gdbVersion) { }
 
         /// <summary>
         /// Initializes a new instance of the Service class.
@@ -67,13 +72,15 @@ namespace PreStorm
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="userName">The user name for token-based authentication.</param>
         /// <param name="password">The password for token-based authentication.</param>
-        public Service(string url, string userName, string password) : this(url, null, userName, password) { }
+        /// <param name="gdbVersion">The geodatabase version.</param>
+        public Service(string url, string userName, string password, string gdbVersion = null) : this(url, null, userName, password, gdbVersion) { }
 
         /// <summary>
         /// Initializes a new instance of the Service class.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
-        public Service(string url) : this(url, null, null, null) { }
+        /// <param name="gdbVersion">The geodatabase version.</param>
+        public Service(string url, string gdbVersion = null) : this(url, null, null, null, gdbVersion) { }
 
         internal Layer GetLayer(int layerId)
         {
@@ -97,7 +104,7 @@ namespace PreStorm
             }
         }
 
-        private T ToFeature<T>(Esri.Graphic graphic, Layer layer) where T : Feature
+        private T ToFeature<T>(Graphic graphic, Layer layer) where T : Feature
         {
             var f = graphic.ToFeature<T>(layer);
             f.Url = Url;
@@ -112,7 +119,7 @@ namespace PreStorm
                 .AsParallel()
                 .AsOrdered()
                 .WithDegreeOfParallelism(degreeOfParallelism < 1 ? 1 : degreeOfParallelism)
-                .SelectMany(ids => Esri.GetFeatureSet(Url, layer.id, Credentials, Token, returnGeometry, null, ids).features
+                .SelectMany(ids => Esri.GetFeatureSet(Url, layer.id, Credentials, Token, GdbVersion, returnGeometry, null, ids).features
                     .Select(g => ToFeature<T>(g, layer)));
         }
 
@@ -138,7 +145,7 @@ namespace PreStorm
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            var featureSet = Esri.GetFeatureSet(Url, layerId, Credentials, Token, returnGeometry, whereClause, null);
+            var featureSet = Esri.GetFeatureSet(Url, layerId, Credentials, Token, GdbVersion, returnGeometry, whereClause, null);
 
             foreach (var g in featureSet.features)
                 yield return ToFeature<T>(g, layer);
@@ -148,7 +155,7 @@ namespace PreStorm
             if (!keepQuerying || objectIds.Length == 0)
                 yield break;
 
-            var remainingObjectIds = Esri.GetOIDSet(Url, layerId, Credentials, Token, whereClause).objectIds.Except(objectIds);
+            var remainingObjectIds = Esri.GetOIDSet(Url, layerId, Credentials, Token, GdbVersion, whereClause).objectIds.Except(objectIds);
 
             foreach (var f in Download<T>(layer, remainingObjectIds, returnGeometry, objectIds.Length, degreeOfParallelism))
                 yield return f;

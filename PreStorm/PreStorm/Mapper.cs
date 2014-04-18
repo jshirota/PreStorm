@@ -7,7 +7,7 @@ namespace PreStorm
 {
     internal static class Mapper
     {
-        public static T ToFeature<T>(this Esri.Graphic graphic, Layer layer) where T : Feature
+        public static T ToFeature<T>(this Graphic graphic, Layer layer) where T : Feature
         {
             var feature = Proxy.Create<T>();
 

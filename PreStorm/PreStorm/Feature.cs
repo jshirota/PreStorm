@@ -16,6 +16,7 @@ namespace PreStorm
         internal Layer Layer;
         internal ICredentials Credentials;
         internal Token Token;
+        internal string GdbVersion;
 
         private readonly Dictionary<string, string> _propertyToField;
         private readonly Dictionary<string, string> _fieldToProperty;
