@@ -63,16 +63,16 @@ namespace PreStorm
 
             if (g != null)
             {
-                var point = feature as Feature<Point>;
-                var multipoint = feature as Feature<Multipoint>;
-                var polyline = feature as Feature<Polyline>;
-                var polygon = feature as Feature<Polygon>;
+                dynamic f = feature;
 
-                if (point != null) point.Geometry = new Point { x = g.x, y = g.y };
-                else if (multipoint != null) multipoint.Geometry = new Multipoint { points = g.points };
-                else if (polyline != null) polyline.Geometry = new Polyline { paths = g.paths };
-                else if (polygon != null) polygon.Geometry = new Polygon { rings = g.rings };
-                else throw new Exception("Invalid geometry type.");
+                if (g.x != null && g.y != null)
+                    f.Geometry = new Point { x = g.x.Value, y = g.y.Value };
+                else if (g.points != null)
+                    f.Geometry = new Multipoint { points = g.points };
+                else if (g.paths != null)
+                    f.Geometry = new Polyline { paths = g.paths };
+                else if (g.rings != null)
+                    f.Geometry = new Polygon { rings = g.rings };
             }
 
             feature.IsDirty = false;

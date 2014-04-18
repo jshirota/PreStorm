@@ -68,7 +68,7 @@ namespace PreStorm
             return GetResponse<EditResultSet>(url2, data, credentials, token, gdbVersion);
         }
 
-        #region Esri REST API Helper
+        #region ArcGIS Rest API Helper
 
         public static string GetObjectIdFieldName(this Layer layer)
         {
@@ -119,12 +119,12 @@ namespace PreStorm
         #endregion
     }
 
-    #region Esri REST API
+    #region ArcGIS Rest API
 
     #region Public
 
     /// <summary>
-    /// Represents the error object as defined in the Esri REST API.
+    /// Represents the error object as defined in the ArcGIS Rest API.
     /// </summary>
     public class Error
     {
@@ -145,33 +145,7 @@ namespace PreStorm
     }
 
     /// <summary>
-    /// Represents the edit result object as defined in the Esri REST API.
-    /// </summary>
-    public class EditResult
-    {
-        /// <summary>
-        /// The Object ID of the feature.
-        /// </summary>
-        public int objectId { get; set; }
-
-        /// <summary>
-        /// The Global ID of the feature.
-        /// </summary>
-        public string globalId { get; set; }
-
-        /// <summary>
-        /// Indicates if the edit was successful.
-        /// </summary>
-        public bool success { get; set; }
-
-        /// <summary>
-        /// Any error that occurred during the edit.
-        /// </summary>
-        public Error error { get; set; }
-    }
-
-    /// <summary>
-    /// Represents the layer object as defined in the Esri REST API.
+    /// Represents the layer object as defined in the ArcGIS Rest API.
     /// </summary>
     public class Layer
     {
@@ -197,7 +171,7 @@ namespace PreStorm
     }
 
     /// <summary>
-    /// Represents the field object as defined in the Esri REST API.
+    /// Represents the field object as defined in the ArcGIS Rest API.
     /// </summary>
     public class Field
     {
@@ -218,7 +192,7 @@ namespace PreStorm
     }
 
     /// <summary>
-    /// Represents the domain object as defined in the Esri REST API.
+    /// Represents the domain object as defined in the ArcGIS Rest API.
     /// </summary>
     public class Domain
     {
@@ -239,7 +213,7 @@ namespace PreStorm
     }
 
     /// <summary>
-    /// Represents the coded value object as defined in the Esri REST API.
+    /// Represents the coded value object as defined in the ArcGIS Rest API.
     /// </summary>
     public class CodedValue
     {
@@ -252,6 +226,32 @@ namespace PreStorm
         /// The actual value stored in the database.
         /// </summary>
         public object code { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the edit result object as defined in the ArcGIS Rest API.
+    /// </summary>
+    public class EditResult
+    {
+        /// <summary>
+        /// The Object ID of the feature.
+        /// </summary>
+        public int objectId { get; set; }
+
+        /// <summary>
+        /// The Global ID of the feature.
+        /// </summary>
+        public string globalId { get; set; }
+
+        /// <summary>
+        /// Indicates if the edit was successful.
+        /// </summary>
+        public bool success { get; set; }
+
+        /// <summary>
+        /// Any error that occurred during the edit.
+        /// </summary>
+        public Error error { get; set; }
     }
 
     #endregion
@@ -267,13 +267,6 @@ namespace PreStorm
     {
         public Layer[] layers { get; set; }
         public Layer[] tables { get; set; }
-    }
-
-    internal class EditResultSet : Response
-    {
-        public EditResult[] addResults { get; set; }
-        public EditResult[] updateResults { get; set; }
-        public EditResult[] deleteResults { get; set; }
     }
 
     internal class TokenInfo : Response
@@ -293,16 +286,23 @@ namespace PreStorm
         public Graphic[] features { get; set; }
     }
 
+    internal class EditResultSet : Response
+    {
+        public EditResult[] addResults { get; set; }
+        public EditResult[] updateResults { get; set; }
+        public EditResult[] deleteResults { get; set; }
+    }
+
     internal class Graphic
     {
         public Dictionary<string, object> attributes { get; set; }
-        public Geometry2 geometry { get; set; }
+        public CatchAllGeometry geometry { get; set; }
     }
 
-    internal class Geometry2
+    internal class CatchAllGeometry
     {
-        public double x { get; set; }
-        public double y { get; set; }
+        public double? x { get; set; }
+        public double? y { get; set; }
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
         public double[][][] rings { get; set; }

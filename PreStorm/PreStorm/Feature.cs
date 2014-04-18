@@ -8,7 +8,7 @@ using System.Net;
 namespace PreStorm
 {
     /// <summary>
-    /// Represents the base class for objects that attributes can be mapped to.  For spatial objects, use the generic version of this type specifying the geometry type.
+    /// Represents the base class for objects to which attributes can be mapped.
     /// </summary>
     public abstract class Feature : INotifyPropertyChanged
     {
@@ -155,7 +155,7 @@ namespace PreStorm
     }
 
     /// <summary>
-    /// Represents the base class for objects that attributes can be mapped to.  For non-spatial objects, use the non-generic version of this type.
+    /// Represents the base class for objects to which attributes can be mapped.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class Feature<T> : Feature where T : Geometry
