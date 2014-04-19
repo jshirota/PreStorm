@@ -31,6 +31,16 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Instantiates a new object of the specified type.  Use this method instead of the constructor to ensure that the mapped properties automatically raise the PropertyChanged event.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T Create<T>() where T : Feature
+        {
+            return Proxy.Create<T>();
+        }
+
+        /// <summary>
         /// The Object ID of the feature.
         /// </summary>
         public int OID { get; internal set; }

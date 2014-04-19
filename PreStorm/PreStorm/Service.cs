@@ -168,7 +168,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and returns them as features of the specified type.
+        /// Downloads features of the specified type.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -182,7 +182,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and returns them as features of the specified type.
+        /// Downloads features of the specified type.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
@@ -193,6 +193,58 @@ namespace PreStorm
         public Task<T[]> DownloadAsync<T>(string layerName, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
             return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, whereClause, keepQuerying, degreeOfParallelism).ToArray());
+        }
+
+        /// <summary>
+        /// Downloads and yields features whose attributes and geoetry are dynamically accessed at runtime.
+        /// </summary>
+        /// <param name="layerId">The layer ID of the feature layer or table.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public IEnumerable<DynamicFeature> Download(int layerId, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        {
+            return Download<DynamicFeature>(layerId, whereClause, keepQuerying, degreeOfParallelism);
+        }
+
+        /// <summary>
+        /// Downloads and yields features whose attributes and geoetry are dynamically accessed at runtime.
+        /// </summary>
+        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public IEnumerable<DynamicFeature> Download(string layerName, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        {
+            return Download<DynamicFeature>(layerName, whereClause, keepQuerying, degreeOfParallelism);
+        }
+
+        /// <summary>
+        /// Downloads features whose attributes and geoetry are dynamically accessed at runtime.
+        /// </summary>
+        /// <param name="layerId">The layer ID of the feature layer or table.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        {
+            return DownloadAsync<DynamicFeature>(layerId, whereClause, keepQuerying, degreeOfParallelism);
+        }
+
+        /// <summary>
+        /// Downloads features whose attributes and geoetry are dynamically accessed at runtime.
+        /// </summary>
+        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
+        /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
+        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
+        /// <returns></returns>
+        public Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        {
+            return DownloadAsync<DynamicFeature>(layerName, whereClause, keepQuerying, degreeOfParallelism);
         }
     }
 }

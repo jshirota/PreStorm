@@ -54,6 +54,7 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicFeature.cs" />
     <Compile Include="Editor.cs" />
     <Compile Include="Esri.cs" />
     <Compile Include="Feature.cs" />
