@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Net;
 
 namespace PreStorm
 {
@@ -12,11 +11,8 @@ namespace PreStorm
     /// </summary>
     public abstract class Feature : INotifyPropertyChanged
     {
-        internal string Url;
+        internal ServiceIdentity Identity;
         internal Layer Layer;
-        internal ICredentials Credentials;
-        internal Token Token;
-        internal string GdbVersion;
 
         private readonly Dictionary<string, string> _propertyToField;
         private readonly Dictionary<string, string> _fieldToProperty;
@@ -59,21 +55,19 @@ namespace PreStorm
 
         private void SetValue(string fieldName, object value)
         {
-            if (UnmappedFields.ContainsKey(fieldName))
-            {
-                UnmappedFields[fieldName] = value;
-
-                if (IsDataBound)
-                    IsDirty = true;
-            }
-            else if (_fieldToProperty.ContainsKey(fieldName))
+            if (_fieldToProperty.ContainsKey(fieldName))
             {
                 GetType().GetProperty(_fieldToProperty[fieldName]).SetValue(this, value, null);
             }
             else
             {
-                UnmappedFields.Add(fieldName, value);
+                if (UnmappedFields.ContainsKey(fieldName))
+                    UnmappedFields[fieldName] = value;
+                else
+                    UnmappedFields.Add(fieldName, value);
             }
+
+            IsDirty = true;
 
             ChangedFields.Add(fieldName);
         }

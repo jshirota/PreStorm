@@ -69,6 +69,7 @@
     <Compile Include="Proxy.cs" />
     <Compile Include="Sequence.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="ServiceIdentity.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TypeHelper.cs" />
   </ItemGroup>

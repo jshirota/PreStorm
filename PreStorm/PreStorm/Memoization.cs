@@ -40,20 +40,5 @@ namespace PreStorm
         {
             return f.Tuplify().Memoize().UnTuplify();
         }
-
-        private static Func<Tuple<T1, T2, T3, T4>, TResult> Tuplify<T1, T2, T3, T4, TResult>(this Func<T1, T2, T3, T4, TResult> f)
-        {
-            return t => f(t.Item1, t.Item2, t.Item3, t.Item4);
-        }
-
-        private static Func<T1, T2, T3, T4, TResult> UnTuplify<T1, T2, T3, T4, TResult>(this Func<Tuple<T1, T2, T3, T4>, TResult> f)
-        {
-            return (x1, x2, x3, x4) => f(Tuple.Create(x1, x2, x3, x4));
-        }
-
-        public static Func<T1, T2, T3, T4, TResult> Memoize<T1, T2, T3, T4, TResult>(this Func<T1, T2, T3, T4, TResult> f)
-        {
-            return f.Tuplify().Memoize().UnTuplify();
-        }
     }
 }

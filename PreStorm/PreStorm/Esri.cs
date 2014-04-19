@@ -23,33 +23,33 @@ namespace PreStorm
             return response;
         }
 
-        private static readonly Func<string, ICredentials, Token, string, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<string, ICredentials, Token, string, ServiceInfo>((u, c, t, v) => GetResponse<ServiceInfo>(u, null, c, t, v));
+        private static readonly Func<ServiceIdentity, string, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceIdentity, string, ServiceInfo>((i, u) => GetResponse<ServiceInfo>(u, null, i.Credentials, i.Token, i.GdbVersion));
 
-        public static ServiceInfo GetServiceInfo(string url, ICredentials credentials, Token token, string gdbVersion)
+        public static ServiceInfo GetServiceInfo(ServiceIdentity identity)
         {
-            var url2 = Regex.Replace(url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+            var url = Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
 
-            return GetServiceInfoMemoized(url2, credentials, token, gdbVersion);
+            return GetServiceInfoMemoized(identity, url);
         }
 
-        public static OIDSet GetOIDSet(string url, int layerId, ICredentials credentials, Token token, string whereClause, string gdbVersion)
+        public static OIDSet GetOIDSet(ServiceIdentity identity, int layerId, string whereClause)
         {
-            var url2 = url + "/" + layerId + "/query";
+            var url = identity.Url + "/" + layerId + "/query";
             var data = String.Format("where={0}&returnIdsOnly=true",
                 HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
 
-            return GetResponse<OIDSet>(url2, data, credentials, token, gdbVersion);
+            return GetResponse<OIDSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(string url, int layerId, ICredentials credentials, Token token, string gdbVersion, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceIdentity identity, int layerId, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
         {
-            var url2 = url + "/" + layerId + "/query";
+            var url = identity.Url + "/" + layerId + "/query";
             var data = String.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
                 HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
                 objectIds == null ? "" : HttpUtility.UrlEncode(String.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 
-            return GetResponse<FeatureSet>(url2, data, credentials, token, gdbVersion);
+            return GetResponse<FeatureSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
         }
 
         public static TokenInfo GetTokenInfo(string url, string userName, string password)
@@ -60,12 +60,12 @@ namespace PreStorm
             return GetResponse<TokenInfo>(url2, null, null, null, null);
         }
 
-        public static EditResultSet ApplyEdits(string url, int layerId, ICredentials credentials, Token token, string gdbVersion, string operation, string json)
+        public static EditResultSet ApplyEdits(ServiceIdentity identity, int layerId, string operation, string json)
         {
-            var url2 = String.Format("{0}/{1}/applyEdits", url, layerId);
+            var url = String.Format("{0}/{1}/applyEdits", identity.Url, layerId);
             var data = String.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
-            return GetResponse<EditResultSet>(url2, data, credentials, token, gdbVersion);
+            return GetResponse<EditResultSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
         }
 
         #region ArcGIS Rest API Helper

@@ -43,7 +43,7 @@ namespace PreStorm
 
             var adds = features.Select(f => f.ToGraphic(layer, false)).ToArray();
 
-            var editResultInfo = Esri.ApplyEdits(service.Url, layer.id, service.Credentials, service.Token, service.GdbVersion, "adds", adds.Serialize());
+            var editResultInfo = Esri.ApplyEdits(service.Identity, layer.id, "adds", adds.Serialize());
 
             addResults = editResultInfo.addResults;
 
@@ -225,11 +225,8 @@ namespace PreStorm
             if (features.Any(f => !f.IsDataBound))
                 throw new Exception("All features must be bound to a data source before updating.");
 
-            var url = GetUnique(features, f => f.Url, "url");
+            var identity = GetUnique(features, f => f.Identity, "url and geodatabase version");
             var layer = GetUnique(features, f => f.Layer, "layer");
-            var credentials = GetUnique(features, f => f.Credentials, "credentials");
-            var token = GetUnique(features, f => f.Token, "token");
-            var gdbVersion = GetUnique(features, f => f.GdbVersion, "geodatabase version");
 
             var updates = features.Select(f => f.ToGraphic(layer, true)).Where(o => o != null).ToArray();
 
@@ -239,7 +236,7 @@ namespace PreStorm
                 return true;
             }
 
-            var editResultInfo = Esri.ApplyEdits(url, layer.id, credentials, token, gdbVersion, "updates", updates.Serialize());
+            var editResultInfo = Esri.ApplyEdits(identity, layer.id, "updates", updates.Serialize());
 
             updateResults = editResultInfo.updateResults;
 
@@ -338,15 +335,12 @@ namespace PreStorm
             if (features.Any(f => !f.IsDataBound))
                 throw new Exception("All features must be bound to a data source before deleting.");
 
-            var url = GetUnique(features, f => f.Url, "url");
+            var identity = GetUnique(features, f => f.Identity, "url and geodatabase version");
             var layer = GetUnique(features, f => f.Layer, "layer");
-            var credentials = GetUnique(features, f => f.Credentials, "credentials");
-            var token = GetUnique(features, f => f.Token, "token");
-            var gdbVersion = GetUnique(features, f => f.GdbVersion, "geodatabase version");
 
             var deletes = string.Join(",", features.Select(f => f.OID));
 
-            var editResultInfo = Esri.ApplyEdits(url, layer.id, credentials, token, gdbVersion, "deletes", deletes);
+            var editResultInfo = Esri.ApplyEdits(identity, layer.id, "deletes", deletes);
 
             deleteResults = editResultInfo.deleteResults;
 
@@ -355,11 +349,9 @@ namespace PreStorm
 
             foreach (var f in features)
             {
-                f.Url = null;
+                f.Identity = null;
                 f.Layer = null;
                 f.OID = -1;
-                f.Credentials = null;
-                f.Token = null;
                 f.IsDirty = false;
             }
 
