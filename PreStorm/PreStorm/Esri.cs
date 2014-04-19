@@ -27,7 +27,9 @@ namespace PreStorm
 
         public static ServiceInfo GetServiceInfo(ServiceIdentity identity)
         {
-            var url = Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+            var url = identity.IsArcGISOnline
+            ? Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/FeatureServer", RegexOptions.IgnoreCase) + "/layers"
+            : Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
 
             return GetServiceInfoMemoized(identity, url);
         }
@@ -58,6 +60,13 @@ namespace PreStorm
                 Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value, userName, password);
 
             return GetResponse<TokenInfo>(url2, null, null, null, null);
+        }
+
+        public static ArcGISOnlineTokenInfo GetArcGISOnlineTokenInfo(string clientId, string clientSecret)
+        {
+            var url = String.Format("https://www.arcgis.com/sharing/oauth2/token?client_id={0}&grant_type=client_credentials&client_secret={1}&f=json", clientId, clientSecret);
+
+            return GetResponse<ArcGISOnlineTokenInfo>(url, null, null, null, null);
         }
 
         public static EditResultSet ApplyEdits(ServiceIdentity identity, int layerId, string operation, string json)
@@ -273,6 +282,12 @@ namespace PreStorm
     {
         public string token { get; set; }
         public long expires { get; set; }
+    }
+
+    internal class ArcGISOnlineTokenInfo : Response
+    {
+        public string access_token { get; set; }
+        public int expires_in { get; set; }
     }
 
     internal class OIDSet : Response

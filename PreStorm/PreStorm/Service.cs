@@ -33,9 +33,7 @@ namespace PreStorm
 
         private Service(string url, ICredentials credentials, string userName, string password, string gdbVersion)
         {
-            var token = userName == null ? null : new Token(url, userName, password);
-
-            Identity = new ServiceIdentity(url, credentials, token, gdbVersion);
+            Identity = new ServiceIdentity(url, credentials, userName, password, gdbVersion);
 
             var serviceInfo = Esri.GetServiceInfo(Identity);
 
