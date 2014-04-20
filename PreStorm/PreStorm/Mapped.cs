@@ -31,12 +31,12 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// The function used to retieve the field name.  If this is set to null (default), the text sent to the Mapped constructor is the actual field name.  This can be replaced by another function such as s => ConfigurationManager.AppSettings[s], which will use the string to retrieve the real field name from app.config.
+        /// The function used to retrieve the field name.  If this is set to null (default), the text sent to the Mapped constructor is the actual field name.  This can be replaced by another function such as s => ConfigurationManager.AppSettings[s], which will use the string to retrieve the real field name from app.config.
         /// </summary>
         public static Func<string, string> GetFieldName { get; set; }
 
         /// <summary>
-        /// The function used to retieve the domain name.  If this is set to null (default), the text sent to the Mapped constructor is the actual domain name.  This can be replaced by another function such as s => ConfigurationManager.AppSettings[s], which will use the string to retrieve the real domain name from app.config.
+        /// The function used to retrieve the domain name.  If this is set to null (default), the text sent to the Mapped constructor is the actual domain name.  This can be replaced by another function such as s => ConfigurationManager.AppSettings[s], which will use the string to retrieve the real domain name from app.config.
         /// </summary>
         public static Func<string, string> GetDomainName { get; set; }
     }
