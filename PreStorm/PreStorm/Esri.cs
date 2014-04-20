@@ -11,9 +11,18 @@ namespace PreStorm
     {
         private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
+            var parameters = new Dictionary<string, object>
+            {
+                {"token", token},
+                {"gdbVersion", gdbVersion},
+                {"f", "json"}
+            };
+
+            var queryString = string.Join("&", parameters.Where(o => o.Value != null).Select(o => string.Format("{0}={1}", o.Key, o.Value)));
+
             var json = data == null
-                ? Http.Get(String.Format("{0}{1}token={2}&gdbVersion={3}&f=json", url, url.Contains("?") ? "&" : "?", token, gdbVersion), credentials)
-                : Http.Post(url, String.Format("{0}&token={1}&gdbVersion={2}&f=json", data, token, gdbVersion), credentials);
+                ? Http.Get(String.Format("{0}{1}{2}", url, url.Contains("?") ? "&" : "?", queryString), credentials)
+                : Http.Post(url, String.Format("{0}&{1}", data, queryString), credentials);
 
             var response = json.Deserialize<T>();
 
