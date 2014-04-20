@@ -21,7 +21,7 @@ namespace PreStorm
 
         public override string ToString()
         {
-            if (_expiry == null || _expiry.Value.Subtract(DateTime.Now.ToUniversalTime()).TotalMinutes < 1)
+            if (_expiry == null || _expiry.Value.Subtract(DateTime.UtcNow).TotalMinutes < 1)
             {
                 if (_isArcGISOnline)
                 {

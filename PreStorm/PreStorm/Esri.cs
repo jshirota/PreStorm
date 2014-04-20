@@ -18,20 +18,21 @@ namespace PreStorm
             var response = json.Deserialize<T>();
 
             if (response.error != null)
-                throw new Exception(String.Join("  ", new[] { response.error.message }.Concat(response.error.details)));
+                throw new Exception(response.error.message);
 
             return response;
         }
 
-        private static readonly Func<ServiceIdentity, string, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceIdentity, string, ServiceInfo>((i, u) => GetResponse<ServiceInfo>(u, null, i.Credentials, i.Token, i.GdbVersion));
+        private static readonly Func<ServiceIdentity, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceIdentity, ServiceInfo>(i =>
+        {
+            var url = Regex.Replace(i.Url, @"/FeatureServer($|/)", i.IsArcGISOnline ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+
+            return GetResponse<ServiceInfo>(url, null, i.Credentials, i.Token, i.GdbVersion);
+        });
 
         public static ServiceInfo GetServiceInfo(ServiceIdentity identity)
         {
-            var url = identity.IsArcGISOnline
-            ? Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/FeatureServer", RegexOptions.IgnoreCase) + "/layers"
-            : Regex.Replace(identity.Url, @"/FeatureServer($|/)", "/MapServer", RegexOptions.IgnoreCase) + "/layers";
-
-            return GetServiceInfoMemoized(identity, url);
+            return GetServiceInfoMemoized(identity);
         }
 
         public static OIDSet GetOIDSet(ServiceIdentity identity, int layerId, string whereClause)
@@ -76,8 +77,6 @@ namespace PreStorm
 
             return GetResponse<EditResultSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
         }
-
-        #region ArcGIS Rest API Helper
 
         public static string GetObjectIdFieldName(this Layer layer)
         {
@@ -124,8 +123,6 @@ namespace PreStorm
 
             throw new Exception(String.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
         }
-
-        #endregion
     }
 
     #region ArcGIS Rest API
