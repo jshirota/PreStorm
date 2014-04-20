@@ -194,7 +194,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads and yields features whose attributes and geoetry are dynamically accessed at runtime.
+        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
@@ -207,7 +207,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads and yields features whose attributes and geoetry are dynamically accessed at runtime.
+        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
@@ -220,7 +220,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features whose attributes and geoetry are dynamically accessed at runtime.
+        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
@@ -233,7 +233,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features whose attributes and geoetry are dynamically accessed at runtime.
+        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause for server-side filtering.  If set to null, returns all features.</param>
