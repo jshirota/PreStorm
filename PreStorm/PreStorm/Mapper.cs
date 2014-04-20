@@ -7,11 +7,11 @@ namespace PreStorm
 {
     internal static class Mapper
     {
-        public static T ToFeature<T>(this Graphic graphic, ServiceIdentity identity, Layer layer) where T : Feature
+        public static T ToFeature<T>(this Graphic graphic, ServiceArgs args, Layer layer) where T : Feature
         {
             var feature = Proxy.Create<T>();
 
-            feature.Identity = identity;
+            feature.ServiceArgs = args;
             feature.Layer = layer;
             feature.OID = Convert.ToInt32(graphic.attributes[layer.GetObjectIdFieldName()]);
 

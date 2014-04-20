@@ -11,14 +11,14 @@ namespace PreStorm
     /// </summary>
     public class Service
     {
-        internal ServiceIdentity Identity { get; private set; }
+        internal ServiceArgs ServiceArgs { get; private set; }
 
         /// <summary>
         /// The url of the service.
         /// </summary>
         public string Url
         {
-            get { return Identity.Url; }
+            get { return ServiceArgs.Url; }
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace PreStorm
 
         private Service(string url, ICredentials credentials, string userName, string password, string gdbVersion)
         {
-            Identity = new ServiceIdentity(url, credentials, userName, password, gdbVersion);
+            ServiceArgs = new ServiceArgs(url, credentials, userName, password, gdbVersion);
 
-            var serviceInfo = Esri.GetServiceInfo(Identity);
+            var serviceInfo = Esri.GetServiceInfo(ServiceArgs);
 
             Layers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -100,7 +100,7 @@ namespace PreStorm
 
         private T ToFeature<T>(Graphic graphic, Layer layer) where T : Feature
         {
-            return graphic.ToFeature<T>(Identity, layer);
+            return graphic.ToFeature<T>(ServiceArgs, layer);
         }
 
         private IEnumerable<T> Download<T>(Layer layer, IEnumerable<int> objectIds, bool returnGeometry, int batchSize, int degreeOfParallelism) where T : Feature
@@ -109,7 +109,7 @@ namespace PreStorm
                 .AsParallel()
                 .AsOrdered()
                 .WithDegreeOfParallelism(degreeOfParallelism < 1 ? 1 : degreeOfParallelism)
-                .SelectMany(ids => Esri.GetFeatureSet(Identity, layer.id, returnGeometry, null, ids).features
+                .SelectMany(ids => Esri.GetFeatureSet(ServiceArgs, layer.id, returnGeometry, null, ids).features
                     .Select(g => ToFeature<T>(g, layer)));
         }
 
@@ -135,7 +135,7 @@ namespace PreStorm
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            var featureSet = Esri.GetFeatureSet(Identity, layerId, returnGeometry, whereClause, null);
+            var featureSet = Esri.GetFeatureSet(ServiceArgs, layerId, returnGeometry, whereClause, null);
 
             foreach (var g in featureSet.features)
                 yield return ToFeature<T>(g, layer);
@@ -145,7 +145,7 @@ namespace PreStorm
             if (!keepQuerying || objectIds.Length == 0)
                 yield break;
 
-            var remainingObjectIds = Esri.GetOIDSet(Identity, layerId, whereClause).objectIds.Except(objectIds);
+            var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause).objectIds.Except(objectIds);
 
             foreach (var f in Download<T>(layer, remainingObjectIds, returnGeometry, objectIds.Length, degreeOfParallelism))
                 yield return f;

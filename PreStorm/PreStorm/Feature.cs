@@ -11,7 +11,7 @@ namespace PreStorm
     /// </summary>
     public abstract class Feature : INotifyPropertyChanged
     {
-        internal ServiceIdentity Identity;
+        internal ServiceArgs ServiceArgs;
         internal Layer Layer;
 
         private readonly Dictionary<string, string> _propertyToField;

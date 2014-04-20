@@ -32,59 +32,54 @@ namespace PreStorm
             return response;
         }
 
-        private static readonly Func<ServiceIdentity, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceIdentity, ServiceInfo>(i =>
+        private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(i =>
         {
-            var url = Regex.Replace(i.Url, @"/FeatureServer($|/)", i.IsArcGISOnline ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+            var url = Regex.Replace(i.Url, @"/FeatureServer($|/)", i.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase) + "/layers";
 
             return GetResponse<ServiceInfo>(url, null, i.Credentials, i.Token, i.GdbVersion);
         });
 
-        public static ServiceInfo GetServiceInfo(ServiceIdentity identity)
+        public static ServiceInfo GetServiceInfo(ServiceArgs args)
         {
-            return GetServiceInfoMemoized(identity);
+            return GetServiceInfoMemoized(args);
         }
 
-        public static OIDSet GetOIDSet(ServiceIdentity identity, int layerId, string whereClause)
+        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause)
         {
-            var url = identity.Url + "/" + layerId + "/query";
+            var url = args.Url + "/" + layerId + "/query";
             var data = String.Format("where={0}&returnIdsOnly=true",
                 HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
 
-            return GetResponse<OIDSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
+            return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(ServiceIdentity identity, int layerId, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
         {
-            var url = identity.Url + "/" + layerId + "/query";
+            var url = args.Url + "/" + layerId + "/query";
             var data = String.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
                 HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
                 objectIds == null ? "" : HttpUtility.UrlEncode(String.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 
-            return GetResponse<FeatureSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
+            return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
         public static TokenInfo GetTokenInfo(string url, string userName, string password)
         {
-            var url2 = String.Format("{0}/tokens/generateToken?userName={1}&password={2}&clientid=requestip",
-                Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value, userName, password);
+            var tokenUrl = url.IsArcGISOnline()
+                ? "https://www.arcgis.com/sharing/rest/generateToken"
+                : string.Format("{0}/tokens/generateToken", Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value);
+            var data = string.Format("userName={0}&password={1}&clientid=requestip", userName, password);
 
-            return GetResponse<TokenInfo>(url2, null, null, null, null);
+            return GetResponse<TokenInfo>(tokenUrl, data, null, null, null);
         }
 
-        public static ArcGISOnlineTokenInfo GetArcGISOnlineTokenInfo(string clientId, string clientSecret)
+        public static EditResultSet ApplyEdits(ServiceArgs args, int layerId, string operation, string json)
         {
-            var url = String.Format("https://www.arcgis.com/sharing/oauth2/token?client_id={0}&grant_type=client_credentials&client_secret={1}&f=json", clientId, clientSecret);
-
-            return GetResponse<ArcGISOnlineTokenInfo>(url, null, null, null, null);
-        }
-
-        public static EditResultSet ApplyEdits(ServiceIdentity identity, int layerId, string operation, string json)
-        {
-            var url = String.Format("{0}/{1}/applyEdits", identity.Url, layerId);
+            var url = String.Format("{0}/{1}/applyEdits", args.Url, layerId);
             var data = String.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
-            return GetResponse<EditResultSet>(url, data, identity.Credentials, identity.Token, identity.GdbVersion);
+            return GetResponse<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
         public static string GetObjectIdFieldName(this Layer layer)
@@ -288,12 +283,6 @@ namespace PreStorm
     {
         public string token { get; set; }
         public long expires { get; set; }
-    }
-
-    internal class ArcGISOnlineTokenInfo : Response
-    {
-        public string access_token { get; set; }
-        public int expires_in { get; set; }
     }
 
     internal class OIDSet : Response
