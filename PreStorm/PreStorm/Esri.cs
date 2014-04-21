@@ -44,20 +44,22 @@ namespace PreStorm
             return GetServiceInfoMemoized(args);
         }
 
-        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, QueryParameters queryParameters)
+        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause, string extraParameters)
         {
             var url = args.Url + "/" + layerId + "/query";
-            var data = string.Format("{0}&returnIdsOnly=true",
-                queryParameters.ToQueryString());
+            var data = string.Format("where={0}&{1}&returnIdsOnly=true",
+                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
+                extraParameters);
 
             return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, QueryParameters queryParameters, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
             var url = args.Url + "/" + layerId + "/query";
-            var data = string.Format("{0}&objectIds={1}&returnGeometry={2}&outFields=*",
-                queryParameters.ToQueryString(),
+            var data = string.Format("where={0}&{1}&objectIds={2}&returnGeometry={3}&outFields=*",
+                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
+                extraParameters,
                 objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 

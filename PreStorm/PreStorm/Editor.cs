@@ -49,7 +49,7 @@ namespace PreStorm
 
             return addResults == null || addResults.Any(r => !r.success)
                 ? new T[] { }
-                : service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), 50, 1).ToArray();
+                : service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray();
         }
 
         /// <summary>

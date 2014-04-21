@@ -103,22 +103,22 @@ namespace PreStorm
             return graphic.ToFeature<T>(ServiceArgs, layer);
         }
 
-        private IEnumerable<T> Download<T>(Layer layer, IEnumerable<int> objectIds, bool returnGeometry, int batchSize, int degreeOfParallelism) where T : Feature
+        private IEnumerable<T> Download<T>(Layer layer, IEnumerable<int> objectIds, bool returnGeometry, string whereClause, string extraParameters, int batchSize, int degreeOfParallelism) where T : Feature
         {
             return objectIds.Partition(batchSize)
                 .AsParallel()
                 .AsOrdered()
                 .WithDegreeOfParallelism(degreeOfParallelism < 1 ? 1 : degreeOfParallelism)
-                .SelectMany(ids => Esri.GetFeatureSet(ServiceArgs, layer.id, returnGeometry, null, ids).features
+                .SelectMany(ids => Esri.GetFeatureSet(ServiceArgs, layer.id, returnGeometry, whereClause, extraParameters, ids).features
                     .Select(g => ToFeature<T>(g, layer)));
         }
 
-        internal IEnumerable<T> Download<T>(int layerId, IEnumerable<int> objectIds, int batchSize, int degreeOfParallelism) where T : Feature
+        internal IEnumerable<T> Download<T>(int layerId, IEnumerable<int> objectIds, string whereClause, string extraParameters, int batchSize, int degreeOfParallelism) where T : Feature
         {
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            return Download<T>(layer, objectIds, returnGeometry, batchSize, degreeOfParallelism);
+            return Download<T>(layer, objectIds, returnGeometry, whereClause, extraParameters, batchSize, degreeOfParallelism);
         }
 
         /// <summary>
@@ -126,16 +126,17 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<T> Download<T>(int layerId, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        public IEnumerable<T> Download<T>(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            var featureSet = Esri.GetFeatureSet(ServiceArgs, layerId, returnGeometry, queryParameters, null);
+            var featureSet = Esri.GetFeatureSet(ServiceArgs, layerId, returnGeometry, whereClause, extraParameters, null);
 
             foreach (var g in featureSet.features)
                 yield return ToFeature<T>(g, layer);
@@ -145,9 +146,9 @@ namespace PreStorm
             if (!keepQuerying || objectIds.Length == 0)
                 yield break;
 
-            var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, queryParameters).objectIds.Except(objectIds);
+            var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause, extraParameters).objectIds.Except(objectIds);
 
-            foreach (var f in Download<T>(layer, remainingObjectIds, returnGeometry, objectIds.Length, degreeOfParallelism))
+            foreach (var f in Download<T>(layer, remainingObjectIds, returnGeometry, whereClause, extraParameters, objectIds.Length, degreeOfParallelism))
                 yield return f;
         }
 
@@ -156,13 +157,14 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<T> Download<T>(string layerName, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        public IEnumerable<T> Download<T>(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
-            return Download<T>(GetLayer(layerName).id, queryParameters, keepQuerying, degreeOfParallelism);
+            return Download<T>(GetLayer(layerName).id, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
@@ -170,13 +172,14 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(int layerId, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        public Task<T[]> DownloadAsync<T>(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerId, queryParameters, keepQuerying, degreeOfParallelism).ToArray());
+            return Task<T[]>.Factory.StartNew(() => Download<T>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
         }
 
         /// <summary>
@@ -184,65 +187,70 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(string layerName, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
+        public Task<T[]> DownloadAsync<T>(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
         {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, queryParameters, keepQuerying, degreeOfParallelism).ToArray());
+            return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
         }
 
         /// <summary>
         /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<DynamicFeature> Download(int layerId, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public IEnumerable<Feature<Geometry>> Download(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return Download<DynamicFeature>(layerId, queryParameters, keepQuerying, degreeOfParallelism);
+            return Download<Feature<Geometry>>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
         /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<DynamicFeature> Download(string layerName, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public IEnumerable<Feature<Geometry>> Download(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return Download<DynamicFeature>(layerName, queryParameters, keepQuerying, degreeOfParallelism);
+            return Download<Feature<Geometry>>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
         /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(int layerId, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public Task<Feature<Geometry>[]> DownloadAsync(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return DownloadAsync<DynamicFeature>(layerId, queryParameters, keepQuerying, degreeOfParallelism);
+            return DownloadAsync<Feature<Geometry>>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
         /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="queryParameters">The query parameters.  Also accepts the where clause as a string via implicit conversion for server-side filtering.  If set to null, returns all features.</param>
+        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(string layerName, QueryParameters queryParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public Task<Feature<Geometry>[]> DownloadAsync(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return DownloadAsync<DynamicFeature>(layerName, queryParameters, keepQuerying, degreeOfParallelism);
+            return DownloadAsync<Feature<Geometry>>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
     }
 }
