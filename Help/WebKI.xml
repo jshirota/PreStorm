@@ -33,15 +33,6 @@
   <HelpKINode Title="Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   <HelpKINode Title="DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
-  <HelpKINode Title="DynamicFeature class">
-    <HelpKINode Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
-    <HelpKINode Title="about DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
-    <HelpKINode Title="constructor" Url="html/055c9497-35f1-5c97-a5c5-2ee3a21e49a9.htm" />
-    <HelpKINode Title="events" Url="html/765e923e-92bd-f131-cc73-96c0e737f5cd.htm" />
-    <HelpKINode Title="methods" Url="html/4a5ada6b-55b9-3ec9-891d-8da9befcf28d.htm" />
-    <HelpKINode Title="properties" Url="html/a555e932-5f3e-98e3-bd8d-a6fff2089a56.htm" />
-  </HelpKINode>
-  <HelpKINode Title="DynamicFeature.DynamicFeature constructor" Url="html/055c9497-35f1-5c97-a5c5-2ee3a21e49a9.htm" />
   <HelpKINode Title="Editor class">
     <HelpKINode Title="Editor Class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
     <HelpKINode Title="about Editor class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
@@ -223,7 +214,6 @@
   <HelpKINode Title="PreStorm namespace" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm" />
   <HelpKINode Title="PreStorm.CodedValue class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
   <HelpKINode Title="PreStorm.Domain class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm" />
-  <HelpKINode Title="PreStorm.DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
   <HelpKINode Title="PreStorm.Editor class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
   <HelpKINode Title="PreStorm.EditResult class" Url="html/461fc5fe-5d30-ee01-e83c-97cc6d300bc0.htm" />
   <HelpKINode Title="PreStorm.Error class" Url="html/5310da9c-24a0-3070-a909-3ec9199d679c.htm" />
@@ -238,18 +228,8 @@
   <HelpKINode Title="PreStorm.Point class" Url="html/3a3d2b6f-ea73-f52b-5db9-50594babf76f.htm" />
   <HelpKINode Title="PreStorm.Polygon class" Url="html/85125d12-c233-e240-af35-16d21a4a92a3.htm" />
   <HelpKINode Title="PreStorm.Polyline class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm" />
-  <HelpKINode Title="PreStorm.QueryParameters class" Url="html/8f4a68ff-3af8-d833-4cbf-ec6a0565d217.htm" />
   <HelpKINode Title="PreStorm.Service class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
-  <HelpKINode Title="QueryParameters class">
-    <HelpKINode Title="QueryParameters Class" Url="html/8f4a68ff-3af8-d833-4cbf-ec6a0565d217.htm" />
-    <HelpKINode Title="about QueryParameters class" Url="html/8f4a68ff-3af8-d833-4cbf-ec6a0565d217.htm" />
-    <HelpKINode Title="constructor" Url="html/55886447-41e9-f809-601a-073f8daaa31e.htm" />
-    <HelpKINode Title="methods" Url="html/e94c6601-eb41-88b5-816d-fd20ba473b54.htm" />
-    <HelpKINode Title="type conversions" Url="html/b058f45a-fa26-d9fd-507f-5d43a58ce94f.htm" />
-  </HelpKINode>
-  <HelpKINode Title="QueryParameters.QueryParameters constructor" Url="html/55886447-41e9-f809-601a-073f8daaa31e.htm" />
-  <HelpKINode Title="QueryParameters.ToString method" Url="html/693d84a1-672a-3cc8-6809-deee70e86749.htm" />
   <HelpKINode Title="RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
   <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
@@ -270,12 +250,8 @@
   <HelpKINode Title="String to Point conversion" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
   <HelpKINode Title="String to Polyline conversion" Url="html/07c92d85-95fd-e9ef-d5cf-1a646d0755cd.htm" />
-  <HelpKINode Title="String to QueryParameters conversion" Url="html/eb13cae5-7d06-7495-e60f-aa53e9f892e8.htm" />
   <HelpKINode Title="success property" Url="html/6e037f37-2e5d-89e9-f9fe-e08db5e15be9.htm" />
-  <HelpKINode Title="ToString method">
-    <HelpKINode Title="Geometry.ToString Method " Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
-    <HelpKINode Title="QueryParameters.ToString Method " Url="html/693d84a1-672a-3cc8-6809-deee70e86749.htm" />
-  </HelpKINode>
+  <HelpKINode Title="ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
     <HelpKINode Title="Field.type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
