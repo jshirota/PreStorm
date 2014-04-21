@@ -25,7 +25,7 @@ namespace PreStorm
         {
             var parameters = new Dictionary<string, object>
             {
-                {"where", whereClause},
+                {"where", string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause},
                 {"orderByFields", orderByFields},
                 {"geometry", geometry},
                 {"geometryType", geometryType},
