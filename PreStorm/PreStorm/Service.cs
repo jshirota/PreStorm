@@ -127,7 +127,7 @@ namespace PreStorm
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -158,7 +158,7 @@ namespace PreStorm
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -173,7 +173,7 @@ namespace PreStorm
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -188,7 +188,7 @@ namespace PreStorm
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -202,7 +202,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -216,7 +216,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -230,7 +230,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
@@ -244,7 +244,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url escaped.</param>
+        /// <param name="extraParameters">The query string that describes any additional query parameters.  Each parameter must be url encoded.</param>
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
