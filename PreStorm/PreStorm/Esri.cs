@@ -21,8 +21,8 @@ namespace PreStorm
             var queryString = string.Join("&", parameters.Where(o => o.Value != null).Select(o => string.Format("{0}={1}", o.Key, o.Value)));
 
             var json = data == null
-                ? Http.Get(String.Format("{0}{1}{2}", url, url.Contains("?") ? "&" : "?", queryString), credentials)
-                : Http.Post(url, String.Format("{0}&{1}", data, queryString), credentials);
+                ? Http.Get(string.Format("{0}{1}{2}", url, url.Contains("?") ? "&" : "?", queryString), credentials)
+                : Http.Post(url, string.Format("{0}&{1}", data, queryString), credentials);
 
             var response = json.Deserialize<T>();
 
@@ -44,21 +44,21 @@ namespace PreStorm
             return GetServiceInfoMemoized(args);
         }
 
-        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause)
+        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, QueryParameters queryParameters)
         {
             var url = args.Url + "/" + layerId + "/query";
-            var data = String.Format("where={0}&returnIdsOnly=true",
-                HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause));
+            var data = string.Format("{0}&returnIdsOnly=true",
+                queryParameters.ToQueryString());
 
             return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, QueryParameters queryParameters, IEnumerable<int> objectIds)
         {
             var url = args.Url + "/" + layerId + "/query";
-            var data = String.Format("where={0}&objectIds={1}&returnGeometry={2}&outFields=*",
-                HttpUtility.UrlEncode(String.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
-                objectIds == null ? "" : HttpUtility.UrlEncode(String.Join(",", objectIds)),
+            var data = string.Format("{0}&objectIds={1}&returnGeometry={2}&outFields=*",
+                queryParameters.ToQueryString(),
+                objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds)),
                 returnGeometry ? "true" : "false");
 
             return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
@@ -76,8 +76,8 @@ namespace PreStorm
 
         public static EditResultSet ApplyEdits(ServiceArgs args, int layerId, string operation, string json)
         {
-            var url = String.Format("{0}/{1}/applyEdits", args.Url, layerId);
-            var data = String.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
+            var url = string.Format("{0}/{1}/applyEdits", args.Url, layerId);
+            var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
 
             return GetResponse<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
@@ -97,7 +97,7 @@ namespace PreStorm
             var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
 
             if (domain == null)
-                throw new Exception(String.Format("Coded value domain '{0}' does not exist.", domainName));
+                throw new Exception(string.Format("Coded value domain '{0}' does not exist.", domainName));
 
             return domain.codedValues;
         }
@@ -110,9 +110,9 @@ namespace PreStorm
                 return codedValues.Single();
 
             if (codedValues.Length == 0)
-                throw new Exception(String.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
+                throw new Exception(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
 
-            throw new Exception(String.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
+            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
         }
 
         public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
@@ -123,9 +123,9 @@ namespace PreStorm
                 return codedValues.Single();
 
             if (codedValues.Length == 0)
-                throw new Exception(String.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
+                throw new Exception(string.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
 
-            throw new Exception(String.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
+            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
         }
     }
 
