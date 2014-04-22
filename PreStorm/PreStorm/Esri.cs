@@ -20,16 +20,37 @@ namespace PreStorm
 
             var queryString = string.Join("&", parameters.Where(o => o.Value != null).Select(o => string.Format("{0}={1}", o.Key, o.Value)));
 
-            var json = data == null
-                ? Http.Get(string.Format("{0}{1}{2}", url, url.Contains("?") ? "&" : "?", queryString), credentials)
-                : Http.Post(url, string.Format("{0}&{1}", data, queryString), credentials);
+            string url2;
+            string data2;
+            var isPost = data != null;
+            string json = null;
 
-            var response = json.Deserialize<T>();
+            if (isPost)
+            {
+                data2 = data + "&" + queryString;
+                url2 = url;
+            }
+            else
+            {
+                data2 = url.Contains("?") ? (url.Split('?')[1] + "&" + queryString) : queryString;
+                url2 = url + "?" + data2;
+            }
 
-            if (response.error != null)
-                throw new Exception(response.error.message);
+            try
+            {
+                json = isPost ? Http.Post(url2, data2, credentials) : Http.Get(url2, credentials);
 
-            return response;
+                var response = json.Deserialize<T>();
+
+                if (response.error != null)
+                    throw new Exception(response.error.message);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw new RestException(url2, data2, isPost ? "POST" : "GET", json, string.Format("An error occurred while processing a request against '{0}'.", url), ex);
+            }
         }
 
         private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(i =>
