@@ -143,6 +143,7 @@
   <HelpKINode Title="Layer.fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
   <HelpKINode Title="Layer.id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="Layer.Layer constructor" Url="html/ed2913f4-1a7b-99dd-26a3-6d0d48ab6b10.htm" />
+  <HelpKINode Title="Layer.maxRecordCount property" Url="html/f5ae5613-b6c8-c540-6733-efd5b88b0bd5.htm" />
   <HelpKINode Title="Layer.name property" Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
   <HelpKINode Title="Layer.type property" Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
   <HelpKINode Title="Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
@@ -155,6 +156,7 @@
   <HelpKINode Title="Mapped.GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="Mapped.GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
   <HelpKINode Title="Mapped.Mapped constructor" Url="html/1d84c975-ab9a-da78-ec36-6b4921714300.htm" />
+  <HelpKINode Title="maxRecordCount property" Url="html/f5ae5613-b6c8-c540-6733-efd5b88b0bd5.htm" />
   <HelpKINode Title="message property" Url="html/bc7418da-b635-520d-a6f4-1d2aa6048399.htm" />
   <HelpKINode Title="Multipoint class">
     <HelpKINode Title="Multipoint Class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm" />
