@@ -11,7 +11,12 @@ namespace PreStorm
                 t.IsSubclassOf(typeof(Feature<Multipoint>)) ||
                 t.IsSubclassOf(typeof(Feature<Polyline>)) ||
                 t.IsSubclassOf(typeof(Feature<Polygon>)) ||
-                t.IsSubclassOf(typeof(Feature<Geometry>)));
+                t.IsSubclassOf(typeof(Feature<Geometry>)) ||
+                t == typeof(Feature<Point>) ||
+                t == typeof(Feature<Multipoint>) ||
+                t == typeof(Feature<Polyline>) ||
+                t == typeof(Feature<Polygon>) ||
+                t == typeof(Feature<Geometry>));
 
         public static bool HasGeometry(this Type type)
         {

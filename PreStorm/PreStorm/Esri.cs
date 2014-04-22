@@ -180,6 +180,11 @@ namespace PreStorm
         /// The fields of the layer.
         /// </summary>
         public Field[] fields { get; set; }
+
+        /// <summary>
+        /// The maximum number of records the server can return for each query.
+        /// </summary>
+        public int? maxRecordCount { get; set; }
     }
 
     /// <summary>

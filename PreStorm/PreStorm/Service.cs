@@ -143,7 +143,7 @@ namespace PreStorm
 
             var objectIds = featureSet.features.Select(g => Convert.ToInt32(g.attributes[layer.GetObjectIdFieldName()])).ToArray();
 
-            if (!keepQuerying || objectIds.Length == 0)
+            if (!keepQuerying || objectIds.Length == 0 || layer.maxRecordCount > objectIds.Length)
                 yield break;
 
             var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause, extraParameters).objectIds.Except(objectIds);
