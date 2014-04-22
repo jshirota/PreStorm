@@ -22,6 +22,11 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// The maximum number of records the server can return for each query.
+        /// </summary>
+        public int? MaxRecordCount { get; private set; }
+
+        /// <summary>
         /// The feature layers and tables exposed by this service.
         /// </summary>
         public Layer[] Layers { get; private set; }
@@ -36,6 +41,8 @@ namespace PreStorm
             ServiceArgs = new ServiceArgs(url, credentials, userName, password, gdbVersion);
 
             var serviceInfo = Esri.GetServiceInfo(ServiceArgs);
+
+            MaxRecordCount = serviceInfo.maxRecordCount;
 
             Layers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -143,7 +150,7 @@ namespace PreStorm
 
             var objectIds = featureSet.features.Select(g => Convert.ToInt32(g.attributes[layer.GetObjectIdFieldName()])).ToArray();
 
-            if (!keepQuerying || objectIds.Length == 0 || layer.maxRecordCount > objectIds.Length)
+            if (!keepQuerying || objectIds.Length == 0 || MaxRecordCount > objectIds.Length)
                 yield break;
 
             var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause, extraParameters).objectIds.Except(objectIds);

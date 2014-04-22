@@ -180,11 +180,6 @@ namespace PreStorm
         /// The fields of the layer.
         /// </summary>
         public Field[] fields { get; set; }
-
-        /// <summary>
-        /// The maximum number of records the server can return for each query.
-        /// </summary>
-        public int? maxRecordCount { get; set; }
     }
 
     /// <summary>
@@ -284,6 +279,7 @@ namespace PreStorm
     {
         public Layer[] layers { get; set; }
         public Layer[] tables { get; set; }
+        public int? maxRecordCount { get; set; }
     }
 
     internal class TokenInfo : Response
