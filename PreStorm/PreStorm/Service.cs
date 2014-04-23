@@ -11,6 +11,8 @@ namespace PreStorm
     /// </summary>
     public class Service
     {
+        private readonly int? _maxRecordCount;
+
         internal ServiceArgs ServiceArgs { get; private set; }
 
         /// <summary>
@@ -20,11 +22,6 @@ namespace PreStorm
         {
             get { return ServiceArgs.Url; }
         }
-
-        /// <summary>
-        /// The maximum number of records the server can return for each query.
-        /// </summary>
-        public int? MaxRecordCount { get; private set; }
 
         /// <summary>
         /// The feature layers and tables exposed by this service.
@@ -42,7 +39,7 @@ namespace PreStorm
 
             var serviceInfo = Esri.GetServiceInfo(ServiceArgs);
 
-            MaxRecordCount = serviceInfo.maxRecordCount;
+            _maxRecordCount = serviceInfo.maxRecordCount;
 
             Layers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -60,7 +57,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Initializes a new instance of the Service class.
+        /// Initializes a new instance of the Service class.  Possibly throws RestException.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="credentials">The windows crendentials used for secured services.</param>
@@ -68,7 +65,7 @@ namespace PreStorm
         public Service(string url, ICredentials credentials, string gdbVersion = null) : this(url, credentials, null, null, gdbVersion) { }
 
         /// <summary>
-        /// Initializes a new instance of the Service class.
+        /// Initializes a new instance of the Service class.  Possibly throws RestException.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="userName">The user name for token-based authentication.</param>
@@ -77,7 +74,7 @@ namespace PreStorm
         public Service(string url, string userName, string password, string gdbVersion = null) : this(url, null, userName, password, gdbVersion) { }
 
         /// <summary>
-        /// Initializes a new instance of the Service class.
+        /// Initializes a new instance of the Service class.  Possibly throws RestException.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="gdbVersion">The geodatabase version.</param>
@@ -129,7 +126,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and yields them as a lazy sequence of features of the specified type.
+        /// Downloads records and yields them as a lazy sequence of features of the specified type.  Possibly throws RestException.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -150,7 +147,7 @@ namespace PreStorm
 
             var objectIds = featureSet.features.Select(g => Convert.ToInt32(g.attributes[layer.GetObjectIdFieldName()])).ToArray();
 
-            if (!keepQuerying || objectIds.Length == 0 || MaxRecordCount > objectIds.Length)
+            if (!keepQuerying || objectIds.Length == 0 || _maxRecordCount > objectIds.Length)
                 yield break;
 
             var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause, extraParameters).objectIds.Except(objectIds);
@@ -160,7 +157,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads records and yields them as a lazy sequence of features of the specified type.
+        /// Downloads records and yields them as a lazy sequence of features of the specified type.  Possibly throws RestException.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
@@ -175,7 +172,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features of the specified type.
+        /// Downloads features of the specified type.  Possibly throws RestException.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -190,7 +187,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features of the specified type.
+        /// Downloads features of the specified type.  Possibly throws RestException.
         /// </summary>
         /// <typeparam name="T">The type the record should be mapped to.</typeparam>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
@@ -205,7 +202,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
+        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
@@ -219,7 +216,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.
+        /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
@@ -233,7 +230,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
+        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
@@ -247,7 +244,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.
+        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
         /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>

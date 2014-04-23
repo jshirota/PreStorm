@@ -11,45 +11,45 @@ namespace PreStorm
     {
         private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
-            var parameters = new Dictionary<string, object>
-            {
-                {"token", token},
-                {"gdbVersion", gdbVersion},
-                {"f", "json"}
-            };
+            var parameters = new Dictionary<string, object> { { "token", token }, { "gdbVersion", gdbVersion }, { "f", "json" } };
+            var queryString = string.Join("&", parameters.Where(p => p.Value != null).Select(p => string.Format("{0}={1}", p.Key, HttpUtility.UrlEncode(p.Value.ToString()))));
 
-            var queryString = string.Join("&", parameters.Where(o => o.Value != null).Select(o => string.Format("{0}={1}", o.Key, o.Value)));
-
-            string url2;
-            string data2;
             var isPost = data != null;
-            string json = null;
 
-            if (isPost)
-            {
-                data2 = data + "&" + queryString;
-                url2 = url;
-            }
-            else
-            {
-                data2 = url.Contains("?") ? (url.Split('?')[1] + "&" + queryString) : queryString;
-                url2 = url + "?" + data2;
-            }
+            var url2 = isPost ? url : (url + (url.Contains("?") ? "&" : "?") + queryString);
+            var requestText = isPost ? data + "&" + queryString : "";
+
+            string responseText = null;
 
             try
             {
-                json = isPost ? Http.Post(url2, data2, credentials) : Http.Get(url2, credentials);
+                responseText = isPost ? Http.Post(url2, requestText, credentials) : Http.Get(url2, credentials);
 
-                var response = json.Deserialize<T>();
+                var response = responseText.Deserialize<T>();
+                var errorMessage = "ArcGIS Server returned an error response.";
 
                 if (response.error != null)
-                    throw new Exception(response.error.message);
+                    throw new Exception(errorMessage);
+
+                var editResultSet = response as EditResultSet;
+
+                if (editResultSet != null)
+                {
+                    if (editResultSet.addResults == null || editResultSet.addResults.Any(r => !r.success))
+                        throw new Exception(errorMessage);
+
+                    if (editResultSet.updateResults == null || editResultSet.updateResults.Any(r => !r.success))
+                        throw new Exception(errorMessage);
+
+                    if (editResultSet.deleteResults == null || editResultSet.deleteResults.Any(r => !r.success))
+                        throw new Exception(errorMessage);
+                }
 
                 return response;
             }
             catch (Exception ex)
             {
-                throw new RestException(url2, data2, isPost ? "POST" : "GET", json, string.Format("An error occurred while processing a request against '{0}'.", url), ex);
+                throw new RestException(url2, requestText, responseText, string.Format("An error occurred while processing a request against '{0}'.", url2), ex);
             }
         }
 
@@ -157,27 +157,6 @@ namespace PreStorm
     #region Public
 
     /// <summary>
-    /// Represents the error object as defined in the ArcGIS Rest API.
-    /// </summary>
-    public class Error
-    {
-        /// <summary>
-        /// The error code.
-        /// </summary>
-        public int code { get; set; }
-
-        /// <summary>
-        /// The error message.
-        /// </summary>
-        public string message { get; set; }
-
-        /// <summary>
-        /// The error details.
-        /// </summary>
-        public string[] details { get; set; }
-    }
-
-    /// <summary>
     /// Represents the layer object as defined in the ArcGIS Rest API.
     /// </summary>
     public class Layer
@@ -261,35 +240,13 @@ namespace PreStorm
         public object code { get; set; }
     }
 
-    /// <summary>
-    /// Represents the edit result object as defined in the ArcGIS Rest API.
-    /// </summary>
-    public class EditResult
-    {
-        /// <summary>
-        /// The Object ID of the feature.
-        /// </summary>
-        public int objectId { get; set; }
-
-        /// <summary>
-        /// The Global ID of the feature.
-        /// </summary>
-        public string globalId { get; set; }
-
-        /// <summary>
-        /// Indicates if the edit was successful.
-        /// </summary>
-        public bool success { get; set; }
-
-        /// <summary>
-        /// Any error that occurred during the edit.
-        /// </summary>
-        public Error error { get; set; }
-    }
-
     #endregion
 
     #region Internal
+
+    internal class Error
+    {
+    }
 
     internal class Response
     {
@@ -340,6 +297,13 @@ namespace PreStorm
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
         public double[][][] rings { get; set; }
+    }
+
+    internal class EditResult
+    {
+        public int objectId { get; set; }
+        public bool success { get; set; }
+        public Error error { get; set; }
     }
 
     #endregion

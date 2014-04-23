@@ -17,37 +17,35 @@ namespace PreStorm
         /// <summary>
         /// The data sent to the server.
         /// </summary>
-        public string DataText { get; private set; }
-
-        /// <summary>
-        /// The HTTP method (GET or POST).
-        /// </summary>
-        public string HttpMethod { get; private set; }
+        public string Request { get; private set; }
 
         /// <summary>
         /// The JSON response from ArcGIS Server.
         /// </summary>
-        public string ResponseJson { get; private set; }
+        public string Response { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the RestException class.
         /// </summary>
         /// <param name="url"></param>
-        /// <param name="dataText"></param>
-        /// <param name="httpMethod"></param>
-        /// <param name="responseJson"></param>
+        /// <param name="request"></param>
+        /// <param name="response"></param>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public RestException(string url, string dataText, string httpMethod, string responseJson, string message, Exception innerException)
+        public RestException(string url, string request, string response, string message, Exception innerException)
             : base(message, innerException)
         {
             Url = url;
-            DataText = dataText;
-            HttpMethod = httpMethod;
-            ResponseJson = responseJson;
+            Request = request;
+            Response = response;
         }
 
         // ReSharper disable RedundantOverridenMember
+        /// <summary>
+        /// When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo with information about the exception.
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             base.GetObjectData(info, context);
