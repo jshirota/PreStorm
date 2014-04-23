@@ -37,12 +37,12 @@ namespace PreStorm
     public class InsertResult<T> : EditResultBase
     {
         /// <summary>
-        /// The inserted features.  In case of an error, this returns an empty array.
+        /// The inserted features.  In case of an error, returns an empty array.
         /// </summary>
         public T[] InsertedFeatures { get; private set; }
 
         /// <summary>
-        /// 
+        /// The inserted feature.  In case of an error, returns null.
         /// </summary>
         public T InsertedFeature
         {
