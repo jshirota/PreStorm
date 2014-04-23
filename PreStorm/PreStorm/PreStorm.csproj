@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Editor.cs" />
+    <Compile Include="EditResultBase.cs" />
     <Compile Include="Esri.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="RestException.cs" />

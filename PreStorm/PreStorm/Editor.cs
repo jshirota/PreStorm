@@ -30,18 +30,27 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static T[] InsertInto<T>(this T[] features, Service service, int layerId) where T : Feature
+        public static InsertResult<T> InsertInto<T>(this T[] features, Service service, int layerId) where T : Feature
         {
-            if (features.Length == 0)
-                return new T[] { };
+            try
+            {
+                if (features.Length == 0)
+                    return new InsertResult<T>(true);
 
-            var layer = service.GetLayer(layerId);
+                var layer = service.GetLayer(layerId);
 
-            var adds = features.Select(f => f.ToGraphic(layer, false)).ToArray();
+                var adds = features.Select(f => f.ToGraphic(layer, false)).ToArray();
 
-            var editResultInfo = Esri.ApplyEdits(service.ServiceArgs, layer.id, "adds", adds.Serialize());
+                var editResultInfo = Esri.ApplyEdits(service.ServiceArgs, layer.id, "adds", adds.Serialize());
 
-            return service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray();
+                var addedFeatures = service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray();
+
+                return new InsertResult<T>(true, null, addedFeatures);
+            }
+            catch (RestException restException)
+            {
+                return new InsertResult<T>(false, restException);
+            }
         }
 
         /// <summary>
@@ -52,9 +61,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static T InsertInto<T>(this T feature, Service service, int layerId) where T : Feature
+        public static InsertResult<T> InsertInto<T>(this T feature, Service service, int layerId) where T : Feature
         {
-            return new[] { feature }.InsertInto(service, layerId).FirstOrDefault();
+            return new[] { feature }.InsertInto(service, layerId);
         }
 
         /// <summary>
@@ -65,7 +74,7 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerName"></param>
         /// <returns></returns>
-        public static T[] InsertInto<T>(this T[] features, Service service, string layerName) where T : Feature
+        public static InsertResult<T> InsertInto<T>(this T[] features, Service service, string layerName) where T : Feature
         {
             return features.InsertInto(service, service.GetLayer(layerName).id);
         }
@@ -78,7 +87,7 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerName"></param>
         /// <returns></returns>
-        public static T InsertInto<T>(this T feature, Service service, string layerName) where T : Feature
+        public static InsertResult<T> InsertInto<T>(this T feature, Service service, string layerName) where T : Feature
         {
             return feature.InsertInto(service, service.GetLayer(layerName).id);
         }
@@ -91,9 +100,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static Task<T[]> InsertIntoAsync<T>(this T[] features, Service service, int layerId) where T : Feature
+        public static Task<InsertResult<T>> InsertIntoAsync<T>(this T[] features, Service service, int layerId) where T : Feature
         {
-            return Task<T[]>.Factory.StartNew(() => features.InsertInto(service, layerId));
+            return Task<InsertResult<T>>.Factory.StartNew(() => features.InsertInto(service, layerId));
         }
 
         /// <summary>
@@ -104,9 +113,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static Task<T> InsertIntoAsync<T>(this T feature, Service service, int layerId) where T : Feature
+        public static Task<InsertResult<T>> InsertIntoAsync<T>(this T feature, Service service, int layerId) where T : Feature
         {
-            return Task<T>.Factory.StartNew(() => feature.InsertInto(service, layerId));
+            return Task<InsertResult<T>>.Factory.StartNew(() => feature.InsertInto(service, layerId));
         }
 
         /// <summary>
@@ -117,9 +126,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerName"></param>
         /// <returns></returns>
-        public static Task<T[]> InsertIntoAsync<T>(this T[] features, Service service, string layerName) where T : Feature
+        public static Task<InsertResult<T>> InsertIntoAsync<T>(this T[] features, Service service, string layerName) where T : Feature
         {
-            return Task<T[]>.Factory.StartNew(() => features.InsertInto(service, layerName));
+            return Task<InsertResult<T>>.Factory.StartNew(() => features.InsertInto(service, layerName));
         }
 
         /// <summary>
@@ -130,9 +139,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerName"></param>
         /// <returns></returns>
-        public static Task<T> InsertIntoAsync<T>(this T feature, Service service, string layerName) where T : Feature
+        public static Task<InsertResult<T>> InsertIntoAsync<T>(this T feature, Service service, string layerName) where T : Feature
         {
-            return Task<T>.Factory.StartNew(() => feature.InsertInto(service, layerName));
+            return Task<InsertResult<T>>.Factory.StartNew(() => feature.InsertInto(service, layerName));
         }
 
         #endregion
@@ -145,26 +154,35 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static void Update<T>(this T[] features) where T : Feature
+        public static UpdateResult Update<T>(this T[] features) where T : Feature
         {
-            if (features.Length == 0)
-                return;
+            try
+            {
+                if (features.Length == 0)
+                    return new UpdateResult(true);
 
-            if (features.Any(f => !f.IsDataBound))
-                throw new Exception("All features must be bound to a data source before updating.");
+                if (features.Any(f => !f.IsDataBound))
+                    throw new Exception("All features must be bound to a data source before they can be updated.");
 
-            var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
-            var layer = GetUnique(features, f => f.Layer, "layer");
+                var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
+                var layer = GetUnique(features, f => f.Layer, "layer");
 
-            var updates = features.Select(f => f.ToGraphic(layer, true)).Where(o => o != null).ToArray();
+                var updates = features.Select(f => f.ToGraphic(layer, true)).Where(o => o != null).ToArray();
 
-            if (updates.Length == 0)
-                return;
+                if (updates.Length == 0)
+                    return new UpdateResult(true);
 
-            Esri.ApplyEdits(args, layer.id, "updates", updates.Serialize());
+                Esri.ApplyEdits(args, layer.id, "updates", updates.Serialize());
 
-            foreach (var f in features)
-                f.IsDirty = false;
+                foreach (var f in features)
+                    f.IsDirty = false;
+
+                return new UpdateResult(true);
+            }
+            catch (RestException restException)
+            {
+                return new UpdateResult(false, restException);
+            }
         }
 
         /// <summary>
@@ -173,12 +191,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static void Update<T>(this T feature) where T : Feature
+        public static UpdateResult Update<T>(this T feature) where T : Feature
         {
-            if (!feature.IsDataBound)
-                throw new Exception("The feature cannot be updated because it is not bound to a data source.");
-
-            new[] { feature }.Update();
+            return new[] { feature }.Update();
         }
 
         /// <summary>
@@ -187,9 +202,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static Task UpdateAsync<T>(this T[] features) where T : Feature
+        public static Task<UpdateResult> UpdateAsync<T>(this T[] features) where T : Feature
         {
-            return Task.Factory.StartNew(features.Update);
+            return Task<UpdateResult>.Factory.StartNew(features.Update);
         }
 
         /// <summary>
@@ -198,9 +213,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static Task UpdateAsync<T>(this T feature) where T : Feature
+        public static Task<UpdateResult> UpdateAsync<T>(this T feature) where T : Feature
         {
-            return Task.Factory.StartNew(feature.Update);
+            return Task<UpdateResult>.Factory.StartNew(feature.Update);
         }
 
         #endregion
@@ -213,27 +228,36 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static void Delete<T>(this T[] features) where T : Feature
+        public static DeleteResult Delete<T>(this T[] features) where T : Feature
         {
-            if (features.Length == 0)
-                return;
-
-            if (features.Any(f => !f.IsDataBound))
-                throw new Exception("All features must be bound to a data source before deleting.");
-
-            var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
-            var layer = GetUnique(features, f => f.Layer, "layer");
-
-            var deletes = string.Join(",", features.Select(f => f.OID));
-
-            Esri.ApplyEdits(args, layer.id, "deletes", deletes);
-
-            foreach (var f in features)
+            try
             {
-                f.ServiceArgs = null;
-                f.Layer = null;
-                f.OID = -1;
-                f.IsDirty = false;
+                if (features.Length == 0)
+                    return new DeleteResult(true);
+
+                if (features.Any(f => !f.IsDataBound))
+                    throw new Exception("All features must be bound to a data source before they can be deleted.");
+
+                var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
+                var layer = GetUnique(features, f => f.Layer, "layer");
+
+                var deletes = string.Join(",", features.Select(f => f.OID));
+
+                Esri.ApplyEdits(args, layer.id, "deletes", deletes);
+
+                foreach (var f in features)
+                {
+                    f.ServiceArgs = null;
+                    f.Layer = null;
+                    f.OID = -1;
+                    f.IsDirty = false;
+                }
+
+                return new DeleteResult(true);
+            }
+            catch (RestException restException)
+            {
+                return new DeleteResult(false, restException);
             }
         }
 
@@ -243,12 +267,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static void Delete<T>(this T feature) where T : Feature
+        public static DeleteResult Delete<T>(this T feature) where T : Feature
         {
-            if (!feature.IsDataBound)
-                throw new Exception("The feature cannot be deleted because it is not bound to a data source.");
-
-            new[] { feature }.Delete();
+            return new[] { feature }.Delete();
         }
 
         /// <summary>
@@ -257,9 +278,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static Task DeleteAsync<T>(this T[] features) where T : Feature
+        public static Task<DeleteResult> DeleteAsync<T>(this T[] features) where T : Feature
         {
-            return Task.Factory.StartNew(features.Delete);
+            return Task<DeleteResult>.Factory.StartNew(features.Delete);
         }
 
         /// <summary>
@@ -268,9 +289,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static Task DeleteAsync<T>(this T feature) where T : Feature
+        public static Task<DeleteResult> DeleteAsync<T>(this T feature) where T : Feature
         {
-            return Task.Factory.StartNew(feature.Delete);
+            return Task<DeleteResult>.Factory.StartNew(feature.Delete);
         }
 
         #endregion
