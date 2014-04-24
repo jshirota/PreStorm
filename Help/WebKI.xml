@@ -36,6 +36,15 @@
   <HelpKINode Title="Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   <HelpKINode Title="DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
+  <HelpKINode Title="DynamicFeature class">
+    <HelpKINode Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
+    <HelpKINode Title="about DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
+    <HelpKINode Title="constructor" Url="html/055c9497-35f1-5c97-a5c5-2ee3a21e49a9.htm" />
+    <HelpKINode Title="events" Url="html/765e923e-92bd-f131-cc73-96c0e737f5cd.htm" />
+    <HelpKINode Title="methods" Url="html/4a5ada6b-55b9-3ec9-891d-8da9befcf28d.htm" />
+    <HelpKINode Title="properties" Url="html/a555e932-5f3e-98e3-bd8d-a6fff2089a56.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DynamicFeature.DynamicFeature constructor" Url="html/055c9497-35f1-5c97-a5c5-2ee3a21e49a9.htm" />
   <HelpKINode Title="Editor class">
     <HelpKINode Title="Editor Class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
     <HelpKINode Title="about Editor class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
@@ -223,6 +232,7 @@
   <HelpKINode Title="PreStorm.CodedValue class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
   <HelpKINode Title="PreStorm.DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
   <HelpKINode Title="PreStorm.Domain class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm" />
+  <HelpKINode Title="PreStorm.DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
   <HelpKINode Title="PreStorm.Editor class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
   <HelpKINode Title="PreStorm.EditResultBase class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
   <HelpKINode Title="PreStorm.Feature class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
