@@ -31,19 +31,10 @@ namespace PreStorm
                 if (response.error != null)
                     throw new Exception(errorMessage);
 
-                var editResultSet = response as EditResultSet;
+                var resultSet = response as EditResultSet;
 
-                if (editResultSet != null)
-                {
-                    if (editResultSet.addResults == null || editResultSet.addResults.Any(r => !r.success))
-                        throw new Exception(errorMessage);
-
-                    if (editResultSet.updateResults == null || editResultSet.updateResults.Any(r => !r.success))
-                        throw new Exception(errorMessage);
-
-                    if (editResultSet.deleteResults == null || editResultSet.deleteResults.Any(r => !r.success))
-                        throw new Exception(errorMessage);
-                }
+                if (resultSet != null && new[] { resultSet.addResults, resultSet.updateResults, resultSet.deleteResults }.Any(results => results == null || results.Any(r => !r.success)))
+                    throw new Exception(errorMessage);
 
                 return response;
             }
@@ -53,11 +44,11 @@ namespace PreStorm
             }
         }
 
-        private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(i =>
+        private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(a =>
         {
-            var url = Regex.Replace(i.Url, @"/FeatureServer($|/)", i.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase) + "/layers";
+            var url = string.Format("{0}/layers", Regex.Replace(a.Url, @"/FeatureServer($|/)", a.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase));
 
-            return GetResponse<ServiceInfo>(url, null, i.Credentials, i.Token, i.GdbVersion);
+            return GetResponse<ServiceInfo>(url, null, a.Credentials, a.Token, a.GdbVersion);
         });
 
         public static ServiceInfo GetServiceInfo(ServiceArgs args)
@@ -67,7 +58,7 @@ namespace PreStorm
 
         public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause, string extraParameters)
         {
-            var url = args.Url + "/" + layerId + "/query";
+            var url = string.Format("{0}/{1}/query", args.Url, layerId);
             var data = string.Format("where={0}&{1}&returnIdsOnly=true",
                 HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
                 extraParameters);
@@ -77,7 +68,7 @@ namespace PreStorm
 
         public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
-            var url = args.Url + "/" + layerId + "/query";
+            var url = string.Format("{0}/{1}/query", args.Url, layerId);
             var data = string.Format("where={0}&{1}&objectIds={2}&returnGeometry={3}&outFields=*",
                 HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
                 extraParameters,

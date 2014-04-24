@@ -210,9 +210,9 @@ namespace PreStorm
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<Feature<Geometry>> Download(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public IEnumerable<DynamicFeature> Download(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return Download<Feature<Geometry>>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
+            return Download<DynamicFeature>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
@@ -224,9 +224,9 @@ namespace PreStorm
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public IEnumerable<Feature<Geometry>> Download(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public IEnumerable<DynamicFeature> Download(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return Download<Feature<Geometry>>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
+            return Download<DynamicFeature>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
@@ -238,9 +238,9 @@ namespace PreStorm
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<Feature<Geometry>[]> DownloadAsync(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return DownloadAsync<Feature<Geometry>>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
+            return DownloadAsync<DynamicFeature>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
 
         /// <summary>
@@ -252,9 +252,9 @@ namespace PreStorm
         /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
-        public Task<Feature<Geometry>[]> DownloadAsync(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
+        public Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
-            return DownloadAsync<Feature<Geometry>>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
+            return DownloadAsync<DynamicFeature>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
         }
     }
 }
