@@ -23,7 +23,7 @@ namespace PreStorm
         #region Insert
 
         /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.  Possibly throws RestException.
+        /// Inserts the features into a layer and returns the newly created features.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -54,7 +54,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.  Possibly throws RestException.
+        /// Inserts the feature into a layer and returns the newly created feature.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -67,7 +67,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.  Possibly throws RestException.
+        /// Inserts the features into a layer and returns the newly created features.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -80,7 +80,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.  Possibly throws RestException.
+        /// Inserts the feature into a layer and returns the newly created feature.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -93,7 +93,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.  Possibly throws RestException.
+        /// Inserts the features into a layer and returns the newly created features.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -106,7 +106,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.  Possibly throws RestException.
+        /// Inserts the feature into a layer and returns the newly created feature.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -119,7 +119,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.  Possibly throws RestException.
+        /// Inserts the features into a layer and returns the newly created features.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -132,7 +132,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.  Possibly throws RestException.
+        /// Inserts the feature into a layer and returns the newly created feature.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -149,7 +149,7 @@ namespace PreStorm
         #region Update
 
         /// <summary>
-        /// Updates the features in the underlying layer.  Possibly throws RestException.
+        /// Updates the features in the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -186,7 +186,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Updates the feature in the underlying layer.  Possibly throws RestException.
+        /// Updates the feature in the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -197,7 +197,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Updates the features in the underlying layer.  Possibly throws RestException.
+        /// Updates the features in the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -208,7 +208,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Updates the feature in the underlying layer.  Possibly throws RestException.
+        /// Updates the feature in the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -223,7 +223,7 @@ namespace PreStorm
         #region Delete
 
         /// <summary>
-        /// Deletes the features from the underlying layer.  Possibly throws RestException.
+        /// Deletes the features from the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -262,7 +262,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Deletes the feature from the underlying layer.  Possibly throws RestException.
+        /// Deletes the feature from the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
@@ -273,7 +273,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Deletes the features from the underlying layer.  Possibly throws RestException.
+        /// Deletes the features from the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
@@ -284,7 +284,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Deletes the feature from the underlying layer.  Possibly throws RestException.
+        /// Deletes the feature from the underlying layer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
