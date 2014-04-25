@@ -124,7 +124,7 @@ namespace PreStorm
             }
 
             foreach (var a in feature.UnmappedFields)
-                if (feature.ChangedFields.Contains(a.Key))
+                if (!changesOnly || feature.ChangedFields.Contains(a.Key))
                     attributes.Add(a.Key, a.Value);
 
             return !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
