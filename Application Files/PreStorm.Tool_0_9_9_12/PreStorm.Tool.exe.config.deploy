@@ -11,7 +11,7 @@
     <userSettings>
         <PreStorm.Tool.Properties.Settings>
             <setting name="Url" serializeAs="String">
-                <value>http://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer</value>
+                <value>http://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer</value>
             </setting>
             <setting name="UseWindowsCredentials" serializeAs="String">
                 <value>False</value>
