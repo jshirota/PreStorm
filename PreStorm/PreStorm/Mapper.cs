@@ -66,8 +66,8 @@ namespace PreStorm
             {
                 dynamic f = feature;
 
-                if (g.x != null && g.y != null)
-                    f.Geometry = new Point { x = g.x.Value, y = g.y.Value };
+                if (g.x > double.MinValue && g.y > double.MinValue)
+                    f.Geometry = new Point { x = g.x, y = g.y };
                 else if (g.points != null)
                     f.Geometry = new Multipoint { points = g.points };
                 else if (g.paths != null)

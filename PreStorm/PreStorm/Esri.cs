@@ -283,8 +283,10 @@ namespace PreStorm
 
     internal class CatchAllGeometry
     {
-        public double? x { get; set; }
-        public double? y { get; set; }
+        private double _x = double.MinValue;
+        private double _y = double.MinValue;
+        public double x { get { return _x; } set { _x = value; } }
+        public double y { get { return _y; } set { _y = value; } }
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
         public double[][][] rings { get; set; }
