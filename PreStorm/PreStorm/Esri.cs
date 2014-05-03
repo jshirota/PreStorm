@@ -56,12 +56,27 @@ namespace PreStorm
             return GetServiceInfoMemoized(args);
         }
 
+        private static string CleanWhereClause(string whereClause)
+        {
+            return HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause);
+        }
+
+        private static string CleanExtraParameters(string extraParameters)
+        {
+            return string.IsNullOrWhiteSpace(extraParameters) ? "" : ("&" + extraParameters);
+        }
+
+        private static string CleanObjectIds(IEnumerable<int> objectIds)
+        {
+            return objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds));
+        }
+
         public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause, string extraParameters)
         {
             var url = string.Format("{0}/{1}/query", args.Url, layerId);
-            var data = string.Format("where={0}&{1}&returnIdsOnly=true",
-                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
-                extraParameters);
+            var data = string.Format("where={0}{1}&returnIdsOnly=true",
+                CleanWhereClause(whereClause),
+                CleanExtraParameters(extraParameters));
 
             return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
@@ -69,10 +84,10 @@ namespace PreStorm
         public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
             var url = string.Format("{0}/{1}/query", args.Url, layerId);
-            var data = string.Format("where={0}&{1}&objectIds={2}&returnGeometry={3}&outFields=*",
-                HttpUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause),
-                extraParameters,
-                objectIds == null ? "" : HttpUtility.UrlEncode(string.Join(",", objectIds)),
+            var data = string.Format("where={0}{1}&objectIds={2}&returnGeometry={3}&outFields=*",
+                CleanWhereClause(whereClause),
+                CleanExtraParameters(extraParameters),
+                CleanObjectIds(objectIds),
                 returnGeometry ? "true" : "false");
 
             return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
