@@ -9,6 +9,8 @@ namespace PreStorm
 {
     internal static class Esri
     {
+        public static readonly DateTime BaseTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
             var parameters = new Dictionary<string, object> { { "token", token }, { "gdbVersion", gdbVersion }, { "f", "json" } };
@@ -91,6 +93,11 @@ namespace PreStorm
                 returnGeometry ? "true" : "false");
 
             return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
+        }
+
+        public static bool IsArcGISOnline(this string url)
+        {
+            return Regex.IsMatch(url, @"\.arcgis\.com/", RegexOptions.IgnoreCase);
         }
 
         public static TokenInfo GetTokenInfo(string url, string userName, string password)

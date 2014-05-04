@@ -22,7 +22,7 @@ namespace PreStorm
             if (_expiry == null || _expiry.Value.Subtract(DateTime.UtcNow).TotalMinutes < 1)
             {
                 var t = Esri.GetTokenInfo(_url, _userName, _password);
-                _expiry = Config.BaseTime.AddMilliseconds(t.expires);
+                _expiry = Esri.BaseTime.AddMilliseconds(t.expires);
                 _token = t.token;
             }
 

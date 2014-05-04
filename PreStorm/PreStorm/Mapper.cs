@@ -33,7 +33,7 @@ namespace PreStorm
 
                     if (t == typeof(DateTime))
                     {
-                        value = Config.BaseTime.AddMilliseconds(Convert.ToInt64(value));
+                        value = Esri.BaseTime.AddMilliseconds(Convert.ToInt64(value));
                     }
                     else
                     {
@@ -109,7 +109,7 @@ namespace PreStorm
                 {
                     if (value is DateTime)
                     {
-                        value = Convert.ToInt64(((DateTime)value).ToUniversalTime().Subtract(Config.BaseTime).TotalMilliseconds);
+                        value = Convert.ToInt64(((DateTime)value).ToUniversalTime().Subtract(Esri.BaseTime).TotalMilliseconds);
                     }
                     else
                     {
