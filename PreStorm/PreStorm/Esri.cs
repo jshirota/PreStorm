@@ -138,7 +138,7 @@ namespace PreStorm
             return domain.codedValues;
         }
 
-        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code)
+        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code, bool strictDomain)
         {
             var codedValues = layer.GetCodeValues(domainName).Where(c => c.code.ToString() == code.ToString()).ToArray();
 
@@ -146,7 +146,12 @@ namespace PreStorm
                 return codedValues.Single();
 
             if (codedValues.Length == 0)
+            {
+                if (!strictDomain)
+                    return null;
+
                 throw new Exception(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
+            }
 
             throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
         }

@@ -40,7 +40,10 @@ namespace PreStorm
                         var domainName = m.Mapped.DomainName;
 
                         if (domainName != null)
-                            value = layer.GetCodedValueByCode(domainName, value).name;
+                        {
+                            var codedValue = layer.GetCodedValueByCode(domainName, value, m.Mapped.StrictDomain);
+                            value = codedValue == null ? value.ToString() : codedValue.name;
+                        }
 
                         try
                         {

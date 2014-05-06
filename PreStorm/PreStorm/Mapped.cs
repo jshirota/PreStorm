@@ -9,6 +9,7 @@ namespace PreStorm
     {
         internal readonly string FieldName;
         internal readonly string DomainName;
+        internal readonly bool StrictDomain;
 
         /// <summary>
         /// Initializes a new instance of the Mapped class.
@@ -24,10 +25,12 @@ namespace PreStorm
         /// </summary>
         /// <param name="fieldName">The name of the database field.  Case sensitive.</param>
         /// <param name="domainName">The name of the coded value domain.  Case sensitive.  Optional.  If not specified, the raw values from the database are returned.</param>
-        public Mapped(string fieldName, string domainName)
+        /// <param name="strictDomain">If set to false, returns the raw value (as string) when the value is not one of the codes defined in the domain.  This only applies to when reading data from the data source.  When writing to the data source, the domain conversion is always strict.</param>
+        public Mapped(string fieldName, string domainName, bool strictDomain = true)
             : this(fieldName)
         {
             DomainName = GetDomainName == null ? domainName : GetDomainName(domainName);
+            StrictDomain = strictDomain;
         }
 
         /// <summary>
