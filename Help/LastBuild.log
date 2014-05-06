@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\GitHub\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="5/6/2014 12:17:14 PM">
+<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\GitHub\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="5/6/2014 3:56:16 PM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -22,7 +22,7 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0210
+    Last step completed in 00:00:00.0360
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
@@ -31,7 +31,7 @@ Generating API filter for MRefBuilder...
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 5/6/2014 12:17:15 PM.
+Build started 5/6/2014 3:56:19 PM.
 Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -50,13 +50,13 @@ Done Building Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Ge
 
 Build succeeded.
 
-Time Elapsed 00:00:00.50
-    Last step completed in 00:00:00.5921
+Time Elapsed 00:00:00.65
+    Last step completed in 00:00:00.8260
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 5/6/2014 12:17:16 PM.
+Build started 5/6/2014 3:56:20 PM.
 Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2014.1.26.0)
@@ -76,12 +76,12 @@ Done Building Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Tr
 
 Build succeeded.
 
-Time Elapsed 00:00:00.34
-    Last step completed in 00:00:00.4000
+Time Elapsed 00:00:00.56
+    Last step completed in 00:00:00.6620
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.4480
+    Last step completed in 00:00:00.5520
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -90,12 +90,12 @@ No additional content to copy
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 5/6/2014 12:17:17 PM.
+Build started 5/6/2014 3:56:21 PM.
 Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2014.1.26.0)
@@ -106,24 +106,24 @@ Done Building Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Ge
 
 Build succeeded.
 
-Time Elapsed 00:00:00.09
+Time Elapsed 00:00:00.15
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.1550
+    Last step completed in 00:00:00.2500
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1640
+    Last step completed in 00:00:00.2020
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\GitHub\PreStorm\branches\gh-pages\Help\Working\sandcastle.config
-    Last step completed in 00:00:00.4430
+    Last step completed in 00:00:00.5530
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 5/6/2014 12:17:18 PM.
+Build started 5/6/2014 3:56:22 PM.
 Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
 BuildReferenceTopics:
   BuildAssembler (v2014.1.26.0)
@@ -138,8 +138,8 @@ Done Building Project &quot;D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Bu
 
 Build succeeded.
 
-Time Elapsed 00:00:09.11
-    Last step completed in 00:00:09.2339
+Time Elapsed 00:00:18.80
+    Last step completed in 00:00:18.8980
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -161,7 +161,7 @@ Processed 168 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to D:\GitHub\PreStorm\branches\gh-pages\Help\Working\WebKI.xml
 Saving website table of contents to D:\GitHub\PreStorm\branches\gh-pages\Help\Working\WebTOC.xml
-    Last step completed in 00:00:00.2540
+    Last step completed in 00:00:00.2820
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -260,7 +260,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SyncTOC.gif 
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.css -&gt; D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.js -&gt; D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Web.Config -&gt; D:\GitHub\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\Web.Config
-    Last step completed in 00:00:00.4320
+    Last step completed in 00:00:01.4550
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -269,7 +269,7 @@ Generating website table of contents file...
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.5531
+    Last step completed in 00:00:00.5370
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
@@ -277,15 +277,15 @@ Copying website files to output folder...
 Copied 100 files
 Copied 200 files
 Copied 289 files for the website content
-    Last step completed in 00:00:00.5801
+    Last step completed in 00:00:00.3970
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.2360
+    Last step completed in 00:00:00.1710
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 05/06/2014 12:17 PM.  Total time: 00:00:15.2435
+Build completed successfully at 05/06/2014 03:56 PM.  Total time: 00:00:27.5720
 
 </buildStep>
 </shfbBuild>
