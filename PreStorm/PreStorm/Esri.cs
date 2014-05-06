@@ -123,7 +123,7 @@ namespace PreStorm
             var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
 
             if (objectIdFields.Length != 1)
-                throw new Exception("Layer must have one and only one field of type esriFieldTypeOID.");
+                throw new Exception(string.Format("'{0}' does not have one (and only one) field of type esriFieldTypeOID.", layer.name));
 
             return objectIdFields.Single().name;
         }

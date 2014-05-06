@@ -20,7 +20,7 @@ namespace PreStorm
             foreach (var m in mappings)
             {
                 if (!graphic.attributes.ContainsKey(m.Mapped.FieldName))
-                    throw new Exception(string.Format("Field '{0}' does not exist.", m.Mapped.FieldName));
+                    throw new Exception(string.Format("Field '{0}' does not exist in '{1}'.", m.Mapped.FieldName, layer.name));
 
                 var value = graphic.attributes[m.Mapped.FieldName];
 
