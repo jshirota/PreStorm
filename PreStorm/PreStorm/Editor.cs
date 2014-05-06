@@ -43,9 +43,7 @@ namespace PreStorm
 
                 var editResultInfo = Esri.ApplyEdits(service.ServiceArgs, layer.id, "adds", adds.Serialize());
 
-                var addedFeatures = service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray();
-
-                return new InsertResult<T>(true, null, addedFeatures);
+                return new InsertResult<T>(true, null, () => service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray());
             }
             catch (RestException restException)
             {

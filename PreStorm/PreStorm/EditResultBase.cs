@@ -36,10 +36,12 @@ namespace PreStorm
     /// <typeparam name="T"></typeparam>
     public class InsertResult<T> : EditResultBase
     {
+        private readonly Lazy<T[]> _insertedFeatures;
+
         /// <summary>
         /// The inserted features.  In case of an error, returns an empty array.
         /// </summary>
-        public T[] InsertedFeatures { get; private set; }
+        public T[] InsertedFeatures { get { return _insertedFeatures.Value; } }
 
         /// <summary>
         /// The inserted feature.  In case of an error, returns null.
@@ -62,11 +64,11 @@ namespace PreStorm
         /// </summary>
         /// <param name="success"></param>
         /// <param name="restException"></param>
-        /// <param name="insertedFeatures"></param>
-        public InsertResult(bool success, RestException restException = null, T[] insertedFeatures = null)
+        /// <param name="getInsertedFeatures"></param>
+        public InsertResult(bool success, RestException restException = null, Func<T[]> getInsertedFeatures = null)
             : base(success, restException)
         {
-            InsertedFeatures = insertedFeatures ?? new T[] { };
+            _insertedFeatures = new Lazy<T[]>(() => getInsertedFeatures == null ? new T[] { } : getInsertedFeatures());
         }
     }
 
