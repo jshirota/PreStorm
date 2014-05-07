@@ -65,6 +65,7 @@
   <HelpKINode Title="EditResultBase.EditResultBase constructor" Url="html/e718483c-8265-b9a8-99ed-d514ccec160b.htm" />
   <HelpKINode Title="EditResultBase.RestException property" Url="html/4003e149-f5da-a44a-3b1b-eabfc648c5f9.htm" />
   <HelpKINode Title="EditResultBase.Success property" Url="html/7808b8c9-2914-b200-f816-d7b36a89374d.htm" />
+  <HelpKINode Title="Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
   <HelpKINode Title="Feature class">
     <HelpKINode Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
     <HelpKINode Title="about Feature class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
@@ -126,6 +127,7 @@
   <HelpKINode Title="Geometry.ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
+  <HelpKINode Title="GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
@@ -250,6 +252,7 @@
   <HelpKINode Title="PreStorm.Polyline class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm" />
   <HelpKINode Title="PreStorm.RestException class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
   <HelpKINode Title="PreStorm.Service class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
+  <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
@@ -288,7 +291,20 @@
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
   <HelpKINode Title="String to Polyline conversion" Url="html/07c92d85-95fd-e9ef-d5cf-1a646d0755cd.htm" />
   <HelpKINode Title="Success property" Url="html/7808b8c9-2914-b200-f816-d7b36a89374d.htm" />
-  <HelpKINode Title="ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+  <HelpKINode Title="Token class">
+    <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
+    <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
+    <HelpKINode Title="constructor" Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm" />
+    <HelpKINode Title="methods" Url="html/295e1cbf-28c9-5b4f-4d38-152b8956c640.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Token.Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
+  <HelpKINode Title="Token.GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
+  <HelpKINode Title="Token.Token constructor" Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm" />
+  <HelpKINode Title="Token.ToString method" Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
+  <HelpKINode Title="ToString method">
+    <HelpKINode Title="Geometry.ToString Method " Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+    <HelpKINode Title="Token.ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
+  </HelpKINode>
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
     <HelpKINode Title="Field.type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
