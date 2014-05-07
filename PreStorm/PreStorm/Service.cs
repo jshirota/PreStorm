@@ -11,9 +11,9 @@ namespace PreStorm
     /// </summary>
     public class Service
     {
-        private readonly int? _maxRecordCount;
+        internal ServiceArgs ServiceArgs;
 
-        internal ServiceArgs ServiceArgs { get; private set; }
+        private readonly int? _maxRecordCount;
 
         /// <summary>
         /// The url of the service.
@@ -33,9 +33,9 @@ namespace PreStorm
         /// </summary>
         public Domain[] Domains { get; private set; }
 
-        private Service(string url, ICredentials credentials, string userName, string password, string gdbVersion)
+        private Service(string url, ICredentials credentials, Token token, string gdbVersion)
         {
-            ServiceArgs = new ServiceArgs(url, credentials, userName, password, gdbVersion);
+            ServiceArgs = new ServiceArgs(url, credentials, token, gdbVersion);
 
             var serviceInfo = Esri.GetServiceInfo(ServiceArgs);
 
@@ -62,23 +62,22 @@ namespace PreStorm
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="credentials">The windows crendentials used for secured services.</param>
         /// <param name="gdbVersion">The geodatabase version.</param>
-        public Service(string url, ICredentials credentials, string gdbVersion = null) : this(url, credentials, null, null, gdbVersion) { }
+        public Service(string url, ICredentials credentials, string gdbVersion = null) : this(url, credentials, null, gdbVersion) { }
 
         /// <summary>
         /// Initializes a new instance of the Service class.  Possibly throws RestException.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
-        /// <param name="userName">The user name for token-based authentication.</param>
-        /// <param name="password">The password for token-based authentication.</param>
+        /// <param name="token">The authentication token.</param>
         /// <param name="gdbVersion">The geodatabase version.</param>
-        public Service(string url, string userName, string password, string gdbVersion = null) : this(url, null, userName, password, gdbVersion) { }
+        public Service(string url, Token token, string gdbVersion = null) : this(url, null, token, gdbVersion) { }
 
         /// <summary>
         /// Initializes a new instance of the Service class.  Possibly throws RestException.
         /// </summary>
         /// <param name="url">The url of the service.  The url should end with either MapServer or FeatureServer.</param>
         /// <param name="gdbVersion">The geodatabase version.</param>
-        public Service(string url, string gdbVersion = null) : this(url, null, null, null, gdbVersion) { }
+        public Service(string url, string gdbVersion = null) : this(url, null, null, gdbVersion) { }
 
         internal Layer GetLayer(int layerId)
         {

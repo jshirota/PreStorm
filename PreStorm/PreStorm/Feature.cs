@@ -14,11 +14,12 @@ namespace PreStorm
         internal ServiceArgs ServiceArgs;
         internal Layer Layer;
 
-        private readonly Dictionary<string, string> _propertyToField;
-        private readonly Dictionary<string, string> _fieldToProperty;
         internal readonly Dictionary<string, object> UnmappedFields = new Dictionary<string, object>();
         internal readonly List<string> ChangedFields = new List<string>();
         internal bool GeometryChanged;
+
+        private readonly Dictionary<string, string> _propertyToField;
+        private readonly Dictionary<string, string> _fieldToProperty;
 
         /// <summary>
         /// Initializes a new instance of the Feature class.

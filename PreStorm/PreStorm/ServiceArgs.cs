@@ -9,11 +9,14 @@ namespace PreStorm
         public Token Token { get; private set; }
         public string GdbVersion { get; private set; }
 
-        public ServiceArgs(string url, ICredentials credentials, string userName, string password, string gdbVersion)
+        public ServiceArgs(string url, ICredentials credentials, Token token, string gdbVersion)
         {
+            if (token != null)
+                token.Url = url;
+
             Url = url;
             Credentials = credentials;
-            Token = userName == null ? null : new Token(url, userName, password);
+            Token = token;
             GdbVersion = gdbVersion;
         }
 
@@ -24,7 +27,7 @@ namespace PreStorm
             if (args == null)
                 return false;
 
-            return args.Url == Url && args.Credentials == Credentials && args.Token == Token && args.GdbVersion == GdbVersion;
+            return args.Url == Url && args.Credentials == Credentials && Equals(args.Token, Token) && args.GdbVersion == GdbVersion;
         }
 
         public override int GetHashCode()

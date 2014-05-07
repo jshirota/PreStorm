@@ -41,8 +41,8 @@ namespace PreStorm
 
                         if (domainName != null)
                         {
-                            var codedValue = layer.GetCodedValueByCode(domainName, value, m.Mapped.StrictDomain);
-                            value = codedValue == null ? value.ToString() : codedValue.name;
+                            var codedValue = layer.GetCodedValueByCode(domainName, value, m.Mapped.InvalidCodeFormat == null);
+                            value = codedValue == null ? string.Format(m.Mapped.InvalidCodeFormat, value) : codedValue.name;
                         }
 
                         try
