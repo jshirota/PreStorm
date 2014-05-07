@@ -45,7 +45,7 @@ namespace PreStorm
         /// <returns></returns>
         public override string ToString()
         {
-            if (_isStatic)
+            if (Url == null || _isStatic)
                 return _token;
 
             if (_expiry == null || _expiry.Value.Subtract(DateTime.UtcNow).TotalMinutes < 1)
@@ -69,6 +69,9 @@ namespace PreStorm
 
             if (token == null)
                 return false;
+
+            if (token._isStatic && _isStatic)
+                return token._token == _token;
 
             return token.Url == Url && token._userName == _userName && token._password == _password;
         }
