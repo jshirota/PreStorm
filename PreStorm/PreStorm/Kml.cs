@@ -121,7 +121,7 @@ namespace PreStorm
                            from n in feature.AllFieldNames
                            select new XElement(kml + "Data", new XAttribute("name", n),
                                       new XElement(kml + "value", feature[n]))),
-                                          ToKmlPolyline(((dynamic)feature).Geometry, z, extraGeometryElements));
+                                          ToKml(((dynamic)feature).Geometry, z, extraGeometryElements));
         }
 
         /// <summary>
