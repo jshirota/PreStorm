@@ -155,6 +155,12 @@
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
+  <HelpKINode Title="Kml class">
+    <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
+    <HelpKINode Title="about Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
+    <HelpKINode Title="methods" Url="html/74df0859-6a60-2fb0-7633-6b2a0b842113.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Kml.ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
   <HelpKINode Title="Layer class">
     <HelpKINode Title="Layer Class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
     <HelpKINode Title="about Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
@@ -244,6 +250,7 @@
   <HelpKINode Title="PreStorm.Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
+  <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
   <HelpKINode Title="PreStorm.Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
   <HelpKINode Title="PreStorm.Mapped class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
   <HelpKINode Title="PreStorm.Multipoint class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm" />
@@ -301,6 +308,7 @@
   <HelpKINode Title="Token.GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   <HelpKINode Title="Token.Token constructor" Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm" />
   <HelpKINode Title="Token.ToString method" Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
+  <HelpKINode Title="ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
   <HelpKINode Title="ToString method">
     <HelpKINode Title="Geometry.ToString Method " Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
     <HelpKINode Title="Token.ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />

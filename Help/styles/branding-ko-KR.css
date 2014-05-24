@@ -12,7 +12,15 @@ span.tt
 {
   font-family:Courier, "Courier New", Consolas, Monospace, 돋움체;
 }
-span.code
+div.libCScode pre
+{
+	font-family:Monospace, Courier New, Courier, 돋움체;
+}
+pre.ideCScode
+{
+	font-family:Monospace, Courier New, Courier, 돋움체;
+}
+SPAN.code
 {
 	font-family:Monospace, Courier New, Courier, 돋움체;
 }
