@@ -33,19 +33,19 @@ namespace PreStorm
                 .Sum(i => ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]) > 0;
         }
 
-        private static XElement ToKml(this Point geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPoint(this Point geometry, double z, XElement[] extraElements)
         {
             return new XElement(kml + "Point", extraElements,
                 new XElement(kml + "coordinates", geometry.ToCoordinates(z)));
         }
 
-        private static XElement ToKml(this Multipoint geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlMultipoint(this Multipoint geometry, double z, XElement[] extraElements)
         {
             return new XElement(kml + "MultiGeometry",
-                geometry.points.Select(p => new Point { x = p[0], y = p[1] }.ToKml(z, extraElements)));
+                geometry.points.Select(p => new Point { x = p[0], y = p[1] }.ToKmlPoint(z, extraElements)));
         }
 
-        private static XElement ToKml(this Polyline geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPolyline(this Polyline geometry, double z, XElement[] extraElements)
         {
             return new XElement(kml + "MultiGeometry",
                 geometry.paths.Select(p =>
@@ -53,7 +53,7 @@ namespace PreStorm
                         new XElement(kml + "coordinates", p.ToCoordinates(z)))));
         }
 
-        private static XElement ToKml(this Polygon geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPolygon(this Polygon geometry, double z, XElement[] extraElements)
         {
             var polygons = new List<XElement>();
 
@@ -73,7 +73,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Converts the geometry into KML.
+        /// Converts the geometry to KML.
         /// </summary>
         /// <param name="geometry"></param>
         /// <param name="z">The altitude in meters.</param>
@@ -86,25 +86,25 @@ namespace PreStorm
 
             var point = geometry as Point;
             if (point != null)
-                return point.ToKml(z, extraGeometryElements);
+                return point.ToKmlPoint(z, extraGeometryElements);
 
             var multipoint = geometry as Multipoint;
             if (multipoint != null)
-                return multipoint.ToKml(z, extraGeometryElements);
+                return multipoint.ToKmlMultipoint(z, extraGeometryElements);
 
             var polyline = geometry as Polyline;
             if (polyline != null)
-                return polyline.ToKml(z, extraGeometryElements);
+                return polyline.ToKmlPolyline(z, extraGeometryElements);
 
             var polygon = geometry as Polygon;
             if (polygon != null)
-                return polygon.ToKml(z, extraGeometryElements);
+                return polygon.ToKmlPolygon(z, extraGeometryElements);
 
             throw new Exception("This geometry type is not supported.");
         }
 
         /// <summary>
-        /// Converts the feature into KML.
+        /// Converts the feature to KML.
         /// </summary>
         /// <param name="feature"></param>
         /// <param name="name">The name for the placemark.</param>
@@ -121,11 +121,11 @@ namespace PreStorm
                            from n in feature.AllFieldNames
                            select new XElement(kml + "Data", new XAttribute("name", n),
                                       new XElement(kml + "value", feature[n]))),
-                                          ToKml(((dynamic)feature).Geometry, z, extraGeometryElements));
+                                          ToKmlPolyline(((dynamic)feature).Geometry, z, extraGeometryElements));
         }
 
         /// <summary>
-        /// Converts the features into KML.
+        /// Converts the features to KML.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
