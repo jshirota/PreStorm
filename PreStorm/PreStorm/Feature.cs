@@ -54,6 +54,11 @@ namespace PreStorm
             get { return OID > -1; }
         }
 
+        internal string[] AllFieldNames
+        {
+            get { return _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray(); }
+        }
+
         private object GetValue(string fieldName)
         {
             if (UnmappedFields.ContainsKey(fieldName))

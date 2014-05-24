@@ -52,12 +52,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Editor.cs" />
     <Compile Include="EditResultBase.cs" />
     <Compile Include="Esri.cs" />
     <Compile Include="Feature.cs" />
+    <Compile Include="Kml.cs" />
     <Compile Include="RestException.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Geometry.cs" />
