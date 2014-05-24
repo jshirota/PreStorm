@@ -6,7 +6,7 @@ using System.Xml.Linq;
 namespace PreStorm
 {
     /// <summary>
-    /// Provides extension methods for converting geometries into KML.
+    /// Provides extension methods for converting geometries and features to KML.
     /// </summary>
     public static class Kml
     {
