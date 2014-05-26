@@ -70,13 +70,13 @@ namespace PreStorm
                 dynamic f = feature;
 
                 if (g.x > double.MinValue && g.y > double.MinValue)
-                    f.Geometry = new Point { x = g.x, y = g.y };
+                    f.Geometry = new Point { x = g.x, y = g.y, spatialReference = g.spatialReference };
                 else if (g.points != null)
-                    f.Geometry = new Multipoint { points = g.points };
+                    f.Geometry = new Multipoint { points = g.points, spatialReference = g.spatialReference };
                 else if (g.paths != null)
-                    f.Geometry = new Polyline { paths = g.paths };
+                    f.Geometry = new Polyline { paths = g.paths, spatialReference = g.spatialReference };
                 else if (g.rings != null)
-                    f.Geometry = new Polygon { rings = g.rings };
+                    f.Geometry = new Polygon { rings = g.rings, spatialReference = g.spatialReference };
             }
 
             feature.IsDirty = false;

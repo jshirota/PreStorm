@@ -286,7 +286,6 @@ namespace PreStorm
 
     internal class OIDSet : Response
     {
-        public string objectIdFieldName { get; set; }
         public int[] objectIds { get; set; }
     }
 
@@ -310,6 +309,7 @@ namespace PreStorm
 
     internal class CatchAllGeometry
     {
+        public SpatialReference spatialReference { get; set; }
         private double _x = double.MinValue;
         private double _y = double.MinValue;
         public double x { get { return _x; } set { _x = value; } }
@@ -323,7 +323,6 @@ namespace PreStorm
     {
         public int objectId { get; set; }
         public bool success { get; set; }
-        public Error error { get; set; }
     }
 
     #endregion

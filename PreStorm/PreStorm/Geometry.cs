@@ -6,6 +6,11 @@
     public abstract class Geometry
     {
         /// <summary>
+        /// The spatial reference of this geometry.
+        /// </summary>
+        public SpatialReference spatialReference { get; set; }
+
+        /// <summary>
         /// Returns the JSON representation of the geometry.
         /// </summary>
         /// <returns></returns>
@@ -13,6 +18,17 @@
         {
             return this.Serialize();
         }
+    }
+
+    /// <summary>
+    /// Represents the spatial reference.
+    /// </summary>
+    public class SpatialReference
+    {
+        /// <summary>
+        /// The well-known id.
+        /// </summary>
+        public int wkid { get; set; }
     }
 
     /// <summary>
