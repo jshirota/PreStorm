@@ -22,27 +22,27 @@
 	<span class="identifier">string</span> <span class="parameter">name</span>,
 	<span class="identifier">double</span> <span class="parameter">z</span> = 0,
 	<span class="identifier">XElement</span>[] <span class="parameter">geometryElements</span> = <span class="keyword">null</span>,
-	<span class="identifier">XElement</span>[] <span class="parameter">placemarkElements</span> = <span class="keyword">null</span>
+	<span class="keyword">params</span> <span class="identifier">XElement</span>[] <span class="parameter">placemarkElements</span>
 )</pre></div><div id="ID0EBNCAAAAA_code_Plain_Div1" class="OH_CodeSnippetContainerCode" style="display: none"><pre>public static XElement ToKml(
 	this Feature feature,
 	string name,
 	double z = 0,
 	XElement[] geometryElements = null,
-	XElement[] placemarkElements = null
+	params XElement[] placemarkElements
 )</pre></div><div id="ID0EBNCAAAAA_code_Div2" class="OH_CodeSnippetContainerCode" style="display: none"><pre>&lt;<span class="identifier">ExtensionAttribute</span>&gt; 
 <span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">ToKml</span> ( 
 	<span class="parameter">feature</span> <span class="keyword">As</span> <span class="identifier">Feature</span>,
 	<span class="parameter">name</span> <span class="keyword">As</span> <span class="identifier">String</span>,
 	Optional <span class="parameter">z</span> <span class="keyword">As</span> <span class="identifier">Double</span> = 0,
 	Optional <span class="parameter">geometryElements</span> <span class="keyword">As</span> <span class="identifier">XElement</span>() = <span class="keyword">Nothing</span>,
-	Optional <span class="parameter">placemarkElements</span> <span class="keyword">As</span> <span class="identifier">XElement</span>() = <span class="keyword">Nothing</span>
+	<span class="keyword">ParamArray</span> <span class="parameter">placemarkElements</span> <span class="keyword">As</span> <span class="identifier">XElement</span>()
 ) <span class="keyword">As</span> <span class="identifier">XElement</span></pre></div><div id="ID0EBNCAAAAA_code_Plain_Div2" class="OH_CodeSnippetContainerCode" style="display: none"><pre>&lt;ExtensionAttribute&gt; 
 Public Shared Function ToKml ( 
 	feature As Feature,
 	name As String,
 	Optional z As Double = 0,
 	Optional geometryElements As XElement() = Nothing,
-	Optional placemarkElements As XElement() = Nothing
+	ParamArray placemarkElements As XElement()
 ) As XElement</pre></div><div id="ID0EBNCAAAAA_code_Div3" class="OH_CodeSnippetContainerCode" style="display: none"><pre /></div><div id="ID0EBNCAAAAA_code_Plain_Div3" class="OH_CodeSnippetContainerCode" style="display: none"><pre /></div><div id="ID0EBNCAAAAA_code_Div4" class="OH_CodeSnippetContainerCode" style="display: none"><pre /></div><div id="ID0EBNCAAAAA_code_Plain_Div4" class="OH_CodeSnippetContainerCode" style="display: none"><pre /></div></div></div><script>addSpecificTextLanguageTagSet('ID0EBNCAAAAA');</script></div><div id="parameters"><h4 class="subHeading">Parameters</h4><dl paramName="feature"><dt><span class="parameter">feature</span></dt><dd>Type: <a href="a2356d82-f666-6980-50d7-6da7d04af306.htm" target="">PreStorm<span id="ID0EBCAEMCAAAAA"> </span><script type="text/javascript">
 					addToLanSpecTextIdSet("ID0EBCAEMCAAAAA?vb=.|cpp=::|cs=.|fs=.|nu=.");
 				</script>Feature</a><br /><span></span></dd></dl><dl paramName="name"><dt><span class="parameter">name</span></dt><dd>Type: <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">System<span id="ID0EBCADMCAAAAA"> </span><script type="text/javascript">
@@ -55,7 +55,7 @@ Public Shared Function ToKml (
 					addToLanSpecTextIdSet("ID0EBDABMCAAAAA?vb=.|cpp=::|cs=.|fs=.|nu=.");
 				</script>XElement</a><span id="ID0ECABMCAAAAA"> </span><script type="text/javascript">
 					addToLanSpecTextIdSet("ID0ECABMCAAAAA?vb=()|cpp=&gt;|cs=[]|fs=[]|nu=[]");
-				</script><br /><span>Any extra geometry elements (i.e. altitudeMode).</span></dd></dl><dl paramName="placemarkElements"><dt><span class="parameter">placemarkElements</span> (Optional)</dt><dd>Type: <span id="ID0EEAAMCAAAAA"> </span><script type="text/javascript">
+				</script><br /><span>Any extra geometry elements (i.e. altitudeMode).</span></dd></dl><dl paramName="placemarkElements"><dt><span class="parameter">placemarkElements</span></dt><dd>Type: <span id="ID0EEAAMCAAAAA"> </span><script type="text/javascript">
 					addToLanSpecTextIdSet("ID0EEAAMCAAAAA?vb=|cpp=array&lt;|cs=|fs=|nu=");
 				</script><a href="http://msdn2.microsoft.com/en-us/library/bb340098" target="_blank">System.Xml.Linq<span id="ID0EBDAAMCAAAAA"> </span><script type="text/javascript">
 					addToLanSpecTextIdSet("ID0EBDAAMCAAAAA?vb=.|cpp=::|cs=.|fs=.|nu=.");
