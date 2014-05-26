@@ -121,9 +121,11 @@
     <HelpKINode Title="about Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
     <HelpKINode Title="constructor" Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
     <HelpKINode Title="methods" Url="html/aff8fffa-fc83-9ab1-ccc0-bac83aab13ec.htm" />
+    <HelpKINode Title="properties" Url="html/8f905e71-83a3-ef67-011f-5042ef0ba66d.htm" />
   </HelpKINode>
   <HelpKINode Title="Geometry property" Url="html/246592f7-de46-f75f-6adb-1a4f2ee51c4d.htm" />
   <HelpKINode Title="Geometry.Geometry constructor" Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
+  <HelpKINode Title="Geometry.spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
   <HelpKINode Title="Geometry.ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
@@ -259,6 +261,7 @@
   <HelpKINode Title="PreStorm.Polyline class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm" />
   <HelpKINode Title="PreStorm.RestException class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
   <HelpKINode Title="PreStorm.Service class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
+  <HelpKINode Title="PreStorm.SpatialReference class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
@@ -293,6 +296,15 @@
   <HelpKINode Title="Service.Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   <HelpKINode Title="Service.Service constructor" Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm" />
   <HelpKINode Title="Service.Url property" Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
+  <HelpKINode Title="SpatialReference class">
+    <HelpKINode Title="SpatialReference Class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm" />
+    <HelpKINode Title="about SpatialReference class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm" />
+    <HelpKINode Title="constructor" Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
+    <HelpKINode Title="properties" Url="html/f200ee5a-fb90-517b-4f47-9a21982a4c3b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
+  <HelpKINode Title="SpatialReference.SpatialReference constructor" Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
+  <HelpKINode Title="SpatialReference.wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
   <HelpKINode Title="String to Multipoint conversion" Url="html/2e145664-c934-b2f5-9d04-f099fbfc5400.htm" />
   <HelpKINode Title="String to Point conversion" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
@@ -331,6 +343,7 @@
     <HelpKINode Title="RestException.Url Property " Url="html/e31ef12d-3fca-37f5-182d-3d435e7ff38c.htm" />
     <HelpKINode Title="Service.Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   </HelpKINode>
+  <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
 </HelpKI>
