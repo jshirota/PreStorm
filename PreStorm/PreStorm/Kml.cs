@@ -72,11 +72,6 @@ namespace PreStorm
             return new XElement(kml + "MultiGeometry", polygons);
         }
 
-        private static XElement[] GetElements<T>(this T feature, Dictionary<string, Func<T, object>> elements) where T : Feature
-        {
-            return elements.Where(e => e.Value != null).Select(e => new XElement(kml + e.Key, e.Value(feature))).ToArray();
-        }
-
         /// <summary>
         /// Converts the geometry to KML.
         /// </summary>
@@ -84,7 +79,7 @@ namespace PreStorm
         /// <param name="z">The altitude in meters.</param>
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Geometry geometry, double z = 0, XElement[] geometryElements = null)
+        public static XElement ToKml(this Geometry geometry, double z = 0, params XElement[] geometryElements)
         {
             if (geometry == null)
                 return null;
@@ -117,11 +112,10 @@ namespace PreStorm
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>        
         /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Feature feature, string name, double z = 0, XElement[] geometryElements = null, XElement[] placemarkElements = null)
+        public static XElement ToKml(this Feature feature, string name, double z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
         {
             return new XElement(kml + "Placemark",
-                       new XElement(kml + "name", name),
-                       placemarkElements,
+                       new XElement(kml + "name", name), placemarkElements,
                        new XElement(kml + "ExtendedData",
                            from n in feature.AllFieldNames
                            select new XElement(kml + "Data", new XAttribute("name", n),
@@ -134,35 +128,24 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
-        /// <param name="getPlacemark"></param>
-        /// <param name="documentElements"></param>
+        /// <param name="getName">The function that returns the name for the placemark.</param>
+        /// <param name="getZ">The function that returns the altitude in meters.</param>
+        /// <param name="getStyleUrl">The function that returns the style url.</param>
+        /// <param name="documentElements">Any extra document elements (i.e. Style).</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, XElement> getPlacemark, XElement[] documentElements = null) where T : Feature
-        {
-            return new XElement(kml + "kml",
-                       new XElement(kml + "Document",
-                           documentElements,
-                           from f in features
-                           select getPlacemark == null ? f.ToKml(f.OID.ToString()) : getPlacemark(f)));
-        }
-
-        /// <summary>
-        /// Converts the features to KML.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="features"></param>
-        /// <param name="getName"></param>
-        /// <param name="getDescription"></param>
-        /// <param name="getZ"></param>
-        /// <param name="getStyleUrl"></param>
-        /// <param name="documentElements"></param>
-        /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, string> getDescription = null, Func<T, double> getZ = null, Func<T, string> getStyleUrl = null, XElement[] documentElements = null) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, double> getZ = null, Func<T, string> getStyleUrl = null, params XElement[] documentElements) where T : Feature
         {
             var geometryElements = getZ == null ? null : new[] { new XElement(kml + "extrude", 1), new XElement(kml + "altitudeMode", "relativeToGround") };
-            var elements = new Dictionary<string, Func<T, object>> { { "description", getDescription }, { "styleUrl", getStyleUrl }, };
 
-            return features.ToKml(f => f.ToKml(getName == null ? f.OID.ToString() : getName(f), getZ == null ? 0 : getZ(f), geometryElements, f.GetElements(elements)), documentElements);
+            return new XElement(kml + "kml",
+                       new XElement(kml + "Document", documentElements,
+                           features.Select(f =>
+                           {
+                               var name = getName == null ? f.OID.ToString() : getName(f);
+                               var z = getZ == null ? 0 : getZ(f);
+                               var placemarkElements = getStyleUrl == null ? null : new XElement(kml + "styleUrl", getStyleUrl(f));
+                               return f.ToKml(name, z, geometryElements, placemarkElements);
+                           })));
         }
     }
 }
