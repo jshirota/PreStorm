@@ -1,4 +1,6 @@
-﻿namespace PreStorm
+﻿using System.Collections.Generic;
+
+namespace PreStorm
 {
     /// <summary>
     /// Represents the base class for all geometry types that are supported by ArcGIS Rest API.
@@ -16,7 +18,15 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Serialize();
+            var json = this.Serialize();
+
+            var dictionary = json.Deserialize<Dictionary<string, object>>();
+            var key = "spatialReference";
+
+            if (dictionary.ContainsKey(key) && dictionary[key] == null)
+                dictionary.Remove(key);
+
+            return dictionary.Serialize();
         }
     }
 
