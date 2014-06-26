@@ -131,8 +131,33 @@ namespace PreStorm
                     attributes.Add(a.Key, a.Value);
 
             return !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
-                ? new { attributes, geometry = ((dynamic)feature).Geometry }
+                ? new { attributes, geometry = GetGeometry(feature) }
                 : new { attributes } as object;
+        }
+
+        private static object GetGeometry(object feature)
+        {
+            var g = ((dynamic)feature).Geometry;
+
+            if (g != null)
+                return g;
+
+            var t = feature.GetType().GetProperty("Geometry").PropertyType;
+
+            if (t == typeof(Point))
+                return new { x = (object)null, y = (object)null };
+
+            if (t == typeof(Multipoint))
+                return new { points = new double[][] { } };
+
+            if (t == typeof(Polyline))
+                return new { paths = new double[][][] { } };
+
+            if (t == typeof(Polygon))
+                return new { rings = new double[][][] { } };
+
+            //Setting a dynamic feature geometry to null is not supported.
+            return null;
         }
     }
 }

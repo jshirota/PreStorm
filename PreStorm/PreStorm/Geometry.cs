@@ -44,7 +44,7 @@ namespace PreStorm
     /// <summary>
     /// Represents the point geometry.
     /// </summary>
-    public class Point : Geometry
+    public sealed class Point : Geometry
     {
         /// <summary>
         /// The X coordinate.
@@ -80,7 +80,7 @@ namespace PreStorm
     /// <summary>
     /// Represents the multipoint geometry.
     /// </summary>
-    public class Multipoint : Geometry
+    public sealed class Multipoint : Geometry
     {
         /// <summary>
         /// The array of points.
@@ -111,7 +111,7 @@ namespace PreStorm
     /// <summary>
     /// Represents the polyline geometry.
     /// </summary>
-    public class Polyline : Geometry
+    public sealed class Polyline : Geometry
     {
         /// <summary>
         /// The array of paths.
@@ -142,7 +142,7 @@ namespace PreStorm
     /// <summary>
     /// Represents the polygon geometry.
     /// </summary>
-    public class Polygon : Geometry
+    public sealed class Polygon : Geometry
     {
         /// <summary>
         /// The array of rings.
