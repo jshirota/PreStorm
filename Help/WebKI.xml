@@ -127,6 +127,7 @@
   <HelpKINode Title="Geometry.Geometry constructor" Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
   <HelpKINode Title="Geometry.spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
   <HelpKINode Title="Geometry.ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+  <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
   <HelpKINode Title="GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
@@ -170,6 +171,7 @@
     <HelpKINode Title="properties" Url="html/7ec65305-96f5-832a-2995-e6c16afa1800.htm" />
   </HelpKINode>
   <HelpKINode Title="Layer.fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
+  <HelpKINode Title="Layer.geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Layer.id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="Layer.Layer constructor" Url="html/ed2913f4-1a7b-99dd-26a3-6d0d48ab6b10.htm" />
   <HelpKINode Title="Layer.name property" Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
