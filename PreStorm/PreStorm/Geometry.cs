@@ -63,7 +63,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Point(string json)
         {
-            return json.Deserialize<Point>();
+            return json == null ? null : json.Deserialize<Point>();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator string(Point point)
         {
-            return point.ToString();
+            return point == null ? null : point.ToString();
         }
     }
 
@@ -94,7 +94,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Multipoint(string json)
         {
-            return json.Deserialize<Multipoint>();
+            return json == null ? null : json.Deserialize<Multipoint>();
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator string(Multipoint multipoint)
         {
-            return multipoint.ToString();
+            return multipoint == null ? null : multipoint.ToString();
         }
     }
 
@@ -125,7 +125,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Polyline(string json)
         {
-            return json.Deserialize<Polyline>();
+            return json == null ? null : json.Deserialize<Polyline>();
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator string(Polyline polyline)
         {
-            return polyline.ToString();
+            return polyline == null ? null : polyline.ToString();
         }
     }
 
@@ -156,7 +156,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Polygon(string json)
         {
-            return json.Deserialize<Polygon>();
+            return json == null ? null : json.Deserialize<Polygon>();
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator string(Polygon polygon)
         {
-            return polygon.ToString();
+            return polygon == null ? null : polygon.ToString();
         }
     }
 }
