@@ -195,11 +195,6 @@ namespace PreStorm
         public string type { get; set; }
 
         /// <summary>
-        /// The geometry type of the layer.
-        /// </summary>
-        public string geometryType { get; set; }
-
-        /// <summary>
         /// The fields of the layer.
         /// </summary>
         public Field[] fields { get; set; }
