@@ -135,28 +135,27 @@ namespace PreStorm
                 : new { attributes } as object;
         }
 
-        private static object GetGeometry(object feature)
+        private static object GetGeometry(Feature feature)
         {
             var g = ((dynamic)feature).Geometry;
 
             if (g != null)
                 return g;
 
-            var t = feature.GetType().GetProperty("Geometry").PropertyType;
+            var type = feature.Layer.geometryType;
 
-            if (t == typeof(Point))
+            if (type == "esriGeometryPoint")
                 return new { x = (object)null, y = (object)null };
 
-            if (t == typeof(Multipoint))
+            if (type == "esriGeometryMultipoint")
                 return new { points = new double[][] { } };
 
-            if (t == typeof(Polyline))
+            if (type == "esriGeometryPolyline")
                 return new { paths = new double[][][] { } };
 
-            if (t == typeof(Polygon))
+            if (type == "esriGeometryPolygon")
                 return new { rings = new double[][][] { } };
 
-            //Setting a dynamic feature geometry to null is not supported.
             return null;
         }
     }
