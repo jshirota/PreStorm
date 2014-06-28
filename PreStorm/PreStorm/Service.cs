@@ -49,8 +49,30 @@ namespace PreStorm
             Domains = Layers
                 .Where(l => l.fields != null)
                 .SelectMany(l => l.fields)
-                .Select(f => f.domain)
-                .Where(d => d != null && d.type == "codedValue")
+                .Where(f => f.domain != null && f.domain.type == "codedValue")
+                .Select(f =>
+                {
+                    foreach (var c in f.domain.codedValues)
+                    {
+                        switch (f.type)
+                        {
+                            case "esriFieldTypeSmallInteger":
+                                c.code = Convert.ToInt16(c.code);
+                                break;
+                            case "esriFieldTypeSingle":
+                                c.code = Convert.ToSingle(c.code);
+                                break;
+                            case "esriFieldTypeDouble":
+                                c.code = Convert.ToDouble(c.code);
+                                break;
+                            case "esriFieldTypeDate":
+                                c.code = Esri.BaseTime.AddMilliseconds(Convert.ToInt64(c.code));
+                                break;
+                        }
+                    }
+
+                    return f.domain;
+                })
                 .GroupBy(d => d.name)
                 .Select(g => g.First())
                 .ToArray();
