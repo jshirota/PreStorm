@@ -42,6 +42,10 @@ namespace PreStorm
                         if (domainName != null)
                         {
                             var codedValue = layer.GetCodedValueByCode(domainName, value, m.Mapped.InvalidCodeFormat == null);
+
+                            if (codedValue == null)
+                                Console.WriteLine();
+
                             value = codedValue == null ? string.Format(m.Mapped.InvalidCodeFormat, value) : codedValue.name;
                         }
 

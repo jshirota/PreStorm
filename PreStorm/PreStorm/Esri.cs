@@ -50,8 +50,59 @@ namespace PreStorm
         {
             var url = string.Format("{0}/layers", Regex.Replace(a.Url, @"/FeatureServer($|/)", a.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase));
 
-            return GetResponse<ServiceInfo>(url, null, a.Credentials, a.Token, a.GdbVersion);
+            var serviceInfo = GetResponse<ServiceInfo>(url, null, a.Credentials, a.Token, a.GdbVersion);
+
+            serviceInfo.AllLayers = (serviceInfo.layers ?? new Layer[] { })
+                .Where(l => l.type == "Feature Layer")
+                .Concat(serviceInfo.tables ?? new Layer[] { })
+                .ToArray();
+
+            var fields = serviceInfo.AllLayers
+                .SelectMany(l => l.fields.Where(f => f.domain != null && f.domain.type == "codedValue"))
+                .ToArray();
+
+            serviceInfo.AllDomains = fields
+                .GroupBy(f => f.domain.name)
+                .Select(g => g.First())
+                .Select(f =>
+                {
+                    var convert = GetConvert(f.type);
+
+                    foreach (var c in f.domain.codedValues)
+                        c.code = convert(c.code);
+
+                    return f.domain;
+                })
+                .ToArray();
+
+            var domains = serviceInfo.AllDomains.ToDictionary(d => d.name, d => d);
+
+            foreach (var f in fields)
+                f.domain = domains[f.domain.name];
+
+            return serviceInfo;
         });
+
+        private static Func<object, object> GetConvert(string type)
+        {
+            switch (type)
+            {
+                case "esriFieldTypeInteger":
+                    return o => Convert.ToInt32(o);
+                case "esriFieldTypeSmallInteger":
+                    return o => Convert.ToInt16(o);
+                case "esriFieldTypeDouble":
+                    return o => Convert.ToDouble(o);
+                case "esriFieldTypeSingle":
+                    return o => Convert.ToSingle(o);
+                case "esriFieldTypeString":
+                    return o => Convert.ToString(o);
+                case "esriFieldTypeDate":
+                    return o => BaseTime.AddMilliseconds(Convert.ToInt64(o));
+                default:
+                    return o => o;
+            }
+        }
 
         public static ServiceInfo GetServiceInfo(ServiceArgs args)
         {
@@ -281,6 +332,9 @@ namespace PreStorm
         public Layer[] layers { get; set; }
         public Layer[] tables { get; set; }
         public int? maxRecordCount { get; set; }
+
+        public Layer[] AllLayers { get; set; }
+        public Domain[] AllDomains { get; set; }
     }
 
     internal class TokenInfo : Response

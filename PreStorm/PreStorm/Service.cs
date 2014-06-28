@@ -41,41 +41,8 @@ namespace PreStorm
 
             _maxRecordCount = serviceInfo.maxRecordCount;
 
-            Layers = (serviceInfo.layers ?? new Layer[] { })
-                .Where(l => l.type == "Feature Layer")
-                .Concat(serviceInfo.tables ?? new Layer[] { })
-                .ToArray();
-
-            Domains = Layers
-                .Where(l => l.fields != null)
-                .SelectMany(l => l.fields)
-                .Where(f => f.domain != null && f.domain.type == "codedValue")
-                .Select(f =>
-                {
-                    foreach (var c in f.domain.codedValues)
-                    {
-                        switch (f.type)
-                        {
-                            case "esriFieldTypeSmallInteger":
-                                c.code = Convert.ToInt16(c.code);
-                                break;
-                            case "esriFieldTypeSingle":
-                                c.code = Convert.ToSingle(c.code);
-                                break;
-                            case "esriFieldTypeDouble":
-                                c.code = Convert.ToDouble(c.code);
-                                break;
-                            case "esriFieldTypeDate":
-                                c.code = Esri.BaseTime.AddMilliseconds(Convert.ToInt64(c.code));
-                                break;
-                        }
-                    }
-
-                    return f.domain;
-                })
-                .GroupBy(d => d.name)
-                .Select(g => g.First())
-                .ToArray();
+            Layers = serviceInfo.AllLayers;
+            Domains = serviceInfo.AllDomains;
         }
 
         /// <summary>
