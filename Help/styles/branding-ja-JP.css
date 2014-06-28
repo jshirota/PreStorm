@@ -11,7 +11,15 @@ span.tt
 {
   font-family:Courier, "Courier New", Consolas, Monospace, ＭＳ ゴシック;
 }
-span.code
+div.libCScode pre
+{
+	font-family:Monospace, Courier New, Courier, ＭＳ ゴシック;
+}
+pre.ideCScode
+{
+	font-family:Monospace, Courier New, Courier, ＭＳ ゴシック;
+}
+SPAN.code
 {
 	font-family:Monospace, Courier New, Courier, ＭＳ ゴシック;
 }

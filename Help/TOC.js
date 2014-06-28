@@ -2,8 +2,8 @@
 // System  : Sandcastle Help File Builder
 // File    : TOC.js
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 03/26/2014
-// Note    : Copyright 2006-2014, Eric Woodruff, All rights reserved
+// Updated : 11/19/2013
+// Note    : Copyright 2006-2013, Eric Woodruff, All rights reserved
 // Compiler: JavaScript
 //
 // This file contains the methods necessary to implement a simple tree view for the table of content with a
@@ -250,15 +250,12 @@ function GetParentTOCIds(target)
     {
         var id = x[i].getAttribute('Url');
 
-        if(id != null)
-        {
-            id = id.substring(id.lastIndexOf("/") + 1, id.length - (id.length - id.lastIndexOf(".")));
+        id = id.substring(id.lastIndexOf("/") + 1, id.length - (id.length - id.lastIndexOf(".")));
 
-            if(id == target)
-            {
-                targetNode = x[i];
-                break;
-            }
+        if(id == target)
+        {
+            targetNode = x[i];
+            break;
         }
     }
 
