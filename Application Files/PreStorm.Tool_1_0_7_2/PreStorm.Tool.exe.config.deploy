@@ -16,6 +16,9 @@
             <setting name="Folder" serializeAs="String">
                 <value />
             </setting>
+            <setting name="Language" serializeAs="String">
+                <value>C#</value>
+            </setting>
         </PreStorm.Tool.Properties.Settings>
     </userSettings>
 </configuration>
