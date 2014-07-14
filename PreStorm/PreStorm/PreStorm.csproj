@@ -60,6 +60,7 @@
     <Compile Include="EditResultBase.cs" />
     <Compile Include="Esri.cs" />
     <Compile Include="Feature.cs" />
+    <Compile Include="GeometryFunctions.cs" />
     <Compile Include="Kml.cs" />
     <Compile Include="RestException.cs" />
     <Compile Include="Service.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="ServiceArgs.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TypeHelper.cs" />
+    <Compile Include="Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PreStorm.snk" />
