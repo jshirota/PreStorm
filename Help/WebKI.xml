@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
+  <HelpKINode Title="Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="code property" Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
   <HelpKINode Title="CodedValue class">
     <HelpKINode Title="CodedValue Class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
@@ -22,6 +23,7 @@
     <HelpKINode Title="properties" Url="html/50f6ac34-c324-1ad0-1784-0516ecb95e56.htm" />
   </HelpKINode>
   <HelpKINode Title="DeleteResult.DeleteResult constructor" Url="html/4ae863ee-5c97-5397-10c7-77729e749c16.htm" />
+  <HelpKINode Title="Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
   <HelpKINode Title="Domain class">
     <HelpKINode Title="Domain Class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm" />
     <HelpKINode Title="about Domain class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm" />
@@ -127,6 +129,14 @@
   <HelpKINode Title="Geometry.Geometry constructor" Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
   <HelpKINode Title="Geometry.spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
   <HelpKINode Title="Geometry.ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+  <HelpKINode Title="GeometryFunctions class">
+    <HelpKINode Title="GeometryFunctions Class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
+    <HelpKINode Title="about GeometryFunctions class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
+    <HelpKINode Title="methods" Url="html/6125451c-aafb-f5b5-c5a2-082c949a9943.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
+  <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
+  <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
@@ -177,6 +187,7 @@
   <HelpKINode Title="Layer.name property" Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
   <HelpKINode Title="Layer.type property" Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
   <HelpKINode Title="Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
+  <HelpKINode Title="Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="Mapped class">
     <HelpKINode Title="Mapped Class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
     <HelpKINode Title="about Mapped class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
@@ -252,6 +263,7 @@
   <HelpKINode Title="PreStorm.Feature&lt;T&gt; class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm" />
   <HelpKINode Title="PreStorm.Field class" Url="html/26f45ce8-1f9e-e918-d70f-ed9b7cc27909.htm" />
   <HelpKINode Title="PreStorm.Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
+  <HelpKINode Title="PreStorm.GeometryFunctions class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
