@@ -131,9 +131,7 @@ namespace PreStorm
             if (point == null || polygon == null || polygon.rings == null)
                 throw new Exception("The input geometry is invalid.");
 
-            var ring = polygon.rings.FirstOrDefault(r => IsWithin(point, r));
-
-            return ring != null && !ring.IsInnerRing();
+            return polygon.rings.Where(r => IsWithin(point, r)).Sum(r => r.IsInnerRing() ? -1 : 1) > 0;
         }
 
         private static bool IsWithin(Point point, double[][] ring)
