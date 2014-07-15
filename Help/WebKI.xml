@@ -136,6 +136,7 @@
   </HelpKINode>
   <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
+  <HelpKINode Title="GeometryFunctions.IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
@@ -167,6 +168,7 @@
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertResult constructor" Url="html/718e9cfd-4bbf-6ac8-985e-8ff4ef6ad9d4.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
+  <HelpKINode Title="IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Kml class">
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
@@ -219,13 +221,13 @@
   <HelpKINode Title="Point class">
     <HelpKINode Title="Point Class" Url="html/3a3d2b6f-ea73-f52b-5db9-50594babf76f.htm" />
     <HelpKINode Title="about Point class" Url="html/3a3d2b6f-ea73-f52b-5db9-50594babf76f.htm" />
-    <HelpKINode Title="constructor" Url="html/a3090fa0-2327-5edc-bc2b-d5bfdf2eb910.htm" />
+    <HelpKINode Title="constructor" Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm" />
     <HelpKINode Title="methods" Url="html/2250d801-acdb-4b13-378c-c2f31436c2a2.htm" />
     <HelpKINode Title="properties" Url="html/748f4f9e-ac4c-41fc-369c-8c48589e83f9.htm" />
     <HelpKINode Title="type conversions" Url="html/e14587d8-f845-d1cf-3e83-51c2ad7e09eb.htm" />
   </HelpKINode>
   <HelpKINode Title="Point to String conversion" Url="html/9ecca7a3-4efa-47ae-bf0e-c3f313dfbee1.htm" />
-  <HelpKINode Title="Point.Point constructor" Url="html/a3090fa0-2327-5edc-bc2b-d5bfdf2eb910.htm" />
+  <HelpKINode Title="Point.Point constructor" Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm" />
   <HelpKINode Title="Point.x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="Point.y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
   <HelpKINode Title="points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
