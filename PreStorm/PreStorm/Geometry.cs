@@ -57,6 +57,22 @@ namespace PreStorm
         public double y { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the Point class.
+        /// </summary>
+        public Point() { }
+
+        /// <summary>
+        /// Initializes a new instance of the Point class.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Point(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        /// <summary>
         /// Deserializes the JSON string into a Point object.
         /// </summary>
         /// <param name="json"></param>
