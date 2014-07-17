@@ -35,6 +35,10 @@ namespace PreStorm
                     {
                         value = Esri.BaseTime.AddMilliseconds(Convert.ToInt64(value));
                     }
+                    if (t == typeof(Guid))
+                    {
+                        value = Guid.Parse((string)value);
+                    }
                     else
                     {
                         var domainName = m.Mapped.DomainName;
@@ -113,6 +117,10 @@ namespace PreStorm
                     if (value is DateTime)
                     {
                         value = Convert.ToInt64(((DateTime)value).ToUniversalTime().Subtract(Esri.BaseTime).TotalMilliseconds);
+                    }
+                    if (value is Guid)
+                    {
+                        value = ((Guid)value).ToString("B").ToUpper();
                     }
                     else
                     {
