@@ -39,6 +39,7 @@ namespace PreStorm
 
                 request.AutomaticDecompression = DecompressionMethods.GZip;
                 request.Credentials = _credentials;
+                request.ServicePoint.Expect100Continue = false;
                 return request;
             }
         }
