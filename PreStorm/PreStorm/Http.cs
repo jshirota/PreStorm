@@ -4,15 +4,31 @@ using System.Text;
 
 namespace PreStorm
 {
-    internal static class Http
+    /// <summary>
+    /// Encapsulates HTTP calls to ArcGIS Server.
+    /// </summary>
+    public static class Http
     {
-        public static string Get(string url, ICredentials credentials)
+        /// <summary>
+        /// Sends a GET request and returns the response body.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="credentials"></param>
+        /// <returns></returns>
+        public static string Get(string url, ICredentials credentials = null)
         {
             using (var c = new GZipWebClient(credentials))
                 return c.DownloadString(url);
         }
 
-        public static string Post(string url, string data, ICredentials credentials)
+        /// <summary>
+        /// Sends a POST request and returns the response body.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="data"></param>
+        /// <param name="credentials"></param>
+        /// <returns></returns>
+        public static string Post(string url, string data, ICredentials credentials = null)
         {
             using (var c = new GZipWebClient(credentials))
                 return c.UploadString(url, data);
