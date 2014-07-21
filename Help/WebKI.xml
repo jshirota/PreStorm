@@ -139,10 +139,18 @@
   <HelpKINode Title="GeometryFunctions.IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
+  <HelpKINode Title="Get method" Url="html/4dbaa810-8e78-de8f-958c-8812d2403bfd.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
   <HelpKINode Title="GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
+  <HelpKINode Title="Http class">
+    <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
+    <HelpKINode Title="about Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
+    <HelpKINode Title="methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Http.Get method" Url="html/4dbaa810-8e78-de8f-958c-8812d2403bfd.htm" />
+  <HelpKINode Title="Http.Post method" Url="html/9300aff2-6222-2f9f-3fc5-fcb549afbc0d.htm" />
   <HelpKINode Title="id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
@@ -253,6 +261,7 @@
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
+  <HelpKINode Title="Post method" Url="html/9300aff2-6222-2f9f-3fc5-fcb549afbc0d.htm" />
   <HelpKINode Title="PreStorm namespace" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm" />
   <HelpKINode Title="PreStorm.CodedValue class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
   <HelpKINode Title="PreStorm.DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -266,6 +275,7 @@
   <HelpKINode Title="PreStorm.Field class" Url="html/26f45ce8-1f9e-e918-d70f-ed9b7cc27909.htm" />
   <HelpKINode Title="PreStorm.Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
   <HelpKINode Title="PreStorm.GeometryFunctions class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
+  <HelpKINode Title="PreStorm.Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
