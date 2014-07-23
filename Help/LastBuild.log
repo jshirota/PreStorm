@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2014.4.22.0" projectFile="D:\GitHub\jshirota\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="7/21/2014 9:28:23 AM">
+<shfbBuild product="Sandcastle Help File Builder" version="2014.4.22.0" projectFile="D:\GitHub\jshirota\PreStorm\trunk\PreStorm\PreStorm.Documentation\PreStorm.Documentation.shfbproj" started="7/22/2014 9:12:25 PM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -23,16 +23,16 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0210
+    Last step completed in 00:00:00.0870
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0030
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
-Build started 7/21/2014 9:28:25 AM.
+Build started 7/22/2014 9:12:29 PM.
 Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -51,13 +51,13 @@ Done Building Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\W
 
 Build succeeded.
 
-Time Elapsed 00:00:00.55
-    Last step completed in 00:00:00.7750
+Time Elapsed 00:00:00.64
+    Last step completed in 00:00:00.8570
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
-Build started 7/21/2014 9:28:25 AM.
+Build started 7/22/2014 9:12:30 PM.
 Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2014.1.26.0)
@@ -77,17 +77,17 @@ Done Building Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\W
 
 Build succeeded.
 
-Time Elapsed 00:00:00.68
-    Last step completed in 00:00:00.7600
+Time Elapsed 00:00:01.27
+    Last step completed in 00:00:01.3790
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.3080
+    Last step completed in 00:00:00.3420
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0060
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -96,7 +96,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
-Build started 7/21/2014 9:28:27 AM.
+Build started 7/22/2014 9:12:32 PM.
 Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2014.1.26.0)
@@ -107,24 +107,24 @@ Done Building Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\W
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:00.11
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.1900
+    Last step completed in 00:00:00.2350
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1820
+    Last step completed in 00:00:00.5320
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\sandcastle.config
-    Last step completed in 00:00:00.4220
+    Last step completed in 00:00:00.3260
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
-Build started 7/21/2014 9:28:27 AM.
+Build started 7/22/2014 9:12:33 PM.
 Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
 BuildReferenceTopics:
   BuildAssembler (v2014.1.26.0)
@@ -139,14 +139,14 @@ Done Building Project &quot;D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\W
 
 Build succeeded.
 
-Time Elapsed 00:00:09.45
-    Last step completed in 00:00:09.5470
+Time Elapsed 00:00:19.38
+    Last step completed in 00:00:19.4830
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
 
 Clearing any prior web output
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0020
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -162,7 +162,7 @@ Processed 206 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\WebKI.xml
 Saving website table of contents to D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\WebTOC.xml
-    Last step completed in 00:00:00.2380
+    Last step completed in 00:00:00.3230
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -248,7 +248,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SyncTOC.gif 
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.css -&gt; D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.js -&gt; D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\TOC.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Web.Config -&gt; D:\GitHub\jshirota\PreStorm\branches\gh-pages\Help\Working\Output\Website\.\Web.Config
-    Last step completed in 00:00:00.4740
+    Last step completed in 00:00:03.3570
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -257,7 +257,7 @@ Generating website table of contents file...
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.4840
+    Last step completed in 00:00:00.4950
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
@@ -266,15 +266,15 @@ Copied 100 files
 Copied 200 files
 Copied 300 files
 Copied 316 files for the website content
-    Last step completed in 00:00:00.5730
+    Last step completed in 00:00:00.4490
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.1840
+    Last step completed in 00:00:00.1020
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 07/21/2014 09:28 AM.  Total time: 00:00:15.8870
+Build completed successfully at 07/22/2014 09:12 PM.  Total time: 00:00:32.1410
 
 </buildStep>
 </shfbBuild>
