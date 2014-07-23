@@ -31,19 +31,24 @@ namespace PreStorm
             return new Vector(v1.X - v2.X, v1.Y - v2.Y);
         }
 
-        public static Vector operator *(Vector v1, double n)
+        public static Vector operator *(Vector v, double n)
         {
-            return new Vector(v1.X * n, v1.Y * n);
+            return new Vector(v.X * n, v.Y * n);
         }
 
-        public static Vector operator *(double n, Vector v1)
+        public static Vector operator *(double n, Vector v)
         {
-            return v1 * n;
+            return v * n;
         }
 
-        public static Vector operator /(Vector v1, double n)
+        public static Vector operator /(Vector v, double n)
         {
-            return new Vector(v1.X / n, v1.Y / n);
+            return new Vector(v.X / n, v.Y / n);
+        }
+
+        public static double CrossProduct(Vector v1, Vector v2)
+        {
+            return v1.X * v2.Y - v1.Y * v2.X;
         }
 
         public static double DotProduct(Vector v1, Vector v2)
