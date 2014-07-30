@@ -22,6 +22,18 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Sends a GET request and returns the response JSON deserialized as the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="url"></param>
+        /// <param name="credentials"></param>
+        /// <returns></returns>
+        public static T Get<T>(string url, ICredentials credentials = null)
+        {
+            return Get(url, credentials).Deserialize<T>();
+        }
+
+        /// <summary>
         /// Sends a POST request and returns the response body.
         /// </summary>
         /// <param name="url"></param>
@@ -32,6 +44,19 @@ namespace PreStorm
         {
             using (var c = new GZipWebClient(credentials))
                 return c.UploadString(url, data);
+        }
+
+        /// <summary>
+        /// Sends a POST request and returns the response JSON deserialized as the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="url"></param>
+        /// <param name="data"></param>
+        /// <param name="credentials"></param>
+        /// <returns></returns>
+        public static T Post<T>(string url, string data, ICredentials credentials = null)
+        {
+            return Post(url, data, credentials).Deserialize<T>();
         }
 
         private class GZipWebClient : WebClient
