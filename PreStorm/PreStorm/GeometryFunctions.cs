@@ -104,20 +104,152 @@ namespace PreStorm
 
         private static double Distance(Vector p1, Vector p2, Vector p)
         {
-            var d2 = Math.Pow(Distance(p1, p2), 2);
+            var d = Math.Pow(Distance(p1, p2), 2);
 
-            if (d2 == 0)
+            if (d == 0)
                 return Distance(p, p1);
 
-            var t = Vector.DotProduct(p - p1, p2 - p1) / d2;
+            var dot = Vector.DotProduct(p - p1, p2 - p1) / d;
 
-            if (t < 0)
+            if (dot < 0)
                 return Distance(p, p1);
 
-            if (t > 1)
+            if (dot > 1)
                 return Distance(p, p2);
 
-            return Distance(p, p1 + ((p2 - p1) * t));
+            return Distance(p, p1 + ((p2 - p1) * dot));
+        }
+
+        private static Point Intersect(double[][] l1, double[][] l2)
+        {
+            if (l1 == null || l2 == null || ReferenceEquals(l1, l2))
+                return null;
+
+            var p1 = new Vector(l1[0][0], l1[0][1]);
+            var p2 = new Vector(l2[0][0], l2[0][1]);
+            var d1 = new Vector(l1[1][0], l1[1][1]) - p1;
+            var d2 = new Vector(l2[1][0], l2[1][1]) - p2;
+
+            var d1xd2 = Vector.CrossProduct(d1, d2);
+
+            if (d1xd2 == 0)
+                return null;
+
+            var d = p2 - p1;
+
+            var cross1 = Vector.CrossProduct(d, d1 / d1xd2);
+
+            if (cross1 < 0 || cross1 > 1)
+                return null;
+
+            var cross2 = Vector.CrossProduct(d, d2 / d1xd2);
+
+            if (cross2 < 0 || cross2 > 1)
+                return null;
+
+            return p1 + cross2 * d1;
+        }
+
+        private static Point[] Intersect(double[][][] path1, double[][][] path2)
+        {
+            var lines1 = path1.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => new[] { p1, p2 })).ToArray();
+            var lines2 = path2.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => new[] { p1, p2 })).ToArray();
+
+            var points = from l1 in lines1
+                         from l2 in lines2
+                         let p = Intersect(l1, l2)
+                         where p != null
+                         select p;
+
+            return points.ToArray();
+        }
+
+        /// <summary>
+        /// Returns intersection points between the two polylines.
+        /// </summary>
+        /// <param name="polyline1"></param>
+        /// <param name="polyline2"></param>
+        /// <returns></returns>
+        public static Point[] Intersect(this Polyline polyline1, Polyline polyline2)
+        {
+            return Intersect(polyline1.paths, polyline2.paths);
+        }
+
+        /// <summary>
+        /// Returns intersection points between the two polyline and the polygon.
+        /// </summary>
+        /// <param name="polyline"></param>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static Point[] Intersect(this Polyline polyline, Polygon polygon)
+        {
+            return Intersect(polyline.paths, polygon.rings);
+        }
+
+        /// <summary>
+        /// Returns intersection points between the two polygon and the polyline.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="polyline"></param>
+        /// <returns></returns>
+        public static Point[] Intersect(this Polygon polygon, Polyline polyline)
+        {
+            return Intersect(polygon.rings, polyline.paths);
+        }
+
+        /// <summary>
+        /// Returns intersection points between the two polygons.
+        /// </summary>
+        /// <param name="polygon1"></param>
+        /// <param name="polygon2"></param>
+        /// <returns></returns>
+        public static Point[] Intersect(this Polygon polygon1, Polygon polygon2)
+        {
+            return Intersect(polygon1.rings, polygon2.rings);
+        }
+
+        /// <summary>
+        /// Determines if the two polylines intersect at least once.
+        /// </summary>
+        /// <param name="polyline1"></param>
+        /// <param name="polyline2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Polyline polyline1, Polyline polyline2)
+        {
+            return polyline1.Intersect(polyline2).Any();
+        }
+
+        /// <summary>
+        /// Determines if the polyline intersects the polygon at least once.
+        /// </summary>
+        /// <param name="polyline"></param>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Polyline polyline, Polygon polygon)
+        {
+            return polyline.Intersect(polygon).Any();
+        }
+
+        /// <summary>
+        /// Determines if the polygon intersects the polyline at least once.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="polyline"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Polygon polygon, Polyline polyline)
+        {
+            return polygon.Intersect(polyline).Any();
+        }
+
+        /// <summary>
+        /// Determines if the two polygons intersect at least once.
+        /// </summary>
+        /// <param name="polygon1"></param>
+        /// <param name="polygon2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Polygon polygon1, Polygon polygon2)
+        {
+            return polygon1.Intersect(polygon2).Any();
         }
 
         /// <summary>
