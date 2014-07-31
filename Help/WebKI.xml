@@ -136,6 +136,8 @@
   </HelpKINode>
   <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
+  <HelpKINode Title="GeometryFunctions.Intersect method" Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm" />
+  <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="GeometryFunctions.IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
@@ -174,6 +176,8 @@
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertResult constructor" Url="html/718e9cfd-4bbf-6ac8-985e-8ff4ef6ad9d4.htm" />
+  <HelpKINode Title="Intersect method" Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm" />
+  <HelpKINode Title="Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
