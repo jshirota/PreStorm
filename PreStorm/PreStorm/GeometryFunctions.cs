@@ -164,6 +164,11 @@ namespace PreStorm
             return points.ToArray();
         }
 
+        private static bool Intersects(this Envelope e1, Envelope e2)
+        {
+            return e1.xmin <= e2.xmax && e1.ymin <= e2.ymax && e1.xmax >= e2.xmin && e1.ymax >= e2.ymin;
+        }
+
         /// <summary>
         /// Returns intersection points between the two polylines.
         /// </summary>
@@ -172,7 +177,8 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polyline polyline1, Polyline polyline2)
         {
-            return Intersect(polyline1.paths, polyline2.paths);
+            return !polyline1.Extent.Intersects(polyline2.Extent) ? new Point[] { }
+                : Intersect(polyline1.paths, polyline2.paths);
         }
 
         /// <summary>
@@ -183,7 +189,8 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polyline polyline, Polygon polygon)
         {
-            return Intersect(polyline.paths, polygon.rings);
+            return !polyline.Extent.Intersects(polygon.Extent) ? new Point[] { }
+               : Intersect(polyline.paths, polygon.rings);
         }
 
         /// <summary>
@@ -194,7 +201,8 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polygon polygon, Polyline polyline)
         {
-            return Intersect(polygon.rings, polyline.paths);
+            return !polygon.Extent.Intersects(polyline.Extent) ? new Point[] { }
+              : Intersect(polygon.rings, polyline.paths);
         }
 
         /// <summary>
@@ -205,7 +213,8 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polygon polygon1, Polygon polygon2)
         {
-            return Intersect(polygon1.rings, polygon2.rings);
+            return !polygon1.Extent.Intersects(polygon2.Extent) ? new Point[] { }
+                : Intersect(polygon1.rings, polygon2.rings);
         }
 
         /// <summary>
@@ -216,7 +225,7 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline1, Polyline polyline2)
         {
-            return polyline1.Intersect(polyline2).Any();
+            return polyline1.Extent.Intersects(polyline2.Extent) && polyline1.Intersect(polyline2).Any();
         }
 
         /// <summary>
@@ -227,7 +236,7 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline, Polygon polygon)
         {
-            return polyline.Intersect(polygon).Any();
+            return polyline.Extent.Intersects(polygon.Extent) && polyline.Intersect(polygon).Any();
         }
 
         /// <summary>
@@ -238,7 +247,7 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon, Polyline polyline)
         {
-            return polygon.Intersect(polyline).Any();
+            return polygon.Extent.Intersects(polyline.Extent) && polygon.Intersect(polyline).Any();
         }
 
         /// <summary>
@@ -249,7 +258,7 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon1, Polygon polygon2)
         {
-            return polygon1.Intersect(polygon2).Any();
+            return polygon1.Extent.Intersects(polygon2.Extent) && polygon1.Intersect(polygon2).Any();
         }
 
         /// <summary>

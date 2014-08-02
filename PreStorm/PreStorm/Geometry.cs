@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PreStorm
 {
@@ -11,6 +13,18 @@ namespace PreStorm
         /// The spatial reference of this geometry.
         /// </summary>
         public SpatialReference spatialReference { get; set; }
+
+        internal static readonly Func<double[][], Envelope> GetEnvelopeFromPointsMemoized = Memoization.Memoize<double[][], Envelope>(
+            points => new Envelope
+            {
+                xmin = points.Min(p => p[0]),
+                ymin = points.Min(p => p[1]),
+                xmax = points.Max(p => p[0]),
+                ymax = points.Max(p => p[1])
+            });
+
+        internal static readonly Func<double[][][], Envelope> GetEnvelopeFromPathsMemoized = Memoization.Memoize<double[][][], Envelope>(
+            paths => GetEnvelopeFromPointsMemoized(paths.SelectMany(r => r).ToArray()));
 
         /// <summary>
         /// Returns the JSON representation of the geometry.
@@ -122,6 +136,8 @@ namespace PreStorm
         {
             return multipoint == null ? null : multipoint.ToString();
         }
+
+        internal Envelope Extent { get { return GetEnvelopeFromPointsMemoized(points); } }
     }
 
     /// <summary>
@@ -153,6 +169,8 @@ namespace PreStorm
         {
             return polyline == null ? null : polyline.ToString();
         }
+
+        internal Envelope Extent { get { return GetEnvelopeFromPathsMemoized(paths); } }
     }
 
     /// <summary>
@@ -184,5 +202,15 @@ namespace PreStorm
         {
             return polygon == null ? null : polygon.ToString();
         }
+
+        internal Envelope Extent { get { return GetEnvelopeFromPathsMemoized(rings); } }
+    }
+
+    internal class Envelope : Geometry
+    {
+        public double xmin { get; set; }
+        public double ymin { get; set; }
+        public double xmax { get; set; }
+        public double ymax { get; set; }
     }
 }
