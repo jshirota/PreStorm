@@ -12,6 +12,7 @@
   <HelpKINode Title="CodedValue.CodedValue constructor" Url="html/6ba7d9df-0e3e-b4ea-dbbe-9c273023b0b0.htm" />
   <HelpKINode Title="CodedValue.name property" Url="html/7853ddda-6324-b61d-0e19-be60200b9864.htm" />
   <HelpKINode Title="codedValues property" Url="html/5af68820-4481-c84c-8eee-74f5e8e66e6b.htm" />
+  <HelpKINode Title="Contains method" Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm" />
   <HelpKINode Title="Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
@@ -67,7 +68,24 @@
   <HelpKINode Title="EditResultBase.EditResultBase constructor" Url="html/e718483c-8265-b9a8-99ed-d514ccec160b.htm" />
   <HelpKINode Title="EditResultBase.RestException property" Url="html/4003e149-f5da-a44a-3b1b-eabfc648c5f9.htm" />
   <HelpKINode Title="EditResultBase.Success property" Url="html/7808b8c9-2914-b200-f816-d7b36a89374d.htm" />
+  <HelpKINode Title="Envelope class">
+    <HelpKINode Title="Envelope Class" Url="html/18142fda-bbfc-caaf-93b9-fe17835dfddc.htm" />
+    <HelpKINode Title="about Envelope class" Url="html/18142fda-bbfc-caaf-93b9-fe17835dfddc.htm" />
+    <HelpKINode Title="constructor" Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
+    <HelpKINode Title="methods" Url="html/9d52adf7-aba2-27f3-68c3-3af683c5f3c5.htm" />
+    <HelpKINode Title="properties" Url="html/fdb8a3eb-60fc-f01c-e506-c2cfc2360fe8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Envelope.Envelope constructor" Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
+  <HelpKINode Title="Envelope.xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
+  <HelpKINode Title="Envelope.xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
+  <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
+  <HelpKINode Title="Envelope.ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
   <HelpKINode Title="Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
+  <HelpKINode Title="Extent property">
+    <HelpKINode Title="Multipoint.Extent Property " Url="html/a94cfe78-4157-dd80-7cb7-1930fbf7c837.htm" />
+    <HelpKINode Title="Polygon.Extent Property " Url="html/b86c3783-cdc5-32cb-308e-44a873415794.htm" />
+    <HelpKINode Title="Polyline.Extent Property " Url="html/8a443263-7f67-ba6b-9a1e-686548447f92.htm" />
+  </HelpKINode>
   <HelpKINode Title="Feature class">
     <HelpKINode Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
     <HelpKINode Title="about Feature class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
@@ -135,10 +153,11 @@
     <HelpKINode Title="methods" Url="html/6125451c-aafb-f5b5-c5a2-082c949a9943.htm" />
   </HelpKINode>
   <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
+  <HelpKINode Title="GeometryFunctions.Contains method" Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm" />
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
-  <HelpKINode Title="GeometryFunctions.Intersect method" Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm" />
+  <HelpKINode Title="GeometryFunctions.Intersect method" Url="html/460be39b-2c17-7327-9a00-5eb2302479bd.htm" />
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
-  <HelpKINode Title="GeometryFunctions.IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
+  <HelpKINode Title="GeometryFunctions.IsInside method" Url="html/1c5d89c4-ff35-78e9-e203-8a905c7d7ba5.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
@@ -176,11 +195,11 @@
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertResult constructor" Url="html/718e9cfd-4bbf-6ac8-985e-8ff4ef6ad9d4.htm" />
-  <HelpKINode Title="Intersect method" Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm" />
+  <HelpKINode Title="Intersect method" Url="html/460be39b-2c17-7327-9a00-5eb2302479bd.htm" />
   <HelpKINode Title="Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
-  <HelpKINode Title="IsWithin method" Url="html/8e0c2f81-7fed-cd40-b3a6-5942f58bdfb5.htm" />
+  <HelpKINode Title="IsInside method" Url="html/1c5d89c4-ff35-78e9-e203-8a905c7d7ba5.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Kml class">
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
@@ -220,6 +239,7 @@
     <HelpKINode Title="type conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm" />
   </HelpKINode>
   <HelpKINode Title="Multipoint to String conversion" Url="html/52510435-5f09-c4e5-f9c1-062d53fed3d1.htm" />
+  <HelpKINode Title="Multipoint.Extent property" Url="html/a94cfe78-4157-dd80-7cb7-1930fbf7c837.htm" />
   <HelpKINode Title="Multipoint.Multipoint constructor" Url="html/be54ad31-18eb-f001-7902-6a6030a7c7ae.htm" />
   <HelpKINode Title="Multipoint.points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
   <HelpKINode Title="name property">
@@ -252,6 +272,7 @@
     <HelpKINode Title="type conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm" />
   </HelpKINode>
   <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
+  <HelpKINode Title="Polygon.Extent property" Url="html/b86c3783-cdc5-32cb-308e-44a873415794.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
   <HelpKINode Title="Polygon.rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
   <HelpKINode Title="Polyline class">
@@ -263,6 +284,7 @@
     <HelpKINode Title="type conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm" />
   </HelpKINode>
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
+  <HelpKINode Title="Polyline.Extent property" Url="html/8a443263-7f67-ba6b-9a1e-686548447f92.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
   <HelpKINode Title="Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
@@ -273,6 +295,7 @@
   <HelpKINode Title="PreStorm.DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
   <HelpKINode Title="PreStorm.Editor class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm" />
   <HelpKINode Title="PreStorm.EditResultBase class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
+  <HelpKINode Title="PreStorm.Envelope class" Url="html/18142fda-bbfc-caaf-93b9-fe17835dfddc.htm" />
   <HelpKINode Title="PreStorm.Feature class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
   <HelpKINode Title="PreStorm.Feature(Of T) class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm" />
   <HelpKINode Title="PreStorm.Feature&lt;T&gt; class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm" />
@@ -375,5 +398,9 @@
   </HelpKINode>
   <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
+  <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
+  <HelpKINode Title="xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
   <HelpKINode Title="y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
+  <HelpKINode Title="ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
+  <HelpKINode Title="ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
 </HelpKI>
