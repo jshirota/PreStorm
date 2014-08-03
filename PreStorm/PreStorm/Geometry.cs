@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace PreStorm
@@ -14,17 +13,21 @@ namespace PreStorm
         /// </summary>
         public SpatialReference spatialReference { get; set; }
 
-        internal static readonly Func<double[][], Envelope> GetEnvelopeFromPointsMemoized = Memoization.Memoize<double[][], Envelope>(
-            points => new Envelope
+        internal static Envelope GetEnvelopeFromPoints(double[][] points)
+        {
+            return new Envelope
             {
                 xmin = points.Min(p => p[0]),
                 ymin = points.Min(p => p[1]),
                 xmax = points.Max(p => p[0]),
                 ymax = points.Max(p => p[1])
-            });
+            };
+        }
 
-        internal static readonly Func<double[][][], Envelope> GetEnvelopeFromPathsMemoized = Memoization.Memoize<double[][][], Envelope>(
-            paths => GetEnvelopeFromPointsMemoized(paths.SelectMany(r => r).ToArray()));
+        internal static Envelope GetEnvelopeFromPaths(double[][][] paths)
+        {
+            return GetEnvelopeFromPoints(paths.SelectMany(r => r).ToArray());
+        }
 
         /// <summary>
         /// Returns the JSON representation of the geometry.
@@ -137,7 +140,10 @@ namespace PreStorm
             return multipoint == null ? null : multipoint.ToString();
         }
 
-        internal Envelope Extent { get { return GetEnvelopeFromPointsMemoized(points); } }
+        /// <summary>
+        /// The extent of this geometry.
+        /// </summary>
+        public Envelope Extent { get { return GetEnvelopeFromPoints(points); } }
     }
 
     /// <summary>
@@ -170,7 +176,10 @@ namespace PreStorm
             return polyline == null ? null : polyline.ToString();
         }
 
-        internal Envelope Extent { get { return GetEnvelopeFromPathsMemoized(paths); } }
+        /// <summary>
+        /// The extent of this geometry.
+        /// </summary>
+        public Envelope Extent { get { return GetEnvelopeFromPaths(paths); } }
     }
 
     /// <summary>
@@ -203,14 +212,35 @@ namespace PreStorm
             return polygon == null ? null : polygon.ToString();
         }
 
-        internal Envelope Extent { get { return GetEnvelopeFromPathsMemoized(rings); } }
+        /// <summary>
+        /// The extent of this geometry.
+        /// </summary>
+        public Envelope Extent { get { return GetEnvelopeFromPaths(rings); } }
     }
 
-    internal class Envelope : Geometry
+    /// <summary>
+    /// Represents the envelope geometry.
+    /// </summary>
+    public class Envelope
     {
+        /// <summary>
+        /// The minimum X coordinate.
+        /// </summary>
         public double xmin { get; set; }
+
+        /// <summary>
+        /// The minimum Y coordinate.
+        /// </summary>
         public double ymin { get; set; }
+
+        /// <summary>
+        /// The maximum X coordinate.
+        /// </summary>
         public double xmax { get; set; }
+
+        /// <summary>
+        /// The maximum Y coordinate.
+        /// </summary>
         public double ymax { get; set; }
     }
 }

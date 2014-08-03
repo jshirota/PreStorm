@@ -65,9 +65,6 @@ namespace PreStorm
         /// <returns></returns>
         public static double Distance(this Point point1, Point point2)
         {
-            if (point1 == null || point2 == null)
-                throw new Exception("The input geometry is invalid.");
-
             return Length(new[] { point1.x, point1.y }, new[] { point2.x, point2.y });
         }
 
@@ -79,9 +76,6 @@ namespace PreStorm
         /// <returns></returns>
         public static double Distance(this Point point, Polyline polyline)
         {
-            if (point == null || polyline == null || polyline.paths == null)
-                throw new Exception("The input geometry is invalid.");
-
             return polyline.paths.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => Distance(new Vector(p1[0], p1[1]), new Vector(p2[0], p2[1]), point))).Min();
         }
 
@@ -93,10 +87,7 @@ namespace PreStorm
         /// <returns></returns>
         public static double Distance(this Point point, Polygon polygon)
         {
-            if (point == null || polygon == null || polygon.rings == null)
-                throw new Exception("The input geometry is invalid.");
-
-            if (point.IsWithin(polygon))
+            if (polygon.Contains(point))
                 return 0;
 
             return polygon.rings.SelectMany(r => r.Zip(r.Skip(1), (p1, p2) => Distance(new Vector(p1[0], p1[1]), new Vector(p2[0], p2[1]), point))).Min();
@@ -164,11 +155,6 @@ namespace PreStorm
             return points.ToArray();
         }
 
-        private static bool Intersects(this Envelope e1, Envelope e2)
-        {
-            return e1.xmin <= e2.xmax && e1.ymin <= e2.ymax && e1.xmax >= e2.xmin && e1.ymax >= e2.ymin;
-        }
-
         /// <summary>
         /// Returns intersection points between the two polylines.
         /// </summary>
@@ -177,110 +163,165 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polyline polyline1, Polyline polyline2)
         {
-            return !polyline1.Extent.Intersects(polyline2.Extent) ? new Point[] { }
+            return !polyline1.Extent.Intersects(polyline2.Extent)
+                ? new Point[] { }
                 : Intersect(polyline1.paths, polyline2.paths);
         }
 
         /// <summary>
-        /// Returns intersection points between the two polyline and the polygon.
+        /// Determines if the two extents intersect.
         /// </summary>
-        /// <param name="polyline"></param>
-        /// <param name="polygon"></param>
+        /// <param name="extent1"></param>
+        /// <param name="extent2"></param>
         /// <returns></returns>
-        public static Point[] Intersect(this Polyline polyline, Polygon polygon)
+        public static bool Intersects(this Envelope extent1, Envelope extent2)
         {
-            return !polyline.Extent.Intersects(polygon.Extent) ? new Point[] { }
-               : Intersect(polyline.paths, polygon.rings);
+            return extent1.xmin <= extent2.xmax && extent1.ymin <= extent2.ymax && extent1.xmax >= extent2.xmin && extent1.ymax >= extent2.ymin;
         }
 
         /// <summary>
-        /// Returns intersection points between the two polygon and the polyline.
-        /// </summary>
-        /// <param name="polygon"></param>
-        /// <param name="polyline"></param>
-        /// <returns></returns>
-        public static Point[] Intersect(this Polygon polygon, Polyline polyline)
-        {
-            return !polygon.Extent.Intersects(polyline.Extent) ? new Point[] { }
-              : Intersect(polygon.rings, polyline.paths);
-        }
-
-        /// <summary>
-        /// Returns intersection points between the two polygons.
-        /// </summary>
-        /// <param name="polygon1"></param>
-        /// <param name="polygon2"></param>
-        /// <returns></returns>
-        public static Point[] Intersect(this Polygon polygon1, Polygon polygon2)
-        {
-            return !polygon1.Extent.Intersects(polygon2.Extent) ? new Point[] { }
-                : Intersect(polygon1.rings, polygon2.rings);
-        }
-
-        /// <summary>
-        /// Determines if the two polylines intersect at least once.
+        /// Determines if the polyline intersects the other polyline.
         /// </summary>
         /// <param name="polyline1"></param>
         /// <param name="polyline2"></param>
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline1, Polyline polyline2)
         {
-            return polyline1.Extent.Intersects(polyline2.Extent) && polyline1.Intersect(polyline2).Any();
+            return polyline1.Intersect(polyline2).Any();
         }
 
         /// <summary>
-        /// Determines if the polyline intersects the polygon at least once.
+        /// Determines if the polyline intersects the polygon.
         /// </summary>
         /// <param name="polyline"></param>
         /// <param name="polygon"></param>
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline, Polygon polygon)
         {
-            return polyline.Extent.Intersects(polygon.Extent) && polyline.Intersect(polygon).Any();
+            return polyline.Intersects(new Polyline { paths = polygon.rings });
         }
 
         /// <summary>
-        /// Determines if the polygon intersects the polyline at least once.
+        /// Determines if the polygon intersects the polyline.
         /// </summary>
         /// <param name="polygon"></param>
         /// <param name="polyline"></param>
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon, Polyline polyline)
         {
-            return polygon.Extent.Intersects(polyline.Extent) && polygon.Intersect(polyline).Any();
+            return new Polyline { paths = polygon.rings }.Intersects(polyline);
         }
 
         /// <summary>
-        /// Determines if the two polygons intersect at least once.
+        /// Determines if the polygon intersects the other polygon.
         /// </summary>
         /// <param name="polygon1"></param>
         /// <param name="polygon2"></param>
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon1, Polygon polygon2)
         {
-            return polygon1.Extent.Intersects(polygon2.Extent) && polygon1.Intersect(polygon2).Any();
+            return new Polyline { paths = polygon1.rings }.Intersects(new Polyline { paths = polygon2.rings });
         }
 
-        /// <summary>
-        /// Checks if the point is inside of the polygon.
-        /// </summary>
-        /// <param name="point"></param>
-        /// <param name="polygon"></param>
-        /// <returns></returns>
-        public static bool IsWithin(this Point point, Polygon polygon)
-        {
-            if (point == null || polygon == null || polygon.rings == null)
-                throw new Exception("The input geometry is invalid.");
-
-            return polygon.rings.Where(r => IsWithin(point, r)).Sum(r => r.IsInnerRing() ? -1 : 1) > 0;
-        }
-
-        private static bool IsWithin(Point point, double[][] ring)
+        private static bool Contains(double[][] ring, Point point)
         {
             return ring
                 .Zip(ring.Skip(1), (p1, p2) => new { p1, p2 })
                 .Where(o => o.p1[1] > point.y != o.p2[1] > point.y && point.x < (o.p2[0] - o.p1[0]) * (point.y - o.p1[1]) / (o.p2[1] - o.p1[1]) + o.p1[0])
                 .Aggregate(false, (isWithin, _) => !isWithin);
+        }
+
+        private static bool Contains(this Polygon polygon, double[][] points)
+        {
+            return points.All(p => polygon.Contains(new Point(p[0], p[1])));
+        }
+
+        /// <summary>
+        /// Determines if the polygon contains the point.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public static bool Contains(this Polygon polygon, Point point)
+        {
+            return polygon.rings.Where(r => Contains(r, point)).Sum(r => r.IsInnerRing() ? -1 : 1) > 0;
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the multipoint.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="multipoint"></param>
+        /// <returns></returns>
+        public static bool Contains(this Polygon polygon, Multipoint multipoint)
+        {
+            return polygon.Contains(multipoint.points);
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the polyline.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <param name="polyline"></param>
+        /// <returns></returns>
+        public static bool Contains(this Polygon polygon, Polyline polyline)
+        {
+            return !polygon.Intersects(polyline) && polyline.paths.All(polygon.Contains);
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the other polygon.
+        /// </summary>
+        /// <param name="polygon1"></param>
+        /// <param name="polygon2"></param>
+        /// <returns></returns>
+        public static bool Contains(this Polygon polygon1, Polygon polygon2)
+        {
+            return !polygon1.Intersects(polygon2) && polygon2.rings.All(polygon1.Contains);
+        }
+
+        /// <summary>
+        /// Determines if the point is inside the polygon.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static bool IsInside(this Point point, Polygon polygon)
+        {
+            return polygon.Contains(point);
+        }
+
+        /// <summary>
+        /// Determines if the multipoint is inside the polygon.
+        /// </summary>
+        /// <param name="multipoint"></param>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static bool IsInside(this Multipoint multipoint, Polygon polygon)
+        {
+            return polygon.Contains(multipoint);
+        }
+
+        /// <summary>
+        /// Determines if the polyline is inside the polygon.
+        /// </summary>
+        /// <param name="polyline"></param>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static bool IsInside(this Polyline polyline, Polygon polygon)
+        {
+            return polygon.Contains(polyline);
+        }
+
+        /// <summary>
+        /// Determines if the polygon is inside the other polygon.
+        /// </summary>
+        /// <param name="polygon1"></param>
+        /// <param name="polygon2"></param>
+        /// <returns></returns>
+        public static bool IsInside(this Polygon polygon1, Polygon polygon2)
+        {
+            return polygon2.Contains(polygon1);
         }
 
         internal static bool IsInnerRing(this double[][] ring)
