@@ -157,8 +157,8 @@
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
   <HelpKINode Title="GeometryFunctions.Intersect method" Url="html/460be39b-2c17-7327-9a00-5eb2302479bd.htm" />
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
-  <HelpKINode Title="GeometryFunctions.IsInside method" Url="html/1c5d89c4-ff35-78e9-e203-8a905c7d7ba5.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
+  <HelpKINode Title="GeometryFunctions.Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
@@ -199,7 +199,6 @@
   <HelpKINode Title="Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
-  <HelpKINode Title="IsInside method" Url="html/1c5d89c4-ff35-78e9-e203-8a905c7d7ba5.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Kml class">
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
@@ -396,6 +395,7 @@
     <HelpKINode Title="RestException.Url Property " Url="html/e31ef12d-3fca-37f5-182d-3d435e7ff38c.htm" />
     <HelpKINode Title="Service.Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   </HelpKINode>
+  <HelpKINode Title="Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
