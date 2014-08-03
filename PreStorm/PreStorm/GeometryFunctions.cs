@@ -286,7 +286,7 @@ namespace PreStorm
         /// <param name="point"></param>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static bool IsInside(this Point point, Polygon polygon)
+        public static bool Within(this Point point, Polygon polygon)
         {
             return polygon.Contains(point);
         }
@@ -297,7 +297,7 @@ namespace PreStorm
         /// <param name="multipoint"></param>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static bool IsInside(this Multipoint multipoint, Polygon polygon)
+        public static bool Within(this Multipoint multipoint, Polygon polygon)
         {
             return polygon.Contains(multipoint);
         }
@@ -308,7 +308,7 @@ namespace PreStorm
         /// <param name="polyline"></param>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static bool IsInside(this Polyline polyline, Polygon polygon)
+        public static bool Within(this Polyline polyline, Polygon polygon)
         {
             return polygon.Contains(polyline);
         }
@@ -319,7 +319,7 @@ namespace PreStorm
         /// <param name="polygon1"></param>
         /// <param name="polygon2"></param>
         /// <returns></returns>
-        public static bool IsInside(this Polygon polygon1, Polygon polygon2)
+        public static bool Within(this Polygon polygon1, Polygon polygon2)
         {
             return polygon2.Contains(polygon1);
         }
