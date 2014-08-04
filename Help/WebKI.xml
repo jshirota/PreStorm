@@ -74,18 +74,16 @@
     <HelpKINode Title="constructor" Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
     <HelpKINode Title="methods" Url="html/9d52adf7-aba2-27f3-68c3-3af683c5f3c5.htm" />
     <HelpKINode Title="properties" Url="html/fdb8a3eb-60fc-f01c-e506-c2cfc2360fe8.htm" />
+    <HelpKINode Title="type conversions" Url="html/2a12e28f-96d5-cf67-1401-09aec3da11b9.htm" />
   </HelpKINode>
+  <HelpKINode Title="Envelope to String conversion" Url="html/6d12af43-b4b0-79ed-63d1-4cc4c2f78129.htm" />
   <HelpKINode Title="Envelope.Envelope constructor" Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
   <HelpKINode Title="Envelope.xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
   <HelpKINode Title="Envelope.xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
   <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
   <HelpKINode Title="Envelope.ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
   <HelpKINode Title="Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
-  <HelpKINode Title="Extent property">
-    <HelpKINode Title="Multipoint.Extent Property " Url="html/a94cfe78-4157-dd80-7cb7-1930fbf7c837.htm" />
-    <HelpKINode Title="Polygon.Extent Property " Url="html/b86c3783-cdc5-32cb-308e-44a873415794.htm" />
-    <HelpKINode Title="Polyline.Extent Property " Url="html/8a443263-7f67-ba6b-9a1e-686548447f92.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
   <HelpKINode Title="Feature class">
     <HelpKINode Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
     <HelpKINode Title="about Feature class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
@@ -145,8 +143,16 @@
   </HelpKINode>
   <HelpKINode Title="Geometry property" Url="html/246592f7-de46-f75f-6adb-1a4f2ee51c4d.htm" />
   <HelpKINode Title="Geometry.Geometry constructor" Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
-  <HelpKINode Title="Geometry.spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
-  <HelpKINode Title="Geometry.ToString method" Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+  <HelpKINode Title="GeometryBase class">
+    <HelpKINode Title="GeometryBase Class" Url="html/811a4c2a-a670-5170-4b56-fb0c123fe678.htm" />
+    <HelpKINode Title="about GeometryBase class" Url="html/811a4c2a-a670-5170-4b56-fb0c123fe678.htm" />
+    <HelpKINode Title="constructor" Url="html/82beb12a-4eb8-c844-22be-3e56cb272c91.htm" />
+    <HelpKINode Title="methods" Url="html/4c3f2f98-4a45-2a22-cb15-58d0d6cba007.htm" />
+    <HelpKINode Title="properties" Url="html/87084ffb-77c0-9185-f54c-35a911facb11.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GeometryBase.GeometryBase constructor" Url="html/82beb12a-4eb8-c844-22be-3e56cb272c91.htm" />
+  <HelpKINode Title="GeometryBase.spatialReference property" Url="html/6733887e-8664-c04c-caa1-a0a0e2113966.htm" />
+  <HelpKINode Title="GeometryBase.ToString method" Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
   <HelpKINode Title="GeometryFunctions class">
     <HelpKINode Title="GeometryFunctions Class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
     <HelpKINode Title="about GeometryFunctions class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
@@ -155,6 +161,7 @@
   <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="GeometryFunctions.Contains method" Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm" />
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
+  <HelpKINode Title="GeometryFunctions.Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
   <HelpKINode Title="GeometryFunctions.Intersect method" Url="html/460be39b-2c17-7327-9a00-5eb2302479bd.htm" />
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
@@ -238,7 +245,6 @@
     <HelpKINode Title="type conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm" />
   </HelpKINode>
   <HelpKINode Title="Multipoint to String conversion" Url="html/52510435-5f09-c4e5-f9c1-062d53fed3d1.htm" />
-  <HelpKINode Title="Multipoint.Extent property" Url="html/a94cfe78-4157-dd80-7cb7-1930fbf7c837.htm" />
   <HelpKINode Title="Multipoint.Multipoint constructor" Url="html/be54ad31-18eb-f001-7902-6a6030a7c7ae.htm" />
   <HelpKINode Title="Multipoint.points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
   <HelpKINode Title="name property">
@@ -271,7 +277,6 @@
     <HelpKINode Title="type conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm" />
   </HelpKINode>
   <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
-  <HelpKINode Title="Polygon.Extent property" Url="html/b86c3783-cdc5-32cb-308e-44a873415794.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
   <HelpKINode Title="Polygon.rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
   <HelpKINode Title="Polyline class">
@@ -283,7 +288,6 @@
     <HelpKINode Title="type conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm" />
   </HelpKINode>
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
-  <HelpKINode Title="Polyline.Extent property" Url="html/8a443263-7f67-ba6b-9a1e-686548447f92.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
   <HelpKINode Title="Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
@@ -300,6 +304,7 @@
   <HelpKINode Title="PreStorm.Feature&lt;T&gt; class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm" />
   <HelpKINode Title="PreStorm.Field class" Url="html/26f45ce8-1f9e-e918-d70f-ed9b7cc27909.htm" />
   <HelpKINode Title="PreStorm.Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
+  <HelpKINode Title="PreStorm.GeometryBase class" Url="html/811a4c2a-a670-5170-4b56-fb0c123fe678.htm" />
   <HelpKINode Title="PreStorm.GeometryFunctions class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm" />
   <HelpKINode Title="PreStorm.Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
@@ -354,9 +359,10 @@
     <HelpKINode Title="constructor" Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
     <HelpKINode Title="properties" Url="html/f200ee5a-fb90-517b-4f47-9a21982a4c3b.htm" />
   </HelpKINode>
-  <HelpKINode Title="spatialReference property" Url="html/2ffbb588-f627-deeb-9169-1d62e02c2df2.htm" />
+  <HelpKINode Title="spatialReference property" Url="html/6733887e-8664-c04c-caa1-a0a0e2113966.htm" />
   <HelpKINode Title="SpatialReference.SpatialReference constructor" Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
   <HelpKINode Title="SpatialReference.wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
+  <HelpKINode Title="String to Envelope conversion" Url="html/64a2e857-3f75-7112-0142-da1eeadf589a.htm" />
   <HelpKINode Title="String to Multipoint conversion" Url="html/2e145664-c934-b2f5-9d04-f099fbfc5400.htm" />
   <HelpKINode Title="String to Point conversion" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
@@ -374,7 +380,7 @@
   <HelpKINode Title="Token.ToString method" Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
   <HelpKINode Title="ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
   <HelpKINode Title="ToString method">
-    <HelpKINode Title="Geometry.ToString Method " Url="html/1055b3ff-71bf-d9da-b25f-fdefeaf8531a.htm" />
+    <HelpKINode Title="GeometryBase.ToString Method " Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
     <HelpKINode Title="Token.ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
   </HelpKINode>
   <HelpKINode Title="type property">
