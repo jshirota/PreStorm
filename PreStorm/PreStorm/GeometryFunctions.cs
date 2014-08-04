@@ -111,6 +111,52 @@ namespace PreStorm
             return Distance(p, p1 + ((p2 - p1) * dot));
         }
 
+        private static Envelope Extent(this double[][] points)
+        {
+            return new Envelope
+            {
+                xmin = points.Min(p => p[0]),
+                ymin = points.Min(p => p[1]),
+                xmax = points.Max(p => p[0]),
+                ymax = points.Max(p => p[1])
+            };
+        }
+
+        private static Envelope Extent(this double[][][] paths)
+        {
+            return paths.SelectMany(r => r).ToArray().Extent();
+        }
+
+        /// <summary>
+        /// Returns the extent of this multipoint.
+        /// </summary>
+        /// <param name="multipoint"></param>
+        /// <returns></returns>
+        public static Envelope Extent(this Multipoint multipoint)
+        {
+            return multipoint.points.Extent();
+        }
+
+        /// <summary>
+        /// Returns the extent of this polyline.
+        /// </summary>
+        /// <param name="polyline"></param>
+        /// <returns></returns>
+        public static Envelope Extent(this Polyline polyline)
+        {
+            return polyline.paths.Extent();
+        }
+
+        /// <summary>
+        /// Returns the extent of this polygon.
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static Envelope Extent(this Polygon polygon)
+        {
+            return polygon.rings.Extent();
+        }
+
         private static Point Intersect(double[][] l1, double[][] l2)
         {
             if (l1 == null || l2 == null || ReferenceEquals(l1, l2))
@@ -163,7 +209,7 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polyline polyline1, Polyline polyline2)
         {
-            return !polyline1.Extent.Intersects(polyline2.Extent)
+            return !polyline1.Extent().Intersects(polyline2.Extent())
                 ? new Point[] { }
                 : Intersect(polyline1.paths, polyline2.paths);
         }

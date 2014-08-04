@@ -1,33 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace PreStorm
 {
     /// <summary>
     /// Represents the base class for all geometry types that are supported by ArcGIS Rest API.
     /// </summary>
-    public abstract class Geometry
+    public abstract class GeometryBase
     {
         /// <summary>
         /// The spatial reference of this geometry.
         /// </summary>
         public SpatialReference spatialReference { get; set; }
-
-        internal static Envelope GetEnvelopeFromPoints(double[][] points)
-        {
-            return new Envelope
-            {
-                xmin = points.Min(p => p[0]),
-                ymin = points.Min(p => p[1]),
-                xmax = points.Max(p => p[0]),
-                ymax = points.Max(p => p[1])
-            };
-        }
-
-        internal static Envelope GetEnvelopeFromPaths(double[][][] paths)
-        {
-            return GetEnvelopeFromPoints(paths.SelectMany(r => r).ToArray());
-        }
 
         /// <summary>
         /// Returns the JSON representation of the geometry.
@@ -45,6 +28,13 @@ namespace PreStorm
 
             return dictionary.Serialize();
         }
+    }
+
+    /// <summary>
+    /// Represents the base class for all geometry types that are supported by ArcGIS Rest API and the PreStorm object-relational mapper.
+    /// </summary>
+    public abstract class Geometry : GeometryBase
+    {
     }
 
     /// <summary>
@@ -139,11 +129,6 @@ namespace PreStorm
         {
             return multipoint == null ? null : multipoint.ToString();
         }
-
-        /// <summary>
-        /// The extent of this geometry.
-        /// </summary>
-        public Envelope Extent { get { return GetEnvelopeFromPoints(points); } }
     }
 
     /// <summary>
@@ -175,11 +160,6 @@ namespace PreStorm
         {
             return polyline == null ? null : polyline.ToString();
         }
-
-        /// <summary>
-        /// The extent of this geometry.
-        /// </summary>
-        public Envelope Extent { get { return GetEnvelopeFromPaths(paths); } }
     }
 
     /// <summary>
@@ -211,17 +191,12 @@ namespace PreStorm
         {
             return polygon == null ? null : polygon.ToString();
         }
-
-        /// <summary>
-        /// The extent of this geometry.
-        /// </summary>
-        public Envelope Extent { get { return GetEnvelopeFromPaths(rings); } }
     }
 
     /// <summary>
     /// Represents the envelope geometry.
     /// </summary>
-    public class Envelope
+    public class Envelope : GeometryBase
     {
         /// <summary>
         /// The minimum X coordinate.
@@ -242,5 +217,25 @@ namespace PreStorm
         /// The maximum Y coordinate.
         /// </summary>
         public double ymax { get; set; }
+
+        /// <summary>
+        /// Deserializes the JSON string into an Envelope object.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static implicit operator Envelope(string json)
+        {
+            return json == null ? null : json.Deserialize<Envelope>();
+        }
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="envelope"></param>
+        /// <returns></returns>
+        public static implicit operator string(Envelope envelope)
+        {
+            return envelope == null ? null : envelope.ToString();
+        }
     }
 }
