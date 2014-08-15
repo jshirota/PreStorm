@@ -69,6 +69,17 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Calculates the shortest distance to the multipoint.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="multipoint"></param>
+        /// <returns></returns>
+        public static double Distance(this Point point, Multipoint multipoint)
+        {
+            return multipoint.points.Min(p => Length(new[] { point.x, point.y }, p));
+        }
+
+        /// <summary>
         /// Calculates the shortest distance to the polyline.
         /// </summary>
         /// <param name="point"></param>
@@ -124,7 +135,7 @@ namespace PreStorm
 
         private static Envelope Extent(this double[][][] paths)
         {
-            return paths.SelectMany(r => r).ToArray().Extent();
+            return paths.SelectMany(p => p).ToArray().Extent();
         }
 
         /// <summary>
@@ -222,7 +233,10 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Envelope extent1, Envelope extent2)
         {
-            return extent1.xmin <= extent2.xmax && extent1.ymin <= extent2.ymax && extent1.xmax >= extent2.xmin && extent1.ymax >= extent2.ymin;
+            return extent1.xmin <= extent2.xmax
+                && extent1.ymin <= extent2.ymax
+                && extent1.xmax >= extent2.xmin
+                && extent1.ymax >= extent2.ymin;
         }
 
         /// <summary>
@@ -368,6 +382,80 @@ namespace PreStorm
         public static bool Within(this Polygon polygon1, Polygon polygon2)
         {
             return polygon2.Contains(polygon1);
+        }
+
+        /// <summary>
+        /// Determines if the point is inside the extent.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="extent"></param>
+        /// <returns></returns>
+        public static bool Within(this Point point, Envelope extent)
+        {
+            return point.WithinDistanceOf(extent, 0);
+        }
+
+        /// <summary>
+        /// Determines if the point is within the specified distance from the extent.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="extent"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Point point, Envelope extent, double distance)
+        {
+            return point.x > extent.xmin - distance
+                && point.y > extent.ymin - distance
+                && point.x < extent.xmax + distance
+                && point.y < extent.ymax + distance;
+        }
+
+        /// <summary>
+        /// Determines if the point is within the specified distance from the other point.
+        /// </summary>
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Point point1, Point point2, double distance)
+        {
+            return point1.Distance(point2) < distance;
+        }
+
+        /// <summary>
+        /// Determines if the point is within the specified distance from the multipoint.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="multipoint"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Point point, Multipoint multipoint, double distance)
+        {
+            return point.WithinDistanceOf(multipoint.Extent(), distance) && point.Distance(multipoint) < distance;
+        }
+
+        /// <summary>
+        /// Determines if the point is within the specified distance from the polyline.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="polyline"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Point point, Polyline polyline, double distance)
+        {
+            return point.WithinDistanceOf(polyline.Extent(), distance) && point.Distance(polyline) < distance;
+        }
+
+        /// <summary>
+        /// Determines if the point is within the specified distance from the polygon.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="polygon"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Point point, Polygon polygon, double distance)
+        {
+            return point.WithinDistanceOf(polygon.Extent(), distance) && point.Distance(polygon) < distance;
         }
 
         internal static bool IsInnerRing(this double[][] ring)
