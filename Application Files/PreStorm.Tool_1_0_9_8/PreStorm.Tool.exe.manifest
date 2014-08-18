@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="PreStorm.Tool.exe" version="1.0.9.8" publicKeyToken="0d8a8abc45f0fe91" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="PreStorm.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="PreStorm.Tool" version="1.0.9.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="PreStorm.Tool.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PreStorm.Tool.exe" size="434176">
+      <assemblyIdentity name="PreStorm.Tool" version="1.0.9.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>euVuMGNDn7yo82kdSVBr118u9lk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="PreStorm.ico" size="107068">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>dgDbPctpDyuoUlKHDme5z1oAOr8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="PreStorm.Tool.exe.config" size="1228">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>a3Xmicfmjl/KIkN1x1I8qz3dos4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=Jiro-PC\Jiro" issuerKeyHash="71a5169143297a17ba417249d8fcaaf9a2508e2a" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>GQeM3IfRVVhGktm7kgN4q6R0WCE=</DigestValue></Reference></SignedInfo><SignatureValue>vVuVRcRcsA6HACcBlYTQuTNvsjZxv1dt09PJaziFKZXmDwDhm0af0jxE6VMLCr24wAQlPgQo01tgyv0B1YA0KeFJLfQJLgMQEIp+DNnZtpWorGRCfmUsNJqLB8vXyF3wlBXZSEiT8HHNFmjw26HLy9UY3yJBRiKvaAMVh/zLXUo=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>3tuxvJnCwEez0PGd3ApO8SHFGjSU/Or4bsDM6sy/A8dV9eM1EreHl1UCg3ROF3W0tY6F34se2kp6zHiAqEHhE58AlNj5W9vexFw5f5ElQagjdAXw9A9fufX4kWbNBO8Ni9lwfsbEECkcBNqUsdVbtEHhT6cahhlS5sKjD59Ox68=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="215874a4ab780392bbd992465855d187dc8c0719" Description="" Url=""><as:assemblyIdentity name="PreStorm.Tool.exe" version="1.0.9.8" publicKeyToken="0d8a8abc45f0fe91" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Jiro-PC\Jiro</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>78sTRJiCtg3ZywJOyGO10zPxLK8=</DigestValue></Reference></SignedInfo><SignatureValue>BmE4pIfMgfPaWFpXUxCjbKpPISBaLp3iD6TcuGdy+++s8uybJxGLyPx9Z07bZc3Lxo52OOtop202KNk2XEChwdwbl+S1MTLqToM1b2T+GT6Ws+wdJodLUDvfiucj90VMB/QcF4EkMhLD7V8fhvrj/NdddQD1p+lZTUB2MbIAyS4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>3tuxvJnCwEez0PGd3ApO8SHFGjSU/Or4bsDM6sy/A8dV9eM1EreHl1UCg3ROF3W0tY6F34se2kp6zHiAqEHhE58AlNj5W9vexFw5f5ElQagjdAXw9A9fufX4kWbNBO8Ni9lwfsbEECkcBNqUsdVbtEHhT6cahhlS5sKjD59Ox68=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQMsAyx+zwWqtODc2WEiynmDANBgkqhkiG9w0BAQUFADAjMSEwHwYDVQQDHhgASgBpAHIAbwAtAFAAQwBcAEoAaQByAG8wHhcNMTQwMzEwMDE1NDAyWhcNMTUwMzEwMDc1NDAyWjAjMSEwHwYDVQQDHhgASgBpAHIAbwAtAFAAQwBcAEoAaQByAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAN7bsbyZwsBHs9DxndwKTvEhxRo0lPzq+G7AzOrMvwPHVfXjNRK3h5dVAoN0Thd1tLWOhd+LHtpKesx4gKhB4ROfAJTY+Vvb3sRcOX+RJUGoI3QF8PQPX7n1+JFmzQTvDYvZcH7GxBApHATalLHVW7RB4U+nGoYZUubCow+fTsevAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAEFpAoUPANu7AiqBNF0hswVPx012rHOT9Nsd9waXUoAGyJ8dLF2NXYWZgaDy4ADAq7Ry9pTb12ic1xNyQ3b0X8g/jGU6I52subEz98kV+Iku7KkHHJqjWeYrFNISQo+2XpwZMdn8EYkQe2Fai2qXaRyDucnx+m6ARl2wr2GCxYmY=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
