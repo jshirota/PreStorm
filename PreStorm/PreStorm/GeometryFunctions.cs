@@ -164,7 +164,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Calculates the length of the polygon.
+        /// Calculates the perimeter of the polygon.
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
@@ -402,9 +402,185 @@ namespace PreStorm
             return Math.Min(polygon1.rings.Distance(polygon2.rings), polygon2.rings.Distance(polygon1.rings));
         }
 
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Point> feature1, Feature<Point> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Point> feature1, Feature<Multipoint> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Point> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Point> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Multipoint> feature1, Feature<Point> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Multipoint> feature1, Feature<Multipoint> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Multipoint> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Multipoint> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polyline> feature1, Feature<Point> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polyline> feature1, Feature<Multipoint> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polyline> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polyline> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polygon> feature1, Feature<Point> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polygon> feature1, Feature<Multipoint> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polygon> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Calculates the distance between two features.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static double Distance(this Feature<Polygon> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Distance(feature2.Geometry);
+        }
+
         #endregion
 
-        #region Distance
+        #region Extent
 
         /// <summary>
         /// Returns the extent of this point.
@@ -793,6 +969,198 @@ namespace PreStorm
         public static bool WithinDistanceOf(this Polygon polygon1, Polygon polygon2, double distance)
         {
             return polygon1.Extent().Buffer(distance).Intersects(polygon2.Extent()) && polygon1.Distance(polygon2) < distance;
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Point> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Multipoint> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Polyline> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Polygon> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Point> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Multipoint> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Polyline> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Polygon> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Point> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Multipoint> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Polyline> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Polygon> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Point> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Multipoint> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Polyline> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+        }
+
+        /// <summary>
+        /// Determines if the feature is within the specified distance from the other feature.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Polygon> feature2, double distance)
+        {
+            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
         }
 
         #endregion
