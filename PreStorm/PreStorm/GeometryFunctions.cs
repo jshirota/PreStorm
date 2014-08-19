@@ -777,7 +777,7 @@ namespace PreStorm
 
         #endregion
 
-        #region WithinDistanceOf
+        #region WithinDistance
 
         /// <summary>
         /// Determines if the point is within the specified distance from the other point.
@@ -786,7 +786,7 @@ namespace PreStorm
         /// <param name="point2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Point point1, Point point2, double distance)
+        public static bool WithinDistance(this Point point1, Point point2, double distance)
         {
             return point1.Distance(point2) < distance;
         }
@@ -798,7 +798,7 @@ namespace PreStorm
         /// <param name="multipoint"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Point point, Multipoint multipoint, double distance)
+        public static bool WithinDistance(this Point point, Multipoint multipoint, double distance)
         {
             return point.Extent().Buffer(distance).Intersects(multipoint.Extent()) && point.Distance(multipoint) < distance;
         }
@@ -810,7 +810,7 @@ namespace PreStorm
         /// <param name="polyline"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Point point, Polyline polyline, double distance)
+        public static bool WithinDistance(this Point point, Polyline polyline, double distance)
         {
             return point.Extent().Buffer(distance).Intersects(polyline.Extent()) && point.Distance(polyline) < distance;
         }
@@ -822,7 +822,7 @@ namespace PreStorm
         /// <param name="polygon"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Point point, Polygon polygon, double distance)
+        public static bool WithinDistance(this Point point, Polygon polygon, double distance)
         {
             return point.Extent().Buffer(distance).Intersects(polygon.Extent()) && point.Distance(polygon) < distance;
         }
@@ -834,7 +834,7 @@ namespace PreStorm
         /// <param name="point"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Multipoint multipoint, Point point, double distance)
+        public static bool WithinDistance(this Multipoint multipoint, Point point, double distance)
         {
             return point.Distance(multipoint) < distance;
         }
@@ -846,7 +846,7 @@ namespace PreStorm
         /// <param name="multipoint2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Multipoint multipoint1, Multipoint multipoint2, double distance)
+        public static bool WithinDistance(this Multipoint multipoint1, Multipoint multipoint2, double distance)
         {
             return multipoint1.Extent().Buffer(distance).Intersects(multipoint2.Extent()) && multipoint1.Distance(multipoint2) < distance;
         }
@@ -858,7 +858,7 @@ namespace PreStorm
         /// <param name="polyline"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Multipoint multipoint, Polyline polyline, double distance)
+        public static bool WithinDistance(this Multipoint multipoint, Polyline polyline, double distance)
         {
             return multipoint.Extent().Buffer(distance).Intersects(polyline.Extent()) && multipoint.Distance(polyline) < distance;
         }
@@ -870,7 +870,7 @@ namespace PreStorm
         /// <param name="polygon"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Multipoint multipoint, Polygon polygon, double distance)
+        public static bool WithinDistance(this Multipoint multipoint, Polygon polygon, double distance)
         {
             return multipoint.Extent().Buffer(distance).Intersects(polygon.Extent()) && multipoint.Distance(polygon) < distance;
         }
@@ -882,7 +882,7 @@ namespace PreStorm
         /// <param name="point"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polyline polyline, Point point, double distance)
+        public static bool WithinDistance(this Polyline polyline, Point point, double distance)
         {
             return point.Distance(polyline) < distance;
         }
@@ -894,7 +894,7 @@ namespace PreStorm
         /// <param name="multipoint"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polyline polyline, Multipoint multipoint, double distance)
+        public static bool WithinDistance(this Polyline polyline, Multipoint multipoint, double distance)
         {
             return multipoint.Distance(polyline) < distance;
         }
@@ -906,7 +906,7 @@ namespace PreStorm
         /// <param name="polyline2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polyline polyline1, Polyline polyline2, double distance)
+        public static bool WithinDistance(this Polyline polyline1, Polyline polyline2, double distance)
         {
             return polyline1.Extent().Buffer(distance).Intersects(polyline2.Extent()) && polyline1.Distance(polyline2) < distance;
         }
@@ -918,7 +918,7 @@ namespace PreStorm
         /// <param name="polygon"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polyline polyline, Polygon polygon, double distance)
+        public static bool WithinDistance(this Polyline polyline, Polygon polygon, double distance)
         {
             return polyline.Extent().Buffer(distance).Intersects(polygon.Extent()) && polyline.Distance(polygon) < distance;
         }
@@ -930,7 +930,7 @@ namespace PreStorm
         /// <param name="point"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polygon polygon, Point point, double distance)
+        public static bool WithinDistance(this Polygon polygon, Point point, double distance)
         {
             return point.Distance(polygon) < distance;
         }
@@ -942,7 +942,7 @@ namespace PreStorm
         /// <param name="multipoint"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polygon polygon, Multipoint multipoint, double distance)
+        public static bool WithinDistance(this Polygon polygon, Multipoint multipoint, double distance)
         {
             return multipoint.Distance(polygon) < distance;
         }
@@ -954,7 +954,7 @@ namespace PreStorm
         /// <param name="polyline"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polygon polygon, Polyline polyline, double distance)
+        public static bool WithinDistance(this Polygon polygon, Polyline polyline, double distance)
         {
             return polyline.Distance(polygon) < distance;
         }
@@ -966,7 +966,7 @@ namespace PreStorm
         /// <param name="polygon2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Polygon polygon1, Polygon polygon2, double distance)
+        public static bool WithinDistance(this Polygon polygon1, Polygon polygon2, double distance)
         {
             return polygon1.Extent().Buffer(distance).Intersects(polygon2.Extent()) && polygon1.Distance(polygon2) < distance;
         }
@@ -978,9 +978,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Point> feature2, double distance)
+        public static bool WithinDistance(this Feature<Point> feature1, Feature<Point> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -990,9 +990,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Multipoint> feature2, double distance)
+        public static bool WithinDistance(this Feature<Point> feature1, Feature<Multipoint> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1002,9 +1002,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Polyline> feature2, double distance)
+        public static bool WithinDistance(this Feature<Point> feature1, Feature<Polyline> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1014,9 +1014,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Point> feature1, Feature<Polygon> feature2, double distance)
+        public static bool WithinDistance(this Feature<Point> feature1, Feature<Polygon> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1026,9 +1026,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Point> feature2, double distance)
+        public static bool WithinDistance(this Feature<Multipoint> feature1, Feature<Point> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1038,9 +1038,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Multipoint> feature2, double distance)
+        public static bool WithinDistance(this Feature<Multipoint> feature1, Feature<Multipoint> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1050,9 +1050,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Polyline> feature2, double distance)
+        public static bool WithinDistance(this Feature<Multipoint> feature1, Feature<Polyline> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1062,9 +1062,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Multipoint> feature1, Feature<Polygon> feature2, double distance)
+        public static bool WithinDistance(this Feature<Multipoint> feature1, Feature<Polygon> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1074,9 +1074,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Point> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polyline> feature1, Feature<Point> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1086,9 +1086,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Multipoint> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polyline> feature1, Feature<Multipoint> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1098,9 +1098,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Polyline> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polyline> feature1, Feature<Polyline> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1110,9 +1110,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polyline> feature1, Feature<Polygon> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polyline> feature1, Feature<Polygon> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1122,9 +1122,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Point> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polygon> feature1, Feature<Point> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1134,9 +1134,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Multipoint> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polygon> feature1, Feature<Multipoint> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1146,9 +1146,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Polyline> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polygon> feature1, Feature<Polyline> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         /// <summary>
@@ -1158,9 +1158,9 @@ namespace PreStorm
         /// <param name="feature2"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        public static bool WithinDistanceOf(this Feature<Polygon> feature1, Feature<Polygon> feature2, double distance)
+        public static bool WithinDistance(this Feature<Polygon> feature1, Feature<Polygon> feature2, double distance)
         {
-            return feature1.Geometry.WithinDistanceOf(feature2.Geometry, distance);
+            return feature1.Geometry.WithinDistance(feature2.Geometry, distance);
         }
 
         #endregion
