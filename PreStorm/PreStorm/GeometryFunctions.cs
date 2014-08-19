@@ -168,7 +168,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static double Length(this Polygon polygon)
+        public static double Perimeter(this Polygon polygon)
         {
             if (polygon == null || polygon.rings == null)
                 return 0;
@@ -683,6 +683,61 @@ namespace PreStorm
             return new Polyline { paths = polygon1.rings }.Intersects(new Polyline { paths = polygon2.rings });
         }
 
+        /// <summary>
+        /// Returns intersection points between the two polylines.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static Point[] Intersect(this Feature<Polyline> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Intersect(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polyline intersects the other polyline.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Feature<Polyline> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Intersects(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polyline intersects the polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Feature<Polyline> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Intersects(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polygon intersects the polyline.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Feature<Polygon> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Intersects(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polyline intersects the other polyline.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Feature<Polygon> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Intersects(feature2.Geometry);
+        }
+
         #endregion
 
         #region Contains / Within
@@ -732,6 +787,50 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Determines if the polygon contains the point.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Contains(this Feature<Polygon> feature1, Feature<Point> feature2)
+        {
+            return feature1.Geometry.Contains(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the multipoint.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Contains(this Feature<Polygon> feature1, Feature<Multipoint> feature2)
+        {
+            return feature1.Geometry.Contains(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the polyline.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Contains(this Feature<Polygon> feature1, Feature<Polyline> feature2)
+        {
+            return feature1.Geometry.Contains(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polygon completely contains the other polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Contains(this Feature<Polygon> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Contains(feature2.Geometry);
+        }
+
+        /// <summary>
         /// Determines if the point is inside the polygon.
         /// </summary>
         /// <param name="point"></param>
@@ -773,6 +872,50 @@ namespace PreStorm
         public static bool Within(this Polygon polygon1, Polygon polygon2)
         {
             return polygon2.Contains(polygon1);
+        }
+
+        /// <summary>
+        /// Determines if the point is inside the polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Within(this Feature<Point> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Within(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the multipoint is inside the polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Within(this Feature<Multipoint> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Within(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polyline is inside the polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Within(this Feature<Polyline> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Within(feature2.Geometry);
+        }
+
+        /// <summary>
+        /// Determines if the polygon is inside the other polygon.
+        /// </summary>
+        /// <param name="feature1"></param>
+        /// <param name="feature2"></param>
+        /// <returns></returns>
+        public static bool Within(this Feature<Polygon> feature1, Feature<Polygon> feature2)
+        {
+            return feature1.Geometry.Within(feature2.Geometry);
         }
 
         #endregion
