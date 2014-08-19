@@ -166,7 +166,7 @@
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/c9d9134e-438b-21bf-8f2d-997a198505cf.htm" />
   <HelpKINode Title="GeometryFunctions.Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
-  <HelpKINode Title="GeometryFunctions.WithinDistanceOf method" Url="html/a0ed0686-97c9-4d68-0dbe-b2e26462818a.htm" />
+  <HelpKINode Title="GeometryFunctions.WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
   <HelpKINode Title="GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
@@ -407,7 +407,7 @@
     <HelpKINode Title="Service.Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   </HelpKINode>
   <HelpKINode Title="Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
-  <HelpKINode Title="WithinDistanceOf method" Url="html/a0ed0686-97c9-4d68-0dbe-b2e26462818a.htm" />
+  <HelpKINode Title="WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
