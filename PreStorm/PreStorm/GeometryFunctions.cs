@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace PreStorm
 {
@@ -12,50 +10,39 @@ namespace PreStorm
     {
         #region Helpers
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static bool Null(params object[] geometries)
+        {
+            return geometries != null && geometries.Any(g => g == null);
+        }
+
         private static void AssertNotNull(params object[] geometries)
         {
-            if (geometries != null && geometries.Any(g => g == null))
-            {
-                var stackTrace = new StackTrace();
-                var message = string.Format("An error occurred while executing GeometryFunctions.{0}.  The input geometry cannot be null.", stackTrace.GetFrame(1).GetMethod().Name);
-
-                throw new Exception(message);
-            }
+            if (Null(geometries))
+                throw new Exception("Input geometries cannot be null.");
         }
 
         private static double Length(this double[] p1, double[] p2)
         {
-            AssertNotNull(p1, p2);
-
             return Math.Sqrt(Math.Pow(p1[0] - p2[0], 2) + Math.Pow(p1[1] - p2[1], 2));
         }
 
         private static double Area(double[] p1, double[] p2)
         {
-            AssertNotNull(p1, p2);
-
             return (-p1[0] + p2[0]) * (p1[1] + p2[1]) / 2;
         }
 
         private static double Distance(this Point point, double[][][] paths)
         {
-            AssertNotNull(point, paths);
-
             return paths.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => Distance(new Vector(p1[0], p1[1]), new Vector(p2[0], p2[1]), point))).Min();
         }
 
         private static double Distance(this double[][][] paths1, double[][][] paths2)
         {
-            AssertNotNull(paths1, paths2);
-
             return paths1.SelectMany(path => path.Select(p => new Point(p[0], p[1]).Distance(paths2))).Min();
         }
 
         private static double Distance(Vector p1, Vector p2, Vector p)
         {
-            AssertNotNull(p1, p2, p);
-
             var d = Math.Pow(Distance(p1, p2), 2);
 
             if (d == 0)
@@ -74,8 +61,6 @@ namespace PreStorm
 
         private static Envelope Extent(this double[][] points)
         {
-            AssertNotNull(points);
-
             return new Envelope
             {
                 xmin = points.Min(p => p[0]),
@@ -87,16 +72,12 @@ namespace PreStorm
 
         private static Envelope Extent(this double[][][] paths)
         {
-            AssertNotNull(paths);
-
             return paths.SelectMany(p => p).ToArray().Extent();
         }
 
         private static Point Intersect(double[][] l1, double[][] l2)
         {
-            AssertNotNull(l1, l2);
-
-            if (ReferenceEquals(l1, l2))
+            if (l1 == null || l2 == null || l1.Equals(l2))
                 return null;
 
             var p1 = new Vector(l1[0][0], l1[0][1]);
@@ -126,8 +107,6 @@ namespace PreStorm
 
         private static Point[] Intersect(double[][][] path1, double[][][] path2)
         {
-            AssertNotNull(path1, path2);
-
             var lines1 = path1.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => new[] { p1, p2 })).ToArray();
             var lines2 = path2.SelectMany(p => p.Zip(p.Skip(1), (p1, p2) => new[] { p1, p2 })).ToArray();
 
@@ -142,8 +121,6 @@ namespace PreStorm
 
         private static bool Intersects(this Envelope extent1, Envelope extent2)
         {
-            AssertNotNull(extent1, extent2);
-
             return extent1.xmin <= extent2.xmax
                 && extent1.ymin <= extent2.ymax
                 && extent1.xmax >= extent2.xmin
@@ -152,8 +129,6 @@ namespace PreStorm
 
         private static bool Contains(double[][] ring, Point point)
         {
-            AssertNotNull(ring, point);
-
             return ring
                 .Zip(ring.Skip(1), (p1, p2) => new { p1, p2 })
                 .Where(o => o.p1[1] > point.y != o.p2[1] > point.y && point.x < (o.p2[0] - o.p1[0]) * (point.y - o.p1[1]) / (o.p2[1] - o.p1[1]) + o.p1[0])
@@ -162,15 +137,11 @@ namespace PreStorm
 
         private static bool Contains(this Polygon polygon, double[][] points)
         {
-            AssertNotNull(polygon, points);
-
             return points.All(p => polygon.Contains(new Point(p[0], p[1])));
         }
 
         private static Envelope Buffer(this Envelope extent, double distance)
         {
-            AssertNotNull(extent);
-
             return new Envelope
             {
                 xmin = extent.xmin - distance,
@@ -182,8 +153,6 @@ namespace PreStorm
 
         internal static bool IsInnerRing(this double[][] ring)
         {
-            AssertNotNull(ring);
-
             return Enumerable.Range(0, ring.Length - 1)
                 .Sum(i => ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]) > 0;
         }
@@ -199,7 +168,8 @@ namespace PreStorm
         /// <returns></returns>
         public static double Length(this Polyline polyline)
         {
-            AssertNotNull(polyline);
+            if (polyline == null || polyline.paths == null)
+                return 0;
 
             return polyline.paths.SelectMany(p => p.Zip(p.Skip(1), Length)).Sum();
         }
@@ -211,7 +181,8 @@ namespace PreStorm
         /// <returns></returns>
         public static double Perimeter(this Polygon polygon)
         {
-            AssertNotNull(polygon);
+            if (polygon == null || polygon.rings == null)
+                return 0;
 
             return polygon.rings.SelectMany(r => r.Zip(r.Skip(1), Length)).Sum();
         }
@@ -223,7 +194,8 @@ namespace PreStorm
         /// <returns></returns>
         public static double Area(this Polygon polygon)
         {
-            AssertNotNull(polygon);
+            if (polygon == null || polygon.rings == null)
+                return 0;
 
             return polygon.rings.SelectMany(r => r.Zip(r.Skip(1), Area)).Sum();
         }
@@ -713,7 +685,8 @@ namespace PreStorm
         /// <returns></returns>
         public static Point[] Intersect(this Polyline polyline1, Polyline polyline2)
         {
-            AssertNotNull(polyline1, polyline2);
+            if (Null(polyline1, polyline2))
+                return new Point[] { };
 
             return !polyline1.Extent().Intersects(polyline2.Extent())
                 ? new Point[] { }
@@ -728,8 +701,6 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline1, Polyline polyline2)
         {
-            AssertNotNull(polyline1, polyline2);
-
             return polyline1.Intersect(polyline2).Any();
         }
 
@@ -741,8 +712,6 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polyline polyline, Polygon polygon)
         {
-            AssertNotNull(polyline, polygon);
-
             return polyline.Intersects(new Polyline { paths = polygon.rings });
         }
 
@@ -754,8 +723,6 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon, Polyline polyline)
         {
-            AssertNotNull(polygon, polyline);
-
             return new Polyline { paths = polygon.rings }.Intersects(polyline);
         }
 
@@ -767,8 +734,6 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Intersects(this Polygon polygon1, Polygon polygon2)
         {
-            AssertNotNull(polygon1, polygon2);
-
             return new Polyline { paths = polygon1.rings }.Intersects(new Polyline { paths = polygon2.rings });
         }
 
@@ -839,7 +804,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Contains(this Polygon polygon, Point point)
         {
-            AssertNotNull(polygon, point);
+            if (Null(polygon, point))
+                return false;
 
             return polygon.rings.Where(r => Contains(r, point)).Sum(r => r.IsInnerRing() ? -1 : 1) > 0;
         }
@@ -852,7 +818,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Contains(this Polygon polygon, Multipoint multipoint)
         {
-            AssertNotNull(polygon, multipoint);
+            if (Null(polygon, multipoint))
+                return false;
 
             return polygon.Contains(multipoint.points);
         }
@@ -865,7 +832,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Contains(this Polygon polygon, Polyline polyline)
         {
-            AssertNotNull(polygon, polyline);
+            if (Null(polygon, polyline))
+                return false;
 
             return !polygon.Intersects(polyline) && polyline.paths.All(polygon.Contains);
         }
@@ -878,7 +846,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Contains(this Polygon polygon1, Polygon polygon2)
         {
-            AssertNotNull(polygon1, polygon2);
+            if (Null(polygon1, polygon2))
+                return false;
 
             return !polygon1.Intersects(polygon2) && polygon2.rings.All(polygon1.Contains);
         }
@@ -935,7 +904,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Within(this Point point, Polygon polygon)
         {
-            AssertNotNull(point, polygon);
+            if (Null(point, polygon))
+                return false;
 
             return polygon.Contains(point);
         }
@@ -948,7 +918,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Within(this Multipoint multipoint, Polygon polygon)
         {
-            AssertNotNull(multipoint, polygon);
+            if (Null(multipoint, polygon))
+                return false;
 
             return polygon.Contains(multipoint);
         }
@@ -961,7 +932,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Within(this Polyline polyline, Polygon polygon)
         {
-            AssertNotNull(polyline, polygon);
+            if (Null(polyline, polygon))
+                return false;
 
             return polygon.Contains(polyline);
         }
@@ -974,7 +946,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool Within(this Polygon polygon1, Polygon polygon2)
         {
-            AssertNotNull(polygon1, polygon2);
+            if (Null(polygon1, polygon2))
+                return false;
 
             return polygon2.Contains(polygon1);
         }
@@ -1036,7 +1009,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Point point1, Point point2, double distance)
         {
-            AssertNotNull(point1, point2);
+            if (Null(point1, point2))
+                return false;
 
             return point1.Distance(point2) < distance;
         }
@@ -1050,7 +1024,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Point point, Multipoint multipoint, double distance)
         {
-            AssertNotNull(point, multipoint);
+            if (Null(point, multipoint))
+                return false;
 
             return point.Extent().Buffer(distance).Intersects(multipoint.Extent()) && point.Distance(multipoint) < distance;
         }
@@ -1064,7 +1039,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Point point, Polyline polyline, double distance)
         {
-            AssertNotNull(point, polyline);
+            if (Null(point, polyline))
+                return false;
 
             return point.Extent().Buffer(distance).Intersects(polyline.Extent()) && point.Distance(polyline) < distance;
         }
@@ -1078,7 +1054,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Point point, Polygon polygon, double distance)
         {
-            AssertNotNull(point, polygon);
+            if (Null(point, polygon))
+                return false;
 
             return point.Extent().Buffer(distance).Intersects(polygon.Extent()) && point.Distance(polygon) < distance;
         }
@@ -1092,7 +1069,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Multipoint multipoint, Point point, double distance)
         {
-            AssertNotNull(multipoint, point);
+            if (Null(multipoint, point))
+                return false;
 
             return point.Distance(multipoint) < distance;
         }
@@ -1106,7 +1084,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Multipoint multipoint1, Multipoint multipoint2, double distance)
         {
-            AssertNotNull(multipoint1, multipoint2);
+            if (Null(multipoint1, multipoint2))
+                return false;
 
             return multipoint1.Extent().Buffer(distance).Intersects(multipoint2.Extent()) && multipoint1.Distance(multipoint2) < distance;
         }
@@ -1120,7 +1099,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Multipoint multipoint, Polyline polyline, double distance)
         {
-            AssertNotNull(multipoint, polyline);
+            if (Null(multipoint, polyline))
+                return false;
 
             return multipoint.Extent().Buffer(distance).Intersects(polyline.Extent()) && multipoint.Distance(polyline) < distance;
         }
@@ -1134,7 +1114,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Multipoint multipoint, Polygon polygon, double distance)
         {
-            AssertNotNull(multipoint, polygon);
+            if (Null(multipoint, polygon))
+                return false;
 
             return multipoint.Extent().Buffer(distance).Intersects(polygon.Extent()) && multipoint.Distance(polygon) < distance;
         }
@@ -1148,7 +1129,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polyline polyline, Point point, double distance)
         {
-            AssertNotNull(polyline, point);
+            if (Null(polyline, point))
+                return false;
 
             return point.Distance(polyline) < distance;
         }
@@ -1162,7 +1144,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polyline polyline, Multipoint multipoint, double distance)
         {
-            AssertNotNull(polyline, multipoint);
+            if (Null(polyline, multipoint))
+                return false;
 
             return multipoint.Distance(polyline) < distance;
         }
@@ -1176,7 +1159,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polyline polyline1, Polyline polyline2, double distance)
         {
-            AssertNotNull(polyline1, polyline2);
+            if (Null(polyline1, polyline2))
+                return false;
 
             return polyline1.Extent().Buffer(distance).Intersects(polyline2.Extent()) && polyline1.Distance(polyline2) < distance;
         }
@@ -1190,7 +1174,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polyline polyline, Polygon polygon, double distance)
         {
-            AssertNotNull(polyline, polygon);
+            if (Null(polyline, polygon))
+                return false;
 
             return polyline.Extent().Buffer(distance).Intersects(polygon.Extent()) && polyline.Distance(polygon) < distance;
         }
@@ -1204,7 +1189,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polygon polygon, Point point, double distance)
         {
-            AssertNotNull(polygon, point);
+            if (Null(polygon, point))
+                return false;
 
             return point.Distance(polygon) < distance;
         }
@@ -1218,7 +1204,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polygon polygon, Multipoint multipoint, double distance)
         {
-            AssertNotNull(polygon, multipoint);
+            if (Null(polygon, multipoint))
+                return false;
 
             return multipoint.Distance(polygon) < distance;
         }
@@ -1232,7 +1219,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polygon polygon, Polyline polyline, double distance)
         {
-            AssertNotNull(polygon, polyline);
+            if (Null(polygon, polyline))
+                return false;
 
             return polyline.Distance(polygon) < distance;
         }
@@ -1246,7 +1234,8 @@ namespace PreStorm
         /// <returns></returns>
         public static bool WithinDistance(this Polygon polygon1, Polygon polygon2, double distance)
         {
-            AssertNotNull(polygon1, polygon2);
+            if (Null(polygon1, polygon2))
+                return false;
 
             return polygon1.Extent().Buffer(distance).Intersects(polygon2.Extent()) && polygon1.Distance(polygon2) < distance;
         }
