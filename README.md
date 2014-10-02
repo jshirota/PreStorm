@@ -18,5 +18,3 @@ http://jshirota.github.io/PreStorm/Help/
 The NuGet package is here:
 
 http://nuget.org/packages/PreStorm
-
-![PreStorm](http://cdn.morguefile.com/imageData/public/files/a/arien/05/l/13682191917ewbq.jpg)
