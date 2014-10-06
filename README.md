@@ -10,14 +10,15 @@ http://jshirota.com/PreStorm/
 PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.  It is designed to work with a variety of technologies (i.e. ASP.NET Razor, WPF, MVVM, Esri Runtime APIs, Mono/Xamarin), but it won't get in the way of your business logic.
 
 - super-minimal object-relational mapping
-- dynamic field access via indexers
 - intuitive and optimized CRUD operations
 - generic geometry typing
 - sophisticated memoization optimizations
 - optional automatic coded-value domain mapping
 - server max return count overriding
+- querying using layer name (as well as layer id)
 - parallel downloading via PLINQ
 - built-in local geometry functions (i.e. spatial predicates)
+- dynamic field access via indexers
 - internally managed self-renewing token
 - "geodatabase version" support
 - automatic handling of INotifyPropertyChanged (via Reflection.Emit but memoized)
