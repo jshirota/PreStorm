@@ -7,7 +7,7 @@ Do you have Visual Studio?  Please try:
 
 http://jshirota.com/PreStorm/
 
-PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.  It is designed to work with a variety of technologies (i.e. ASP.NET Razor, WPF, MVVM, Esri Runtime APIs, Mono/Xamarin), but it won't get in the way of your business logic.
+PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.  It is designed to work with a variety of technologies (i.e. ASP.NET Razor, WPF, MVVM, Esri Runtime APIs, Mono/Xamarin), but it won't get in the way of your business logic.  Here are some of the key features:
 
 - super-minimal object-relational mapping
 - intuitive and optimized CRUD operations
@@ -30,6 +30,8 @@ PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
 - no external libraries
 - Xamarin / OS X tested
 - strong support for fluent programming in C# and Visual Basic
+
+But...  The best part is that PreStorm lets you write code without having to think about any of the above "internal details".
 
 ------
 
