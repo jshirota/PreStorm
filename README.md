@@ -1,17 +1,17 @@
-PreStorm
+PreStorm - A Parallel REST Client for ArcGIS Server
 ========
-
-A Parallel REST Client for ArcGIS Server
 
 Do you have Visual Studio?  Please try:
 
 http://jshirota.com/PreStorm/
 
-PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.  It is designed to work with a variety of technologies (i.e. ASP.NET Razor, WPF, MVVM, Esri Runtime APIs, Mono/Xamarin), but it won't get in the way of your business logic.  Here are some of the key features:
+PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
+
+Here are some of the key features:
 
 - super-minimal object-relational mapping
 - intuitive and optimized CRUD operations
-- generic geometry typing
+- generic (but strict) geometry typing
 - sophisticated memoization optimizations
 - optional automatic coded-value domain mapping
 - server max return count overriding
@@ -31,7 +31,7 @@ PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
 - Xamarin / OS X tested
 - strong support for fluent programming in C# and Visual Basic
 
-But...  The best part is that PreStorm lets you write code without having to think about any of the above "internal details".
+But most importantly, PreStorm shields you from these details and lets you code at a much higher level.
 
 ------
 
