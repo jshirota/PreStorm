@@ -1,5 +1,7 @@
-PreStorm - A Parallel REST Client for ArcGIS Server
+PreStorm ![PreStorm](http://jshirota.com/PreStorm/PreStorm.png "PreStorm")
 ========
+
+A Parallel REST Client for ArcGIS Server
 
 Do you have Visual Studio?  Please try:
 
@@ -11,7 +13,7 @@ Here are some of the key features:
 
 - super-minimal object-relational mapping
 - intuitive and optimized CRUD operations
-- generic (but strict) geometry typing
+- generic (and strict) geometry typing
 - sophisticated memoization optimizations
 - optional automatic coded-value domain mapping
 - server max return count overriding
@@ -33,7 +35,7 @@ Here are some of the key features:
 
 But most importantly, PreStorm shields you from these details and lets you code at a much higher level.
 
-------
+========
 
 The ClickOnce installer is here:
 
