@@ -12,9 +12,11 @@
   <HelpKINode Title="CodedValue.CodedValue constructor" Url="html/6ba7d9df-0e3e-b4ea-dbbe-9c273023b0b0.htm" />
   <HelpKINode Title="CodedValue.name property" Url="html/7853ddda-6324-b61d-0e19-be60200b9864.htm" />
   <HelpKINode Title="codedValues property" Url="html/5af68820-4481-c84c-8eee-74f5e8e66e6b.htm" />
+  <HelpKINode Title="Contains enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Contains method" Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm" />
   <HelpKINode Title="Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
+  <HelpKINode Title="Crosses enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
   <HelpKINode Title="DeleteAsync method" Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm" />
   <HelpKINode Title="DeleteResult class">
@@ -82,6 +84,7 @@
   <HelpKINode Title="Envelope.xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
   <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
   <HelpKINode Title="Envelope.ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
+  <HelpKINode Title="EnvelopeIntersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
   <HelpKINode Title="Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
   <HelpKINode Title="Feature class">
@@ -185,6 +188,7 @@
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
   <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
+  <HelpKINode Title="IndexIntersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertInto method" Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm" />
@@ -208,6 +212,7 @@
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertResult&lt;T&gt;.InsertResult constructor" Url="html/718e9cfd-4bbf-6ac8-985e-8ff4ef6ad9d4.htm" />
   <HelpKINode Title="Intersect method" Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm" />
+  <HelpKINode Title="Intersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
@@ -259,6 +264,7 @@
     <HelpKINode Title="Layer.name Property " Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
   </HelpKINode>
   <HelpKINode Title="OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
+  <HelpKINode Title="Overlaps enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Perimeter method" Url="html/dfef3532-a3b0-08d1-6d41-168e9321160d.htm" />
   <HelpKINode Title="Point class">
@@ -326,6 +332,7 @@
   <HelpKINode Title="PreStorm.RestException class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
   <HelpKINode Title="PreStorm.Service class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
   <HelpKINode Title="PreStorm.SpatialReference class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm" />
+  <HelpKINode Title="PreStorm.SpatialRel enumeration" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
@@ -369,6 +376,7 @@
   <HelpKINode Title="spatialReference property" Url="html/6733887e-8664-c04c-caa1-a0a0e2113966.htm" />
   <HelpKINode Title="SpatialReference.SpatialReference constructor" Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
   <HelpKINode Title="SpatialReference.wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
+  <HelpKINode Title="SpatialRel enumeration" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="String to Envelope conversion" Url="html/64a2e857-3f75-7112-0142-da1eeadf589a.htm" />
   <HelpKINode Title="String to Multipoint conversion" Url="html/2e145664-c934-b2f5-9d04-f099fbfc5400.htm" />
   <HelpKINode Title="String to Point conversion" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
@@ -390,6 +398,7 @@
     <HelpKINode Title="GeometryBase.ToString Method " Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
     <HelpKINode Title="Token.ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
   </HelpKINode>
+  <HelpKINode Title="Touches enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
     <HelpKINode Title="Field.type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
@@ -408,6 +417,7 @@
     <HelpKINode Title="RestException.Url Property " Url="html/e31ef12d-3fca-37f5-182d-3d435e7ff38c.htm" />
     <HelpKINode Title="Service.Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   </HelpKINode>
+  <HelpKINode Title="Within enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
