@@ -75,6 +75,7 @@
     <Compile Include="Proxy.cs" />
     <Compile Include="Sequence.cs" />
     <Compile Include="ServiceArgs.cs" />
+    <Compile Include="SpatialRel.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="Vector.cs" />
