@@ -12,7 +12,7 @@ namespace PreStorm
     /// </summary>
     public class Service
     {
-        internal ServiceArgs ServiceArgs;
+        internal readonly ServiceArgs ServiceArgs;
 
         private readonly int? _maxRecordCount;
 
@@ -177,10 +177,8 @@ namespace PreStorm
             else
                 throw new Exception("This geometry type is not supported.");
 
-            var inSR = geometry.spatialReference == null ? "" : geometry.spatialReference.wkid.ToString();
-
-            var spatialFilter = string.Format("geometry={0}&geometryType={1}&inSR={2}&spatialRel=esriSpatialRel{3}",
-                HttpUtility.UrlEncode(geometry.ToString()), geometryType, inSR, spatialRel);
+            var spatialFilter = string.Format("geometry={0}&geometryType={1}&spatialRel=esriSpatialRel{2}",
+                HttpUtility.UrlEncode(geometry.ToString()), geometryType, spatialRel);
 
             return Download<T>(layerId, whereClause, string.IsNullOrEmpty(extraParameters) ? spatialFilter : (extraParameters + "&" + spatialFilter), keepQuerying, degreeOfParallelism);
         }

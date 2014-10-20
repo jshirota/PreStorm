@@ -43,6 +43,11 @@ namespace PreStorm
         /// <summary>
         /// Corresponds to esriSpatialRelContains.
         /// </summary>
-        Contains = 8
+        Contains = 8,
+
+        /// <summary>
+        /// Corresponds to esriSpatialRelRelation.  This option requires relationParam in the extraParameters string argument.
+        /// </summary>
+        Relation = 9
     }
 }
