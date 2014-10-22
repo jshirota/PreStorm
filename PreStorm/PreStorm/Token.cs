@@ -65,6 +65,9 @@ namespace PreStorm
         /// <returns></returns>
         public override bool Equals(object obj)
         {
+            if (this == obj)
+                return true;
+
             var token = obj as Token;
 
             if (token == null)

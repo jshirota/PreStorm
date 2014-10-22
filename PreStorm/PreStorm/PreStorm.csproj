@@ -62,6 +62,7 @@
     <Compile Include="Feature.cs" />
     <Compile Include="GeometryFunctions.cs" />
     <Compile Include="Kml.cs" />
+    <Compile Include="KmlStyle.cs" />
     <Compile Include="RestException.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Geometry.cs" />

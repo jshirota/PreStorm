@@ -141,5 +141,34 @@ namespace PreStorm
                                return f.ToKml(name, z, geometryElements, placemarkElements);
                            })));
         }
+
+        /// <summary>
+        /// Converts the features to KML.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="features"></param>
+        /// <param name="getName">The function that returns the name for the placemark.</param>
+        /// <param name="mappings">The function that returns the style for the placemark.</param>
+        /// <returns></returns>
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, KmlStyle> mappings = null) where T : Feature
+        {
+            if (mappings == null)
+                return features.ToKml(getName, null, null);
+
+            var dictionary = features.Distinct().ToDictionary(f => f, mappings);
+
+            var styles = dictionary.Values.Distinct().Select(s =>
+                new XElement(kml + "Style", new XAttribute("id", s.GetHashCode()),
+                    new XElement(kml + "IconStyle",
+                        new XElement(kml + "scale", s.IconScale),
+                        new XElement(kml + "Icon", s.IconUrl)),
+                    new XElement(kml + "LineStyle",
+                        new XElement(kml + "color", s.LineColour),
+                        new XElement(kml + "width", s.LineWidth)),
+                    new XElement(kml + "PolyStyle",
+                        new XElement(kml + "color", s.PolygonColour)))).ToArray();
+
+            return dictionary.Keys.ToKml(getName, null, f => "#" + dictionary[f].GetHashCode(), styles);
+        }
     }
 }
