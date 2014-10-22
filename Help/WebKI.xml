@@ -85,7 +85,10 @@
   <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
   <HelpKINode Title="Envelope.ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
   <HelpKINode Title="EnvelopeIntersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
-  <HelpKINode Title="Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
+  <HelpKINode Title="Equals method">
+    <HelpKINode Title="KmlStyle.Equals Method " Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
+    <HelpKINode Title="Token.Equals Method " Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
+  </HelpKINode>
   <HelpKINode Title="Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
   <HelpKINode Title="Feature class">
     <HelpKINode Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
@@ -176,7 +179,10 @@
   <HelpKINode Title="GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
   <HelpKINode Title="GetDomainName property" Url="html/ef39f0ee-7f0f-844c-2bf5-731ac3b8e95c.htm" />
   <HelpKINode Title="GetFieldName property" Url="html/c7716615-026e-54b1-e1be-240eb092b06a.htm" />
-  <HelpKINode Title="GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
+  <HelpKINode Title="GetHashCode method">
+    <HelpKINode Title="KmlStyle.GetHashCode Method " Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
+    <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
+  </HelpKINode>
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="Http class">
     <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
@@ -187,6 +193,8 @@
   <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
   <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
+  <HelpKINode Title="IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
+  <HelpKINode Title="IconUrl property" Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
   <HelpKINode Title="id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="IndexIntersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
@@ -223,6 +231,21 @@
     <HelpKINode Title="methods" Url="html/74df0859-6a60-2fb0-7633-6b2a0b842113.htm" />
   </HelpKINode>
   <HelpKINode Title="Kml.ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
+  <HelpKINode Title="KmlStyle class">
+    <HelpKINode Title="KmlStyle Class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
+    <HelpKINode Title="about KmlStyle class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
+    <HelpKINode Title="constructor" Url="html/897f8985-9f84-4897-8654-b1b11480ac3b.htm" />
+    <HelpKINode Title="methods" Url="html/daea8e65-1863-f8e0-1bba-e13ee24cdefb.htm" />
+    <HelpKINode Title="properties" Url="html/bc46d6da-0bdb-a9e5-046d-cefcb88952b9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="KmlStyle.Equals method" Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
+  <HelpKINode Title="KmlStyle.GetHashCode method" Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
+  <HelpKINode Title="KmlStyle.IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
+  <HelpKINode Title="KmlStyle.IconUrl property" Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
+  <HelpKINode Title="KmlStyle.KmlStyle constructor" Url="html/897f8985-9f84-4897-8654-b1b11480ac3b.htm" />
+  <HelpKINode Title="KmlStyle.LineColour property" Url="html/678d073c-ec7f-1bb6-58fb-ad08a5388b87.htm" />
+  <HelpKINode Title="KmlStyle.LineWidth property" Url="html/182345b1-d62b-aff3-ab6c-2480a4bdeca6.htm" />
+  <HelpKINode Title="KmlStyle.PolygonColour property" Url="html/955fa8d0-478e-df79-61a1-062b7b764b07.htm" />
   <HelpKINode Title="Layer class">
     <HelpKINode Title="Layer Class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
     <HelpKINode Title="about Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
@@ -237,6 +260,8 @@
   <HelpKINode Title="Layer.type property" Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
   <HelpKINode Title="Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   <HelpKINode Title="Length method" Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
+  <HelpKINode Title="LineColour property" Url="html/678d073c-ec7f-1bb6-58fb-ad08a5388b87.htm" />
+  <HelpKINode Title="LineWidth property" Url="html/182345b1-d62b-aff3-ab6c-2480a4bdeca6.htm" />
   <HelpKINode Title="Mapped class">
     <HelpKINode Title="Mapped Class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
     <HelpKINode Title="about Mapped class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
@@ -291,6 +316,7 @@
   <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
   <HelpKINode Title="Polygon.rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
+  <HelpKINode Title="PolygonColour property" Url="html/955fa8d0-478e-df79-61a1-062b7b764b07.htm" />
   <HelpKINode Title="Polyline class">
     <HelpKINode Title="Polyline Class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm" />
     <HelpKINode Title="about Polyline class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm" />
@@ -323,6 +349,7 @@
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
+  <HelpKINode Title="PreStorm.KmlStyle class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
   <HelpKINode Title="PreStorm.Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
   <HelpKINode Title="PreStorm.Mapped class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm" />
   <HelpKINode Title="PreStorm.Multipoint class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm" />
