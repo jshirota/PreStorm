@@ -160,6 +160,7 @@ namespace PreStorm
             var styles = dictionary.Values.Distinct().Select(s =>
                 new XElement(kml + "Style", new XAttribute("id", s.GetHashCode()),
                     new XElement(kml + "IconStyle",
+                        new XElement(kml + "color", s.IconColour),
                         new XElement(kml + "scale", s.IconScale),
                         new XElement(kml + "Icon", s.IconUrl)),
                     new XElement(kml + "LineStyle",
