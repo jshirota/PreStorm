@@ -193,6 +193,7 @@
   <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
   <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
+  <HelpKINode Title="IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
   <HelpKINode Title="IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
   <HelpKINode Title="IconUrl property" Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
   <HelpKINode Title="id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
@@ -234,15 +235,16 @@
   <HelpKINode Title="KmlStyle class">
     <HelpKINode Title="KmlStyle Class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
     <HelpKINode Title="about KmlStyle class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
-    <HelpKINode Title="constructor" Url="html/897f8985-9f84-4897-8654-b1b11480ac3b.htm" />
+    <HelpKINode Title="constructor" Url="html/8db4825f-d5fc-4148-78f7-8c0914ed0dae.htm" />
     <HelpKINode Title="methods" Url="html/daea8e65-1863-f8e0-1bba-e13ee24cdefb.htm" />
     <HelpKINode Title="properties" Url="html/bc46d6da-0bdb-a9e5-046d-cefcb88952b9.htm" />
   </HelpKINode>
   <HelpKINode Title="KmlStyle.Equals method" Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
   <HelpKINode Title="KmlStyle.GetHashCode method" Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
+  <HelpKINode Title="KmlStyle.IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
   <HelpKINode Title="KmlStyle.IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
   <HelpKINode Title="KmlStyle.IconUrl property" Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
-  <HelpKINode Title="KmlStyle.KmlStyle constructor" Url="html/897f8985-9f84-4897-8654-b1b11480ac3b.htm" />
+  <HelpKINode Title="KmlStyle.KmlStyle constructor" Url="html/8db4825f-d5fc-4148-78f7-8c0914ed0dae.htm" />
   <HelpKINode Title="KmlStyle.LineColour property" Url="html/678d073c-ec7f-1bb6-58fb-ad08a5388b87.htm" />
   <HelpKINode Title="KmlStyle.LineWidth property" Url="html/182345b1-d62b-aff3-ab6c-2480a4bdeca6.htm" />
   <HelpKINode Title="KmlStyle.PolygonColour property" Url="html/955fa8d0-478e-df79-61a1-062b7b764b07.htm" />
