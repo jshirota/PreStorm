@@ -11,6 +11,11 @@
         public string IconUrl { get; private set; }
 
         /// <summary>
+        /// The colour of icons.  The format conforms to the KML specification (i.e. 7fff0000 where alpha=0x7f, blue=0xff, green=0x00, and red=0x00).
+        /// </summary>
+        public string IconColour { get; private set; }
+
+        /// <summary>
         /// The size of icons.
         /// </summary>
         public double IconScale { get; private set; }
@@ -34,13 +39,15 @@
         /// Initializes a new instance of the KmlStyle class.
         /// </summary>
         /// <param name="iconUrl">The url of the icon.</param>
+        /// <param name="iconColour">The colour of icons.  The format conforms to the KML specification (i.e. 7fff0000 where alpha=0x7f, blue=0xff, green=0x00, and red=0x00).</param>
         /// <param name="iconScale">The size of icons.</param>
         /// <param name="lineColour">The colour of lines.  The format conforms to the KML specification (i.e. 7fff0000 where alpha=0x7f, blue=0xff, green=0x00, and red=0x00).</param>
         /// <param name="lineWidth">The width of lines.  This applies to polygons, too.</param>
         /// <param name="polygonColour">The colour of polygons.  The format conforms to the KML specification (i.e. 7fff0000 where alpha=0x7f, blue=0xff, green=0x00, and red=0x00).</param>
-        public KmlStyle(string iconUrl = null, double iconScale = 1.1, string lineColour = null, double lineWidth = 1.2, string polygonColour = null)
+        public KmlStyle(string iconUrl = null, string iconColour = null, double iconScale = 1.1, string lineColour = null, double lineWidth = 1.2, string polygonColour = null)
         {
             IconUrl = iconUrl ?? "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png";
+            IconColour = iconColour ?? "ffffffff";
             IconScale = iconScale;
             LineColour = lineColour ?? "ffffffff";
             LineWidth = lineWidth;
@@ -63,6 +70,7 @@
                 return false;
 
             return s.IconUrl == IconUrl
+                && s.IconColour == IconColour
                 && s.IconScale == IconScale
                 && s.LineColour == LineColour
                 && s.LineWidth == LineWidth
@@ -81,6 +89,7 @@
                 var hash = 17;
 
                 hash = hash * n + IconUrl.GetHashCode();
+                hash = hash * n + IconColour.GetHashCode();
                 hash = hash * n + IconScale.GetHashCode();
                 hash = hash * n + LineColour.GetHashCode();
                 hash = hash * n + LineWidth.GetHashCode();
