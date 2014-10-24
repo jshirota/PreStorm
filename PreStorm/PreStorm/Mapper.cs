@@ -74,7 +74,7 @@ namespace PreStorm
                 dynamic f = feature;
 
                 if (g.x > double.MinValue && g.y > double.MinValue)
-                    f.Geometry = new Point { x = g.x, y = g.y };
+                    f.Geometry = new Point { x = g.x, y = g.y, z = g.z };
                 else if (g.points != null)
                     f.Geometry = new Multipoint { points = g.points };
                 else if (g.paths != null)
@@ -156,7 +156,12 @@ namespace PreStorm
             var type = feature.Layer.geometryType;
 
             if (type == "esriGeometryPoint")
+            {
+                if (feature.Layer.hasZ)
+                    return new { x = (object)null, y = (object)null, z = (object)null };
+
                 return new { x = (object)null, y = (object)null };
+            }
 
             if (type == "esriGeometryMultipoint")
                 return new { points = new double[][] { } };

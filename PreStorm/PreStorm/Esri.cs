@@ -134,14 +134,15 @@ namespace PreStorm
             return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
-        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, string whereClause, string extraParameters, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, bool returnZ, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
             var url = string.Format("{0}/{1}/query", args.Url, layerId);
-            var data = string.Format("where={0}{1}&objectIds={2}&returnGeometry={3}&outFields=*",
+            var data = string.Format("where={0}{1}&objectIds={2}&returnGeometry={3}&returnZ={4}&outFields=*",
                 CleanWhereClause(whereClause),
                 CleanExtraParameters(extraParameters),
                 CleanObjectIds(objectIds),
-                returnGeometry ? "true" : "false");
+                returnGeometry ? "true" : "false",
+                returnZ ? "true" : "false");
 
             return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
@@ -164,9 +165,30 @@ namespace PreStorm
         public static EditResultSet ApplyEdits(ServiceArgs args, int layerId, string operation, string json)
         {
             var url = string.Format("{0}/{1}/applyEdits", args.Url, layerId);
-            var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(json));
+            var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(operation == "deletes" ? json : RemoveNullZ(json)));
 
             return GetResponse<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
+        }
+
+        private static string RemoveNullZ(string json)
+        {
+            var array = json.Deserialize<object>() as object[];
+
+            if (array == null)
+                return json;
+
+            foreach (var d in array.OfType<Dictionary<string, object>>())
+            {
+                if (d.ContainsKey("geometry"))
+                {
+                    var g = d["geometry"] as Dictionary<string, object>;
+
+                    if (g != null && g.ContainsKey("z") && g["z"] == null && g["x"] != null && g["y"] != null)
+                        g.Remove("z");
+                }
+            }
+
+            return array.Serialize();
         }
 
         public static string GetObjectIdFieldName(this Layer layer)
@@ -254,6 +276,11 @@ namespace PreStorm
         /// The fields of the layer.
         /// </summary>
         public Field[] fields { get; set; }
+
+        /// <summary>
+        /// Indicates if the layer supports the Z coordinates.
+        /// </summary>
+        public bool hasZ { get; set; }
     }
 
     /// <summary>
@@ -370,8 +397,10 @@ namespace PreStorm
     {
         private double _x = double.MinValue;
         private double _y = double.MinValue;
+        private double? _z;
         public double x { get { return _x; } set { _x = value; } }
         public double y { get { return _y; } set { _y = value; } }
+        public double? z { get { return _z; } set { _z = value; } }
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
         public double[][][] rings { get; set; }

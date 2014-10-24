@@ -102,7 +102,7 @@ namespace PreStorm
                 .AsParallel()
                 .AsOrdered()
                 .WithDegreeOfParallelism(degreeOfParallelism < 1 ? 1 : degreeOfParallelism)
-                .SelectMany(ids => Esri.GetFeatureSet(ServiceArgs, layer.id, returnGeometry, whereClause, extraParameters, ids).features
+                .SelectMany(ids => Esri.GetFeatureSet(ServiceArgs, layer.id, returnGeometry, layer.hasZ, whereClause, extraParameters, ids).features
                     .Select(g => ToFeature<T>(g, layer)));
         }
 
@@ -129,7 +129,7 @@ namespace PreStorm
             var layer = GetLayer(layerId);
             var returnGeometry = typeof(T).HasGeometry();
 
-            var featureSet = Esri.GetFeatureSet(ServiceArgs, layerId, returnGeometry, whereClause, extraParameters, null);
+            var featureSet = Esri.GetFeatureSet(ServiceArgs, layerId, returnGeometry, layer.hasZ, whereClause, extraParameters, null);
 
             foreach (var g in featureSet.features)
                 yield return ToFeature<T>(g, layer);

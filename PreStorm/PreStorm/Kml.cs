@@ -12,34 +12,34 @@ namespace PreStorm
     {
         private static readonly XNamespace kml = "http://www.opengis.net/kml/2.2";
 
-        private static string ToCoordinates(this Point geometry, double z)
+        private static string ToCoordinates(this Point geometry, double? z)
         {
-            return geometry.x + "," + geometry.y + "," + z;
+            return geometry.x + "," + geometry.y + "," + (z ?? (geometry.z ?? 0));
         }
 
-        private static string ToCoordinates(this double[] coordinates, double z)
+        private static string ToCoordinates(this double[] coordinates, double? z)
         {
-            return coordinates[0] + "," + coordinates[1] + "," + z;
+            return coordinates[0] + "," + coordinates[1] + "," + (z ?? coordinates.ElementAtOrDefault(2));
         }
 
-        private static string ToCoordinates(this double[][] coordinates, double z)
+        private static string ToCoordinates(this double[][] coordinates, double? z)
         {
             return string.Join(" ", coordinates.Select(c => c.ToCoordinates(z)));
         }
 
-        private static XElement ToKmlPoint(this Point geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPoint(this Point geometry, double? z, XElement[] extraElements)
         {
             return new XElement(kml + "Point", extraElements,
                 new XElement(kml + "coordinates", geometry.ToCoordinates(z)));
         }
 
-        private static XElement ToKmlMultipoint(this Multipoint geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlMultipoint(this Multipoint geometry, double? z, XElement[] extraElements)
         {
             return new XElement(kml + "MultiGeometry",
-                geometry.points.Select(p => new Point { x = p[0], y = p[1] }.ToKmlPoint(z, extraElements)));
+                geometry.points.Select(p => new Point { x = p[0], y = p[1], z = p.Length > 2 ? p[2] : (double?)null }.ToKmlPoint(z, extraElements)));
         }
 
-        private static XElement ToKmlPolyline(this Polyline geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPolyline(this Polyline geometry, double? z, XElement[] extraElements)
         {
             return new XElement(kml + "MultiGeometry",
                 geometry.paths.Select(p =>
@@ -47,7 +47,7 @@ namespace PreStorm
                         new XElement(kml + "coordinates", p.ToCoordinates(z)))));
         }
 
-        private static XElement ToKmlPolygon(this Polygon geometry, double z, XElement[] extraElements)
+        private static XElement ToKmlPolygon(this Polygon geometry, double? z, XElement[] extraElements)
         {
             var polygons = new List<XElement>();
 
@@ -73,7 +73,7 @@ namespace PreStorm
         /// <param name="z">The altitude in meters.</param>
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Geometry geometry, double z = 0, params XElement[] geometryElements)
+        public static XElement ToKml(this Geometry geometry, double? z = 0, params XElement[] geometryElements)
         {
             if (geometry == null)
                 return null;
@@ -106,7 +106,7 @@ namespace PreStorm
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>        
         /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Feature feature, string name, double z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
+        public static XElement ToKml(this Feature feature, string name, double? z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
         {
             return new XElement(kml + "Placemark",
                        new XElement(kml + "name", name), placemarkElements,
@@ -124,19 +124,18 @@ namespace PreStorm
         /// <param name="features"></param>
         /// <param name="getName">The function that returns the name for the placemark.</param>
         /// <param name="getZ">The function that returns the altitude in meters.</param>
+        /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>
         /// <param name="getStyleUrl">The function that returns the style url.</param>
         /// <param name="documentElements">Any extra document elements (i.e. Style).</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, double> getZ = null, Func<T, string> getStyleUrl = null, params XElement[] documentElements) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, double> getZ = null, XElement[] geometryElements = null, Func<T, string> getStyleUrl = null, params XElement[] documentElements) where T : Feature
         {
-            var geometryElements = getZ == null ? null : new[] { new XElement(kml + "extrude", 1), new XElement(kml + "altitudeMode", "relativeToGround") };
-
             return new XElement(kml + "kml",
                        new XElement(kml + "Document", documentElements,
                            features.Select(f =>
                            {
                                var name = getName == null ? f.OID.ToString() : getName(f);
-                               var z = getZ == null ? 0 : getZ(f);
+                               var z = getZ == null ? (double?)null : getZ(f);
                                var placemarkElements = getStyleUrl == null ? null : new XElement(kml + "styleUrl", getStyleUrl(f));
                                return f.ToKml(name, z, geometryElements, placemarkElements);
                            })));
@@ -169,7 +168,7 @@ namespace PreStorm
                     new XElement(kml + "PolyStyle",
                         new XElement(kml + "color", s.PolygonColour)))).ToArray();
 
-            return dictionary.Keys.ToKml(getName, null, f => "#" + dictionary[f].GetHashCode(), styles);
+            return dictionary.Keys.ToKml(getName, null, null, f => "#" + dictionary[f].GetHashCode(), styles);
         }
     }
 }

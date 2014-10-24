@@ -21,10 +21,11 @@ namespace PreStorm
             var json = this.Serialize();
 
             var dictionary = json.Deserialize<Dictionary<string, object>>();
-            var key = "spatialReference";
+            var keys = new[] { "z", "spatialReference" };
 
-            if (dictionary.ContainsKey(key) && dictionary[key] == null)
-                dictionary.Remove(key);
+            foreach (var key in keys)
+                if (dictionary.ContainsKey(key) && dictionary[key] == null)
+                    dictionary.Remove(key);
 
             return dictionary.Serialize();
         }
@@ -64,6 +65,11 @@ namespace PreStorm
         public double y { get; set; }
 
         /// <summary>
+        /// The Z coordinate.  This is available only if the layer supports it.
+        /// </summary>
+        public double? z { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the Point class.
         /// </summary>
         public Point() { }
@@ -73,10 +79,12 @@ namespace PreStorm
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public Point(double x, double y)
+        /// <param name="z"></param>
+        public Point(double x, double y, double? z = null)
         {
             this.x = x;
             this.y = y;
+            this.z = z;
         }
 
         /// <summary>
