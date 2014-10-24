@@ -184,6 +184,7 @@
     <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   </HelpKINode>
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
+  <HelpKINode Title="hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
   <HelpKINode Title="Http class">
     <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
     <HelpKINode Title="about Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
@@ -256,6 +257,7 @@
   </HelpKINode>
   <HelpKINode Title="Layer.fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
   <HelpKINode Title="Layer.geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
+  <HelpKINode Title="Layer.hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
   <HelpKINode Title="Layer.id property" Url="html/9642e398-9f10-dd95-384f-2b3aa6078078.htm" />
   <HelpKINode Title="Layer.Layer constructor" Url="html/ed2913f4-1a7b-99dd-26a3-6d0d48ab6b10.htm" />
   <HelpKINode Title="Layer.name property" Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
@@ -306,6 +308,7 @@
   <HelpKINode Title="Point.Point constructor" Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm" />
   <HelpKINode Title="Point.x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="Point.y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
+  <HelpKINode Title="Point.z property" Url="html/98440fb6-4eb0-68b1-0021-d539eee1b014.htm" />
   <HelpKINode Title="points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
   <HelpKINode Title="Polygon class">
     <HelpKINode Title="Polygon Class" Url="html/85125d12-c233-e240-af35-16d21a4a92a3.htm" />
@@ -457,4 +460,5 @@
   <HelpKINode Title="y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
   <HelpKINode Title="ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
   <HelpKINode Title="ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
+  <HelpKINode Title="z property" Url="html/98440fb6-4eb0-68b1-0021-d539eee1b014.htm" />
 </HelpKI>
