@@ -28,6 +28,7 @@ Here are some of the key features:
 - automatic handling of INotifyPropertyChanged (via Reflection.Emit but memoized)
 - flexible and succinct KML generation
 - implicit conversion operators for JSON geometries
+- z coordinates support
 - support for extra ArcGIS Rest query string parameters
 - Unicode tested
 - no dependencies on IDE tools or XML mapping files
