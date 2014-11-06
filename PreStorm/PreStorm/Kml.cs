@@ -67,6 +67,25 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Converts the style object to KML.
+        /// </summary>
+        /// <param name="style"></param>
+        /// <returns></returns>
+        public static XElement ToKml(this KmlStyle style)
+        {
+            return new XElement(kml + "Style", new XAttribute("id", style.GetHashCode()),
+                       new XElement(kml + "IconStyle",
+                           new XElement(kml + "color", style.IconColour),
+                           new XElement(kml + "scale", style.IconScale),
+                           new XElement(kml + "Icon", style.IconUrl)),
+                       new XElement(kml + "LineStyle",
+                           new XElement(kml + "color", style.LineColour),
+                           new XElement(kml + "width", style.LineWidth)),
+                       new XElement(kml + "PolyStyle",
+                           new XElement(kml + "color", style.PolygonColour)));
+        }
+
+        /// <summary>
         /// Converts the geometry to KML.
         /// </summary>
         /// <param name="geometry"></param>
@@ -118,6 +137,18 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Converts the feature to KML.
+        /// </summary>
+        /// <param name="feature"></param>
+        /// <param name="name"></param>
+        /// <param name="style"></param>
+        /// <returns></returns>
+        public static XElement ToKml(this Feature feature, string name, KmlStyle style)
+        {
+            return feature.ToKml(name, 0, null, style.ToKml());
+        }
+
+        /// <summary>
         /// Converts the features to KML.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -156,17 +187,7 @@ namespace PreStorm
 
             var dictionary = features.Distinct().ToDictionary(f => f, mappings);
 
-            var styles = dictionary.Values.Distinct().Select(s =>
-                new XElement(kml + "Style", new XAttribute("id", s.GetHashCode()),
-                    new XElement(kml + "IconStyle",
-                        new XElement(kml + "color", s.IconColour),
-                        new XElement(kml + "scale", s.IconScale),
-                        new XElement(kml + "Icon", s.IconUrl)),
-                    new XElement(kml + "LineStyle",
-                        new XElement(kml + "color", s.LineColour),
-                        new XElement(kml + "width", s.LineWidth)),
-                    new XElement(kml + "PolyStyle",
-                        new XElement(kml + "color", s.PolygonColour)))).ToArray();
+            var styles = dictionary.Values.Distinct().Select(ToKml).ToArray();
 
             return dictionary.Keys.ToKml(getName, null, null, f => "#" + dictionary[f].GetHashCode(), styles);
         }
