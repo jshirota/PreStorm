@@ -675,7 +675,7 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Bufferes the extent by the specified distance.
+        /// Buffers the extent by the specified distance.
         /// </summary>
         /// <param name="extent"></param>
         /// <param name="distance"></param>
