@@ -140,17 +140,6 @@ namespace PreStorm
             return points.All(p => polygon.Contains(new Point(p[0], p[1])));
         }
 
-        private static Envelope Buffer(this Envelope extent, double distance)
-        {
-            return new Envelope
-            {
-                xmin = extent.xmin - distance,
-                ymin = extent.ymin - distance,
-                xmax = extent.xmax + distance,
-                ymax = extent.ymax + distance
-            };
-        }
-
         internal static bool IsInnerRing(this double[][] ring)
         {
             return Enumerable.Range(0, ring.Length - 1)
@@ -634,7 +623,10 @@ namespace PreStorm
         {
             AssertNotNull(point);
 
-            return new Envelope { xmin = point.x, ymin = point.y, xmax = point.x, ymax = point.y };
+            var extent = new Envelope { xmin = point.x, ymin = point.y, xmax = point.x, ymax = point.y };
+            extent.spatialReference = point.spatialReference;
+
+            return extent;
         }
 
         /// <summary>
@@ -646,7 +638,10 @@ namespace PreStorm
         {
             AssertNotNull(multipoint);
 
-            return multipoint.points.Extent();
+            var extent = multipoint.points.Extent();
+            extent.spatialReference = multipoint.spatialReference;
+
+            return extent;
         }
 
         /// <summary>
@@ -658,7 +653,10 @@ namespace PreStorm
         {
             AssertNotNull(polyline);
 
-            return polyline.paths.Extent();
+            var extent = polyline.paths.Extent();
+            extent.spatialReference = polyline.spatialReference;
+
+            return extent;
         }
 
         /// <summary>
@@ -670,7 +668,47 @@ namespace PreStorm
         {
             AssertNotNull(polygon);
 
-            return polygon.rings.Extent();
+            var extent = polygon.rings.Extent();
+            extent.spatialReference = polygon.spatialReference;
+
+            return extent;
+        }
+
+        /// <summary>
+        /// Bufferes the extent by the specified distance.
+        /// </summary>
+        /// <param name="extent"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static Envelope Buffer(this Envelope extent, double distance)
+        {
+            AssertNotNull(extent);
+
+            return new Envelope
+            {
+                xmin = extent.xmin - distance,
+                ymin = extent.ymin - distance,
+                xmax = extent.xmax + distance,
+                ymax = extent.ymax + distance,
+                spatialReference = extent.spatialReference
+            };
+        }
+
+        /// <summary>
+        /// Returns the centre point of the extent.
+        /// </summary>
+        /// <param name="extent"></param>
+        /// <returns></returns>
+        public static Point Centre(this Envelope extent)
+        {
+            AssertNotNull(extent);
+
+            return new Point
+            {
+                x = (extent.xmin + extent.xmax) / 2,
+                y = (extent.ymin + extent.ymax) / 2,
+                spatialReference = extent.spatialReference
+            };
         }
 
         #endregion
