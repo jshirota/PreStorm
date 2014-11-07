@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
   <HelpKINode Title="Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
+  <HelpKINode Title="Buffer method" Url="html/68387353-f0cf-ed2f-db5d-3ca2056b0bc7.htm" />
+  <HelpKINode Title="Centre method" Url="html/b4a445ca-839b-93d2-5e28-1ab1a0b00543.htm" />
   <HelpKINode Title="code property" Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
   <HelpKINode Title="CodedValue class">
     <HelpKINode Title="CodedValue Class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
@@ -165,6 +167,8 @@
     <HelpKINode Title="methods" Url="html/6125451c-aafb-f5b5-c5a2-082c949a9943.htm" />
   </HelpKINode>
   <HelpKINode Title="GeometryFunctions.Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
+  <HelpKINode Title="GeometryFunctions.Buffer method" Url="html/68387353-f0cf-ed2f-db5d-3ca2056b0bc7.htm" />
+  <HelpKINode Title="GeometryFunctions.Centre method" Url="html/b4a445ca-839b-93d2-5e28-1ab1a0b00543.htm" />
   <HelpKINode Title="GeometryFunctions.Contains method" Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm" />
   <HelpKINode Title="GeometryFunctions.Distance method" Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm" />
   <HelpKINode Title="GeometryFunctions.Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
