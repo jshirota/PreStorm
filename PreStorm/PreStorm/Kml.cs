@@ -127,7 +127,7 @@ namespace PreStorm
         /// <returns></returns>
         public static XElement ToKml(this Feature feature, string name, double? z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
         {
-            return new XElement(kml + "Placemark",
+            return new XElement(kml + "Placemark", new XAttribute("id", feature.OID),
                        new XElement(kml + "name", name), placemarkElements,
                        new XElement(kml + "ExtendedData",
                            from n in feature.AllFieldNames
