@@ -92,7 +92,7 @@ namespace PreStorm
         /// <param name="z">The altitude in meters.</param>
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Geometry geometry, double? z = 0, params XElement[] geometryElements)
+        public static XElement ToKml(this Geometry geometry, double? z = null, params XElement[] geometryElements)
         {
             if (geometry == null)
                 return null;
@@ -125,7 +125,7 @@ namespace PreStorm
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>        
         /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Feature feature, string name = null, double? z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
+        public static XElement ToKml(this Feature feature, string name = null, double? z = null, XElement[] geometryElements = null, params XElement[] placemarkElements)
         {
             return new XElement(kml + "Placemark", new XAttribute("id", feature.OID),
                        new XElement(kml + "name", name), placemarkElements,
