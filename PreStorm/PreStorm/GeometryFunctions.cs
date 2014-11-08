@@ -684,12 +684,23 @@ namespace PreStorm
         {
             AssertNotNull(extent);
 
+            var xmin = extent.xmin - distance;
+            var ymin = extent.ymin - distance;
+            var xmax = extent.xmax + distance;
+            var ymax = extent.ymax + distance;
+
+            if (xmin > xmax)
+                xmin = xmax = (xmin + xmax) / 2;
+
+            if (ymin > ymax)
+                ymin = ymax = (ymin + ymax) / 2;
+
             return new Envelope
             {
-                xmin = extent.xmin - distance,
-                ymin = extent.ymin - distance,
-                xmax = extent.xmax + distance,
-                ymax = extent.ymax + distance,
+                xmin = xmin,
+                ymin = ymin,
+                xmax = xmax,
+                ymax = ymax,
                 spatialReference = extent.spatialReference
             };
         }

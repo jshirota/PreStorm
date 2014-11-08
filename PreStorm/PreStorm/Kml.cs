@@ -125,7 +125,7 @@ namespace PreStorm
         /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>        
         /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
         /// <returns></returns>
-        public static XElement ToKml(this Feature feature, string name, double? z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
+        public static XElement ToKml(this Feature feature, string name = null, double? z = 0, XElement[] geometryElements = null, params XElement[] placemarkElements)
         {
             return new XElement(kml + "Placemark", new XAttribute("id", feature.OID),
                        new XElement(kml + "name", name), placemarkElements,
@@ -143,9 +143,9 @@ namespace PreStorm
         /// <param name="name"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public static XElement ToKml(this Feature feature, string name, KmlStyle style)
+        public static XElement ToKml(this Feature feature, string name = null, KmlStyle style = null)
         {
-            return feature.ToKml(name, 0, null, style.ToKml());
+            return feature.ToKml(name, 0, null, style == null ? null : style.ToKml());
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace PreStorm
                        new XElement(kml + "Document", documentElements,
                            features.Select(f =>
                            {
-                               var name = getName == null ? f.OID.ToString() : getName(f);
+                               var name = getName == null ? null : getName(f);
                                var z = getZ == null ? (double?)null : getZ(f);
                                var placemarkElements = getStyleUrl == null ? null : new XElement(kml + "styleUrl", getStyleUrl(f));
                                return f.ToKml(name, z, geometryElements, placemarkElements);
