@@ -153,23 +153,15 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
-        /// <param name="getName">The function that returns the name for the placemark.</param>
-        /// <param name="getZ">The function that returns the altitude in meters.</param>
-        /// <param name="geometryElements">Any extra geometry elements (i.e. altitudeMode).</param>
-        /// <param name="getStyleUrl">The function that returns the style url.</param>
+        /// <param name="name">The function that returns the name for the placemark.</param>
+        /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
         /// <param name="documentElements">Any extra document elements (i.e. Style).</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, double> getZ = null, XElement[] geometryElements = null, Func<T, string> getStyleUrl = null, params XElement[] documentElements) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name = null, Func<T, XElement[]> placemarkElements = null, params XElement[] documentElements) where T : Feature
         {
             return new XElement(kml + "kml",
                        new XElement(kml + "Document", documentElements,
-                           features.Select(f =>
-                           {
-                               var name = getName == null ? null : getName(f);
-                               var z = getZ == null ? (double?)null : getZ(f);
-                               var placemarkElements = getStyleUrl == null ? null : new XElement(kml + "styleUrl", getStyleUrl(f));
-                               return f.ToKml(name, z, geometryElements, placemarkElements);
-                           })));
+                           features.Select(f => f.ToKml(name == null ? null : name(f), null, null, placemarkElements == null ? null : placemarkElements(f)))));
         }
 
         /// <summary>
@@ -177,19 +169,19 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
-        /// <param name="getName">The function that returns the name for the placemark.</param>
-        /// <param name="mappings">The function that returns the style for the placemark.</param>
+        /// <param name="name">The function that returns the name for the placemark.</param>
+        /// <param name="style">The function that returns the style for the placemark.</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> getName = null, Func<T, KmlStyle> mappings = null) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name, Func<T, KmlStyle> style) where T : Feature
         {
-            if (mappings == null)
-                return features.ToKml(getName, null, null);
+            if (style == null)
+                return features.ToKml(name, null, null);
 
-            var dictionary = features.Distinct().ToDictionary(f => f, mappings);
+            var dictionary = features.Distinct().ToDictionary(f => f, style);
 
             var styles = dictionary.Values.Distinct().Select(ToKml).ToArray();
 
-            return dictionary.Keys.ToKml(getName, null, null, f => "#" + dictionary[f].GetHashCode(), styles);
+            return dictionary.Keys.ToKml(name, f => new[] { new XElement(kml + "styleUrl", "#" + dictionary[f].GetHashCode()) }, styles);
         }
     }
 }
