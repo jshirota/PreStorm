@@ -153,15 +153,16 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
-        /// <param name="name">The function that returns the name for the placemark.</param>
-        /// <param name="placemarkElements">Any extra placemark elements (i.e. styleUrl).</param>
-        /// <param name="documentElements">Any extra document elements (i.e. Style).</param>
+        /// <param name="name">The name for the placemark.</param>
+        /// <param name="z">The altitude in meters.</param>
+        /// <param name="placemarkElements">Any extra placemark elements.</param>
+        /// <param name="documentElements">Any extra document elements.</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name = null, Func<T, XElement[]> placemarkElements = null, params XElement[] documentElements) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name, Func<T, double?> z, Func<T, XElement[]> placemarkElements, params XElement[] documentElements) where T : Feature
         {
             return new XElement(kml + "kml",
                        new XElement(kml + "Document", documentElements,
-                           features.Select(f => f.ToKml(name == null ? null : name(f), null, null, placemarkElements == null ? null : placemarkElements(f)))));
+                           features.Select(f => f.ToKml(name == null ? null : name(f), z == null ? null : z(f), null, placemarkElements == null ? null : placemarkElements(f)))));
         }
 
         /// <summary>
@@ -169,19 +170,25 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
-        /// <param name="name">The function that returns the name for the placemark.</param>
-        /// <param name="style">The function that returns the style for the placemark.</param>
+        /// <param name="name">The name for the placemark.</param>
+        /// <param name="z">The altitude in meters.</param>
+        /// <param name="style">The style for the placemark.</param>
+        /// <param name="placemarkElements">Any extra placemark elements.</param>
+        /// <param name="documentElements">Any extra document elements.</param>
         /// <returns></returns>
-        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name, Func<T, KmlStyle> style) where T : Feature
+        public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name = null, Func<T, double?> z = null, Func<T, KmlStyle> style = null, Func<T, XElement[]> placemarkElements = null, params XElement[] documentElements) where T : Feature
         {
             if (style == null)
-                return features.ToKml(name, null, null);
+                return features.ToKml(name, null, placemarkElements, documentElements);
 
             var dictionary = features.Distinct().ToDictionary(f => f, style);
 
             var styles = dictionary.Values.Distinct().Select(ToKml).ToArray();
 
-            return dictionary.Keys.ToKml(name, f => new[] { new XElement(kml + "styleUrl", "#" + dictionary[f].GetHashCode()) }, styles);
+            Func<T, XElement[]> concat = f => new[] { new XElement(kml + "styleUrl", "#" + dictionary[f].GetHashCode()) }
+                .Concat(placemarkElements == null ? new XElement[] { } : placemarkElements(f)).ToArray();
+
+            return dictionary.Keys.ToKml(name, z, concat, styles.Concat(documentElements ?? new XElement[] { }).ToArray());
         }
     }
 }
