@@ -179,16 +179,13 @@ namespace PreStorm
         public static XElement ToKml<T>(this IEnumerable<T> features, Func<T, string> name = null, Func<T, double?> z = null, Func<T, KmlStyle> style = null, Func<T, XElement[]> placemarkElements = null, params XElement[] documentElements) where T : Feature
         {
             if (style == null)
-                return features.ToKml(name, null, placemarkElements, documentElements);
+                return features.ToKml(name, z, placemarkElements, documentElements);
 
             var dictionary = features.Distinct().ToDictionary(f => f, style);
 
-            var styles = dictionary.Values.Distinct().Select(ToKml).ToArray();
-
-            Func<T, XElement[]> concat = f => new[] { new XElement(kml + "styleUrl", "#" + dictionary[f].GetHashCode()) }
-                .Concat(placemarkElements == null ? new XElement[] { } : placemarkElements(f)).ToArray();
-
-            return dictionary.Keys.ToKml(name, z, concat, styles.Concat(documentElements ?? new XElement[] { }).ToArray());
+            return dictionary.Keys.ToKml(name, z,
+                f => new[] { new XElement(kml + "styleUrl", "#" + dictionary[f].GetHashCode()) }.Concat(placemarkElements == null ? new XElement[] { } : placemarkElements(f)).ToArray(),
+                dictionary.Values.Distinct().Select(ToKml).Concat(documentElements ?? new XElement[] { }).ToArray());
         }
     }
 }
