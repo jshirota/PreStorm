@@ -9,6 +9,8 @@ http://jshirota.com/PreStorm/
 
 PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
 
+![Sample](http://jshirota.com/PreStorm/Sample.png "Sample")
+
 Here are some of the key features:
 
 - super-minimal object-relational mapping
