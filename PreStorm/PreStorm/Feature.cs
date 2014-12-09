@@ -135,8 +135,10 @@ namespace PreStorm
         /// <param name="propertyName"></param>
         protected void RaisePropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            var propertyChanged = PropertyChanged;
+
+            if (propertyChanged != null)
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
 
             if (propertyName == "IsDirty")
                 return;
