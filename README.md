@@ -9,8 +9,6 @@ http://jshirota.com/PreStorm/
 
 PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
 
-![Code](http://jshirota.com/PreStorm/Sample.png "Code")
-
 Here are some of the key features:
 
 - super-minimal object-relational mapping
@@ -37,8 +35,6 @@ Here are some of the key features:
 - no external libraries
 - Xamarin / OS X tested
 - strong support for fluent programming in C# and Visual Basic
-
-But most importantly, PreStorm shields you from these details and lets you code at a much higher level.
 
 ========
 
