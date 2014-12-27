@@ -197,14 +197,18 @@
     <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   </HelpKINode>
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
+  <HelpKINode Title="GetWebRequest method" Url="html/2b534af9-68a7-f45c-de0e-e51b1f8fd850.htm" />
   <HelpKINode Title="hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
   <HelpKINode Title="Http class">
     <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
     <HelpKINode Title="about Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
+    <HelpKINode Title="constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
     <HelpKINode Title="methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm" />
   </HelpKINode>
   <HelpKINode Title="Http.Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
   <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
+  <HelpKINode Title="Http.GetWebRequest method" Url="html/2b534af9-68a7-f45c-de0e-e51b1f8fd850.htm" />
+  <HelpKINode Title="Http.Http constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
   <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
