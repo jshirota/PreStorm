@@ -68,7 +68,9 @@
     <Compile Include="RestException.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Geometry.cs" />
-    <Compile Include="Http.cs" />
+    <Compile Include="Http.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Json.cs" />
     <Compile Include="Mapped.cs" />
     <Compile Include="Mapper.cs" />
