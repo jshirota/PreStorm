@@ -18,7 +18,7 @@ namespace PreStorm
 
             var isPost = data != null;
 
-            var url2 = isPost ? url : (url + (url.Contains("?") ? "&" : "?") + queryString);
+            var url2 = isPost ? url : (url + "?" + queryString);
             var requestText = isPost ? data + "&" + queryString : "";
 
             string responseText = null;

@@ -53,8 +53,8 @@ namespace PreStorm
         /// <returns></returns>
         public static string Get(string url, Action<HttpWebRequest> modifyRequest = null)
         {
-            using (var c = new Http(modifyRequest))
-                return c.DownloadString(url);
+            using (var http = new Http(modifyRequest))
+                return http.DownloadString(url);
         }
 
         /// <summary>
@@ -101,8 +101,8 @@ namespace PreStorm
         /// <returns></returns>
         public static string Post(string url, string data, Action<HttpWebRequest> modifyRequest = null)
         {
-            using (var c = new Http(modifyRequest))
-                return c.UploadString(url, data);
+            using (var http = new Http(modifyRequest))
+                return http.UploadString(url, data);
         }
 
         /// <summary>

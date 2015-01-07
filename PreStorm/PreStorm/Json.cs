@@ -6,14 +6,14 @@ namespace PreStorm
     {
         public static T Deserialize<T>(this string json)
         {
-            var s = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
-            return s.Deserialize<T>(json);
+            var serializer = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
+            return serializer.Deserialize<T>(json);
         }
 
         public static string Serialize(this object obj)
         {
-            var s = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
-            return s.Serialize(obj);
+            var serializer = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
+            return serializer.Serialize(obj);
         }
     }
 }
