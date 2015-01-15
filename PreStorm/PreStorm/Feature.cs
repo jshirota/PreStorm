@@ -143,13 +143,17 @@ namespace PreStorm
             if (propertyName == "IsDirty")
                 return;
 
-            IsDirty = true;
-
             if (_propertyToField.ContainsKey(propertyName))
+            {
                 ChangedFields.Add(_propertyToField[propertyName]);
+                IsDirty = true;
+            }
 
             else if (propertyName == "Geometry")
+            {
                 GeometryChanged = true;
+                IsDirty = true;
+            }
         }
 
         /// <summary>
