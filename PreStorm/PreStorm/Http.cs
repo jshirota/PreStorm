@@ -10,22 +10,26 @@ namespace PreStorm
     /// </summary>
     public class Http : WebClient
     {
-        private readonly Action<HttpWebRequest> _modifyRequest;
+        /// <summary>
+        /// An action that globally modifies the underlying HttpWebRequest object.
+        /// </summary>
+        public static Action<HttpWebRequest> RequestModifier { get; set; }
+
+        private readonly Action<HttpWebRequest> _requestModifier;
 
         /// <summary>
         /// Initializes a new instance of the Http class.
         /// </summary>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
-        public Http(Action<HttpWebRequest> modifyRequest = null)
+        /// <param name="requestModifier">An action that modifies the request.</param>
+        public Http(Action<HttpWebRequest> requestModifier = null)
         {
-            _modifyRequest = modifyRequest;
+            _requestModifier = requestModifier;
 
             Encoding = Encoding.UTF8;
-            Headers.Add("Content-Type", "application/x-www-form-urlencoded");
         }
 
         /// <summary>
-        /// Overridden to use gzip compression.  The request is further modified using the modifyRequest action set via the constructor.
+        /// Overridden to use gzip compression.  The request is further modified using the requestModifier action set via the constructor.
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
@@ -39,8 +43,13 @@ namespace PreStorm
             request.AutomaticDecompression = DecompressionMethods.GZip;
             request.ServicePoint.Expect100Continue = false;
 
-            if (_modifyRequest != null)
-                _modifyRequest(request);
+            var requestModifier = RequestModifier;
+
+            if (requestModifier != null)
+                requestModifier(request);
+
+            if (_requestModifier != null)
+                _requestModifier(request);
 
             return request;
         }
@@ -49,12 +58,14 @@ namespace PreStorm
         /// Sends a GET request and returns the response body.
         /// </summary>
         /// <param name="url">The target url.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static string Get(string url, Action<HttpWebRequest> modifyRequest = null)
+        public static string Get(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            using (var http = new Http(modifyRequest))
+            using (var http = new Http(requestModifier))
+            {
                 return http.DownloadString(url);
+            }
         }
 
         /// <summary>
@@ -62,22 +73,22 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="url">The target url.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static T Get<T>(string url, Action<HttpWebRequest> modifyRequest = null)
+        public static T Get<T>(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return Get(url, modifyRequest).Deserialize<T>();
+            return Get(url, requestModifier).Deserialize<T>();
         }
 
         /// <summary>
         /// Sends a GET request and returns the response body.
         /// </summary>
         /// <param name="url">The target url.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static Task<string> GetAsync(string url, Action<HttpWebRequest> modifyRequest = null)
+        public static Task<string> GetAsync(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Get(url, modifyRequest));
+            return Task.Factory.StartNew(() => Get(url, requestModifier));
         }
 
         /// <summary>
@@ -85,11 +96,11 @@ namespace PreStorm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="url">The target url.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static Task<T> GetAsync<T>(string url, Action<HttpWebRequest> modifyRequest = null)
+        public static Task<T> GetAsync<T>(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Get<T>(url, modifyRequest));
+            return Task.Factory.StartNew(() => Get<T>(url, requestModifier));
         }
 
         /// <summary>
@@ -97,12 +108,15 @@ namespace PreStorm
         /// </summary>
         /// <param name="url">The target url.</param>
         /// <param name="data">The string data to upload.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static string Post(string url, string data, Action<HttpWebRequest> modifyRequest = null)
+        public static string Post(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            using (var http = new Http(modifyRequest))
+            using (var http = new Http(requestModifier))
+            {
+                http.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 return http.UploadString(url, data);
+            }
         }
 
         /// <summary>
@@ -111,11 +125,11 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="url">The target url.</param>
         /// <param name="data">The string data to upload.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static T Post<T>(string url, string data, Action<HttpWebRequest> modifyRequest = null)
+        public static T Post<T>(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return Post(url, data, modifyRequest).Deserialize<T>();
+            return Post(url, data, requestModifier).Deserialize<T>();
         }
 
         /// <summary>
@@ -123,11 +137,11 @@ namespace PreStorm
         /// </summary>
         /// <param name="url">The target url.</param>
         /// <param name="data">The string data to upload.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static Task<string> PostAsync(string url, string data, Action<HttpWebRequest> modifyRequest = null)
+        public static Task<string> PostAsync(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Post(url, data, modifyRequest));
+            return Task.Factory.StartNew(() => Post(url, data, requestModifier));
         }
 
         /// <summary>
@@ -136,11 +150,11 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="url">The target url.</param>
         /// <param name="data">The string data to upload.</param>
-        /// <param name="modifyRequest">An action that modifies the request.</param>
+        /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static Task<T> PostAsync<T>(string url, string data, Action<HttpWebRequest> modifyRequest = null)
+        public static Task<T> PostAsync<T>(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Post<T>(url, data, modifyRequest));
+            return Task.Factory.StartNew(() => Post<T>(url, data, requestModifier));
         }
     }
 }

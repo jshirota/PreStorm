@@ -148,7 +148,6 @@ namespace PreStorm
                 ChangedFields.Add(_propertyToField[propertyName]);
                 IsDirty = true;
             }
-
             else if (propertyName == "Geometry")
             {
                 GeometryChanged = true;
