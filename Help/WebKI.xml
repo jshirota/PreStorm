@@ -204,6 +204,7 @@
     <HelpKINode Title="about Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
     <HelpKINode Title="constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
     <HelpKINode Title="methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm" />
+    <HelpKINode Title="properties" Url="html/dde4d98d-770a-4048-d6d2-ba1a959b5627.htm" />
   </HelpKINode>
   <HelpKINode Title="Http.Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
   <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
@@ -211,6 +212,7 @@
   <HelpKINode Title="Http.Http constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
   <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
+  <HelpKINode Title="Http.RequestModifier property" Url="html/fbdbbcb6-b1ce-20f9-cf3b-2e5cd7203264.htm" />
   <HelpKINode Title="IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
   <HelpKINode Title="IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
   <HelpKINode Title="IconUrl property" Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
@@ -404,6 +406,7 @@
   <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="Relation enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Request property" Url="html/fdc8eb68-3081-b8a3-79d1-47fcac8e6f5e.htm" />
+  <HelpKINode Title="RequestModifier property" Url="html/fbdbbcb6-b1ce-20f9-cf3b-2e5cd7203264.htm" />
   <HelpKINode Title="Response property" Url="html/150aed63-5f24-c939-1781-2e3c68372108.htm" />
   <HelpKINode Title="RestException class">
     <HelpKINode Title="RestException Class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
