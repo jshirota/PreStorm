@@ -11,21 +11,20 @@ namespace PreStorm
         /// <summary>
         /// Converts the feature attributes to delimiter-separated values (i.e. CSV).
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <param name="delimiter"></param>
         /// <param name="qualifier"></param>
         /// <param name="dateFormatter"></param>
         /// <param name="geometrySelector"></param>
         /// <returns></returns>
-        public static string ToDelimitedText<T>(this T feature, string delimiter = ",", char? qualifier = '"', Func<DateTime, string> dateFormatter = null, Func<Geometry, object> geometrySelector = null) where T : Feature
+        public static string ToDelimitedText(this Feature feature, string delimiter = ",", char? qualifier = '"', Func<DateTime, string> dateFormatter = null, Func<Geometry, object> geometrySelector = null)
         {
             var q = qualifier.ToString();
 
             if (q == delimiter)
                 throw new Exception("The qualifier cannot be same as the delimiter.");
 
-            var values = typeof(T).GetMappings().Select(m => m.Property.GetValue(feature, null)).ToList();
+            var values = feature.GetType().GetMappings().Select(m => m.Property.GetValue(feature, null)).ToList();
 
             if (geometrySelector != null)
                 values.Add(geometrySelector(((dynamic)feature).Geometry));
