@@ -58,6 +58,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Text.cs" />
     <Compile Include="Editor.cs" />
     <Compile Include="EditResultBase.cs" />
     <Compile Include="Esri.cs" />
