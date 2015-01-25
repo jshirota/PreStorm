@@ -399,6 +399,7 @@
   <HelpKINode Title="PreStorm.Service class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm" />
   <HelpKINode Title="PreStorm.SpatialReference class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm" />
   <HelpKINode Title="PreStorm.SpatialRel enumeration" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
+  <HelpKINode Title="PreStorm.Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
@@ -451,6 +452,15 @@
   <HelpKINode Title="String to Polygon conversion" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
   <HelpKINode Title="String to Polyline conversion" Url="html/07c92d85-95fd-e9ef-d5cf-1a646d0755cd.htm" />
   <HelpKINode Title="Success property" Url="html/7808b8c9-2914-b200-f816-d7b36a89374d.htm" />
+  <HelpKINode Title="Text class">
+    <HelpKINode Title="Text Class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
+    <HelpKINode Title="about Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
+    <HelpKINode Title="methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Text.ToDelimitedText(Of T) method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
+  <HelpKINode Title="Text.ToDelimitedText&lt;T&gt; method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
+  <HelpKINode Title="ToDelimitedText(Of T) method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
+  <HelpKINode Title="ToDelimitedText&lt;T&gt; method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
   <HelpKINode Title="Token class">
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
