@@ -457,10 +457,8 @@
     <HelpKINode Title="about Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
     <HelpKINode Title="methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm" />
   </HelpKINode>
-  <HelpKINode Title="Text.ToDelimitedText(Of T) method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
-  <HelpKINode Title="Text.ToDelimitedText&lt;T&gt; method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
-  <HelpKINode Title="ToDelimitedText(Of T) method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
-  <HelpKINode Title="ToDelimitedText&lt;T&gt; method" Url="html/f580dfcc-a3c1-b42b-56aa-4f80419a97b8.htm" />
+  <HelpKINode Title="Text.ToDelimitedText method" Url="html/66b8a90e-cb57-a2c7-8aa7-32373290d687.htm" />
+  <HelpKINode Title="ToDelimitedText method" Url="html/66b8a90e-cb57-a2c7-8aa7-32373290d687.htm" />
   <HelpKINode Title="Token class">
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
