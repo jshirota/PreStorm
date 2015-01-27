@@ -21,10 +21,12 @@ namespace PreStorm
         {
             var q = qualifier.ToString();
 
-            if (q == delimiter)
-                throw new Exception("The qualifier cannot be same as the delimiter.");
+            if (delimiter == null || delimiter.Contains(q))
+                throw new Exception("The delimiter is not valid.");
 
-            var values = feature.GetType().GetMappings().Select(m => m.Property.GetValue(feature, null)).ToList();
+            var values = feature.AllFieldNames.Select(n => feature[n]).ToList();
+
+            values.Insert(0, feature.OID);
 
             if (geometrySelector != null)
                 values.Add(geometrySelector(((dynamic)feature).Geometry));
