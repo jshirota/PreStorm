@@ -35,6 +35,7 @@ Here are some of the key features:
 - no dependencies on IDE tools or XML mapping files
 - no external libraries
 - Xamarin / OS X tested
+- designed with WPF UI binding in mind (i.e. MVVM)
 - strong support for fluent programming in C# and Visual Basic
 
 ========
