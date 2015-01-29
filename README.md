@@ -27,7 +27,7 @@ Here are some of the key features:
 - "geodatabase version" support
 - automatic handling of INotifyPropertyChanged (via Reflection.Emit but memoized)
 - flexible and succinct KML generation
-- delimiter-separated values text dump
+- delimiter-separated text dump
 - implicit conversion operators for JSON geometries
 - z coordinates support
 - support for extra ArcGIS Rest query string parameters
