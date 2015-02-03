@@ -19,10 +19,13 @@ namespace PreStorm
         /// <returns></returns>
         public static string ToDelimitedText(this Feature feature, string delimiter = ",", char? qualifier = '"', Func<DateTime, string> dateFormatter = null, Func<Geometry, object> geometrySelector = null)
         {
+            if (string.IsNullOrEmpty(delimiter))
+                throw new Exception("The delimiter is required.");
+
             var q = qualifier.ToString();
 
-            if (delimiter == null || delimiter.Contains(q))
-                throw new Exception("The delimiter is not valid.");
+            if (q != "" && delimiter.Contains(q))
+                throw new Exception("The qualifier is not valid.");
 
             var values = feature.AllFieldNames.Select(n => feature[n]).ToList();
 
