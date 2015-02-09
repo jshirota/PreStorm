@@ -148,6 +148,7 @@
   </HelpKINode>
   <HelpKINode Title="Field.domain property" Url="html/030b6669-d1db-0651-29b0-550a0a54ab1c.htm" />
   <HelpKINode Title="Field.Field constructor" Url="html/b01f2928-ddd5-4863-1953-5cc0f186fa1f.htm" />
+  <HelpKINode Title="Field.length property" Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
   <HelpKINode Title="Field.name property" Url="html/06690fe0-05fb-515b-89d3-2b5e305d918a.htm" />
   <HelpKINode Title="Field.type property" Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
   <HelpKINode Title="fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
@@ -297,6 +298,7 @@
     <HelpKINode Title="Service.Layers Property " Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   </HelpKINode>
   <HelpKINode Title="Length method" Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
+  <HelpKINode Title="length property" Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
   <HelpKINode Title="LineColour property" Url="html/678d073c-ec7f-1bb6-58fb-ad08a5388b87.htm" />
   <HelpKINode Title="LineWidth property" Url="html/182345b1-d62b-aff3-ab6c-2480a4bdeca6.htm" />
   <HelpKINode Title="Mapped class">
