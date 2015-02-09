@@ -299,6 +299,11 @@ namespace PreStorm
         public string type { get; set; }
 
         /// <summary>
+        /// The length of the field.
+        /// </summary>
+        public int? length { get; set; }
+
+        /// <summary>
         /// The domain this field depends on.
         /// </summary>
         public Domain domain { get; set; }
