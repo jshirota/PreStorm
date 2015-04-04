@@ -19,7 +19,6 @@ Here are some of the key features:
 - server max return count overriding
 - querying using layer name (as well as layer id)
 - parallel downloading via PLINQ
-- optional Task async methods
 - server-side spatial filter
 - built-in local geometry functions (i.e. spatial predicates)
 - dynamic field access via indexers
