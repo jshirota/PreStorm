@@ -48,10 +48,6 @@
     <HelpKINode Title="IService.Download Method " Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm" />
     <HelpKINode Title="Service.Download Method " Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   </HelpKINode>
-  <HelpKINode Title="DownloadAsync method">
-    <HelpKINode Title="IService.DownloadAsync Method " Url="html/faeff696-58a1-d01a-41bc-3a2830010b29.htm" />
-    <HelpKINode Title="Service.DownloadAsync Method " Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
-  </HelpKINode>
   <HelpKINode Title="DynamicFeature class">
     <HelpKINode Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
     <HelpKINode Title="about DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
@@ -254,7 +250,6 @@
   </HelpKINode>
   <HelpKINode Title="IService.Domains property" Url="html/2a054514-10c0-385b-4e0d-5e2701a6335e.htm" />
   <HelpKINode Title="IService.Download method" Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm" />
-  <HelpKINode Title="IService.DownloadAsync method" Url="html/faeff696-58a1-d01a-41bc-3a2830010b29.htm" />
   <HelpKINode Title="IService.Layers property" Url="html/3bde12da-bfb8-4bc9-0052-8a3b82ff6867.htm" />
   <HelpKINode Title="IService.Url property" Url="html/d5654a67-0681-19c5-4af5-e27e175e9458.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
@@ -434,7 +429,6 @@
   </HelpKINode>
   <HelpKINode Title="Service.Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Service.Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
-  <HelpKINode Title="Service.DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
   <HelpKINode Title="Service.Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   <HelpKINode Title="Service.Service constructor" Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm" />
   <HelpKINode Title="Service.Url property" Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
