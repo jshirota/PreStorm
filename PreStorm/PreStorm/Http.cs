@@ -88,7 +88,14 @@ namespace PreStorm
         /// <returns></returns>
         public static Task<string> GetAsync(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Get(url, requestModifier));
+            var taskCompletionSource = new TaskCompletionSource<string>();
+
+            using (var http = new Http(requestModifier))
+            {
+                http.DownloadStringCompleted += (s, e) => taskCompletionSource.SetResult(e.Result);
+                http.DownloadStringAsync(new Uri(url));
+                return taskCompletionSource.Task;
+            }
         }
 
         /// <summary>
@@ -100,7 +107,7 @@ namespace PreStorm
         /// <returns></returns>
         public static Task<T> GetAsync<T>(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Get<T>(url, requestModifier));
+            return GetAsync(url, requestModifier).ContinueWith(t => t.Result.Deserialize<T>());
         }
 
         /// <summary>
@@ -141,7 +148,15 @@ namespace PreStorm
         /// <returns></returns>
         public static Task<string> PostAsync(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Post(url, data, requestModifier));
+            var taskCompletionSource = new TaskCompletionSource<string>();
+
+            using (var http = new Http(requestModifier))
+            {
+                http.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                http.UploadStringCompleted += (s, e) => taskCompletionSource.SetResult(e.Result);
+                http.UploadStringAsync(new Uri(url), data);
+                return taskCompletionSource.Task;
+            }
         }
 
         /// <summary>
@@ -154,7 +169,7 @@ namespace PreStorm
         /// <returns></returns>
         public static Task<T> PostAsync<T>(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return Task.Factory.StartNew(() => Post<T>(url, data, requestModifier));
+            return PostAsync(url, data, requestModifier).ContinueWith(t => t.Result.Deserialize<T>());
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace PreStorm
@@ -80,58 +79,6 @@ namespace PreStorm
         IEnumerable<T> Download<T>(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature;
 
         /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<T[]> DownloadAsync<T>(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature;
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<T[]> DownloadAsync<T>(int layerId, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature;
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<T[]> DownloadAsync<T>(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature;
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<T[]> DownloadAsync<T>(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature;
-
-        /// <summary>
         /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -178,54 +125,6 @@ namespace PreStorm
         /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
         /// <returns></returns>
         IEnumerable<DynamicFeature> Download(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1);
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1);
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1);
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1);
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1);
     }
 
     /// <summary>
@@ -437,70 +336,6 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
-        {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
-        }
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(int layerId, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
-        {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerId, whereClause, geometry, spatialRel, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
-        }
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
-        {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
-        }
-
-        /// <summary>
-        /// Downloads features of the specified type.  Possibly throws RestException.
-        /// </summary>
-        /// <typeparam name="T">The type the record should be mapped to.</typeparam>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<T[]> DownloadAsync<T>(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1) where T : Feature
-        {
-            return Task<T[]>.Factory.StartNew(() => Download<T>(layerName, whereClause, geometry, spatialRel, extraParameters, keepQuerying, degreeOfParallelism).ToArray());
-        }
-
-        /// <summary>
         /// Downloads and yields features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
         /// </summary>
         /// <param name="layerId">The layer ID of the feature layer or table.</param>
@@ -558,66 +393,6 @@ namespace PreStorm
         public IEnumerable<DynamicFeature> Download(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
         {
             return Download<DynamicFeature>(layerName, whereClause, geometry, spatialRel, extraParameters, keepQuerying, degreeOfParallelism);
-        }
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
-        {
-            return DownloadAsync<DynamicFeature>(layerId, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
-        }
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerId">The layer ID of the feature layer or table.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(int layerId, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
-        {
-            return DownloadAsync<DynamicFeature>(layerId, whereClause, geometry, spatialRel, extraParameters, keepQuerying, degreeOfParallelism);
-        }
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause = null, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
-        {
-            return DownloadAsync<DynamicFeature>(layerName, whereClause, extraParameters, keepQuerying, degreeOfParallelism);
-        }
-
-        /// <summary>
-        /// Downloads features whose attributes and geometry are dynamically accessed at runtime.  Possibly throws RestException.
-        /// </summary>
-        /// <param name="layerName">The name of the feature layer or table.  If the service contains two or more layers with this name, use the overload that takes the layer ID rather than the name.</param>
-        /// <param name="whereClause">The where clause.  If set to null, returns all features.</param>
-        /// <param name="geometry">The geometry used to spatially filter the records.</param>
-        /// <param name="spatialRel">The spatial relationship used for filtering.</param>
-        /// <param name="extraParameters">The query string that describes any additional query parameters (i.e. outSR=4326).  Each parameter must be url encoded.</param>
-        /// <param name="keepQuerying">If set to true, repetitively queries the server until all features have been returned.</param>
-        /// <param name="degreeOfParallelism">The maximum number of concurrent requests.</param>
-        /// <returns></returns>
-        public Task<DynamicFeature[]> DownloadAsync(string layerName, string whereClause, GeometryBase geometry, SpatialRel spatialRel, string extraParameters = null, bool keepQuerying = false, int degreeOfParallelism = 1)
-        {
-            return DownloadAsync<DynamicFeature>(layerName, whereClause, geometry, spatialRel, extraParameters, keepQuerying, degreeOfParallelism);
         }
     }
 }

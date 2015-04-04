@@ -58,6 +58,9 @@ namespace PreStorm
                 if (!isInnerRing)
                     polygons.Add(new XElement(kml + "Polygon", extraElements));
 
+                if (polygons.Count == 0)
+                    throw new Exception("The first ring of a polygon must be an outer ring.");
+
                 polygons.Last().Add(new XElement(kml + (isInnerRing ? "innerBoundaryIs" : "outerBoundaryIs"),
                     new XElement(kml + "LinearRing",
                         new XElement(kml + "coordinates", ring.ToCoordinates(z)))));
