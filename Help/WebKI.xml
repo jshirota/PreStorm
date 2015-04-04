@@ -20,7 +20,6 @@
   <HelpKINode Title="Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Crosses enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
-  <HelpKINode Title="DeleteAsync method" Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm" />
   <HelpKINode Title="DeleteResult class">
     <HelpKINode Title="DeleteResult Class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
     <HelpKINode Title="about DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -63,11 +62,8 @@
     <HelpKINode Title="methods" Url="html/f1b95f18-c68f-6893-4a47-cd6356a6930c.htm" />
   </HelpKINode>
   <HelpKINode Title="Editor.Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
-  <HelpKINode Title="Editor.DeleteAsync method" Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm" />
   <HelpKINode Title="Editor.InsertInto method" Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm" />
-  <HelpKINode Title="Editor.InsertIntoAsync method" Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm" />
   <HelpKINode Title="Editor.Update method" Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm" />
-  <HelpKINode Title="Editor.UpdateAsync method" Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm" />
   <HelpKINode Title="EditResultBase class">
     <HelpKINode Title="EditResultBase Class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
     <HelpKINode Title="about EditResultBase class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
@@ -218,7 +214,6 @@
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertInto method" Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm" />
-  <HelpKINode Title="InsertIntoAsync method" Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm" />
   <HelpKINode Title="InsertResult(Of T) class">
     <HelpKINode Title="InsertResult(T) Class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
     <HelpKINode Title="about InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
@@ -477,7 +472,6 @@
     <HelpKINode Title="Layer.type Property " Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
   </HelpKINode>
   <HelpKINode Title="Update method" Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm" />
-  <HelpKINode Title="UpdateAsync method" Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm" />
   <HelpKINode Title="UpdateResult class">
     <HelpKINode Title="UpdateResult Class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
     <HelpKINode Title="about UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
