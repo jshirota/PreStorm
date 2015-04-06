@@ -33,8 +33,6 @@ Here are some of the key features:
 - Unicode tested
 - no dependencies on IDE tools or XML mapping files
 - no external libraries
-- Xamarin / OS X tested
-- laziness that doesn't get in the way
 - works well with Esri Runtime APIs
 - designed with WPF UI binding in mind (i.e. MVVM)
 - strong support for fluent programming in C# and Visual Basic
