@@ -194,7 +194,7 @@ namespace PreStorm
             var layer = Layers.FirstOrDefault(l => l.id == layerId);
 
             if (layer == null)
-                throw new Exception(string.Format("The service does not contain layer ID '{0}'.", layerId));
+                throw new InvalidOperationException(string.Format("The service does not contain layer ID '{0}'.", layerId));
 
             return layer;
         }
@@ -206,8 +206,8 @@ namespace PreStorm
             switch (layers.Length)
             {
                 case 1: return layers[0];
-                case 0: throw new Exception(string.Format("The service does not contain '{0}'.", layerName));
-                default: throw new Exception(string.Format("The service contains {0} layers called '{1}'.  Please try specifying the layer ID.", layers.Length, layerName));
+                case 0: throw new InvalidOperationException(string.Format("The service does not contain '{0}'.", layerName));
+                default: throw new InvalidOperationException(string.Format("The service contains {0} layers called '{1}'.  Please try specifying the layer ID.", layers.Length, layerName));
             }
         }
 
@@ -295,7 +295,7 @@ namespace PreStorm
             else if (geometry is Envelope)
                 geometryType = "esriGeometryEnvelope";
             else
-                throw new Exception("This geometry type is not supported.");
+                throw new ArgumentException("This geometry type is not supported.", "geometry");
 
             var spatialFilter = string.Format("geometry={0}&geometryType={1}&spatialRel=esriSpatialRel{2}",
                 HttpUtility.UrlEncode(geometry.ToString()), geometryType, spatialRel);

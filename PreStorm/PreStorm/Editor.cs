@@ -14,7 +14,7 @@ namespace PreStorm
             var values = items.Select(selector).Distinct().ToArray();
 
             if (values.Length > 1)
-                throw new Exception(string.Format("All features must be bound to the same {0}.", name));
+                throw new InvalidOperationException(string.Format("All features must be bound to the same {0}.", name));
 
             return values.SingleOrDefault();
         }
@@ -107,7 +107,7 @@ namespace PreStorm
                     return new UpdateResult(true);
 
                 if (features.Any(f => !f.IsDataBound))
-                    throw new Exception("All features must be bound to a data source before they can be updated.");
+                    throw new InvalidOperationException("All features must be bound to a data source before they can be updated.");
 
                 var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
                 var layer = GetUnique(features, f => f.Layer, "layer");
@@ -159,7 +159,7 @@ namespace PreStorm
                     return new DeleteResult(true);
 
                 if (features.Any(f => !f.IsDataBound))
-                    throw new Exception("All features must be bound to a data source before they can be deleted.");
+                    throw new InvalidOperationException("All features must be bound to a data source before they can be deleted.");
 
                 var args = GetUnique(features, f => f.ServiceArgs, "url and geodatabase version");
                 var layer = GetUnique(features, f => f.Layer, "layer");

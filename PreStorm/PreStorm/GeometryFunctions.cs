@@ -18,7 +18,7 @@ namespace PreStorm
         private static void AssertNotNull(params object[] geometries)
         {
             if (Null(geometries))
-                throw new Exception("Input geometries cannot be null.");
+                throw new ArgumentException("Input geometries cannot be null.", "geometries");
         }
 
         private static double Length(this double[] p1, double[] p2)

@@ -59,7 +59,7 @@ namespace PreStorm
                     polygons.Add(new XElement(kml + "Polygon", extraElements));
 
                 if (polygons.Count == 0)
-                    throw new Exception("The first ring of a polygon must be an outer ring.");
+                    throw new InvalidOperationException("The first ring of a polygon must be an outer ring.");
 
                 polygons.Last().Add(new XElement(kml + (isInnerRing ? "innerBoundaryIs" : "outerBoundaryIs"),
                     new XElement(kml + "LinearRing",
@@ -116,7 +116,7 @@ namespace PreStorm
             if (polygon != null)
                 return polygon.ToKmlPolygon(z, geometryElements);
 
-            throw new Exception("This geometry type is not supported.");
+            throw new ArgumentException("This geometry type is not supported.", "geometry");
         }
 
         /// <summary>

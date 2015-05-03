@@ -54,7 +54,7 @@ namespace PreStorm
         private T GetSingleFeature()
         {
             if (InsertedFeatures.Length > 1)
-                throw new Exception("There are more than one inserted features.");
+                throw new InvalidOperationException("There are more than one inserted features.");
 
             return InsertedFeatures.SingleOrDefault();
         }

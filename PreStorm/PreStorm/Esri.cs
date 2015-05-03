@@ -31,12 +31,12 @@ namespace PreStorm
                 var errorMessage = "ArcGIS Server returned an error response.";
 
                 if (response.error != null)
-                    throw new Exception(errorMessage);
+                    throw new InvalidOperationException(errorMessage);
 
                 var resultSet = response as EditResultSet;
 
                 if (resultSet != null && new[] { resultSet.addResults, resultSet.updateResults, resultSet.deleteResults }.Any(results => results == null || results.Any(r => !r.success)))
-                    throw new Exception(errorMessage);
+                    throw new InvalidOperationException(errorMessage);
 
                 return response;
             }
@@ -196,7 +196,7 @@ namespace PreStorm
             var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
 
             if (objectIdFields.Length != 1)
-                throw new Exception(string.Format("'{0}' does not have one (and only one) field of type esriFieldTypeOID.", layer.name));
+                throw new InvalidOperationException(string.Format("'{0}' does not have one (and only one) field of type esriFieldTypeOID.", layer.name));
 
             return objectIdFields.Single().name;
         }
@@ -206,7 +206,7 @@ namespace PreStorm
             var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
 
             if (domain == null)
-                throw new Exception(string.Format("Coded value domain '{0}' does not exist.", domainName));
+                throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not exist.", domainName));
 
             return domain.codedValues;
         }
@@ -221,12 +221,12 @@ namespace PreStorm
             if (codedValues.Length == 0)
             {
                 if (strict)
-                    throw new Exception(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
+                    throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
 
                 return null;
             }
 
-            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
+            throw new InvalidOperationException(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
         }
 
         public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
@@ -237,9 +237,9 @@ namespace PreStorm
                 return codedValues.Single();
 
             if (codedValues.Length == 0)
-                throw new Exception(string.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
+                throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
 
-            throw new Exception(string.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
+            throw new InvalidOperationException(string.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
         }
     }
 
