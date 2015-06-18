@@ -428,8 +428,7 @@
     <HelpKINode Title="about Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
     <HelpKINode Title="methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm" />
   </HelpKINode>
-  <HelpKINode Title="Text.ToDelimitedText method" Url="html/66b8a90e-cb57-a2c7-8aa7-32373290d687.htm" />
-  <HelpKINode Title="ToDelimitedText method" Url="html/66b8a90e-cb57-a2c7-8aa7-32373290d687.htm" />
+  <HelpKINode Title="Text.ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
   <HelpKINode Title="Token class">
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
@@ -445,6 +444,7 @@
     <HelpKINode Title="GeometryBase.ToString Method " Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
     <HelpKINode Title="Token.ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
   </HelpKINode>
+  <HelpKINode Title="ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
   <HelpKINode Title="Touches enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
