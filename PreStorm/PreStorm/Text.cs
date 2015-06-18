@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 
 namespace PreStorm
@@ -8,16 +9,7 @@ namespace PreStorm
     /// </summary>
     public static class Text
     {
-        /// <summary>
-        /// Converts the feature attributes to delimiter-separated values (i.e. CSV).
-        /// </summary>
-        /// <param name="feature"></param>
-        /// <param name="delimiter"></param>
-        /// <param name="qualifier"></param>
-        /// <param name="dateFormatter"></param>
-        /// <param name="geometrySelector"></param>
-        /// <returns></returns>
-        public static string ToDelimitedText(this Feature feature, string delimiter = ",", char? qualifier = '"', Func<DateTime, string> dateFormatter = null, Func<Geometry, object> geometrySelector = null)
+        private static string ToDelimitedText(this Feature feature, string delimiter, char? qualifier, Func<Geometry, object> geometrySelector, Func<DateTime, string> dateSelector)
         {
             if (string.IsNullOrEmpty(delimiter))
                 throw new ArgumentException("The delimiter is required.", "delimiter");
@@ -32,18 +24,55 @@ namespace PreStorm
             values.Insert(0, feature.OID);
 
             if (geometrySelector != null)
-                values.Add(geometrySelector(((dynamic)feature).Geometry));
+            {
+                var o = geometrySelector(((dynamic)feature).Geometry);
+
+                if (o is string)
+                    values.Add(o);
+                else
+                    values.AddRange((o as IEnumerable ?? new[] { o }).Cast<object>());
+            }
+
+            dateSelector = dateSelector ?? (d => d.ToString("o"));
 
             return string.Join(delimiter, values.Select(o =>
             {
-                if (dateFormatter != null && o is DateTime)
-                    o = dateFormatter((DateTime)o);
+                if (o is DateTime)
+                    o = dateSelector((DateTime)o);
 
                 if (q == "")
                     return o;
 
                 return qualifier + (o ?? "").ToString().Replace(q, q + q) + q;
             }));
+        }
+
+        /// <summary>
+        /// Converts the feature attributes to delimiter-separated values (i.e. CSV).
+        /// </summary>
+        /// <param name="feature"></param>
+        /// <param name="delimiter"></param>
+        /// <param name="qualifier"></param>
+        /// <param name="dateSelector"></param>
+        /// <returns></returns>
+        public static string ToText(this Feature feature, string delimiter = ",", char? qualifier = '"', Func<DateTime, string> dateSelector = null)
+        {
+            return feature.ToDelimitedText(delimiter, qualifier, null, dateSelector);
+        }
+
+        /// <summary>
+        /// Converts the feature attributes to delimiter-separated values (i.e. CSV).
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="feature"></param>
+        /// <param name="delimiter"></param>
+        /// <param name="qualifier"></param>
+        /// <param name="geometrySelector"></param>
+        /// <param name="dateSelector"></param>
+        /// <returns></returns>
+        public static string ToText<T>(this Feature<T> feature, string delimiter = ",", char? qualifier = '"', Func<T, object> geometrySelector = null, Func<DateTime, string> dateSelector = null) where T : Geometry
+        {
+            return feature.ToDelimitedText(delimiter, qualifier, geometrySelector == null ? (Func<Geometry, object>)null : g => geometrySelector((T)g), dateSelector);
         }
     }
 }
