@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PreStorm.Tool.exe" size="271360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PreStorm.Tool.exe" size="270848">
       <assemblyIdentity name="PreStorm.Tool" version="1.4.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NL/Gi3JIg/A1q/MQAJHjS8GCsO8=</dsig:DigestValue>
+        <dsig:DigestValue>WcXCjpal32iTcJNmSxjKOJLzW7Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
