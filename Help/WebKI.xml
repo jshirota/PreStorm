@@ -109,6 +109,7 @@
   <HelpKINode Title="Feature.Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Feature.Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Feature.Feature constructor" Url="html/0d7bf573-8a45-173a-2d96-acf1de2e6733.htm" />
+  <HelpKINode Title="Feature.FieldName method" Url="html/ada227ad-075f-ec0e-2913-579144818e6d.htm" />
   <HelpKINode Title="Feature.IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="Feature.IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="Feature.Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
@@ -137,6 +138,7 @@
   <HelpKINode Title="Field.length property" Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
   <HelpKINode Title="Field.name property" Url="html/06690fe0-05fb-515b-89d3-2b5e305d918a.htm" />
   <HelpKINode Title="Field.type property" Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
+  <HelpKINode Title="FieldName method" Url="html/ada227ad-075f-ec0e-2913-579144818e6d.htm" />
   <HelpKINode Title="fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
   <HelpKINode Title="Geometry class">
     <HelpKINode Title="Geometry Class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
