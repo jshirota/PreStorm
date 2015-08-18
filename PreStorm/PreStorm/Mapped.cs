@@ -11,13 +11,19 @@ namespace PreStorm
         internal readonly string DomainName;
         internal readonly string InvalidCodeFormat;
 
+        static Mapped()
+        {
+            GetFieldName = s => s;
+            GetDomainName = s => s;
+        }
+
         /// <summary>
         /// Initializes a new instance of the Mapped class.
         /// </summary>
         /// <param name="fieldName">The name of the database field.  Case sensitive.</param>
         public Mapped(string fieldName)
         {
-            FieldName = GetFieldName == null ? fieldName : GetFieldName(fieldName);
+            FieldName = GetFieldName(fieldName);
         }
 
         /// <summary>
@@ -29,7 +35,7 @@ namespace PreStorm
         public Mapped(string fieldName, string domainName, string invalidCodeFormat = null)
             : this(fieldName)
         {
-            DomainName = GetDomainName == null ? domainName : GetDomainName(domainName);
+            DomainName = GetDomainName(domainName);
             InvalidCodeFormat = invalidCodeFormat;
         }
 

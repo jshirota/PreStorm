@@ -42,6 +42,43 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Returns the mapped field name for the specified property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static string FieldName<T>(string propertyName) where T : Feature
+        {
+            var mapping = typeof(T).GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
+
+            if (mapping == null || mapping.Mapped == null)
+                throw new ArgumentException("Invalid property name.", "propertyName");
+
+            return mapping.Mapped.FieldName;
+        }
+
+        /// <summary>
+        /// Returns the mapped field name for the specified property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertySelector"></param>
+        /// <returns></returns>
+        public static string FieldName<T>(Expression<Func<T, object>> propertySelector) where T : Feature
+        {
+            MemberExpression memberExpression = null;
+
+            if (propertySelector.Body.NodeType == ExpressionType.Convert)
+                memberExpression = ((UnaryExpression)propertySelector.Body).Operand as MemberExpression;
+            else if (propertySelector.Body.NodeType == ExpressionType.MemberAccess)
+                memberExpression = propertySelector.Body as MemberExpression;
+
+            if (memberExpression == null)
+                throw new ArgumentException("Invalid expression.", "propertySelector");
+
+            return FieldName<T>(memberExpression.Member.Name);
+        }
+
+        /// <summary>
         /// The Object ID of the feature.
         /// </summary>
         public int OID { get; internal set; }
