@@ -25,7 +25,7 @@ namespace PreStorm
 
         private static string ToDelimitedText(this Feature feature, string delimiter, char? qualifier, Func<Geometry, object> geometrySelector, Func<DateTime, string> dateSelector)
         {
-            var values = feature.AllFieldNames.Select(n => feature[n]).ToList();
+            var values = feature.FieldNames.Select(n => feature[n]).ToList();
 
             values.Insert(0, feature.OID);
 

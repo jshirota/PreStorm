@@ -45,6 +45,16 @@ namespace PreStorm
         /// <summary>
         /// Returns the mapped properties.
         /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static PropertyInfo[] Properties(Type type)
+        {
+            return type.GetMappings().Select(m => m.Property).ToArray();
+        }
+
+        /// <summary>
+        /// Returns the mapped properties.
+        /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static PropertyInfo[] Properties<T>() where T : Feature
@@ -55,17 +65,28 @@ namespace PreStorm
         /// <summary>
         /// Returns the mapped field name for the specified property.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public static string FieldName<T>(string propertyName) where T : Feature
+        public static string FieldName(Type type, string propertyName)
         {
-            var mapping = typeof(T).GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
+            var mapping = type.GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
 
             if (mapping == null || mapping.Mapped == null)
                 throw new ArgumentException("Invalid property name.", "propertyName");
 
             return mapping.Mapped.FieldName;
+        }
+
+        /// <summary>
+        /// Returns the mapped field name for the specified property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static string FieldName<T>(string propertyName) where T : Feature
+        {
+            return FieldName(typeof(T), propertyName);
         }
 
         /// <summary>
@@ -102,9 +123,12 @@ namespace PreStorm
             get { return OID > -1; }
         }
 
-        internal IEnumerable<string> AllFieldNames
+        /// <summary>
+        /// Returns the field names.  This includes unmapped fields.
+        /// </summary>
+        public string[] FieldNames
         {
-            get { return _fieldToProperty.Keys.Concat(UnmappedFields.Keys); }
+            get { return _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray(); }
         }
 
         private object GetValue(string fieldName)

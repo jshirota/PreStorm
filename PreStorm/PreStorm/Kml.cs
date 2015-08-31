@@ -133,7 +133,7 @@ namespace PreStorm
             return new XElement(kml + "Placemark", new XAttribute("id", feature.OID),
                        new XElement(kml + "name", name), placemarkElements,
                        new XElement(kml + "ExtendedData",
-                           from n in feature.AllFieldNames
+                           from n in feature.FieldNames
                            select new XElement(kml + "Data", new XAttribute("name", n),
                                       new XElement(kml + "value", feature[n]))),
                                           ToKml(((dynamic)feature).Geometry, z, geometryElements));
