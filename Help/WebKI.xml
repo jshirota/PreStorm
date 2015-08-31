@@ -114,6 +114,8 @@
   <HelpKINode Title="Feature.IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="Feature.Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Feature.OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
+  <HelpKINode Title="Feature.Properties(Of T) method" Url="html/15789216-b165-99f3-a71f-6efb173dd5b5.htm" />
+  <HelpKINode Title="Feature.Properties&lt;T&gt; method" Url="html/15789216-b165-99f3-a71f-6efb173dd5b5.htm" />
   <HelpKINode Title="Feature.PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="Feature.RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="Feature&lt;T&gt; class">
@@ -376,6 +378,8 @@
   <HelpKINode Title="PreStorm.Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
+  <HelpKINode Title="Properties(Of T) method" Url="html/15789216-b165-99f3-a71f-6efb173dd5b5.htm" />
+  <HelpKINode Title="Properties&lt;T&gt; method" Url="html/15789216-b165-99f3-a71f-6efb173dd5b5.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
   <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
