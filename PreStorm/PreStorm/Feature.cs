@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace PreStorm
 {
@@ -39,6 +40,16 @@ namespace PreStorm
         public static T Create<T>() where T : Feature
         {
             return Proxy.Create<T>();
+        }
+
+        /// <summary>
+        /// Returns the mapped properties.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static PropertyInfo[] Properties<T>() where T : Feature
+        {
+            return typeof(T).GetMappings().Select(m => m.Property).ToArray();
         }
 
         /// <summary>

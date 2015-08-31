@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PreStorm
@@ -9,16 +10,21 @@ namespace PreStorm
     /// </summary>
     public static class Text
     {
-        private static string ToDelimitedText(this Feature feature, string delimiter, char? qualifier, Func<Geometry, object> geometrySelector, Func<DateTime, string> dateSelector)
+        private static string Join(this IEnumerable<object> values, string delimiter, char? qualifier)
         {
             if (string.IsNullOrEmpty(delimiter))
                 throw new ArgumentException("The delimiter is required.", "delimiter");
 
             var q = qualifier.ToString();
 
-            if (q != "" && delimiter.Contains(q))
+            if (qualifier != null && delimiter.Contains(q))
                 throw new ArgumentException("The qualifier is not valid.", "qualifier");
 
+            return string.Join(delimiter, values.Select(o => q == "" ? o : q + (o ?? "").ToString().Replace(q, q + q) + q));
+        }
+
+        private static string ToDelimitedText(this Feature feature, string delimiter, char? qualifier, Func<Geometry, object> geometrySelector, Func<DateTime, string> dateSelector)
+        {
             var values = feature.AllFieldNames.Select(n => feature[n]).ToList();
 
             values.Insert(0, feature.OID);
@@ -35,16 +41,7 @@ namespace PreStorm
 
             dateSelector = dateSelector ?? (d => d.ToString("o"));
 
-            return string.Join(delimiter, values.Select(o =>
-            {
-                if (o is DateTime)
-                    o = dateSelector((DateTime)o);
-
-                if (q == "")
-                    return o;
-
-                return qualifier + (o ?? "").ToString().Replace(q, q + q) + q;
-            }));
+            return values.Select(o => o is DateTime ? dateSelector((DateTime)o) : o).Join(delimiter, qualifier);
         }
 
         /// <summary>
