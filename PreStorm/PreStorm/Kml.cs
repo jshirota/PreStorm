@@ -116,7 +116,7 @@ namespace PreStorm
             if (polygon != null)
                 return polygon.ToKmlPolygon(z, geometryElements);
 
-            throw new ArgumentException("This geometry type is not supported.", "geometry");
+            throw new ArgumentException("This geometry type is not supported.", nameof(geometry));
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace PreStorm
         /// <returns></returns>
         public static XElement ToKml(this Feature feature, string name = null, KmlStyle style = null)
         {
-            return feature.ToKml(name, 0, null, style == null ? null : style.ToKml());
+            return feature.ToKml(name, 0, null, style?.ToKml());
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace PreStorm
         {
             return new XElement(kml + "kml",
                        new XElement(kml + "Document", documentElements,
-                           features.Select(f => f.ToKml(name == null ? null : name(f), z == null ? null : z(f), null, placemarkElements == null ? null : placemarkElements(f)))));
+                           features.Select(f => f.ToKml(name?.Invoke(f), z?.Invoke(f), null, placemarkElements?.Invoke(f)))));
         }
 
         /// <summary>

@@ -16,7 +16,7 @@ namespace PreStorm
             var q = qualifier.ToString();
 
             if (qualifier != null && d.Contains(q))
-                throw new ArgumentException("The qualifier is not valid.", "qualifier");
+                throw new ArgumentException("The qualifier is not valid.", nameof(qualifier));
 
             return string.Join(d, values.Select(o => q == "" ? o : q + (o ?? "").ToString().Replace(q, q + q) + q));
         }

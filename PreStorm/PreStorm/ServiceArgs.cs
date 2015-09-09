@@ -4,10 +4,10 @@ namespace PreStorm
 {
     internal class ServiceArgs
     {
-        public string Url { get; private set; }
-        public ICredentials Credentials { get; private set; }
-        public Token Token { get; private set; }
-        public string GdbVersion { get; private set; }
+        public string Url { get; }
+        public ICredentials Credentials { get; }
+        public Token Token { get; }
+        public string GdbVersion { get; }
 
         public ServiceArgs(string url, ICredentials credentials, Token token, string gdbVersion)
         {

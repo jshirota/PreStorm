@@ -41,15 +41,12 @@ namespace PreStorm
         /// <summary>
         /// The inserted features.  In case of an error, returns an empty array.
         /// </summary>
-        public T[] InsertedFeatures { get { return _insertedFeatures.Value; } }
+        public T[] InsertedFeatures => _insertedFeatures.Value;
 
         /// <summary>
         /// The inserted feature.  In case of an error, returns null.
         /// </summary>
-        public T InsertedFeature
-        {
-            get { return GetSingleFeature(); }
-        }
+        public T InsertedFeature => GetSingleFeature();
 
         private T GetSingleFeature()
         {

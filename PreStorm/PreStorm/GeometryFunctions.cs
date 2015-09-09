@@ -18,7 +18,7 @@ namespace PreStorm
         private static void AssertNotNull(params object[] geometries)
         {
             if (Null(geometries))
-                throw new ArgumentException("Input geometries cannot be null.", "geometries");
+                throw new ArgumentException("Input geometries cannot be null.", nameof(geometries));
         }
 
         private static double Length(this double[] p1, double[] p2)
@@ -157,7 +157,7 @@ namespace PreStorm
         /// <returns></returns>
         public static double Length(this Polyline polyline)
         {
-            if (polyline == null || polyline.paths == null)
+            if (polyline?.paths == null)
                 return 0;
 
             return polyline.paths.SelectMany(p => p.Zip(p.Skip(1), Length)).Sum();
@@ -170,7 +170,7 @@ namespace PreStorm
         /// <returns></returns>
         public static double Perimeter(this Polygon polygon)
         {
-            if (polygon == null || polygon.rings == null)
+            if (polygon?.rings == null)
                 return 0;
 
             return polygon.rings.SelectMany(r => r.Zip(r.Skip(1), Length)).Sum();
@@ -183,7 +183,7 @@ namespace PreStorm
         /// <returns></returns>
         public static double Area(this Polygon polygon)
         {
-            if (polygon == null || polygon.rings == null)
+            if (polygon?.rings == null)
                 return 0;
 
             return polygon.rings.SelectMany(r => r.Zip(r.Skip(1), Area)).Sum();

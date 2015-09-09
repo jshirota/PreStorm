@@ -39,11 +39,20 @@ namespace PreStorm
                 var setMethod = typeBuilder.DefineMethod("set_" + p.Name, attributes, typeof(void), new[] { p.PropertyType });
                 var setGenerator = setMethod.GetILGenerator();
                 setGenerator.Emit(OpCodes.Ldarg_0);
+                setGenerator.Emit(OpCodes.Call, p.GetGetMethod());
+                setGenerator.Emit(OpCodes.Box, p.PropertyType);
+                setGenerator.Emit(OpCodes.Ldarg_1);
+                setGenerator.Emit(OpCodes.Box, p.PropertyType);
+                setGenerator.Emit(OpCodes.Call, typeof(object).GetMethod("Equals", new[] { typeof(object), typeof(object) }));
+                var labelExit = setGenerator.DefineLabel();
+                setGenerator.Emit(OpCodes.Brtrue_S, labelExit);
+                setGenerator.Emit(OpCodes.Ldarg_0);
                 setGenerator.Emit(OpCodes.Ldarg_1);
                 setGenerator.Emit(OpCodes.Call, p.GetSetMethod());
                 setGenerator.Emit(OpCodes.Ldarg_0);
                 setGenerator.Emit(OpCodes.Ldstr, p.Name);
                 setGenerator.Emit(OpCodes.Call, baseType.GetMethod("RaisePropertyChanged", BindingFlags.NonPublic | BindingFlags.Instance));
+                setGenerator.MarkLabel(labelExit);
                 setGenerator.Emit(OpCodes.Ret);
 
                 propertyBuilder.SetGetMethod(getMethod);

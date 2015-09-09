@@ -53,16 +53,6 @@ namespace PreStorm
         }
 
         /// <summary>
-        /// Returns the mapped properties.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static PropertyInfo[] Properties<T>() where T : Feature
-        {
-            return typeof(T).GetMappings().Select(m => m.Property).ToArray();
-        }
-
-        /// <summary>
         /// Returns the mapped field name for the specified property.
         /// </summary>
         /// <param name="type"></param>
@@ -72,42 +62,10 @@ namespace PreStorm
         {
             var mapping = type.GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
 
-            if (mapping == null || mapping.Mapped == null)
-                throw new ArgumentException("Invalid property name.", "propertyName");
+            if (mapping?.Mapped == null)
+                throw new ArgumentException("Invalid property name.", nameof(propertyName));
 
             return mapping.Mapped.FieldName;
-        }
-
-        /// <summary>
-        /// Returns the mapped field name for the specified property.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        public static string FieldName<T>(string propertyName) where T : Feature
-        {
-            return FieldName(typeof(T), propertyName);
-        }
-
-        /// <summary>
-        /// Returns the mapped field name for the specified property.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="propertySelector"></param>
-        /// <returns></returns>
-        public static string FieldName<T>(Expression<Func<T, object>> propertySelector) where T : Feature
-        {
-            MemberExpression memberExpression = null;
-
-            if (propertySelector.Body.NodeType == ExpressionType.Convert)
-                memberExpression = ((UnaryExpression)propertySelector.Body).Operand as MemberExpression;
-            else if (propertySelector.Body.NodeType == ExpressionType.MemberAccess)
-                memberExpression = propertySelector.Body as MemberExpression;
-
-            if (memberExpression == null)
-                throw new ArgumentException("Invalid expression.", "propertySelector");
-
-            return FieldName<T>(memberExpression.Member.Name);
         }
 
         /// <summary>
@@ -118,18 +76,12 @@ namespace PreStorm
         /// <summary>
         /// Indicates if this instance is bound to an actual row in the underlying table.
         /// </summary>
-        public bool IsDataBound
-        {
-            get { return OID > -1; }
-        }
+        public bool IsDataBound => OID > -1;
 
         /// <summary>
         /// Returns the field names.  This includes unmapped fields.
         /// </summary>
-        public string[] FieldNames
-        {
-            get { return _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray(); }
-        }
+        public string[] FieldNames => _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray();
 
         private object GetValue(string fieldName)
         {
@@ -138,7 +90,7 @@ namespace PreStorm
             if (_fieldToProperty.ContainsKey(fieldName))
                 return GetType().GetProperty(_fieldToProperty[fieldName]).GetValue(this, null);
 
-            throw new MissingFieldException(string.Format("Field '{0}' does not exist.", fieldName));
+            throw new MissingFieldException($"Field '{fieldName}' does not exist.");
         }
 
         private void SetValue(string fieldName, object value)
@@ -197,6 +149,19 @@ namespace PreStorm
         }
 
         /// <summary>
+        /// Indicates if the value of the specified property has changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public bool Changed(string propertyName)
+        {
+            if (propertyName == "Geometry")
+                return GeometryChanged;
+
+            return ChangedFields.Contains(_propertyToField[propertyName]);
+        }
+
+        /// <summary>
         /// Represents the method that will handle the PropertyChanged event raised when a property is changed on a component.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -207,10 +172,7 @@ namespace PreStorm
         /// <param name="propertyName"></param>
         protected void RaisePropertyChanged(string propertyName)
         {
-            var propertyChanged = PropertyChanged;
-
-            if (propertyChanged != null)
-                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
             if (propertyName == "IsDirty")
                 return;

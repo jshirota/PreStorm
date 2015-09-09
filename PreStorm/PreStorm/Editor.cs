@@ -14,7 +14,7 @@ namespace PreStorm
             var values = items.Select(selector).Distinct().ToArray();
 
             if (values.Length > 1)
-                throw new InvalidOperationException(string.Format("All features must be bound to the same {0}.", name));
+                throw new InvalidOperationException($"All features must be bound to the same {name}.");
 
             return values.SingleOrDefault();
         }

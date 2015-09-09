@@ -20,7 +20,7 @@ namespace PreStorm
             foreach (var m in mappings)
             {
                 if (!graphic.attributes.ContainsKey(m.Mapped.FieldName))
-                    throw new MissingFieldException(string.Format("Field '{0}' does not exist in '{1}'.", m.Mapped.FieldName, layer.name));
+                    throw new MissingFieldException($"Field '{m.Mapped.FieldName}' does not exist in '{layer.name}'.");
 
                 var value = graphic.attributes[m.Mapped.FieldName];
 
@@ -55,7 +55,7 @@ namespace PreStorm
                         }
                         catch (Exception ex)
                         {
-                            throw new InvalidOperationException(string.Format("'{0}.{1}' is not defined with the correct type.  Error trying to convert {2} to {3}.", typeof(T), m.Property.Name, value.GetType(), t), ex);
+                            throw new InvalidOperationException($"'{typeof(T)}.{m.Property.Name}' is not defined with the correct type.  Error trying to convert {value.GetType()} to {t}.", ex);
                         }
                     }
                 }

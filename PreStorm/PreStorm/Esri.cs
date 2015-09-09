@@ -14,7 +14,7 @@ namespace PreStorm
         private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
             var parameters = new Dictionary<string, object> { { "token", token }, { "gdbVersion", gdbVersion }, { "f", "json" } };
-            var queryString = string.Join("&", parameters.Where(p => p.Value != null).Select(p => string.Format("{0}={1}", p.Key, HttpUtility.UrlEncode(p.Value.ToString()))));
+            var queryString = string.Join("&", parameters.Where(p => p.Value != null).Select(p => $"{p.Key}={HttpUtility.UrlEncode(p.Value.ToString())}"));
 
             var isPost = data != null;
 
@@ -42,13 +42,13 @@ namespace PreStorm
             }
             catch (Exception ex)
             {
-                throw new RestException(url2, requestText, responseText, string.Format("An error occurred while processing a request against '{0}'.", url2), ex);
+                throw new RestException(url2, requestText, responseText, $"An error occurred while processing a request against '{url2}'.", ex);
             }
         }
 
         private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(a =>
         {
-            var url = string.Format("{0}/layers", Regex.Replace(a.Url, @"/FeatureServer($|/)", a.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase));
+            var url = $"{Regex.Replace(a.Url, @"/FeatureServer($|/)", a.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
 
             var serviceInfo = GetResponse<ServiceInfo>(url, null, a.Credentials, a.Token, a.GdbVersion);
 
@@ -126,23 +126,16 @@ namespace PreStorm
 
         public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause, string extraParameters)
         {
-            var url = string.Format("{0}/{1}/query", args.Url, layerId);
-            var data = string.Format("where={0}{1}&returnIdsOnly=true",
-                CleanWhereClause(whereClause),
-                CleanExtraParameters(extraParameters));
+            var url = $"{args.Url}/{layerId}/query";
+            var data = $"where={CleanWhereClause(whereClause)}{CleanExtraParameters(extraParameters)}&returnIdsOnly=true";
 
             return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
         public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, bool returnZ, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
-            var url = string.Format("{0}/{1}/query", args.Url, layerId);
-            var data = string.Format("where={0}{1}&objectIds={2}&returnGeometry={3}&returnZ={4}&outFields=*",
-                CleanWhereClause(whereClause),
-                CleanExtraParameters(extraParameters),
-                CleanObjectIds(objectIds),
-                returnGeometry ? "true" : "false",
-                returnZ ? "true" : "false");
+            var url = $"{args.Url}/{layerId}/query";
+            var data = $"where={CleanWhereClause(whereClause)}{CleanExtraParameters(extraParameters)}&objectIds={CleanObjectIds(objectIds)}&returnGeometry={(returnGeometry ? "true" : "false")}&returnZ={(returnZ ? "true" : "false")}&outFields=*";
 
             return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
@@ -156,16 +149,16 @@ namespace PreStorm
         {
             var tokenUrl = url.IsArcGISOnline()
                 ? "https://www.arcgis.com/sharing/rest/generateToken"
-                : string.Format("{0}/tokens/generateToken", Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value);
-            var data = string.Format("userName={0}&password={1}&clientid=requestip", userName, password);
+                : $"{Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value}/tokens/generateToken";
+            var data = $"userName={userName}&password={password}&clientid=requestip";
 
             return GetResponse<TokenInfo>(tokenUrl, data, null, null, null);
         }
 
         public static EditResultSet ApplyEdits(ServiceArgs args, int layerId, string operation, string json)
         {
-            var url = string.Format("{0}/{1}/applyEdits", args.Url, layerId);
-            var data = string.Format("{0}={1}", operation, HttpUtility.UrlEncode(operation == "deletes" ? json : RemoveNullZ(json)));
+            var url = $"{args.Url}/{layerId}/applyEdits";
+            var data = $"{operation}={HttpUtility.UrlEncode(operation == "deletes" ? json : RemoveNullZ(json))}";
 
             return GetResponse<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
@@ -196,7 +189,7 @@ namespace PreStorm
             var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
 
             if (objectIdFields.Length != 1)
-                throw new InvalidOperationException(string.Format("'{0}' does not have one (and only one) field of type esriFieldTypeOID.", layer.name));
+                throw new InvalidOperationException($"'{layer.name}' does not have one (and only one) field of type esriFieldTypeOID.");
 
             return objectIdFields.Single().name;
         }
@@ -206,7 +199,7 @@ namespace PreStorm
             var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
 
             if (domain == null)
-                throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not exist.", domainName));
+                throw new InvalidOperationException($"Coded value domain '{domainName}' does not exist.");
 
             return domain.codedValues;
         }
@@ -221,12 +214,12 @@ namespace PreStorm
             if (codedValues.Length == 0)
             {
                 if (strict)
-                    throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not contain code '{1}'.", domainName, code));
+                    throw new InvalidOperationException($"Coded value domain '{domainName}' does not contain code '{code}'.");
 
                 return null;
             }
 
-            throw new InvalidOperationException(string.Format("Coded value domain '{0}' contains {1} occurrences of code '{2}'.", domainName, codedValues.Length, code));
+            throw new InvalidOperationException($"Coded value domain '{domainName}' contains {codedValues.Length} occurrences of code '{code}'.");
         }
 
         public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
@@ -237,9 +230,9 @@ namespace PreStorm
                 return codedValues.Single();
 
             if (codedValues.Length == 0)
-                throw new InvalidOperationException(string.Format("Coded value domain '{0}' does not contain name '{1}'.", domainName, name));
+                throw new InvalidOperationException($"Coded value domain '{domainName}' does not contain name '{name}'.");
 
-            throw new InvalidOperationException(string.Format("Coded value domain '{0}' contains {1} occurrences of name '{2}'.", domainName, codedValues.Length, name));
+            throw new InvalidOperationException($"Coded value domain '{domainName}' contains {codedValues.Length} occurrences of name '{name}'.");
         }
     }
 
@@ -400,12 +393,9 @@ namespace PreStorm
 
     internal class CatchAllGeometry
     {
-        private double _x = double.MinValue;
-        private double _y = double.MinValue;
-        private double? _z;
-        public double x { get { return _x; } set { _x = value; } }
-        public double y { get { return _y; } set { _y = value; } }
-        public double? z { get { return _z; } set { _z = value; } }
+        public double x { get; set; } = double.MinValue;
+        public double y { get; set; } = double.MinValue;
+        public double? z { get; set; }
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
         public double[][][] rings { get; set; }

@@ -94,7 +94,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Point(string json)
         {
-            return json == null ? null : json.Deserialize<Point>();
+            return json?.Deserialize<Point>();
         }
 
         /// <summary>
@@ -102,9 +102,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static implicit operator string(Point point)
+        public static implicit operator string (Point point)
         {
-            return point == null ? null : point.ToString();
+            return point?.ToString();
         }
     }
 
@@ -125,7 +125,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Multipoint(string json)
         {
-            return json == null ? null : json.Deserialize<Multipoint>();
+            return json?.Deserialize<Multipoint>();
         }
 
         /// <summary>
@@ -133,9 +133,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="multipoint"></param>
         /// <returns></returns>
-        public static implicit operator string(Multipoint multipoint)
+        public static implicit operator string (Multipoint multipoint)
         {
-            return multipoint == null ? null : multipoint.ToString();
+            return multipoint?.ToString();
         }
     }
 
@@ -156,7 +156,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Polyline(string json)
         {
-            return json == null ? null : json.Deserialize<Polyline>();
+            return json?.Deserialize<Polyline>();
         }
 
         /// <summary>
@@ -164,9 +164,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="polyline"></param>
         /// <returns></returns>
-        public static implicit operator string(Polyline polyline)
+        public static implicit operator string (Polyline polyline)
         {
-            return polyline == null ? null : polyline.ToString();
+            return polyline?.ToString();
         }
     }
 
@@ -187,7 +187,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Polygon(string json)
         {
-            return json == null ? null : json.Deserialize<Polygon>();
+            return json?.Deserialize<Polygon>();
         }
 
         /// <summary>
@@ -195,9 +195,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static implicit operator string(Polygon polygon)
+        public static implicit operator string (Polygon polygon)
         {
-            return polygon == null ? null : polygon.ToString();
+            return polygon?.ToString();
         }
     }
 
@@ -233,7 +233,7 @@ namespace PreStorm
         /// <returns></returns>
         public static implicit operator Envelope(string json)
         {
-            return json == null ? null : json.Deserialize<Envelope>();
+            return json?.Deserialize<Envelope>();
         }
 
         /// <summary>
@@ -241,9 +241,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="envelope"></param>
         /// <returns></returns>
-        public static implicit operator string(Envelope envelope)
+        public static implicit operator string (Envelope envelope)
         {
-            return envelope == null ? null : envelope.ToString();
+            return envelope?.ToString();
         }
     }
 }

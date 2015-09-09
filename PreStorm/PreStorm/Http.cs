@@ -43,13 +43,8 @@ namespace PreStorm
             request.AutomaticDecompression = DecompressionMethods.GZip;
             request.ServicePoint.Expect100Continue = false;
 
-            var requestModifier = RequestModifier;
-
-            if (requestModifier != null)
-                requestModifier(request);
-
-            if (_requestModifier != null)
-                _requestModifier(request);
+            RequestModifier?.Invoke(request);
+            _requestModifier?.Invoke(request);
 
             return request;
         }

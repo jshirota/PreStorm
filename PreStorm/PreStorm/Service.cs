@@ -18,15 +18,12 @@ namespace PreStorm
         /// <summary>
         /// The url of the service.
         /// </summary>
-        public string Url
-        {
-            get { return ServiceArgs.Url; }
-        }
+        public string Url => ServiceArgs.Url;
 
         /// <summary>
         /// The feature layers and tables exposed by this service.
         /// </summary>
-        public Layer[] Layers { get; private set; }
+        public Layer[] Layers { get; }
 
         /// <summary>
         /// The array of coded value domains used by this service.
@@ -73,7 +70,7 @@ namespace PreStorm
             var layer = Layers.FirstOrDefault(l => l.id == layerId);
 
             if (layer == null)
-                throw new InvalidOperationException(string.Format("The service does not contain layer ID '{0}'.", layerId));
+                throw new InvalidOperationException($"The service does not contain layer ID '{layerId}'.");
 
             return layer;
         }
@@ -85,8 +82,8 @@ namespace PreStorm
             switch (layers.Length)
             {
                 case 1: return layers[0];
-                case 0: throw new InvalidOperationException(string.Format("The service does not contain '{0}'.", layerName));
-                default: throw new InvalidOperationException(string.Format("The service contains {0} layers called '{1}'.  Please try specifying the layer ID.", layers.Length, layerName));
+                case 0: throw new InvalidOperationException($"The service does not contain '{layerName}'.");
+                default: throw new InvalidOperationException($"The service contains {layers.Length} layers called '{layerName}'.  Please try specifying the layer ID.");
             }
         }
 
@@ -174,10 +171,9 @@ namespace PreStorm
             else if (geometry is Envelope)
                 geometryType = "esriGeometryEnvelope";
             else
-                throw new ArgumentException("This geometry type is not supported.", "geometry");
+                throw new ArgumentException("This geometry type is not supported.", nameof(geometry));
 
-            var spatialFilter = string.Format("geometry={0}&geometryType={1}&spatialRel=esriSpatialRel{2}",
-                HttpUtility.UrlEncode(geometry.ToString()), geometryType, spatialRel);
+            var spatialFilter = $"geometry={HttpUtility.UrlEncode(geometry.ToString())}&geometryType={geometryType}&spatialRel=esriSpatialRel{spatialRel}";
 
             return Download<T>(layerId, whereClause, string.IsNullOrEmpty(extraParameters) ? spatialFilter : (extraParameters + "&" + spatialFilter), keepQuerying, degreeOfParallelism);
         }
