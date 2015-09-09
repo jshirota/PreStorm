@@ -3,6 +3,7 @@
   <HelpKINode Title="Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="Buffer method" Url="html/68387353-f0cf-ed2f-db5d-3ca2056b0bc7.htm" />
   <HelpKINode Title="Centre method" Url="html/b4a445ca-839b-93d2-5e28-1ab1a0b00543.htm" />
+  <HelpKINode Title="Changed method" Url="html/bc8f0439-60ca-353f-d9f2-350522603199.htm" />
   <HelpKINode Title="code property" Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
   <HelpKINode Title="CodedValue class">
     <HelpKINode Title="CodedValue Class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
@@ -106,16 +107,17 @@
   <HelpKINode Title="Feature(Of T).Feature constructor" Url="html/16c55f8d-712c-79f7-573b-081b021f0bf2.htm" />
   <HelpKINode Title="Feature(Of T).Geometry property" Url="html/246592f7-de46-f75f-6adb-1a4f2ee51c4d.htm" />
   <HelpKINode Title="Feature(Of T).RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
+  <HelpKINode Title="Feature.Changed method" Url="html/bc8f0439-60ca-353f-d9f2-350522603199.htm" />
   <HelpKINode Title="Feature.Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Feature.Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Feature.Feature constructor" Url="html/0d7bf573-8a45-173a-2d96-acf1de2e6733.htm" />
-  <HelpKINode Title="Feature.FieldName method" Url="html/ada227ad-075f-ec0e-2913-579144818e6d.htm" />
+  <HelpKINode Title="Feature.FieldName method" Url="html/b3f9349d-c9c4-da80-5305-33164eab1abf.htm" />
   <HelpKINode Title="Feature.FieldNames property" Url="html/88839944-dbc3-2842-8e15-84d89c12180a.htm" />
   <HelpKINode Title="Feature.IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="Feature.IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
   <HelpKINode Title="Feature.Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Feature.OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
-  <HelpKINode Title="Feature.Properties method" Url="html/a45603c1-c31f-56fa-73f9-5c792e512412.htm" />
+  <HelpKINode Title="Feature.Properties method" Url="html/60d04f83-bc32-4a3c-e806-e8f6609b00f1.htm" />
   <HelpKINode Title="Feature.PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="Feature.RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
   <HelpKINode Title="Feature&lt;T&gt; class">
@@ -140,7 +142,7 @@
   <HelpKINode Title="Field.length property" Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
   <HelpKINode Title="Field.name property" Url="html/06690fe0-05fb-515b-89d3-2b5e305d918a.htm" />
   <HelpKINode Title="Field.type property" Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
-  <HelpKINode Title="FieldName method" Url="html/ada227ad-075f-ec0e-2913-579144818e6d.htm" />
+  <HelpKINode Title="FieldName method" Url="html/b3f9349d-c9c4-da80-5305-33164eab1abf.htm" />
   <HelpKINode Title="FieldNames property" Url="html/88839944-dbc3-2842-8e15-84d89c12180a.htm" />
   <HelpKINode Title="fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
   <HelpKINode Title="Geometry class">
@@ -379,7 +381,7 @@
   <HelpKINode Title="PreStorm.Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
-  <HelpKINode Title="Properties method" Url="html/a45603c1-c31f-56fa-73f9-5c792e512412.htm" />
+  <HelpKINode Title="Properties method" Url="html/60d04f83-bc32-4a3c-e806-e8f6609b00f1.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="RaiseGeometryChanged method" Url="html/d790ef54-eef5-4b09-ee2d-dcbf9dff867e.htm" />
   <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
