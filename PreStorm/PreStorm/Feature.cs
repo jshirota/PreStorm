@@ -97,19 +97,33 @@ namespace PreStorm
         {
             if (_fieldToProperty.ContainsKey(fieldName))
             {
-                GetType().GetProperty(_fieldToProperty[fieldName]).SetValue(this, value, null);
+                var p = GetType().GetProperty(_fieldToProperty[fieldName]);
+
+                if (!Equals(p.GetValue(this, null), value))
+                {
+                    p.SetValue(this, value, null);
+                    IsDirty = true;
+                    ChangedFields.Add(fieldName);
+                }
             }
             else
             {
                 if (UnmappedFields.ContainsKey(fieldName))
-                    UnmappedFields[fieldName] = value;
+                {
+                    if (!Equals(UnmappedFields[fieldName], value))
+                    {
+                        UnmappedFields[fieldName] = value;
+                        IsDirty = true;
+                        ChangedFields.Add(fieldName);
+                    }
+                }
                 else
+                {
                     UnmappedFields.Add(fieldName, value);
+                    IsDirty = true;
+                    ChangedFields.Add(fieldName);
+                }
             }
-
-            IsDirty = true;
-
-            ChangedFields.Add(fieldName);
         }
 
         /// <summary>
