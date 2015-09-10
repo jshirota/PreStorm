@@ -85,10 +85,15 @@ namespace PreStorm
 
         private object GetValue(string fieldName)
         {
-            if (UnmappedFields.ContainsKey(fieldName))
-                return UnmappedFields[fieldName];
             if (_fieldToProperty.ContainsKey(fieldName))
+            {
                 return GetType().GetProperty(_fieldToProperty[fieldName]).GetValue(this, null);
+            }
+
+            if (UnmappedFields.ContainsKey(fieldName))
+            {
+                return UnmappedFields[fieldName];
+            }
 
             throw new MissingFieldException($"Field '{fieldName}' does not exist.");
         }
@@ -105,25 +110,25 @@ namespace PreStorm
                     IsDirty = true;
                     ChangedFields.Add(fieldName);
                 }
+
+                return;
             }
-            else
+
+            if (UnmappedFields.ContainsKey(fieldName))
             {
-                if (UnmappedFields.ContainsKey(fieldName))
+                if (!Equals(UnmappedFields[fieldName], value))
                 {
-                    if (!Equals(UnmappedFields[fieldName], value))
-                    {
-                        UnmappedFields[fieldName] = value;
-                        IsDirty = true;
-                        ChangedFields.Add(fieldName);
-                    }
-                }
-                else
-                {
-                    UnmappedFields.Add(fieldName, value);
+                    UnmappedFields[fieldName] = value;
                     IsDirty = true;
                     ChangedFields.Add(fieldName);
                 }
+
+                return;
             }
+
+            UnmappedFields.Add(fieldName, value);
+            IsDirty = true;
+            ChangedFields.Add(fieldName);
         }
 
         /// <summary>

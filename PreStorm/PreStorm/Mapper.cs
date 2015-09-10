@@ -65,7 +65,7 @@ namespace PreStorm
 
             foreach (var a in graphic.attributes)
                 if (a.Key != layer.GetObjectIdFieldName() && mappings.All(m => m.Mapped.FieldName != a.Key))
-                    feature.UnmappedFields.Add(a.Key, a.Value);
+                    feature.UnmappedFields.Add(a.Key, a.Value.ToDotNetValue(layer.fields.FirstOrDefault(f => f.name == a.Key)?.type));
 
             var g = graphic.geometry;
 
@@ -110,25 +110,14 @@ namespace PreStorm
                 if (m.Property.GetSetMethod() == null)
                     continue;
 
-                var value = m.Property.GetValue(feature, null);
+                var value = m.Property.GetValue(feature, null).ToEsriValue();
 
                 if (value != null)
                 {
-                    if (value is DateTime)
-                    {
-                        value = Convert.ToInt64(((DateTime)value).ToUniversalTime().Subtract(Esri.BaseTime).TotalMilliseconds);
-                    }
-                    if (value is Guid)
-                    {
-                        value = ((Guid)value).ToString("B").ToUpper();
-                    }
-                    else
-                    {
-                        var domainName = m.Mapped.DomainName;
+                    var domainName = m.Mapped.DomainName;
 
-                        if (domainName != null)
-                            value = layer.GetCodedValueByName(domainName, value).code;
-                    }
+                    if (domainName != null)
+                        value = layer.GetCodedValueByName(domainName, value).code;
                 }
 
                 attributes.Add(m.Mapped.FieldName, value);
@@ -136,11 +125,39 @@ namespace PreStorm
 
             foreach (var a in feature.UnmappedFields)
                 if (!changesOnly || feature.ChangedFields.Contains(a.Key))
-                    attributes.Add(a.Key, a.Value);
+                    attributes.Add(a.Key, a.Value.ToEsriValue());
 
             return !(changesOnly && !feature.GeometryChanged) && t.HasGeometry()
                 ? new { attributes, geometry = GetGeometry(feature) }
                 : new { attributes } as object;
+        }
+
+        private static object ToEsriValue(this object value)
+        {
+            if (value == null)
+                return null;
+
+            if (value is DateTime)
+                return Convert.ToInt64(((DateTime)value).ToUniversalTime().Subtract(Esri.BaseTime).TotalMilliseconds);
+
+            if (value is Guid)
+                return ((Guid)value).ToString("B").ToUpper();
+
+            return value;
+        }
+
+        private static object ToDotNetValue(this object value, string type)
+        {
+            if (value == null)
+                return null;
+
+            if (type == "esriFieldTypeDate")
+                return Esri.BaseTime.AddMilliseconds(Convert.ToInt64(value));
+
+            if (type == "esriFieldTypeGlobalID" || type == "esriFieldTypeGUID")
+                return Guid.Parse((string)value);
+
+            return value;
         }
 
         private static object GetGeometry(Feature feature)
