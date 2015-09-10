@@ -127,7 +127,7 @@ If you don't care about the inserted features, but you just want to know if the 
 
 ![code](/images/p18.png)
 
-Here's one of batch deleting.
+Here's one way of batch deleting.
 
 ![code](/images/p19.png)
 
