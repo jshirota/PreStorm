@@ -149,7 +149,7 @@ Here's an example of binding features in an Windows Forms application.  Notice i
 
 ![code](/images/p24.png)
 
-Here's a typical type definition used by PreStorm.  The tool generates this for you.  Mapped properties must be defined as public virtual.  At runtime, PreStorm creates a new type inheriting from this defined type and these properties are overridden.  The use defined type itself inherits from Feature or Feature&lt;T&gt; where T is the strict geometry type.  This how we declare that the city has x and y and the county has an area.
+Here's a typical type definition used by PreStorm.  The tool generates this for you.  Mapped properties must be defined as public virtual.  At runtime, PreStorm creates a new type inheriting from this defined type and these properties are overridden.  The user defined type itself inherits from Feature or Feature&lt;T&gt; where T is the geometry type.  This allows us to declare at compile time that the city has x and y and the county has an area.
 
 ![code](/images/p25.png)
 
