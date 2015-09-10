@@ -75,25 +75,43 @@ Here's how you can export features as a KML file.  If you set keepQuerying to tr
 
 ![code](/images/p05.png)
 
-This is one way of updating.
+This is one way of updating.  This ends up with multiple HTTP calls.
 
 ![code](/images/p06.png)
 
+Here's another way.  You create an array first, mutate the content and invoke Update.  Only the features (and fields) that actually changed are committed.
+
 ![code](/images/p07.png)
+
+LINQ where does not get translated to SQL.  If you need server-side filtering, you have to sepcify the where clause yourself.
 
 ![code](/images/p08.png)
 
+If you don't want to hard code the where clause (or you simply don't know the underlying field names), you can do something like this as well.
+
 ![code](/images/p09.png)
+
+Exporting a CSV file is also 1 line.
 
 ![code](/images/p10.png)
 
+Downloading happens lazily and is not limited to server max return count.  So, if you're downloading millions of records, you would want to write to a stream.
+
 ![code](/images/p11.png)
+
+Instead of mapping a field to a property, you can also access it directly via the indexer.  This is generally not recommended, but it can be useful in certain scenarios.
 
 ![code](/images/p12.png)
 
+In an extreme case, you don't need to define a type.  You can use Download instead of the generic Download<T>.  If you do this, Geometry is dynamically determined.
+
 ![code](/images/p13.png)
 
+Here's a basic insert operation.
+
 ![code](/images/p14.png)
+
+
 
 ![code](/images/p15.png)
 
