@@ -135,7 +135,7 @@ Instead of the layer name, you can specify the layer id.  However, layer id can 
 
 ![code](/images/p20.png)
 
-This means there's a map of layer ids to layer names.  This is stored in the instace of Service.  Even if you create many instances of this Service class with the same url, the schema is fetched only once and memoized.
+This means there's a map of layer ids to layer names.  This is stored in the instace of Service.  However, even if you create many instances of this Service class with the same url, the schema is fetched only once and memoized.  The following code results in 1 HTTP call to fetch the service schema.
 
 ![code](/images/p21.png)
 
