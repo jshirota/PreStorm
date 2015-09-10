@@ -111,17 +111,27 @@ Here's a basic insert operation.
 
 ![code](/images/p14.png)
 
-
+Again, create an array first and invoke InsertInto.  This uploads multiple features via a single HTTP call.
 
 ![code](/images/p15.png)
 
+This is the result of the above code.
+
 ![code](/images/p16.png)
+
+InsertInto actually returns the result object, which also provides the inserted features.  These features are bound to the service and have server-generated field values (i.e. OID).
 
 ![code](/images/p17.png)
 
+If you don't care about the inserted features, but you just want to know if the batch insert was successful, you can do this.  The inserted features are not downloaded until you ask for them.
+
 ![code](/images/p18.png)
 
+Here's one of batch deleting.
+
 ![code](/images/p19.png)
+
+
 
 ![code](/images/p20.png)
 
