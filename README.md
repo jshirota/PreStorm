@@ -55,15 +55,27 @@ http://nuget.org/packages/PreStorm
 
 ## Examples
 
+You can download features like this.
+
 ![code](/images/p01.png)
+
+Notice the city has x and y.
 
 ![code](/images/p02.png)
 
+The highway doesn't.  But, it has paths instead.  Basic geometry functions (i.e. Length) are built in.  Please note these functions are based on 2D planar calculations.
+
 ![code](/images/p03.png)
+
+So, how does the framework know a county is polygon?  It doesn't.  It's based on how you define the entity.
 
 ![code](/images/p04.png)
 
+Here's how you can export features as a KML file.  If you set keepQuerying to true, all features are returned.  You can also set the degreeOfParallelism for parallel downloading via PLINQ.
+
 ![code](/images/p05.png)
+
+This is one way of updating.
 
 ![code](/images/p06.png)
 
