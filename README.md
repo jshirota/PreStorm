@@ -139,11 +139,11 @@ This means there's a map of layer ids to layer names.  This is stored in the ins
 
 ![code](/images/p21.png)
 
-The Service class provides the basic schema for the map service, so you can do general dynalic handling of data.
+The Service class provides the basic schema for the map service, so you can do general dynamic handling of data.
 
 ![code](/images/p22.png)
 
-Here's an example of binding features in an Windows Forms application.  Notice if you edit any of the (editable) fields, IsDirty becomes true.  This is because the mapped properties are automatically raising the PropertyChanged event.  PreStorm uses this mechanism internally to keep track of which fields are changing.  This way, we can send only the fields that changed during the update call.  This also works well with WPF binding.
+Here's an example of binding features in an Windows Forms application.  Notice if you edit any of the (editable) fields, IsDirty becomes true.  This is because the mapped properties are automatically raising the PropertyChanged event.  PreStorm uses this mechanism internally to keep track of which fields are changing.  This way, we can send only the fields that changed during the update call.  This also works well with .NET UI binding mechanisms (i.e. WPF).
 
 ![code](/images/p23.png)
 
@@ -161,8 +161,8 @@ Non-spatial tables are mapped to types that inherit from the non-generic Feature
 
 ![code](/images/p27.png)
 
-If you do this, the Geometry property becomes no longer available.  If you use it, your code simply won't compile.  When the defined type is non-spatial, PreStorm automatically sets returnGeometry to false even if the underlying table is spatial, which results in further optimization.
+If you do this, the Geometry property becomes no longer available.  If you use the Geometry property, your code simply won't compile.  When the defined type is non-spatial, PreStorm automatically sets returnGeometry to false even if the underlying table is spatial, which results in further optimization.
 
 ![code](/images/p28.png)
 
-PreStorm provides many dynamic features but generally guides you in statically typed space where it becomes easy to write the code and difficult to make mistakes.
+PreStorm provides many dynamic features but generally guides you in the statically typed environment where it becomes easy to write high-level code and difficult to make mistakes.
