@@ -143,7 +143,7 @@ The Service class provides the basic schema for the map service, so you can do g
 
 ![code](/images/p22.png)
 
-Here's an example of binding features in an Windows Forms application.  Notice if you edit any of the (editable) fields, IsDirty becomes true.  This is because the mapped properties are automatically raising the PropertyChanged event.  PreStorm uses this mechanism internally to keep track of which fields are changing.  This way, we can send only the fields that changed during the update call.
+Here's an example of binding features in an Windows Forms application.  Notice if you edit any of the (editable) fields, IsDirty becomes true.  This is because the mapped properties are automatically raising the PropertyChanged event.  PreStorm uses this mechanism internally to keep track of which fields are changing.  This way, we can send only the fields that changed during the update call.  This also works well with WPF binding.
 
 ![code](/images/p23.png)
 
@@ -153,10 +153,16 @@ Here's a typical type definition used by PreStorm.  The tool generates this for 
 
 ![code](/images/p25.png)
 
-Non-spatial tables are mapped to types that inherit from the non-generic Feature type, which doesn't have geometry.  You can also treat a spatial layer as a non-spatial table as well by simply removing the generic parameter.
+If the field is nullable, the tool maps it to a nullable property (i.e. int?).  If the field is not nullable, the tool adds the Required attribute, which works with validation mechanisms used in .NET (i.e. ASP.NET).  If the field is read-only, the tool will define the property as "protected set".  This prevents the developer from accidentally changing the value of it.
 
 ![code](/images/p26.png)
 
+Non-spatial tables are mapped to types that inherit from the non-generic Feature type, which doesn't have geometry.  You can also treat a spatial layer as a non-spatial table as well by simply removing the generic parameter.
+
 ![code](/images/p27.png)
 
+If you do this, the Geometry property becomes no longer available.  If you use it, your code simply won't compile.  When the defined type is non-spatial, PreStorm automatically sets returnGeometry to false even if the underlying table is spatial, which results in further optimization.
+
 ![code](/images/p28.png)
+
+PreStorm provides many dynamic features but generally guides you in statically typed space where it becomes easy to write the code and difficult to make mistakes.
