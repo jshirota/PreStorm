@@ -103,7 +103,7 @@ Instead of mapping a field to a property, you can also access it directly via th
 
 ![code](/images/p12.png)
 
-In an extreme case, you don't need to define a type.  You can use Download instead of the generic Download<T>.  If you do this, Geometry is dynamically determined.
+In an extreme case, you don't need to define a type.  You can use Download instead of the generic Download&lt;T&gt;.  If you do this, Geometry is dynamically determined.
 
 ![code](/images/p13.png)
 
@@ -149,7 +149,7 @@ Here's an example of binding features in an Windows Forms application.  Notice i
 
 ![code](/images/p24.png)
 
-Here's a typical type definition used by PreStorm.  The tool generates this for you.  Mapped properties must be defined as public virtual.  At runtime, PreStorm creates a new type inheriting from this defined type and these properties are overridden.  The use defined type itself inherits from Feature or Feature<T> where T is the strict geometry type.  This how we declare that the city has x and y and the county has an area.
+Here's a typical type definition used by PreStorm.  The tool generates this for you.  Mapped properties must be defined as public virtual.  At runtime, PreStorm creates a new type inheriting from this defined type and these properties are overridden.  The use defined type itself inherits from Feature or Feature&lt;T&gt; where T is the strict geometry type.  This how we declare that the city has x and y and the county has an area.
 
 ![code](/images/p25.png)
 
