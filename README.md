@@ -131,15 +131,23 @@ Here's one of batch deleting.
 
 ![code](/images/p19.png)
 
-
+Instead of the layer name, you can specify the layer id.  However, layer id can change when you modify the underlying map document.
 
 ![code](/images/p20.png)
 
+This means there's a map of layer ids to layer names.  This is stored in the instace of Service.  Even if you create many instances of this Service class with the same url, the schema is fetched only once and memoized.
+
 ![code](/images/p21.png)
+
+The Service class provides the basic schema for the map service, so you can do general dynalic handling of data.
 
 ![code](/images/p22.png)
 
+Here's an example of binding features in an Windows Forms application.  Notice if you edit any of the (editable) fields, IsDirty becomes true.  This is because the mapped properties are automatically raising the PropertyChanged event.  PreStorm uses this mechanism internally to keep track of which fields are changing.  This way, we can send only the fields that changed during the update call.
+
 ![code](/images/p23.png)
+
+
 
 ![code](/images/p24.png)
 
