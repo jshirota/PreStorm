@@ -71,7 +71,7 @@ So, how does the framework know a county is polygon?  It doesn't.  It's based on
 
 ![code](/images/p04.png)
 
-Here's how you can export features as a KML file.  If you set keepQuerying to true, all features are returned.  You can also set the degreeOfParallelism for parallel downloading via PLINQ.
+Here's how you can export features as a KML file.  If you set keepQuerying to true, all features are returned.  You can also set the degreeOfParallelism for parallel downloading via PLINQ (hence the name PLINQ REST ORM).
 
 ![code](/images/p05.png)
 
