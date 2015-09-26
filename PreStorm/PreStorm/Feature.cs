@@ -47,7 +47,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static PropertyInfo[] Properties(Type type)
+        public static PropertyInfo[] GetProperties(Type type)
         {
             return type.GetMappings().Select(m => m.Property).ToArray();
         }
@@ -58,7 +58,7 @@ namespace PreStorm
         /// <param name="type"></param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public static string FieldName(Type type, string propertyName)
+        public static string GetFieldName(Type type, string propertyName)
         {
             var mapping = type.GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
 
@@ -81,7 +81,10 @@ namespace PreStorm
         /// <summary>
         /// Returns the field names.  This includes unmapped fields.
         /// </summary>
-        public string[] FieldNames => _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray();
+        public string[] GetFieldNames()
+        {
+            return _fieldToProperty.Keys.Concat(UnmappedFields.Keys).ToArray();
+        }
 
         private object GetValue(string fieldName)
         {
