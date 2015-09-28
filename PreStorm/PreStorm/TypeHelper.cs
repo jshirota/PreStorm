@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace PreStorm
@@ -18,10 +17,20 @@ namespace PreStorm
             return HasGeometryMemoized(type);
         }
 
-        private static readonly Func<Type, IEnumerable<Mapping>> GetMappingsMemoized = Memoization.Memoize<Type, IEnumerable<Mapping>>(t =>
-            t.GetProperties().Select(p => new Mapping(p)).Where(m => m.Mapped != null).ToList());
+        private static readonly Func<Type, Mapped[]> GetMappingsMemoized = Memoization.Memoize<Type, Mapped[]>(t =>
+            t.GetProperties().Select(p =>
+            {
+                var mapped = Attribute.GetCustomAttributes(p).OfType<Mapped>().SingleOrDefault();
 
-        public static IEnumerable<Mapping> GetMappings(this Type type)
+                if (mapped == null)
+                    return null;
+
+                mapped.Property = p;
+
+                return mapped;
+            }).Where(m => m != null).ToArray());
+
+        public static Mapped[] GetMappings(this Type type)
         {
             return GetMappingsMemoized(type);
         }

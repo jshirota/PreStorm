@@ -75,7 +75,6 @@
     <Compile Include="Json.cs" />
     <Compile Include="Mapped.cs" />
     <Compile Include="Mapper.cs" />
-    <Compile Include="Mapping.cs" />
     <Compile Include="Memoization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy.cs" />

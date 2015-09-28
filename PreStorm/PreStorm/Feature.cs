@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 
 namespace PreStorm
 {
@@ -28,8 +27,8 @@ namespace PreStorm
         protected Feature()
         {
             OID = -1;
-            _propertyToField = GetType().GetMappings().ToDictionary(m => m.Property.Name, m => m.Mapped.FieldName);
-            _fieldToProperty = GetType().GetMappings().ToDictionary(m => m.Mapped.FieldName, m => m.Property.Name);
+            _propertyToField = GetType().GetMappings().ToDictionary(m => m.Property.Name, m => m.FieldName);
+            _fieldToProperty = GetType().GetMappings().ToDictionary(m => m.FieldName, m => m.Property.Name);
         }
 
         /// <summary>
@@ -47,25 +46,9 @@ namespace PreStorm
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static PropertyInfo[] GetProperties(Type type)
+        public static Mapped[] GetMappings(Type type)
         {
-            return type.GetMappings().Select(m => m.Property).ToArray();
-        }
-
-        /// <summary>
-        /// Returns the mapped field name for the specified property.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        public static string GetFieldName(Type type, string propertyName)
-        {
-            var mapping = type.GetMappings().FirstOrDefault(m => m.Property.Name == propertyName);
-
-            if (mapping?.Mapped == null)
-                throw new ArgumentException("Invalid property name.", nameof(propertyName));
-
-            return mapping.Mapped.FieldName;
+            return type.GetMappings();
         }
 
         /// <summary>
@@ -242,16 +225,8 @@ namespace PreStorm
             set
             {
                 _geometry = value;
-                RaiseGeometryChanged();
+                RaisePropertyChanged(nameof(Geometry));
             }
-        }
-
-        /// <summary>
-        /// Flags the geometry to be updated.  Use this when editing by mutating the internal state of the geometry.
-        /// </summary>
-        public void RaiseGeometryChanged()
-        {
-            RaisePropertyChanged(() => Geometry);
         }
     }
 

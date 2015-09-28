@@ -28,7 +28,7 @@ namespace PreStorm
         /// <summary>
         /// The array of coded value domains used by this service.
         /// </summary>
-        public Domain[] Domains { get; private set; }
+        public Domain[] Domains { get; }
 
         private Service(string url, ICredentials credentials, Token token, string gdbVersion)
         {

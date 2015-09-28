@@ -19,10 +19,10 @@ namespace PreStorm
 
             foreach (var m in mappings)
             {
-                if (!graphic.attributes.ContainsKey(m.Mapped.FieldName))
-                    throw new MissingFieldException($"Field '{m.Mapped.FieldName}' does not exist in '{layer.name}'.");
+                if (!graphic.attributes.ContainsKey(m.FieldName))
+                    throw new MissingFieldException($"Field '{m.FieldName}' does not exist in '{layer.name}'.");
 
-                var value = graphic.attributes[m.Mapped.FieldName];
+                var value = graphic.attributes[m.FieldName];
 
                 if (value != null)
                 {
@@ -41,14 +41,6 @@ namespace PreStorm
                     }
                     else
                     {
-                        var domainName = m.Mapped.DomainName;
-
-                        if (domainName != null)
-                        {
-                            var codedValue = layer.GetCodedValueByCode(domainName, value, m.Mapped.InvalidCodeFormat == null);
-                            value = codedValue == null ? string.Format(m.Mapped.InvalidCodeFormat, value) : codedValue.name;
-                        }
-
                         try
                         {
                             value = Convert.ChangeType(value, t);
@@ -64,7 +56,7 @@ namespace PreStorm
             }
 
             foreach (var a in graphic.attributes)
-                if (a.Key != layer.GetObjectIdFieldName() && mappings.All(m => m.Mapped.FieldName != a.Key))
+                if (a.Key != layer.GetObjectIdFieldName() && mappings.All(m => m.FieldName != a.Key))
                     feature.UnmappedFields.Add(a.Key, a.Value.ToDotNetValue(layer.fields.FirstOrDefault(f => f.name == a.Key)?.type));
 
             var g = graphic.geometry;
@@ -104,7 +96,7 @@ namespace PreStorm
 
             foreach (var m in mappings)
             {
-                if (changesOnly && !feature.ChangedFields.Contains(m.Mapped.FieldName))
+                if (changesOnly && !feature.ChangedFields.Contains(m.FieldName))
                     continue;
 
                 if (m.Property.GetSetMethod() == null)
@@ -112,15 +104,7 @@ namespace PreStorm
 
                 var value = m.Property.GetValue(feature, null).ToEsriValue();
 
-                if (value != null)
-                {
-                    var domainName = m.Mapped.DomainName;
-
-                    if (domainName != null)
-                        value = layer.GetCodedValueByName(domainName, value).code;
-                }
-
-                attributes.Add(m.Mapped.FieldName, value);
+                attributes.Add(m.FieldName, value);
             }
 
             foreach (var a in feature.UnmappedFields)

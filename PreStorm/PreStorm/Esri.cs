@@ -193,47 +193,6 @@ namespace PreStorm
 
             return objectIdFields.Single().name;
         }
-
-        private static IEnumerable<CodedValue> GetCodeValues(this Layer layer, string domainName)
-        {
-            var domain = layer.fields.Select(f => f.domain).FirstOrDefault(d => d != null && d.type == "codedValue" && d.name == domainName);
-
-            if (domain == null)
-                throw new InvalidOperationException($"Coded value domain '{domainName}' does not exist.");
-
-            return domain.codedValues;
-        }
-
-        public static CodedValue GetCodedValueByCode(this Layer layer, string domainName, object code, bool strict)
-        {
-            var codedValues = layer.GetCodeValues(domainName).Where(c => c.code.ToString() == code.ToString()).ToArray();
-
-            if (codedValues.Length == 1)
-                return codedValues.Single();
-
-            if (codedValues.Length == 0)
-            {
-                if (strict)
-                    throw new InvalidOperationException($"Coded value domain '{domainName}' does not contain code '{code}'.");
-
-                return null;
-            }
-
-            throw new InvalidOperationException($"Coded value domain '{domainName}' contains {codedValues.Length} occurrences of code '{code}'.");
-        }
-
-        public static CodedValue GetCodedValueByName(this Layer layer, string domainName, object name)
-        {
-            var codedValues = layer.GetCodeValues(domainName).Where(c => c.name == name.ToString()).ToArray();
-
-            if (codedValues.Length == 1)
-                return codedValues.Single();
-
-            if (codedValues.Length == 0)
-                throw new InvalidOperationException($"Coded value domain '{domainName}' does not contain name '{name}'.");
-
-            throw new InvalidOperationException($"Coded value domain '{domainName}' contains {codedValues.Length} occurrences of name '{name}'.");
-        }
     }
 
     #region ArcGIS Rest API
