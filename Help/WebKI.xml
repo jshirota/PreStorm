@@ -179,29 +179,21 @@
   <HelpKINode Title="GeometryFunctions.WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
-  <HelpKINode Title="GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
   <HelpKINode Title="GetFieldNames method" Url="html/2abba255-b26b-5ac1-4aed-b3d94e8f6a51.htm" />
   <HelpKINode Title="GetHashCode method">
     <HelpKINode Title="KmlStyle.GetHashCode Method " Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
     <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   </HelpKINode>
   <HelpKINode Title="GetMappings method" Url="html/1ce70b9b-0728-eef7-d6ae-427d45b1f45d.htm" />
-  <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
-  <HelpKINode Title="GetWebRequest method" Url="html/2b534af9-68a7-f45c-de0e-e51b1f8fd850.htm" />
   <HelpKINode Title="hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
   <HelpKINode Title="Http class">
     <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
     <HelpKINode Title="about Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
-    <HelpKINode Title="constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
     <HelpKINode Title="methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm" />
     <HelpKINode Title="properties" Url="html/dde4d98d-770a-4048-d6d2-ba1a959b5627.htm" />
   </HelpKINode>
   <HelpKINode Title="Http.Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
-  <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
-  <HelpKINode Title="Http.GetWebRequest method" Url="html/2b534af9-68a7-f45c-de0e-e51b1f8fd850.htm" />
-  <HelpKINode Title="Http.Http constructor" Url="html/76d9c285-59d3-fb87-ad67-0387c94d74ae.htm" />
   <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
-  <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="Http.RequestModifier property" Url="html/fbdbbcb6-b1ce-20f9-cf3b-2e5cd7203264.htm" />
   <HelpKINode Title="IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
   <HelpKINode Title="IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
@@ -343,7 +335,6 @@
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
   <HelpKINode Title="Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
-  <HelpKINode Title="PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="PreStorm namespace" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm" />
   <HelpKINode Title="PreStorm.CodedValue class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
   <HelpKINode Title="PreStorm.DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -388,11 +379,9 @@
     <HelpKINode Title="RestException Class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
     <HelpKINode Title="about RestException class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
     <HelpKINode Title="constructor" Url="html/8c6ef3a1-abfa-775f-5fee-a26deb3470a2.htm" />
-    <HelpKINode Title="methods" Url="html/48cda552-0e52-f45d-5710-882ec824f0d1.htm" />
     <HelpKINode Title="properties" Url="html/61eed3f0-f37d-574b-53d2-eb159e4b49b0.htm" />
   </HelpKINode>
   <HelpKINode Title="RestException property" Url="html/4003e149-f5da-a44a-3b1b-eabfc648c5f9.htm" />
-  <HelpKINode Title="RestException.GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="RestException.Request property" Url="html/fdc8eb68-3081-b8a3-79d1-47fcac8e6f5e.htm" />
   <HelpKINode Title="RestException.Response property" Url="html/150aed63-5f24-c939-1781-2e3c68372108.htm" />
   <HelpKINode Title="RestException.RestException constructor" Url="html/8c6ef3a1-abfa-775f-5fee-a26deb3470a2.htm" />

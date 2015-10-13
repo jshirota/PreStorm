@@ -14,7 +14,7 @@
                 <value>http://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/FeatureServer</value>
             </setting>
             <setting name="Folder" serializeAs="String">
-                <value />
+                <value/>
             </setting>
             <setting name="Language" serializeAs="String">
                 <value>C#</value>
