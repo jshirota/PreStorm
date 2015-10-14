@@ -8,7 +8,7 @@ namespace PreStorm
     /// <summary>
     /// Abstracts the querying of features.
     /// </summary>
-    public class Service
+    public class Service : IService
     {
         internal readonly ServiceArgs ServiceArgs;
 
