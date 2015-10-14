@@ -40,8 +40,14 @@
   <HelpKINode Title="Domain.Domain constructor" Url="html/99e61cb0-3daa-e2f1-02f3-816d6059f12b.htm" />
   <HelpKINode Title="Domain.name property" Url="html/2b03cea7-62e2-4cea-4484-6931f1c515a1.htm" />
   <HelpKINode Title="Domain.type property" Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
-  <HelpKINode Title="Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
-  <HelpKINode Title="Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
+  <HelpKINode Title="Domains property">
+    <HelpKINode Title="IService.Domains Property " Url="html/2a054514-10c0-385b-4e0d-5e2701a6335e.htm" />
+    <HelpKINode Title="Service.Domains Property " Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Download method">
+    <HelpKINode Title="IService.Download Method " Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm" />
+    <HelpKINode Title="Service.Download Method " Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
+  </HelpKINode>
   <HelpKINode Title="DynamicFeature class">
     <HelpKINode Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
     <HelpKINode Title="about DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
@@ -226,6 +232,16 @@
   <HelpKINode Title="Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="IsDataBound property" Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
   <HelpKINode Title="IsDirty property" Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
+  <HelpKINode Title="IService interface">
+    <HelpKINode Title="IService Interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm" />
+    <HelpKINode Title="about IService interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm" />
+    <HelpKINode Title="methods" Url="html/af7bc9ce-ef19-e229-b3e6-854667f74cc5.htm" />
+    <HelpKINode Title="properties" Url="html/7fe786be-926a-dcf1-8309-47de74155597.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IService.Domains property" Url="html/2a054514-10c0-385b-4e0d-5e2701a6335e.htm" />
+  <HelpKINode Title="IService.Download method" Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm" />
+  <HelpKINode Title="IService.Layers property" Url="html/3bde12da-bfb8-4bc9-0052-8a3b82ff6867.htm" />
+  <HelpKINode Title="IService.Url property" Url="html/d5654a67-0681-19c5-4af5-e27e175e9458.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
   <HelpKINode Title="Kml class">
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
@@ -262,7 +278,10 @@
   <HelpKINode Title="Layer.Layer constructor" Url="html/ed2913f4-1a7b-99dd-26a3-6d0d48ab6b10.htm" />
   <HelpKINode Title="Layer.name property" Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
   <HelpKINode Title="Layer.type property" Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
-  <HelpKINode Title="Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
+  <HelpKINode Title="Layers property">
+    <HelpKINode Title="IService.Layers Property " Url="html/3bde12da-bfb8-4bc9-0052-8a3b82ff6867.htm" />
+    <HelpKINode Title="Service.Layers Property " Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
+  </HelpKINode>
   <HelpKINode Title="Length method" Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
   <HelpKINode Title="length property" Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
   <HelpKINode Title="LineColour property" Url="html/678d073c-ec7f-1bb6-58fb-ad08a5388b87.htm" />
@@ -353,6 +372,7 @@
   <HelpKINode Title="PreStorm.Http class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
+  <HelpKINode Title="PreStorm.IService interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm" />
   <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
   <HelpKINode Title="PreStorm.KmlStyle class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
   <HelpKINode Title="PreStorm.Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
@@ -452,6 +472,7 @@
   </HelpKINode>
   <HelpKINode Title="UpdateResult.UpdateResult constructor" Url="html/c7cb81d3-11d9-a4e0-7190-cf161de80733.htm" />
   <HelpKINode Title="Url property">
+    <HelpKINode Title="IService.Url Property " Url="html/d5654a67-0681-19c5-4af5-e27e175e9458.htm" />
     <HelpKINode Title="RestException.Url Property " Url="html/e31ef12d-3fca-37f5-182d-3d435e7ff38c.htm" />
     <HelpKINode Title="Service.Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
   </HelpKINode>
