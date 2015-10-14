@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>PreStorm - A REST Client for ArcGIS Server - Table of Content</title>
+<title>PreStorm - A Data Client for ArcGIS Server REST API - Table of Content</title>
 <link rel="stylesheet" href="TOC.css">
 <link rel="shortcut icon" href="favicon.ico"/>
 <script type="text/javascript" src="TOC.js"></script>
