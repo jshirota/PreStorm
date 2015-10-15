@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace PreStorm
 {
+    /// <summary>
+    /// Abstracts the querying of features.
+    /// </summary>
     public interface IService
     {
         /// <summary>

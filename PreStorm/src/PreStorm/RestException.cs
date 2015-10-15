@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace PreStorm
 {
     /// <summary>
     /// Represents errors that occur when handling a request against the ArcGIS Rest API.
     /// </summary>
+#if !DOTNET
+    [Serializable]
+#endif
     public class RestException : Exception
     {
         /// <summary>
@@ -37,5 +41,18 @@ namespace PreStorm
             Request = request;
             Response = response;
         }
+
+#if !DOTNET
+        // ReSharper disable RedundantOverridenMember
+        /// <summary>
+        /// When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo with information about the exception.
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            base.GetObjectData(info, context);
+        }
+#endif
     }
 }
