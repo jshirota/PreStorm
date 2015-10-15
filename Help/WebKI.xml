@@ -191,6 +191,7 @@
     <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
   </HelpKINode>
   <HelpKINode Title="GetMappings method" Url="html/1ce70b9b-0728-eef7-d6ae-427d45b1f45d.htm" />
+  <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
   <HelpKINode Title="Http class">
     <HelpKINode Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm" />
@@ -399,9 +400,11 @@
     <HelpKINode Title="RestException Class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
     <HelpKINode Title="about RestException class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm" />
     <HelpKINode Title="constructor" Url="html/8c6ef3a1-abfa-775f-5fee-a26deb3470a2.htm" />
+    <HelpKINode Title="methods" Url="html/48cda552-0e52-f45d-5710-882ec824f0d1.htm" />
     <HelpKINode Title="properties" Url="html/61eed3f0-f37d-574b-53d2-eb159e4b49b0.htm" />
   </HelpKINode>
   <HelpKINode Title="RestException property" Url="html/4003e149-f5da-a44a-3b1b-eabfc648c5f9.htm" />
+  <HelpKINode Title="RestException.GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="RestException.Request property" Url="html/fdc8eb68-3081-b8a3-79d1-47fcac8e6f5e.htm" />
   <HelpKINode Title="RestException.Response property" Url="html/150aed63-5f24-c939-1781-2e3c68372108.htm" />
   <HelpKINode Title="RestException.RestException constructor" Url="html/8c6ef3a1-abfa-775f-5fee-a26deb3470a2.htm" />
