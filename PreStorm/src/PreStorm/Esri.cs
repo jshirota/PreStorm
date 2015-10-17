@@ -45,11 +45,32 @@ namespace PreStorm
             }
         }
 
-        private static readonly Func<ServiceArgs, ServiceInfo> GetServiceInfoMemoized = Memoization.Memoize<ServiceArgs, ServiceInfo>(a =>
+        private static Func<object, object> GetConvert(string type)
         {
-            var url = $"{Regex.Replace(a.Url, @"/FeatureServer($|/)", a.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
+            switch (type)
+            {
+                case "esriFieldTypeInteger":
+                    return o => Convert.ToInt32(o);
+                case "esriFieldTypeSmallInteger":
+                    return o => Convert.ToInt16(o);
+                case "esriFieldTypeDouble":
+                    return o => Convert.ToDouble(o);
+                case "esriFieldTypeSingle":
+                    return o => Convert.ToSingle(o);
+                case "esriFieldTypeString":
+                    return o => Convert.ToString(o);
+                case "esriFieldTypeDate":
+                    return o => BaseTime.AddMilliseconds(Convert.ToInt64(o));
+                default:
+                    return o => o;
+            }
+        }
 
-            var serviceInfo = GetResponse<ServiceInfo>(url, null, a.Credentials, a.Token, a.GdbVersion);
+        public static ServiceInfo GetServiceInfo(ServiceArgs args)
+        {
+            var url = $"{Regex.Replace(args.Url, @"/FeatureServer($|/)", args.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
+
+            var serviceInfo = GetResponse<ServiceInfo>(url, null, args.Credentials, args.Token, args.GdbVersion);
 
             serviceInfo.AllLayers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -80,32 +101,6 @@ namespace PreStorm
                 f.domain = domains[f.domain.name];
 
             return serviceInfo;
-        });
-
-        private static Func<object, object> GetConvert(string type)
-        {
-            switch (type)
-            {
-                case "esriFieldTypeInteger":
-                    return o => Convert.ToInt32(o);
-                case "esriFieldTypeSmallInteger":
-                    return o => Convert.ToInt16(o);
-                case "esriFieldTypeDouble":
-                    return o => Convert.ToDouble(o);
-                case "esriFieldTypeSingle":
-                    return o => Convert.ToSingle(o);
-                case "esriFieldTypeString":
-                    return o => Convert.ToString(o);
-                case "esriFieldTypeDate":
-                    return o => BaseTime.AddMilliseconds(Convert.ToInt64(o));
-                default:
-                    return o => o;
-            }
-        }
-
-        public static ServiceInfo GetServiceInfo(ServiceArgs args)
-        {
-            return GetServiceInfoMemoized(args);
         }
 
         private static string CleanWhereClause(string whereClause)
