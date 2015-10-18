@@ -1,147 +1,147 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="10d86549-4b15-4ec0-90f7-e28d57dd0dec" Title="PreStorm - A Data Client for ArcGIS Server REST API" Url="html/69c7c04b-4742-c1e8-0cc8-8491642a2b32.htm">
-    <HelpTOCNode Id="efee98b1-661e-4539-b045-7ecb11a27dba" Title="PreStorm" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm">
-      <HelpTOCNode Id="c37642f7-cfed-4441-9e1c-7b6b2cc8de8f" Title="CodedValue Class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm">
+  <HelpTOCNode Id="7f45c6a5-54a1-4944-acbe-9abb0088d550" Title="PreStorm - A Data Client for ArcGIS Server REST API" Url="html/69c7c04b-4742-c1e8-0cc8-8491642a2b32.htm">
+    <HelpTOCNode Id="e86aa62e-63f0-45c2-ae5b-203b3fa61c95" Title="PreStorm" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm">
+      <HelpTOCNode Id="cd5b4283-195b-4526-958b-f0888272b5ff" Title="CodedValue Class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm">
         <HelpTOCNode Title="CodedValue Constructor " Url="html/6ba7d9df-0e3e-b4ea-dbbe-9c273023b0b0.htm" />
-        <HelpTOCNode Id="f78f5acb-4443-481f-adc1-de0836d5b9b3" Title="CodedValue Properties" Url="html/6c7faff8-ddf7-0416-fe1f-528214dc5a6b.htm">
+        <HelpTOCNode Id="1e8558bd-36a1-418e-b5b8-9c70105e459b" Title="CodedValue Properties" Url="html/6c7faff8-ddf7-0416-fe1f-528214dc5a6b.htm">
           <HelpTOCNode Title="code Property " Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
           <HelpTOCNode Title="name Property " Url="html/7853ddda-6324-b61d-0e19-be60200b9864.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="301bea78-31b0-4c2e-96e2-538ba600029d" Title="DeleteResult Class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm">
+      <HelpTOCNode Id="efcba4ea-1a7f-4465-b2b2-643f585aa380" Title="DeleteResult Class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm">
         <HelpTOCNode Title="DeleteResult Constructor " Url="html/4ae863ee-5c97-5397-10c7-77729e749c16.htm" />
         <HelpTOCNode Title="DeleteResult Properties" Url="html/50f6ac34-c324-1ad0-1784-0516ecb95e56.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="30eb199a-1689-4880-9bae-bed5044b9566" Title="Domain Class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm">
+      <HelpTOCNode Id="afbb4b6c-fd82-455f-bf5e-5ec3a398a531" Title="Domain Class" Url="html/a28d3a4b-219f-e19c-69da-58d46e205991.htm">
         <HelpTOCNode Title="Domain Constructor " Url="html/99e61cb0-3daa-e2f1-02f3-816d6059f12b.htm" />
-        <HelpTOCNode Id="31e90f1d-6d46-4b48-bc70-f0781376ec3e" Title="Domain Properties" Url="html/105d9685-c616-bc54-4f30-eb7e3d26d11c.htm">
+        <HelpTOCNode Id="adf634b5-7038-4bf4-ba9f-66855103ad2a" Title="Domain Properties" Url="html/105d9685-c616-bc54-4f30-eb7e3d26d11c.htm">
           <HelpTOCNode Title="codedValues Property " Url="html/5af68820-4481-c84c-8eee-74f5e8e66e6b.htm" />
           <HelpTOCNode Title="name Property " Url="html/2b03cea7-62e2-4cea-4484-6931f1c515a1.htm" />
           <HelpTOCNode Title="type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6b013623-1eef-40a1-afd7-be3beb9d7c65" Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm">
+      <HelpTOCNode Id="8f03bfba-38aa-4fe9-a8c6-66ad4dcb5c6a" Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm">
         <HelpTOCNode Title="DynamicFeature Constructor " Url="html/055c9497-35f1-5c97-a5c5-2ee3a21e49a9.htm" />
         <HelpTOCNode Title="DynamicFeature Properties" Url="html/a555e932-5f3e-98e3-bd8d-a6fff2089a56.htm" />
         <HelpTOCNode Title="DynamicFeature Methods" Url="html/4a5ada6b-55b9-3ec9-891d-8da9befcf28d.htm" />
         <HelpTOCNode Title="DynamicFeature Events" Url="html/765e923e-92bd-f131-cc73-96c0e737f5cd.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="dd4c8acb-3ea9-4d3b-b624-275bd759496b" Title="Editor Class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm">
-        <HelpTOCNode Id="384021d4-af69-4a76-ba20-05bfc9f80190" Title="Editor Methods" Url="html/f1b95f18-c68f-6893-4a47-cd6356a6930c.htm">
-          <HelpTOCNode Id="33988ead-1abe-4922-bd11-8e9ed5f8ca10" Title="Delete Method " Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm">
+      <HelpTOCNode Id="8ffe3b2d-bc78-42fa-9200-ab036df922cc" Title="Editor Class" Url="html/7aada4a0-3c45-f069-895a-e7ed34132c20.htm">
+        <HelpTOCNode Id="7405f8ea-2088-4144-b16c-d07a82c8ad5b" Title="Editor Methods" Url="html/f1b95f18-c68f-6893-4a47-cd6356a6930c.htm">
+          <HelpTOCNode Id="05b84163-180a-40dc-b195-64f4f8d22d44" Title="Delete Method " Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm">
             <HelpTOCNode Title="Delete(T) Method (T)" Url="html/11a2314c-594e-f5ae-c4cc-79b11e8d20f8.htm" />
             <HelpTOCNode Title="Delete(T) Method (T[])" Url="html/acd88594-5903-1c4f-2c4c-347c6a58d143.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="af03eec1-4b97-4b81-aa45-a3283a270f21" Title="DeleteAsync Method " Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm">
+          <HelpTOCNode Id="160bdcc0-299b-4043-9dad-3703fd8f9ec5" Title="DeleteAsync Method " Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm">
             <HelpTOCNode Title="DeleteAsync(T) Method (T)" Url="html/adcd6282-dac6-81fe-1613-67a13e7c969b.htm" />
             <HelpTOCNode Title="DeleteAsync(T) Method (T[])" Url="html/a19b06b6-86aa-4b21-9658-464dcc55d91e.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="97e9879d-7b35-4525-a46a-bc26b72d564d" Title="InsertInto Method " Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm">
+          <HelpTOCNode Id="fafc3118-c905-4879-ba9a-b5448b7973de" Title="InsertInto Method " Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm">
             <HelpTOCNode Title="InsertInto(T) Method (T, Service, Int32)" Url="html/9056fea5-d7a4-3620-730b-14803eec83ae.htm" />
             <HelpTOCNode Title="InsertInto(T) Method (T, Service, String)" Url="html/6ecbfb15-69f6-75a7-4d8a-898c98cd5135.htm" />
             <HelpTOCNode Title="InsertInto(T) Method (T[], Service, Int32)" Url="html/f4233b53-41e1-e138-11a8-668e0986c00c.htm" />
             <HelpTOCNode Title="InsertInto(T) Method (T[], Service, String)" Url="html/b9c003af-10b3-311d-e47a-80c628e6b23f.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="0450f3ae-3c83-40be-81f4-bb7cd1dc2285" Title="InsertIntoAsync Method " Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm">
+          <HelpTOCNode Id="47b0695d-f4b5-44a6-a793-aca01575a058" Title="InsertIntoAsync Method " Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm">
             <HelpTOCNode Title="InsertIntoAsync(T) Method (T, Service, Int32)" Url="html/a9933acc-428f-3b05-ec5a-ec9709976d6c.htm" />
             <HelpTOCNode Title="InsertIntoAsync(T) Method (T, Service, String)" Url="html/468e3ffa-8a22-531b-ac60-14babdebb34e.htm" />
             <HelpTOCNode Title="InsertIntoAsync(T) Method (T[], Service, Int32)" Url="html/d01fb85c-0b25-8e3e-d514-65d3167882c8.htm" />
             <HelpTOCNode Title="InsertIntoAsync(T) Method (T[], Service, String)" Url="html/63cde9ab-18db-80cf-0fb2-09c8eae10f6f.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="85b3faea-faa7-47cb-a8e6-a88c539111fa" Title="Update Method " Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm">
+          <HelpTOCNode Id="309e87fa-cf78-4d6a-903b-e921e93dfef1" Title="Update Method " Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm">
             <HelpTOCNode Title="Update(T) Method (T)" Url="html/d5bf3baa-769e-d6d7-5f37-980ffc685f2f.htm" />
             <HelpTOCNode Title="Update(T) Method (T[])" Url="html/66240c74-2491-f519-1aad-21ace47259fd.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="7a146efd-5a66-4213-8d74-133b680d1bfa" Title="UpdateAsync Method " Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm">
+          <HelpTOCNode Id="29640e14-579c-4fb6-986f-5c27f5856008" Title="UpdateAsync Method " Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm">
             <HelpTOCNode Title="UpdateAsync(T) Method (T)" Url="html/324ad7ff-ba90-1d77-a2d3-fb05da03bcf2.htm" />
             <HelpTOCNode Title="UpdateAsync(T) Method (T[])" Url="html/850ac981-77cb-3b64-e2f4-16e04d36ab8d.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="ff92cca9-1ad0-4ebc-aa03-e079e05b5375" Title="EditResultBase Class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm">
+      <HelpTOCNode Id="7c059f02-b47c-4874-a019-fc80ce8334eb" Title="EditResultBase Class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm">
         <HelpTOCNode Title="EditResultBase Constructor " Url="html/e718483c-8265-b9a8-99ed-d514ccec160b.htm" />
-        <HelpTOCNode Id="833e003d-d2e4-4f57-b9f0-a9b03c8aa7ef" Title="EditResultBase Properties" Url="html/22c46beb-0d1e-635c-2183-bd2b1048d9a8.htm">
+        <HelpTOCNode Id="02e23f9f-2fa2-4592-b0c5-0932bc88357c" Title="EditResultBase Properties" Url="html/22c46beb-0d1e-635c-2183-bd2b1048d9a8.htm">
           <HelpTOCNode Title="RestException Property " Url="html/4003e149-f5da-a44a-3b1b-eabfc648c5f9.htm" />
           <HelpTOCNode Title="Success Property " Url="html/7808b8c9-2914-b200-f816-d7b36a89374d.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a731c1fc-bc21-413f-87de-a4b0d3b22dce" Title="Envelope Class" Url="html/18142fda-bbfc-caaf-93b9-fe17835dfddc.htm">
+      <HelpTOCNode Id="ae54acc6-20b3-4977-9b9b-51d9571a4c17" Title="Envelope Class" Url="html/18142fda-bbfc-caaf-93b9-fe17835dfddc.htm">
         <HelpTOCNode Title="Envelope Constructor " Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
-        <HelpTOCNode Id="d92066a3-63cc-4d34-ba8b-921d0ab3725f" Title="Envelope Properties" Url="html/fdb8a3eb-60fc-f01c-e506-c2cfc2360fe8.htm">
+        <HelpTOCNode Id="da2c7464-bb16-4521-a368-fc881be41203" Title="Envelope Properties" Url="html/fdb8a3eb-60fc-f01c-e506-c2cfc2360fe8.htm">
           <HelpTOCNode Title="xmax Property " Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
           <HelpTOCNode Title="xmin Property " Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
           <HelpTOCNode Title="ymax Property " Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
           <HelpTOCNode Title="ymin Property " Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Envelope Methods" Url="html/9d52adf7-aba2-27f3-68c3-3af683c5f3c5.htm" />
-        <HelpTOCNode Id="d48f2d8d-8cc3-4195-b3f5-084ef17e7d1d" Title="Envelope Type Conversions" Url="html/2a12e28f-96d5-cf67-1401-09aec3da11b9.htm">
-          <HelpTOCNode Id="28b8c6fc-1a55-4495-95af-767817ba5fe4" Title="Implicit Conversion Operators" Url="html/89e69633-46f8-1dc2-1b60-60bfca8e1cc6.htm">
+        <HelpTOCNode Id="9eba30b0-d3b3-412f-800a-345908d66aa6" Title="Envelope Type Conversions" Url="html/2a12e28f-96d5-cf67-1401-09aec3da11b9.htm">
+          <HelpTOCNode Id="3cfcfeec-7570-4393-bca9-3ac6898c3e0a" Title="Implicit Conversion Operators" Url="html/89e69633-46f8-1dc2-1b60-60bfca8e1cc6.htm">
             <HelpTOCNode Title="Implicit Conversion (String to Envelope)" Url="html/64a2e857-3f75-7112-0142-da1eeadf589a.htm" />
             <HelpTOCNode Title="Implicit Conversion (Envelope to String)" Url="html/6d12af43-b4b0-79ed-63d1-4cc4c2f78129.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="029ce4b3-8364-4127-a7b6-4764f3fc7fbd" Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm">
+      <HelpTOCNode Id="77a338d5-c931-43a3-ac26-a74c03c575d1" Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm">
         <HelpTOCNode Title="Feature Constructor " Url="html/0d7bf573-8a45-173a-2d96-acf1de2e6733.htm" />
-        <HelpTOCNode Id="62387a24-f37b-4d9c-86d5-3304f3f3e6b1" Title="Feature Properties" Url="html/a2026918-0d42-e2b2-945a-b2da94a8f44e.htm">
+        <HelpTOCNode Id="c91d8c1b-f96c-4b95-9c82-7acb2e09fa6a" Title="Feature Properties" Url="html/a2026918-0d42-e2b2-945a-b2da94a8f44e.htm">
           <HelpTOCNode Title="IsDataBound Property " Url="html/ce92e247-e70d-2290-10cd-0404d38da090.htm" />
           <HelpTOCNode Title="IsDirty Property " Url="html/5fc1893b-9485-8a70-1511-91781df26491.htm" />
           <HelpTOCNode Title="Item Property " Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
           <HelpTOCNode Title="OID Property " Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="5364f4ff-6f73-41be-a439-13148a73a543" Title="Feature Methods" Url="html/d858be85-554f-6418-b6bb-e457955ab65c.htm">
+        <HelpTOCNode Id="acf97e91-54eb-457a-9997-144f4e01a6f9" Title="Feature Methods" Url="html/d858be85-554f-6418-b6bb-e457955ab65c.htm">
           <HelpTOCNode Title="Changed Method " Url="html/bc8f0439-60ca-353f-d9f2-350522603199.htm" />
           <HelpTOCNode Title="Create(T) Method " Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
           <HelpTOCNode Title="GetFieldNames Method " Url="html/2abba255-b26b-5ac1-4aed-b3d94e8f6a51.htm" />
           <HelpTOCNode Title="GetMappings Method " Url="html/1ce70b9b-0728-eef7-d6ae-427d45b1f45d.htm" />
-          <HelpTOCNode Id="d9ada674-f069-467a-b81c-2f3ce4336cad" Title="RaisePropertyChanged Method " Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm">
+          <HelpTOCNode Id="c8f664a1-f454-4a66-a44a-cea932bbeb0b" Title="RaisePropertyChanged Method " Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm">
             <HelpTOCNode Title="RaisePropertyChanged(T) Method (Expression(Func(T)))" Url="html/97454b7a-f24f-7ab0-a774-41b120c94322.htm" />
             <HelpTOCNode Title="RaisePropertyChanged Method (String)" Url="html/0eeadd11-b11b-68d6-f2b6-a7a2a3bd79ca.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
-        <HelpTOCNode Id="6487afbd-a85f-448f-9839-ff2e3453b08d" Title="Feature Events" Url="html/3040589d-cbef-6416-c602-2a590dec4813.htm">
+        <HelpTOCNode Id="a2906911-975a-42ce-a913-c6bb15090efb" Title="Feature Events" Url="html/3040589d-cbef-6416-c602-2a590dec4813.htm">
           <HelpTOCNode Title="PropertyChanged Event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="d14fa476-50a6-4a90-959f-5f2943b57bdf" Title="Feature(T) Class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm">
+      <HelpTOCNode Id="1338212a-2348-4b9e-b50c-b4621007d803" Title="Feature(T) Class" Url="html/07f50157-c65d-9344-c413-afb5416b114c.htm">
         <HelpTOCNode Title="Feature(T) Constructor " Url="html/16c55f8d-712c-79f7-573b-081b021f0bf2.htm" />
-        <HelpTOCNode Id="8847c71d-fcec-4e4c-a121-d86302b81fa4" Title="Feature(T) Properties" Url="html/4e7292ee-8b25-f709-5a5a-752d284945be.htm">
+        <HelpTOCNode Id="3c86308e-c331-47a9-8c6c-fd8c2f5902c9" Title="Feature(T) Properties" Url="html/4e7292ee-8b25-f709-5a5a-752d284945be.htm">
           <HelpTOCNode Title="Geometry Property " Url="html/246592f7-de46-f75f-6adb-1a4f2ee51c4d.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Feature(T) Methods" Url="html/dc06dafa-84c8-ea0d-d470-22c08cf44be5.htm" />
         <HelpTOCNode Title="Feature(T) Events" Url="html/1c1e7dbb-0981-155e-b4f1-c94253fec0f2.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="e1cfc97e-c27a-4a73-9dd6-8468cfcfcb88" Title="Field Class" Url="html/26f45ce8-1f9e-e918-d70f-ed9b7cc27909.htm">
+      <HelpTOCNode Id="07c4d6f4-254b-478d-af7e-c1c1da1abc2b" Title="Field Class" Url="html/26f45ce8-1f9e-e918-d70f-ed9b7cc27909.htm">
         <HelpTOCNode Title="Field Constructor " Url="html/b01f2928-ddd5-4863-1953-5cc0f186fa1f.htm" />
-        <HelpTOCNode Id="7e7b9358-2d97-4b96-8989-0f448c913a5c" Title="Field Properties" Url="html/1d076bb4-5461-b5e2-277d-231dde6ca162.htm">
+        <HelpTOCNode Id="2cb9d8c0-5f77-44e4-987f-e3a6d947a3f5" Title="Field Properties" Url="html/1d076bb4-5461-b5e2-277d-231dde6ca162.htm">
           <HelpTOCNode Title="domain Property " Url="html/030b6669-d1db-0651-29b0-550a0a54ab1c.htm" />
           <HelpTOCNode Title="length Property " Url="html/2ea47395-cc7b-4e19-5b2a-2871e9ecf5a6.htm" />
           <HelpTOCNode Title="name Property " Url="html/06690fe0-05fb-515b-89d3-2b5e305d918a.htm" />
           <HelpTOCNode Title="type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="a72d1d2c-bd81-4363-a076-6e03bcf88311" Title="Geometry Class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm">
+      <HelpTOCNode Id="3788207f-60ca-436f-ae12-2f35ca9328b2" Title="Geometry Class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm">
         <HelpTOCNode Title="Geometry Constructor " Url="html/786725f8-d70b-1fc4-ef18-e1e03181092a.htm" />
         <HelpTOCNode Title="Geometry Properties" Url="html/8f905e71-83a3-ef67-011f-5042ef0ba66d.htm" />
         <HelpTOCNode Title="Geometry Methods" Url="html/aff8fffa-fc83-9ab1-ccc0-bac83aab13ec.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="bd3178e5-576f-4057-9065-e44bfae0ce2a" Title="GeometryBase Class" Url="html/811a4c2a-a670-5170-4b56-fb0c123fe678.htm">
+      <HelpTOCNode Id="f5df08d3-dd06-4e73-942c-c83e62b5e836" Title="GeometryBase Class" Url="html/811a4c2a-a670-5170-4b56-fb0c123fe678.htm">
         <HelpTOCNode Title="GeometryBase Constructor " Url="html/82beb12a-4eb8-c844-22be-3e56cb272c91.htm" />
-        <HelpTOCNode Id="92dd2e5b-42bf-4e17-9fd3-51b933e44df7" Title="GeometryBase Properties" Url="html/87084ffb-77c0-9185-f54c-35a911facb11.htm">
+        <HelpTOCNode Id="5ff981a1-8c60-44d9-81df-03bb6db70ed3" Title="GeometryBase Properties" Url="html/87084ffb-77c0-9185-f54c-35a911facb11.htm">
           <HelpTOCNode Title="spatialReference Property " Url="html/6733887e-8664-c04c-caa1-a0a0e2113966.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="34496397-9297-43a0-968c-3b179ca57b8c" Title="GeometryBase Methods" Url="html/4c3f2f98-4a45-2a22-cb15-58d0d6cba007.htm">
+        <HelpTOCNode Id="570b4d95-7b3f-45fd-a5b7-4d4571b204fc" Title="GeometryBase Methods" Url="html/4c3f2f98-4a45-2a22-cb15-58d0d6cba007.htm">
           <HelpTOCNode Title="ToString Method " Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="32a1876a-8e83-4ca9-bd11-312e59cd2cf6" Title="GeometryFunctions Class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm">
-        <HelpTOCNode Id="4251378f-8f44-482d-a5f2-8b877b1eb4b8" Title="GeometryFunctions Methods" Url="html/6125451c-aafb-f5b5-c5a2-082c949a9943.htm">
+      <HelpTOCNode Id="2a026540-74a8-4ef9-9ce8-6002ccdb06e7" Title="GeometryFunctions Class" Url="html/ab4cd587-42e7-b6e0-6645-248eb4def325.htm">
+        <HelpTOCNode Id="e81bfb27-a539-4ab7-93ef-3cc81142ebad" Title="GeometryFunctions Methods" Url="html/6125451c-aafb-f5b5-c5a2-082c949a9943.htm">
           <HelpTOCNode Title="Area Method " Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
           <HelpTOCNode Title="Buffer Method " Url="html/68387353-f0cf-ed2f-db5d-3ca2056b0bc7.htm" />
           <HelpTOCNode Title="Centre Method " Url="html/b4a445ca-839b-93d2-5e28-1ab1a0b00543.htm" />
-          <HelpTOCNode Id="47067ab1-ff5e-4614-982f-a7ae8db3614f" Title="Contains Method " Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm">
+          <HelpTOCNode Id="1b22536f-ce77-4a95-b74a-4a3f2a5dea5a" Title="Contains Method " Url="html/fdcd486f-0fd5-3400-35f6-fb87c319ae6e.htm">
             <HelpTOCNode Title="Contains Method (Feature(Polygon), Feature(Multipoint))" Url="html/b4142d64-164d-f020-d421-a6c6a2ae1739.htm" />
             <HelpTOCNode Title="Contains Method (Feature(Polygon), Feature(Point))" Url="html/5d3a678d-a9d5-ee96-56bd-fdf74f09fe54.htm" />
             <HelpTOCNode Title="Contains Method (Feature(Polygon), Feature(Polygon))" Url="html/ef1578da-dc77-8cdd-994b-6415be854c88.htm" />
@@ -151,7 +151,7 @@
             <HelpTOCNode Title="Contains Method (Polygon, Polygon)" Url="html/d4fbd78f-3955-c2cf-ec34-2f352e7bdb4e.htm" />
             <HelpTOCNode Title="Contains Method (Polygon, Polyline)" Url="html/c194b7b2-d98b-2925-4cc3-d60577ed575a.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="27ef96f3-6e32-4d19-bb89-5ee1a0f2bf78" Title="Distance Method " Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm">
+          <HelpTOCNode Id="e8f40b51-46f7-4a72-810b-56b67baa9c6c" Title="Distance Method " Url="html/15510e3d-9017-60da-92eb-c570257daafa.htm">
             <HelpTOCNode Title="Distance Method (Feature(Multipoint), Feature(Multipoint))" Url="html/24636db9-d594-a10a-1902-b24ea0bdcaee.htm" />
             <HelpTOCNode Title="Distance Method (Feature(Multipoint), Feature(Point))" Url="html/c14ea1b6-6dae-270c-20e5-1fe66e9a8e06.htm" />
             <HelpTOCNode Title="Distance Method (Feature(Multipoint), Feature(Polygon))" Url="html/6e4bd6e5-0dcc-f412-171d-14c31b2f6fa0.htm" />
@@ -185,17 +185,17 @@
             <HelpTOCNode Title="Distance Method (Polyline, Polygon)" Url="html/5de8d41a-b0bf-bcfd-3cd3-2198c4f6cfa5.htm" />
             <HelpTOCNode Title="Distance Method (Polyline, Polyline)" Url="html/212f4f1a-fc4c-76ce-9b4d-13614afdc374.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="151995a9-6550-4c4f-ba46-7dba6dc4ae6b" Title="Extent Method " Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm">
+          <HelpTOCNode Id="5a3c9c35-f207-46a4-abe1-b5ef31b36734" Title="Extent Method " Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm">
             <HelpTOCNode Title="Extent Method (Multipoint)" Url="html/6b8a8038-ab65-2378-a1f4-7c1536210b16.htm" />
             <HelpTOCNode Title="Extent Method (Point)" Url="html/63f633a7-6c17-ed0f-572b-456b4c10bf85.htm" />
             <HelpTOCNode Title="Extent Method (Polygon)" Url="html/a98cdfe5-2701-006e-2da4-e8a79085722e.htm" />
             <HelpTOCNode Title="Extent Method (Polyline)" Url="html/1f587534-99b3-0202-7773-78d51af61bd8.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="f2445724-015a-4814-9e1f-95cbda98e73a" Title="Intersect Method " Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm">
+          <HelpTOCNode Id="52c06122-30f0-42fa-bc33-d659b6fae87c" Title="Intersect Method " Url="html/b7c99f84-9ee8-035b-6f04-0c3acf26137c.htm">
             <HelpTOCNode Title="Intersect Method (Feature(Polyline), Feature(Polyline))" Url="html/c6019823-13b2-ce52-c289-cceb2a00d666.htm" />
             <HelpTOCNode Title="Intersect Method (Polyline, Polyline)" Url="html/460be39b-2c17-7327-9a00-5eb2302479bd.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="80cc1a7f-bf8c-42ba-8090-3060ddc5f024" Title="Intersects Method " Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm">
+          <HelpTOCNode Id="cd89af2b-f049-475d-ac3b-a8e34485e64d" Title="Intersects Method " Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm">
             <HelpTOCNode Title="Intersects Method (Feature(Polygon), Feature(Polygon))" Url="html/a8d9bbff-7f94-502b-cad2-44a4063cb6e4.htm" />
             <HelpTOCNode Title="Intersects Method (Feature(Polygon), Feature(Polyline))" Url="html/9e9a4b7e-d68d-365f-7651-4ad96360d85f.htm" />
             <HelpTOCNode Title="Intersects Method (Feature(Polyline), Feature(Polygon))" Url="html/71ffa15d-4275-bf64-bffb-ef6a4d3e38e9.htm" />
@@ -207,7 +207,7 @@
           </HelpTOCNode>
           <HelpTOCNode Title="Length Method " Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
           <HelpTOCNode Title="Perimeter Method " Url="html/dfef3532-a3b0-08d1-6d41-168e9321160d.htm" />
-          <HelpTOCNode Id="6f08f9eb-794a-4fa7-a89a-f3f62d63c46f" Title="Within Method " Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm">
+          <HelpTOCNode Id="0e4cacb2-f36a-404c-b269-6279af6a4be4" Title="Within Method " Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm">
             <HelpTOCNode Title="Within Method (Feature(Multipoint), Feature(Polygon))" Url="html/a439dfff-6513-e755-62a7-de039f2de4e4.htm" />
             <HelpTOCNode Title="Within Method (Feature(Point), Feature(Polygon))" Url="html/72217f0d-6b03-7819-752b-26a231967834.htm" />
             <HelpTOCNode Title="Within Method (Feature(Polygon), Feature(Polygon))" Url="html/2cd14f9b-3d4a-ec89-02c1-2579a494d332.htm" />
@@ -217,7 +217,7 @@
             <HelpTOCNode Title="Within Method (Polygon, Polygon)" Url="html/8d4e524f-0e8c-bc4f-7133-98d4430e55e4.htm" />
             <HelpTOCNode Title="Within Method (Polyline, Polygon)" Url="html/98224816-1b17-03b7-8f3e-7f7719a85e3b.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="acc28432-cb7f-4d99-a791-f56f4e3f7bf6" Title="WithinDistance Method " Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm">
+          <HelpTOCNode Id="5ee7250f-a345-496d-9fc4-3285f41e9c1f" Title="WithinDistance Method " Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm">
             <HelpTOCNode Title="WithinDistance Method (Feature(Multipoint), Feature(Multipoint), Double)" Url="html/2cfaa6bb-a228-db33-7499-f89dc42e1910.htm" />
             <HelpTOCNode Title="WithinDistance Method (Feature(Multipoint), Feature(Point), Double)" Url="html/e20b02d6-d9f6-29c6-787d-4f7096aba857.htm" />
             <HelpTOCNode Title="WithinDistance Method (Feature(Multipoint), Feature(Polygon), Double)" Url="html/14180b29-810a-01e4-0adf-b20b20a6aeab.htm" />
@@ -253,36 +253,36 @@
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e4a54c1b-05ae-4ecc-90a8-1cf915956d50" Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm">
-        <HelpTOCNode Id="15387452-9c2f-4b55-b614-7baf33ec444a" Title="Http Properties" Url="html/dde4d98d-770a-4048-d6d2-ba1a959b5627.htm">
+      <HelpTOCNode Id="3a18130b-9493-4c16-a05a-8b9889cb5b10" Title="Http Class" Url="html/caea19f7-617c-92ea-2599-5ff439c9765f.htm">
+        <HelpTOCNode Id="ab543eaa-0d9e-4b50-a480-a5370c7e0f31" Title="Http Properties" Url="html/dde4d98d-770a-4048-d6d2-ba1a959b5627.htm">
           <HelpTOCNode Title="RequestModifier Property " Url="html/fbdbbcb6-b1ce-20f9-cf3b-2e5cd7203264.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="b06acc59-e9c5-4b08-a6ed-a51ffa0ad88e" Title="Http Methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm">
-          <HelpTOCNode Id="e13b1c30-4b4f-408e-be74-b69c25801408" Title="GetAsync Method " Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm">
+        <HelpTOCNode Id="5b907b1b-b46b-463f-a35a-053e1ee7719b" Title="Http Methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm">
+          <HelpTOCNode Id="29b6ddcd-f92d-4547-829f-dfa86af193b9" Title="GetAsync Method " Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm">
             <HelpTOCNode Title="GetAsync Method (String, Action(HttpWebRequest))" Url="html/a0633109-cca9-ffa6-33bb-a3b98a442a14.htm" />
             <HelpTOCNode Title="GetAsync(T) Method (String, Action(HttpWebRequest))" Url="html/887c2ebd-df59-86d4-1f80-8d51a100442c.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="9ae3ae58-ac40-4c1f-906f-ee82b7198d76" Title="PostAsync Method " Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm">
+          <HelpTOCNode Id="51ca500d-4bf5-4d22-95a7-26b861c89b27" Title="PostAsync Method " Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm">
             <HelpTOCNode Title="PostAsync Method (String, String, Action(HttpWebRequest))" Url="html/7213f8cc-a869-e027-95e5-7f87ef9abca5.htm" />
             <HelpTOCNode Title="PostAsync(T) Method (String, String, Action(HttpWebRequest))" Url="html/142d88f2-7c8a-d6d9-12a7-0401f3e28ae4.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="7678210c-87ac-4428-81a7-551d2fbb60bd" Title="InsertResult(T) Class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm">
+      <HelpTOCNode Id="71c0b24c-8463-470e-b1c4-eb544151c4b4" Title="InsertResult(T) Class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm">
         <HelpTOCNode Title="InsertResult(T) Constructor " Url="html/718e9cfd-4bbf-6ac8-985e-8ff4ef6ad9d4.htm" />
-        <HelpTOCNode Id="08a12ede-d913-4a1a-a78d-1e268f5060ad" Title="InsertResult(T) Properties" Url="html/dcbf4174-16d3-4911-7146-0799aad3850b.htm">
+        <HelpTOCNode Id="c5061b77-0f1b-43b7-9cd4-fb00403e75ee" Title="InsertResult(T) Properties" Url="html/dcbf4174-16d3-4911-7146-0799aad3850b.htm">
           <HelpTOCNode Title="InsertedFeature Property " Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
           <HelpTOCNode Title="InsertedFeatures Property " Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="fcc68fad-7f12-4461-85b5-b553f241d754" Title="IService Interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm">
-        <HelpTOCNode Id="d65ff04b-ceef-4027-b83e-893c87266ffe" Title="IService Properties" Url="html/7fe786be-926a-dcf1-8309-47de74155597.htm">
+      <HelpTOCNode Id="c7ca0aca-3513-4951-97a0-e7a763157e56" Title="IService Interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm">
+        <HelpTOCNode Id="aec11801-c102-469b-9cda-6817a2ec883b" Title="IService Properties" Url="html/7fe786be-926a-dcf1-8309-47de74155597.htm">
           <HelpTOCNode Title="Domains Property " Url="html/2a054514-10c0-385b-4e0d-5e2701a6335e.htm" />
           <HelpTOCNode Title="Layers Property " Url="html/3bde12da-bfb8-4bc9-0052-8a3b82ff6867.htm" />
           <HelpTOCNode Title="Url Property " Url="html/d5654a67-0681-19c5-4af5-e27e175e9458.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="852e5584-c861-4db3-9502-c27674899f24" Title="IService Methods" Url="html/af7bc9ce-ef19-e229-b3e6-854667f74cc5.htm">
-          <HelpTOCNode Id="85ff8da7-5453-4ed3-93a4-156ee95abb30" Title="Download Method " Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm">
+        <HelpTOCNode Id="ad6cc49d-da42-478a-b9e2-e90c66ad7395" Title="IService Methods" Url="html/af7bc9ce-ef19-e229-b3e6-854667f74cc5.htm">
+          <HelpTOCNode Id="3b2f02ad-66b3-41f6-88d2-eb558ec9527e" Title="Download Method " Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm">
             <HelpTOCNode Title="Download(T) Method (Int32, String, String, Boolean, Int32)" Url="html/68316bfb-fc74-5112-87a1-aa2bda64387c.htm" />
             <HelpTOCNode Title="Download Method (Int32, String, String, Boolean, Int32)" Url="html/e449aa4a-f431-09e7-4e51-45cca06ce643.htm" />
             <HelpTOCNode Title="Download(T) Method (String, String, String, Boolean, Int32)" Url="html/6930c44a-68a0-5491-49f7-4b9a7a981357.htm" />
@@ -292,11 +292,21 @@
             <HelpTOCNode Title="Download(T) Method (String, String, GeometryBase, SpatialRel, String, Boolean, Int32)" Url="html/0e1ea501-a0c2-ef80-ea01-e2fc4714c92c.htm" />
             <HelpTOCNode Title="Download Method (String, String, GeometryBase, SpatialRel, String, Boolean, Int32)" Url="html/d0d89601-99a7-480d-cf40-f531882348d9.htm" />
           </HelpTOCNode>
+          <HelpTOCNode Id="56af6412-fa7c-4693-ab33-d8d5e33528a8" Title="DownloadAsync Method " Url="html/faeff696-58a1-d01a-41bc-3a2830010b29.htm">
+            <HelpTOCNode Title="DownloadAsync(T) Method (Int32, String, String)" Url="html/9b0c939d-0992-b590-0121-6e194847cf12.htm" />
+            <HelpTOCNode Title="DownloadAsync Method (Int32, String, String)" Url="html/69eb65f5-731c-75f7-a4d0-19daf845fa01.htm" />
+            <HelpTOCNode Title="DownloadAsync(T) Method (String, String, String)" Url="html/f0c7f63b-4d8e-3cbb-cb4f-6c3c1f761ca7.htm" />
+            <HelpTOCNode Title="DownloadAsync Method (String, String, String)" Url="html/a9af64bb-1816-39a6-d368-7e3441a79c36.htm" />
+            <HelpTOCNode Title="DownloadAsync(T) Method (Int32, String, GeometryBase, SpatialRel, String)" Url="html/0b9ea890-24a5-5e44-2dbf-892b7fc58cdc.htm" />
+            <HelpTOCNode Title="DownloadAsync Method (Int32, String, GeometryBase, SpatialRel, String)" Url="html/dd37ffff-4576-feab-e6b6-08376f4ac91a.htm" />
+            <HelpTOCNode Title="DownloadAsync(T) Method (String, String, GeometryBase, SpatialRel, String)" Url="html/cda96e8c-6d32-ced0-469e-86e39b2b6cd1.htm" />
+            <HelpTOCNode Title="DownloadAsync Method (String, String, GeometryBase, SpatialRel, String)" Url="html/9ed3aaae-e7da-5562-eb80-52161cafd749.htm" />
+          </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6488ec1c-8061-4a7b-a056-625a31a93d8f" Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm">
-        <HelpTOCNode Id="8cc5c7ef-5fa0-4e88-a896-a384976a732b" Title="Kml Methods" Url="html/74df0859-6a60-2fb0-7633-6b2a0b842113.htm">
-          <HelpTOCNode Id="46d1d082-cd46-43a5-b042-4d75bda7dc98" Title="ToKml Method " Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm">
+      <HelpTOCNode Id="27f14a15-32b6-4b59-b39c-d05d75f7f69a" Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm">
+        <HelpTOCNode Id="a5d2b3e9-e0ea-49ee-a703-d15a3e95bd94" Title="Kml Methods" Url="html/74df0859-6a60-2fb0-7633-6b2a0b842113.htm">
+          <HelpTOCNode Id="53864ff5-1d5a-4ec8-a6c9-af8cab09d246" Title="ToKml Method " Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm">
             <HelpTOCNode Title="ToKml Method (KmlStyle)" Url="html/163f66ce-b2f3-3597-86ed-aa3f67e9f374.htm" />
             <HelpTOCNode Title="ToKml Method (Feature, String, KmlStyle)" Url="html/952ca9eb-8984-986c-ca10-642f7aa39c29.htm" />
             <HelpTOCNode Title="ToKml Method (Geometry, Nullable(Double), XElement[])" Url="html/ec4565b1-7ae5-47e3-f5d2-5114555b3f9f.htm" />
@@ -306,9 +316,9 @@
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="24e17f83-4c1d-4d08-8fb9-75787cd002bb" Title="KmlStyle Class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm">
+      <HelpTOCNode Id="4fe5f1a2-1cb1-49b2-b019-03aa535e02ec" Title="KmlStyle Class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm">
         <HelpTOCNode Title="KmlStyle Constructor " Url="html/8db4825f-d5fc-4148-78f7-8c0914ed0dae.htm" />
-        <HelpTOCNode Id="8f7273e6-5969-4f88-8e29-de17bc6cc6cc" Title="KmlStyle Properties" Url="html/bc46d6da-0bdb-a9e5-046d-cefcb88952b9.htm">
+        <HelpTOCNode Id="30260ef6-3600-47de-aea4-bc0ed1dd6779" Title="KmlStyle Properties" Url="html/bc46d6da-0bdb-a9e5-046d-cefcb88952b9.htm">
           <HelpTOCNode Title="IconColour Property " Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
           <HelpTOCNode Title="IconScale Property " Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
           <HelpTOCNode Title="IconUrl Property " Url="html/809607be-aaaa-ae13-a712-14816c064c5b.htm" />
@@ -316,14 +326,14 @@
           <HelpTOCNode Title="LineWidth Property " Url="html/182345b1-d62b-aff3-ab6c-2480a4bdeca6.htm" />
           <HelpTOCNode Title="PolygonColour Property " Url="html/955fa8d0-478e-df79-61a1-062b7b764b07.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="4dbda431-ebd3-4fd0-97e8-ddadfa44f61e" Title="KmlStyle Methods" Url="html/daea8e65-1863-f8e0-1bba-e13ee24cdefb.htm">
+        <HelpTOCNode Id="0258553f-340f-4808-b411-ef8d39faab3d" Title="KmlStyle Methods" Url="html/daea8e65-1863-f8e0-1bba-e13ee24cdefb.htm">
           <HelpTOCNode Title="Equals Method " Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="70f85838-9a2b-4e35-a1d7-12de2f5d95fd" Title="Layer Class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm">
+      <HelpTOCNode Id="2a66b08a-3fbd-4b5d-89db-143784e75094" Title="Layer Class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm">
         <HelpTOCNode Title="Layer Constructor " Url="html/ed2913f4-1a7b-99dd-26a3-6d0d48ab6b10.htm" />
-        <HelpTOCNode Id="1d1949c1-e410-4450-aba6-62eebaa04ce9" Title="Layer Properties" Url="html/7ec65305-96f5-832a-2995-e6c16afa1800.htm">
+        <HelpTOCNode Id="a92533bf-57a8-427c-8309-4c34c7868a72" Title="Layer Properties" Url="html/7ec65305-96f5-832a-2995-e6c16afa1800.htm">
           <HelpTOCNode Title="fields Property " Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
           <HelpTOCNode Title="geometryType Property " Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
           <HelpTOCNode Title="hasZ Property " Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
@@ -332,94 +342,94 @@
           <HelpTOCNode Title="type Property " Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0e18d74b-0947-4937-8574-a771c297652c" Title="Mapped Class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm">
+      <HelpTOCNode Id="605300fd-1654-420e-8ffc-020cd87fb92d" Title="Mapped Class" Url="html/323214f3-e7a3-59bf-486d-51b785ee7551.htm">
         <HelpTOCNode Title="Mapped Constructor " Url="html/667e8053-b0a4-41a6-6a8c-6a729001c292.htm" />
-        <HelpTOCNode Id="76ef889c-84c3-40f4-a312-7fc39aae1f80" Title="Mapped Properties" Url="html/523ac6aa-434a-cc45-db72-3d39c95ce7bc.htm">
+        <HelpTOCNode Id="d75e16d7-2705-49d6-96c5-009e3306569f" Title="Mapped Properties" Url="html/523ac6aa-434a-cc45-db72-3d39c95ce7bc.htm">
           <HelpTOCNode Title="FieldName Property " Url="html/288253c6-3be5-873f-567b-6e070a3de085.htm" />
           <HelpTOCNode Title="Property Property " Url="html/03d99116-012b-fb84-d977-87aea7f89729.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="cc443020-e3e7-4403-9cc1-858e5ff1056c" Title="Multipoint Class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm">
+      <HelpTOCNode Id="3856117c-e4fa-463d-9d50-435abae54a95" Title="Multipoint Class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm">
         <HelpTOCNode Title="Multipoint Constructor " Url="html/be54ad31-18eb-f001-7902-6a6030a7c7ae.htm" />
-        <HelpTOCNode Id="7e178a2c-0dd1-4d76-9c6c-73bbaea1bb43" Title="Multipoint Properties" Url="html/a8a8970a-5f4b-e61c-574b-fe26607255d8.htm">
+        <HelpTOCNode Id="c8b675f7-07ec-43b2-a508-38cb6acfb823" Title="Multipoint Properties" Url="html/a8a8970a-5f4b-e61c-574b-fe26607255d8.htm">
           <HelpTOCNode Title="points Property " Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Multipoint Methods" Url="html/e59cc319-5d34-b053-8737-ffe980d35dcb.htm" />
-        <HelpTOCNode Id="f4e47cac-c408-4f6e-8450-d12f8b675ed8" Title="Multipoint Type Conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm">
-          <HelpTOCNode Id="7d79c28c-b0da-4278-b7d5-3c38a1d2e588" Title="Implicit Conversion Operators" Url="html/d4987184-2e0e-42b1-7414-29f0679727cd.htm">
+        <HelpTOCNode Id="e851f6a3-e047-4336-bf4d-beec5fd282eb" Title="Multipoint Type Conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm">
+          <HelpTOCNode Id="05488500-94ea-4c82-baad-95b4c2b99673" Title="Implicit Conversion Operators" Url="html/d4987184-2e0e-42b1-7414-29f0679727cd.htm">
             <HelpTOCNode Title="Implicit Conversion (String to Multipoint)" Url="html/2e145664-c934-b2f5-9d04-f099fbfc5400.htm" />
             <HelpTOCNode Title="Implicit Conversion (Multipoint to String)" Url="html/52510435-5f09-c4e5-f9c1-062d53fed3d1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="95a8aa0b-d2b4-4c87-adf7-5c84dffa7fe4" Title="Point Class" Url="html/3a3d2b6f-ea73-f52b-5db9-50594babf76f.htm">
-        <HelpTOCNode Id="2d7831ad-d48a-43f3-9cbc-b4681b667eab" Title="Point Constructor " Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm">
+      <HelpTOCNode Id="6336fda9-f88a-40f2-a22a-856dd9213da5" Title="Point Class" Url="html/3a3d2b6f-ea73-f52b-5db9-50594babf76f.htm">
+        <HelpTOCNode Id="e83363b3-3853-41a1-bec4-f7106f39d58c" Title="Point Constructor " Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm">
           <HelpTOCNode Title="Point Constructor " Url="html/a3090fa0-2327-5edc-bc2b-d5bfdf2eb910.htm" />
           <HelpTOCNode Title="Point Constructor (Double, Double, Nullable(Double))" Url="html/d8a51530-5fc5-7b6b-e116-bd670b98ba50.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="250a1e03-7c9a-441a-9212-aa2172134e39" Title="Point Properties" Url="html/748f4f9e-ac4c-41fc-369c-8c48589e83f9.htm">
+        <HelpTOCNode Id="ec389f4d-ad2a-423f-9aed-ed008405a4a6" Title="Point Properties" Url="html/748f4f9e-ac4c-41fc-369c-8c48589e83f9.htm">
           <HelpTOCNode Title="x Property " Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
           <HelpTOCNode Title="y Property " Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
           <HelpTOCNode Title="z Property " Url="html/98440fb6-4eb0-68b1-0021-d539eee1b014.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Point Methods" Url="html/2250d801-acdb-4b13-378c-c2f31436c2a2.htm" />
-        <HelpTOCNode Id="d99d30c6-03a7-487c-9c24-2b15c4161ec6" Title="Point Type Conversions" Url="html/e14587d8-f845-d1cf-3e83-51c2ad7e09eb.htm">
-          <HelpTOCNode Id="1d322297-a65d-4228-9641-fda49f4cdc35" Title="Implicit Conversion Operators" Url="html/75250716-c2cd-98a5-d242-e12f5b1067bb.htm">
+        <HelpTOCNode Id="03c6cd31-eee8-434a-b0a7-e83b2987e820" Title="Point Type Conversions" Url="html/e14587d8-f845-d1cf-3e83-51c2ad7e09eb.htm">
+          <HelpTOCNode Id="f8513f0a-2f5c-4e6d-9866-514945e0faa1" Title="Implicit Conversion Operators" Url="html/75250716-c2cd-98a5-d242-e12f5b1067bb.htm">
             <HelpTOCNode Title="Implicit Conversion (String to Point)" Url="html/9667bc39-19ec-92b6-ca9a-cef7f5b10d8a.htm" />
             <HelpTOCNode Title="Implicit Conversion (Point to String)" Url="html/9ecca7a3-4efa-47ae-bf0e-c3f313dfbee1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="3586ab5b-316d-421b-b76f-c4cd3fb39c88" Title="Polygon Class" Url="html/85125d12-c233-e240-af35-16d21a4a92a3.htm">
+      <HelpTOCNode Id="56cda06b-e8d2-4745-b63b-2921ecab7727" Title="Polygon Class" Url="html/85125d12-c233-e240-af35-16d21a4a92a3.htm">
         <HelpTOCNode Title="Polygon Constructor " Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
-        <HelpTOCNode Id="e026da05-623e-4872-a6f5-f19faaefad10" Title="Polygon Properties" Url="html/ac1cc0cd-14ea-1996-b23f-02abc123611c.htm">
+        <HelpTOCNode Id="81908747-bfdc-449f-8de5-f8e471c40527" Title="Polygon Properties" Url="html/ac1cc0cd-14ea-1996-b23f-02abc123611c.htm">
           <HelpTOCNode Title="rings Property " Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Polygon Methods" Url="html/753d841c-1f2e-8803-a5d7-ade80eb1fd7f.htm" />
-        <HelpTOCNode Id="05b53a00-22c0-4b0d-a50e-e34825df7355" Title="Polygon Type Conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm">
-          <HelpTOCNode Id="ee7d2690-62ab-4c9d-95b4-f0fbd6c8b826" Title="Implicit Conversion Operators" Url="html/3392905e-3012-5084-6e62-c46bf65d4d97.htm">
+        <HelpTOCNode Id="587437d6-7999-475e-a2ef-a8f3606cbd5f" Title="Polygon Type Conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm">
+          <HelpTOCNode Id="d5d805a5-d9ab-4920-9241-2cbd89cff67c" Title="Implicit Conversion Operators" Url="html/3392905e-3012-5084-6e62-c46bf65d4d97.htm">
             <HelpTOCNode Title="Implicit Conversion (String to Polygon)" Url="html/8b999f47-c8ea-e4f2-4a12-a2329bfe5989.htm" />
             <HelpTOCNode Title="Implicit Conversion (Polygon to String)" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b3ea16f4-9d77-4abd-8f47-4a1604904907" Title="Polyline Class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm">
+      <HelpTOCNode Id="cc12e5d9-564f-4c2a-9f01-6c44716159b7" Title="Polyline Class" Url="html/e855b98b-073b-538a-e13a-dfb2f9557fb5.htm">
         <HelpTOCNode Title="Polyline Constructor " Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
-        <HelpTOCNode Id="0c82e6af-fabf-42dc-a001-a6781c7c1efd" Title="Polyline Properties" Url="html/7310aeeb-3cc4-50ba-444c-a0f5499dcab8.htm">
+        <HelpTOCNode Id="9f883194-41f8-44e4-b07b-f09f61d7a477" Title="Polyline Properties" Url="html/7310aeeb-3cc4-50ba-444c-a0f5499dcab8.htm">
           <HelpTOCNode Title="paths Property " Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Polyline Methods" Url="html/3c87fa17-b721-cd38-4499-25fe194f1107.htm" />
-        <HelpTOCNode Id="18df6f0b-00ff-417d-a342-995eb5117d83" Title="Polyline Type Conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm">
-          <HelpTOCNode Id="7230db74-2643-42c5-b13c-1cbd7c03ec10" Title="Implicit Conversion Operators" Url="html/a56d8e3a-2f31-dfc3-3d46-b0c704020485.htm">
+        <HelpTOCNode Id="5eb4ec4a-6c20-4782-a31a-0e901d4bd6d8" Title="Polyline Type Conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm">
+          <HelpTOCNode Id="2a17083f-1f4d-407d-967e-b848ac8f8ad6" Title="Implicit Conversion Operators" Url="html/a56d8e3a-2f31-dfc3-3d46-b0c704020485.htm">
             <HelpTOCNode Title="Implicit Conversion (String to Polyline)" Url="html/07c92d85-95fd-e9ef-d5cf-1a646d0755cd.htm" />
             <HelpTOCNode Title="Implicit Conversion (Polyline to String)" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6d27284e-97df-49ea-9c03-f8a236df5d40" Title="RestException Class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm">
+      <HelpTOCNode Id="49f352a8-e3c2-4b74-80ed-2bcf83a30499" Title="RestException Class" Url="html/1248e6e1-bd0d-0968-97be-ac0b617d3185.htm">
         <HelpTOCNode Title="RestException Constructor " Url="html/8c6ef3a1-abfa-775f-5fee-a26deb3470a2.htm" />
-        <HelpTOCNode Id="473a6194-c4f5-4748-9f62-6bd3b4d2c2c8" Title="RestException Properties" Url="html/61eed3f0-f37d-574b-53d2-eb159e4b49b0.htm">
+        <HelpTOCNode Id="6b2a47a3-cbd7-4562-bc07-0b5608f60913" Title="RestException Properties" Url="html/61eed3f0-f37d-574b-53d2-eb159e4b49b0.htm">
           <HelpTOCNode Title="Request Property " Url="html/fdc8eb68-3081-b8a3-79d1-47fcac8e6f5e.htm" />
           <HelpTOCNode Title="Response Property " Url="html/150aed63-5f24-c939-1781-2e3c68372108.htm" />
           <HelpTOCNode Title="Url Property " Url="html/e31ef12d-3fca-37f5-182d-3d435e7ff38c.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="6b04d354-6bd9-4a69-8d9a-64bc3482f4d7" Title="RestException Methods" Url="html/48cda552-0e52-f45d-5710-882ec824f0d1.htm">
+        <HelpTOCNode Id="cbe0c798-f74a-465d-9c3c-525b1d38de10" Title="RestException Methods" Url="html/48cda552-0e52-f45d-5710-882ec824f0d1.htm">
           <HelpTOCNode Title="GetObjectData Method " Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="43cc3138-b94b-4a18-b001-236c67f37bec" Title="Service Class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm">
-        <HelpTOCNode Id="d61d289c-3926-49b9-87c6-afcadd754856" Title="Service Constructor " Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm">
+      <HelpTOCNode Id="de7c85f2-0bdf-4689-9deb-378a0955510a" Title="Service Class" Url="html/cc7cbcf5-d8ab-5906-b118-8c533ef03ee2.htm">
+        <HelpTOCNode Id="d457c81c-12f7-4e67-8f1e-5bbd687bb578" Title="Service Constructor " Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm">
           <HelpTOCNode Title="Service Constructor (String, String)" Url="html/0dbfbe2a-e141-fb32-850a-b3587ee04655.htm" />
           <HelpTOCNode Title="Service Constructor (String, Token, String)" Url="html/de93f9a4-2056-bbab-e2ac-45beecc07b61.htm" />
           <HelpTOCNode Title="Service Constructor (String, ICredentials, String)" Url="html/e4a8d502-564c-aa9f-83d7-c8a92a44531d.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="13bf3a12-0c2e-483e-990e-2325091f4c86" Title="Service Properties" Url="html/232eb98f-48fd-e056-bd38-276b28af2e5f.htm">
+        <HelpTOCNode Id="fac33ed2-f844-4d2c-a2a7-2f5f80b00f70" Title="Service Properties" Url="html/232eb98f-48fd-e056-bd38-276b28af2e5f.htm">
           <HelpTOCNode Title="Domains Property " Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
           <HelpTOCNode Title="Layers Property " Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
           <HelpTOCNode Title="Url Property " Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f9b83c8e-069e-48c2-a641-db9164d0a2a6" Title="Service Methods" Url="html/6ad014e1-2b54-5bb0-fa6d-f1211bb60bfe.htm">
-          <HelpTOCNode Id="bd9872c5-0185-46b6-b68b-35d11b70b3b9" Title="Download Method " Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm">
+        <HelpTOCNode Id="30a00741-3057-4f0c-aada-8e0fee3e535a" Title="Service Methods" Url="html/6ad014e1-2b54-5bb0-fa6d-f1211bb60bfe.htm">
+          <HelpTOCNode Id="57a5566f-c703-4bd1-97f7-397f80130bea" Title="Download Method " Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm">
             <HelpTOCNode Title="Download(T) Method (Int32, String, String, Boolean, Int32)" Url="html/7ee290c4-9805-5dcb-b2c9-89ab102e01c4.htm" />
             <HelpTOCNode Title="Download Method (Int32, String, String, Boolean, Int32)" Url="html/10794651-2160-8408-a36a-df9b0707080b.htm" />
             <HelpTOCNode Title="Download(T) Method (String, String, String, Boolean, Int32)" Url="html/44c83d64-4d0b-a611-2501-90ba25dff4a2.htm" />
@@ -429,7 +439,7 @@
             <HelpTOCNode Title="Download(T) Method (String, String, GeometryBase, SpatialRel, String, Boolean, Int32)" Url="html/5995066f-4798-0051-1c4a-726840165b77.htm" />
             <HelpTOCNode Title="Download Method (String, String, GeometryBase, SpatialRel, String, Boolean, Int32)" Url="html/80e099be-9ea8-6c1d-6af7-61ef4504565e.htm" />
           </HelpTOCNode>
-          <HelpTOCNode Id="670fd08b-ea8f-49ef-87e8-090a868d602d" Title="DownloadAsync Method " Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm">
+          <HelpTOCNode Id="b04358dc-d293-4d44-823a-1998213d953e" Title="DownloadAsync Method " Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm">
             <HelpTOCNode Title="DownloadAsync(T) Method (Int32, String, String)" Url="html/8eaa0105-8de0-f13c-230c-9cd8f5c4f1a2.htm" />
             <HelpTOCNode Title="DownloadAsync Method (Int32, String, String)" Url="html/215af727-e7ac-c214-4ae9-21c50aaaabf8.htm" />
             <HelpTOCNode Title="DownloadAsync(T) Method (String, String, String)" Url="html/8d040dbb-2913-09f3-3e00-60d780152d50.htm" />
@@ -441,33 +451,33 @@
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="b6a6eb69-ad3b-4a3b-b469-3491e541dbbd" Title="SpatialReference Class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm">
+      <HelpTOCNode Id="ebfe2192-0ba2-47d2-821b-969871cb108e" Title="SpatialReference Class" Url="html/9666b3c3-ba04-1257-fd3e-d959c00868c2.htm">
         <HelpTOCNode Title="SpatialReference Constructor " Url="html/d38a8574-ab07-3cf5-bc19-61fc7be6ebde.htm" />
-        <HelpTOCNode Id="72474c8a-3018-44cd-9365-162b2134c529" Title="SpatialReference Properties" Url="html/f200ee5a-fb90-517b-4f47-9a21982a4c3b.htm">
+        <HelpTOCNode Id="8f36ccb5-e4c1-4518-be0f-9aada5f73b31" Title="SpatialReference Properties" Url="html/f200ee5a-fb90-517b-4f47-9a21982a4c3b.htm">
           <HelpTOCNode Title="wkid Property " Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="SpatialRel Enumeration" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
-      <HelpTOCNode Id="08cdca33-2cbc-4fb8-a37b-988bab5379f8" Title="Text Class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm">
-        <HelpTOCNode Id="566674f5-d88f-4682-9fca-42aba0ad8453" Title="Text Methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm">
-          <HelpTOCNode Id="57e5ae84-1249-4b7d-bebb-7801fde4209f" Title="ToText Method " Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm">
+      <HelpTOCNode Id="69f1071f-50e1-4be9-bff3-fb69db4092ac" Title="Text Class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm">
+        <HelpTOCNode Id="33a721d6-6749-4ed0-ac6a-2ef590cbe63e" Title="Text Methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm">
+          <HelpTOCNode Id="0579ad5f-5fed-476b-8d4a-5f3d364261fd" Title="ToText Method " Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm">
             <HelpTOCNode Title="ToText Method (Feature, String, Nullable(Char), Func(DateTime, String))" Url="html/bb186474-a8e3-d76b-fddd-393df9a808b2.htm" />
             <HelpTOCNode Title="ToText(T) Method (Feature(T), String, Nullable(Char), Func(T, Object), Func(DateTime, String))" Url="html/3d619dac-430a-cfbf-a471-f19ed122a2a4.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="5ae6fea7-b524-4fc1-93c6-873b180505e6" Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm">
-        <HelpTOCNode Id="1ddb8455-0908-4310-825d-4ab4d8071976" Title="Token Constructor " Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm">
+      <HelpTOCNode Id="b710e44c-ef30-44f7-a867-e3c7ec79cbd6" Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm">
+        <HelpTOCNode Id="3e3f7190-a79a-4be3-95eb-40f072583067" Title="Token Constructor " Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm">
           <HelpTOCNode Title="Token Constructor (String)" Url="html/a12249a7-032e-db26-5777-27439f3f8ef6.htm" />
           <HelpTOCNode Title="Token Constructor (String, String)" Url="html/9684f329-6d5d-2e68-df67-749f958baf5c.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="531e0610-e3fc-4b64-b970-6dcc484176c6" Title="Token Methods" Url="html/295e1cbf-28c9-5b4f-4d38-152b8956c640.htm">
+        <HelpTOCNode Id="6eec2c03-af44-4a95-9783-873ceaad41b3" Title="Token Methods" Url="html/295e1cbf-28c9-5b4f-4d38-152b8956c640.htm">
           <HelpTOCNode Title="Equals Method " Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
           <HelpTOCNode Title="ToString Method " Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="0b384fc0-04d9-442d-8808-16a44f821118" Title="UpdateResult Class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm">
+      <HelpTOCNode Id="fcfb589e-e6e9-4bea-97a1-d0db850aa8a9" Title="UpdateResult Class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm">
         <HelpTOCNode Title="UpdateResult Constructor " Url="html/c7cb81d3-11d9-a4e0-7190-cf161de80733.htm" />
         <HelpTOCNode Title="UpdateResult Properties" Url="html/b3176f5d-e5d5-df06-7638-5676a5df20f4.htm" />
       </HelpTOCNode>
