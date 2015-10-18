@@ -21,6 +21,7 @@
   <HelpKINode Title="Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Crosses enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
+  <HelpKINode Title="DeleteAsync method" Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm" />
   <HelpKINode Title="DeleteResult class">
     <HelpKINode Title="DeleteResult Class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
     <HelpKINode Title="about DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -48,6 +49,7 @@
     <HelpKINode Title="IService.Download Method " Url="html/4eb0ab6f-ef4b-6bc2-1e7b-b25b721ec151.htm" />
     <HelpKINode Title="Service.Download Method " Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
   </HelpKINode>
+  <HelpKINode Title="DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
   <HelpKINode Title="DynamicFeature class">
     <HelpKINode Title="DynamicFeature Class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
     <HelpKINode Title="about DynamicFeature class" Url="html/893fb32d-e7c4-9933-397e-d361c5a88294.htm" />
@@ -63,8 +65,11 @@
     <HelpKINode Title="methods" Url="html/f1b95f18-c68f-6893-4a47-cd6356a6930c.htm" />
   </HelpKINode>
   <HelpKINode Title="Editor.Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
+  <HelpKINode Title="Editor.DeleteAsync method" Url="html/603503ce-5644-a7c8-b800-eacd4922e50f.htm" />
   <HelpKINode Title="Editor.InsertInto method" Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm" />
+  <HelpKINode Title="Editor.InsertIntoAsync method" Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm" />
   <HelpKINode Title="Editor.Update method" Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm" />
+  <HelpKINode Title="Editor.UpdateAsync method" Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm" />
   <HelpKINode Title="EditResultBase class">
     <HelpKINode Title="EditResultBase Class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
     <HelpKINode Title="about EditResultBase class" Url="html/c556f7c7-f6d6-f84d-72a3-125f58bec5ec.htm" />
@@ -184,7 +189,7 @@
   <HelpKINode Title="GeometryFunctions.Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="GeometryFunctions.WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
-  <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
+  <HelpKINode Title="GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
   <HelpKINode Title="GetFieldNames method" Url="html/2abba255-b26b-5ac1-4aed-b3d94e8f6a51.htm" />
   <HelpKINode Title="GetHashCode method">
     <HelpKINode Title="KmlStyle.GetHashCode Method " Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
@@ -199,8 +204,8 @@
     <HelpKINode Title="methods" Url="html/fc6ba0e7-8b3c-186e-98c3-859d93ede382.htm" />
     <HelpKINode Title="properties" Url="html/dde4d98d-770a-4048-d6d2-ba1a959b5627.htm" />
   </HelpKINode>
-  <HelpKINode Title="Http.Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
-  <HelpKINode Title="Http.Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
+  <HelpKINode Title="Http.GetAsync method" Url="html/a7357503-96d8-100b-456f-8fc9bfbfd668.htm" />
+  <HelpKINode Title="Http.PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="Http.RequestModifier property" Url="html/fbdbbcb6-b1ce-20f9-cf3b-2e5cd7203264.htm" />
   <HelpKINode Title="IconColour property" Url="html/5d66b39c-8c5f-c33d-769a-26c86c99f861.htm" />
   <HelpKINode Title="IconScale property" Url="html/b3c9f644-f62c-26ce-b0e0-5c0d83ed6a9c.htm" />
@@ -210,6 +215,7 @@
   <HelpKINode Title="InsertedFeature property" Url="html/e3e56df5-9aa2-3e55-9031-71c8a5d71c54.htm" />
   <HelpKINode Title="InsertedFeatures property" Url="html/b9737f4a-d4ff-468c-f03c-4c24d44b2627.htm" />
   <HelpKINode Title="InsertInto method" Url="html/5adddad6-f131-9c8a-7031-d9c57b8f1529.htm" />
+  <HelpKINode Title="InsertIntoAsync method" Url="html/6a7725d5-5081-bd17-5b55-9e39ab41a8d3.htm" />
   <HelpKINode Title="InsertResult(Of T) class">
     <HelpKINode Title="InsertResult(T) Class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
     <HelpKINode Title="about InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
@@ -354,7 +360,7 @@
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
-  <HelpKINode Title="Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
+  <HelpKINode Title="PostAsync method" Url="html/35c5eec6-398b-cc27-b82d-71481830214f.htm" />
   <HelpKINode Title="PreStorm namespace" Url="html/60635694-79bf-810c-2138-dd4dc5aae0bb.htm" />
   <HelpKINode Title="PreStorm.CodedValue class" Url="html/9ff50dce-597c-a9a4-3fe7-5049fd661510.htm" />
   <HelpKINode Title="PreStorm.DeleteResult class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -419,6 +425,7 @@
   </HelpKINode>
   <HelpKINode Title="Service.Domains property" Url="html/b9cc3994-deb2-2787-5815-091d172fd2df.htm" />
   <HelpKINode Title="Service.Download method" Url="html/3892dc05-de67-3e73-d5b8-d0b465b4ba56.htm" />
+  <HelpKINode Title="Service.DownloadAsync method" Url="html/e3b7886c-ff78-940f-6c3a-78c7be334b12.htm" />
   <HelpKINode Title="Service.Layers property" Url="html/3f81c314-30f8-5a52-3db5-3321b347daf4.htm" />
   <HelpKINode Title="Service.Service constructor" Url="html/5ec90e3f-45ad-d4ca-1154-bdfe9914e705.htm" />
   <HelpKINode Title="Service.Url property" Url="html/bb421dbe-cb8b-76f7-5f23-a137e18105d2.htm" />
@@ -467,6 +474,7 @@
     <HelpKINode Title="Layer.type Property " Url="html/d3ddb93c-77c5-bc5f-271a-497178838f13.htm" />
   </HelpKINode>
   <HelpKINode Title="Update method" Url="html/b8ed9593-7cbd-80c5-3863-b1eaf57f6c70.htm" />
+  <HelpKINode Title="UpdateAsync method" Url="html/28e14629-a4e2-95a9-de96-9e8b934df0cd.htm" />
   <HelpKINode Title="UpdateResult class">
     <HelpKINode Title="UpdateResult Class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
     <HelpKINode Title="about UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
