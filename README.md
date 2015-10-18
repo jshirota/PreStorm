@@ -31,7 +31,6 @@ Here are some of the key features:
 - support for extra ArcGIS Rest query string parameters
 - Unicode tested
 - no dependencies on IDE tools or XML mapping files
-- no external libraries
 - works well with Esri Runtime APIs
 - designed with WPF UI binding in mind (i.e. MVVM)
 - supports .NET 4.5 and up
