@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 
 namespace PreStorm
 {
@@ -10,6 +10,7 @@ namespace PreStorm
         /// <summary>
         /// The spatial reference of this geometry.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public SpatialReference spatialReference { get; set; }
 
         /// <summary>
@@ -18,16 +19,7 @@ namespace PreStorm
         /// <returns></returns>
         public override string ToString()
         {
-            var json = this.Serialize();
-
-            var dictionary = json.Deserialize<Dictionary<string, object>>();
-            var keys = new[] { "z", "spatialReference" };
-
-            foreach (var key in keys)
-                if (dictionary.ContainsKey(key) && dictionary[key] == null)
-                    dictionary.Remove(key);
-
-            return dictionary.Serialize();
+            return this.Serialize();
         }
     }
 
@@ -67,6 +59,7 @@ namespace PreStorm
         /// <summary>
         /// The Z coordinate.  This is available only if the layer supports it.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public double? z { get; set; }
 
         /// <summary>
