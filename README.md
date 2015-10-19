@@ -33,7 +33,7 @@ Here are some of the key features:
 - no dependencies on IDE tools or XML mapping files
 - works well with Esri Runtime APIs
 - designed with WPF UI binding in mind (i.e. MVVM)
-- supports .NET 4.5 and up
+- supports .NET 4.0 and up
 - supports .NET Core, ASP.NET 5 and UWP
 - strong support for fluent programming in C# and Visual Basic
 
