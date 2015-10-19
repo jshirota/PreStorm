@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace PreStorm
 {
@@ -11,10 +10,10 @@ namespace PreStorm
     {
         public static readonly DateTime BaseTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        private static async Task<T> GetResponseAsync<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
+        private static T GetResponse<T>(string url, string data, ICredentials credentials, Token token, string gdbVersion) where T : Response
         {
             var parameters = new Dictionary<string, object> { { "token", token }, { "gdbVersion", gdbVersion }, { "f", "json" } };
-            var queryString = string.Join("&", parameters.Where(p => p.Value != null).Select(p => $"{p.Key}={WebUtility.UrlEncode(p.Value.ToString())}"));
+            var queryString = string.Join("&", parameters.Where(p => p.Value != null).Select(p => $"{p.Key}={Compatibility.UrlEncode(p.Value.ToString())}"));
 
             var isPost = data != null;
 
@@ -25,7 +24,7 @@ namespace PreStorm
 
             try
             {
-                responseText = isPost ? await Http.PostAsync(url2, requestText, r => r.Credentials = credentials) : await Http.GetAsync(url2, r => r.Credentials = credentials);
+                responseText = isPost ? Http.Post(url2, requestText, r => r.Credentials = credentials) : Http.Get(url2, r => r.Credentials = credentials);
 
                 var response = responseText.Deserialize<T>();
                 var errorMessage = "ArcGIS Server returned an error response.";
@@ -67,11 +66,11 @@ namespace PreStorm
             }
         }
 
-        public static async Task<ServiceInfo> GetServiceInfo(ServiceArgs args)
+        public static ServiceInfo GetServiceInfo(ServiceArgs args)
         {
             var url = $"{Regex.Replace(args.Url, @"/FeatureServer($|/)", args.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
 
-            var serviceInfo = await GetResponseAsync<ServiceInfo>(url, null, args.Credentials, args.Token, args.GdbVersion);
+            var serviceInfo = GetResponse<ServiceInfo>(url, null, args.Credentials, args.Token, args.GdbVersion);
 
             serviceInfo.AllLayers = (serviceInfo.layers ?? new Layer[] { })
                 .Where(l => l.type == "Feature Layer")
@@ -106,7 +105,7 @@ namespace PreStorm
 
         private static string CleanWhereClause(string whereClause)
         {
-            return WebUtility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause);
+            return Compatibility.UrlEncode(string.IsNullOrWhiteSpace(whereClause) ? "1=1" : whereClause);
         }
 
         private static string CleanExtraParameters(string extraParameters)
@@ -116,23 +115,23 @@ namespace PreStorm
 
         private static string CleanObjectIds(IEnumerable<int> objectIds)
         {
-            return objectIds == null ? "" : WebUtility.UrlEncode(string.Join(",", objectIds));
+            return objectIds == null ? "" : Compatibility.UrlEncode(string.Join(",", objectIds));
         }
 
-        public static async Task<OIDSet> GetOIDSetAsync(ServiceArgs args, int layerId, string whereClause, string extraParameters)
+        public static OIDSet GetOIDSet(ServiceArgs args, int layerId, string whereClause, string extraParameters)
         {
             var url = $"{args.Url}/{layerId}/query";
             var data = $"where={CleanWhereClause(whereClause)}{CleanExtraParameters(extraParameters)}&returnIdsOnly=true";
 
-            return await GetResponseAsync<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
+            return GetResponse<OIDSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
-        public static async Task<FeatureSet> GetFeatureSetAsync(ServiceArgs args, int layerId, bool returnGeometry, bool returnZ, string whereClause, string extraParameters, IEnumerable<int> objectIds)
+        public static FeatureSet GetFeatureSet(ServiceArgs args, int layerId, bool returnGeometry, bool returnZ, string whereClause, string extraParameters, IEnumerable<int> objectIds)
         {
             var url = $"{args.Url}/{layerId}/query";
             var data = $"where={CleanWhereClause(whereClause)}{CleanExtraParameters(extraParameters)}&objectIds={CleanObjectIds(objectIds)}&returnGeometry={(returnGeometry ? "true" : "false")}&returnZ={(returnZ ? "true" : "false")}&outFields=*";
 
-            return await GetResponseAsync<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
+            return GetResponse<FeatureSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
         public static bool IsArcGISOnline(this string url)
@@ -140,22 +139,22 @@ namespace PreStorm
             return Regex.IsMatch(url, @"\.arcgis\.com/", RegexOptions.IgnoreCase);
         }
 
-        public static async Task<TokenInfo> GetTokenInfoAsync(string url, string userName, string password)
+        public static TokenInfo GetTokenInfo(string url, string userName, string password)
         {
             var tokenUrl = url.IsArcGISOnline()
                 ? "https://www.arcgis.com/sharing/rest/generateToken"
                 : $"{Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value}/tokens/generateToken";
             var data = $"userName={userName}&password={password}&clientid=requestip";
 
-            return await GetResponseAsync<TokenInfo>(tokenUrl, data, null, null, null);
+            return GetResponse<TokenInfo>(tokenUrl, data, null, null, null);
         }
 
-        public static async Task<EditResultSet> ApplyEditsAsync(ServiceArgs args, int layerId, string operation, string json)
+        public static EditResultSet ApplyEdits(ServiceArgs args, int layerId, string operation, string json)
         {
             var url = $"{args.Url}/{layerId}/applyEdits";
-            var data = $"{operation}={WebUtility.UrlEncode(operation == "deletes" ? json : RemoveNullZ(json))}";
+            var data = $"{operation}={Compatibility.UrlEncode(operation == "deletes" ? json : RemoveNullZ(json))}";
 
-            return await GetResponseAsync<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
+            return GetResponse<EditResultSet>(url, data, args.Credentials, args.Token, args.GdbVersion);
         }
 
         private static string RemoveNullZ(string json)

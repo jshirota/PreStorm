@@ -2,7 +2,6 @@
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PreStorm
 {
@@ -16,9 +15,9 @@ namespace PreStorm
         /// </summary>
         public static Action<HttpWebRequest> RequestModifier { get; set; }
 
-        private static async Task<string> GetResponseTextAsync(this WebRequest request)
+        private static string GetResponseText(this WebRequest request)
         {
-            var response = await request.GetResponseAsync();
+            var response = Compatibility.GetResponse(request);
 
             using (var stream = response.GetResponseStream())
             {
@@ -33,17 +32,16 @@ namespace PreStorm
         /// <param name="url">The target url.</param>
         /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static async Task<string> GetAsync(string url, Action<HttpWebRequest> requestModifier = null)
+        public static string Get(string url, Action<HttpWebRequest> requestModifier = null)
         {
             var request = (HttpWebRequest)WebRequest.Create(url);
 
-            //request.AutomaticDecompression = DecompressionMethods.GZip;
-            //request.ServicePoint.Expect100Continue = false;
+            Compatibility.ModifyRequest(request);
 
             RequestModifier?.Invoke(request);
             requestModifier?.Invoke(request);
 
-            return await request.GetResponseTextAsync();
+            return request.GetResponseText();
         }
 
         /// <summary>
@@ -53,9 +51,9 @@ namespace PreStorm
         /// <param name="url">The target url.</param>
         /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static async Task<T> GetAsync<T>(string url, Action<HttpWebRequest> requestModifier = null)
+        public static T Get<T>(string url, Action<HttpWebRequest> requestModifier = null)
         {
-            return (await GetAsync(url, requestModifier)).Deserialize<T>();
+            return Get(url, requestModifier).Deserialize<T>();
         }
 
         /// <summary>
@@ -65,7 +63,7 @@ namespace PreStorm
         /// <param name="data">The string data to upload.</param>
         /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static async Task<string> PostAsync(string url, string data, Action<HttpWebRequest> requestModifier = null)
+        public static string Post(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
             var bytes = Encoding.UTF8.GetBytes(data);
 
@@ -73,18 +71,15 @@ namespace PreStorm
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
 
-#if !DOTNET
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-            request.ServicePoint.Expect100Continue = false;
-#endif
+            Compatibility.ModifyRequest(request);
 
             RequestModifier?.Invoke(request);
             requestModifier?.Invoke(request);
 
-            using (var stream = await request.GetRequestStreamAsync())
+            using (var stream = Compatibility.GetRequestStream(request))
             {
                 stream.Write(bytes, 0, bytes.Length);
-                return await request.GetResponseTextAsync();
+                return request.GetResponseText();
             }
         }
 
@@ -96,9 +91,9 @@ namespace PreStorm
         /// <param name="data">The string data to upload.</param>
         /// <param name="requestModifier">An action that modifies the request.</param>
         /// <returns></returns>
-        public static async Task<T> PostAsync<T>(string url, string data, Action<HttpWebRequest> requestModifier = null)
+        public static T Post<T>(string url, string data, Action<HttpWebRequest> requestModifier = null)
         {
-            return (await PostAsync(url, data, requestModifier)).Deserialize<T>();
+            return Post(url, data, requestModifier).Deserialize<T>();
         }
     }
 }

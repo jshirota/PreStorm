@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PreStorm
 {
@@ -30,7 +29,7 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static async Task<InsertResult<T>> InsertIntoAsync<T>(this T[] features, Service service, int layerId) where T : Feature
+        public static InsertResult<T> InsertInto<T>(this T[] features, Service service, int layerId) where T : Feature
         {
             try
             {
@@ -41,7 +40,7 @@ namespace PreStorm
 
                 var adds = features.Select(f => f.ToGraphic(layer, false)).ToArray();
 
-                var editResultInfo = await Esri.ApplyEditsAsync(service.ServiceArgs, layer.id, "adds", adds.Serialize());
+                var editResultInfo = Esri.ApplyEdits(service.ServiceArgs, layer.id, "adds", adds.Serialize());
 
                 return new InsertResult<T>(true, null, () => service.Download<T>(layerId, editResultInfo.addResults.Select(r => r.objectId), null, null, 50, 1).ToArray());
             }
@@ -59,61 +58,9 @@ namespace PreStorm
         /// <param name="service"></param>
         /// <param name="layerId"></param>
         /// <returns></returns>
-        public static async Task<InsertResult<T>> InsertIntoAsync<T>(this T feature, Service service, int layerId) where T : Feature
-        {
-            return await new[] { feature }.InsertIntoAsync(service, layerId);
-        }
-
-        /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="features"></param>
-        /// <param name="service"></param>
-        /// <param name="layerName"></param>
-        /// <returns></returns>
-        public static async Task<InsertResult<T>> InsertIntoAsync<T>(this T[] features, Service service, string layerName) where T : Feature
-        {
-            return await features.InsertIntoAsync(service, service.GetLayer(layerName).id);
-        }
-
-        /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="feature"></param>
-        /// <param name="service"></param>
-        /// <param name="layerName"></param>
-        /// <returns></returns>
-        public static async Task<InsertResult<T>> InsertIntoAsync<T>(this T feature, Service service, string layerName) where T : Feature
-        {
-            return await feature.InsertIntoAsync(service, service.GetLayer(layerName).id);
-        }
-
-        /// <summary>
-        /// Inserts the features into a layer and returns the newly created features.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="features"></param>
-        /// <param name="service"></param>
-        /// <param name="layerId"></param>
-        /// <returns></returns>
-        public static InsertResult<T> InsertInto<T>(this T[] features, Service service, int layerId) where T : Feature
-        {
-            return features.InsertIntoAsync(service, layerId).Result;
-        }
-
-        /// <summary>
-        /// Inserts the feature into a layer and returns the newly created feature.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="feature"></param>
-        /// <param name="service"></param>
-        /// <param name="layerId"></param>
-        /// <returns></returns>
         public static InsertResult<T> InsertInto<T>(this T feature, Service service, int layerId) where T : Feature
         {
-            return feature.InsertIntoAsync(service, layerId).Result;
+            return new[] { feature }.InsertInto(service, layerId);
         }
 
         /// <summary>
@@ -126,7 +73,7 @@ namespace PreStorm
         /// <returns></returns>
         public static InsertResult<T> InsertInto<T>(this T[] features, Service service, string layerName) where T : Feature
         {
-            return features.InsertIntoAsync(service, layerName).Result;
+            return features.InsertInto(service, service.GetLayer(layerName).id);
         }
 
         /// <summary>
@@ -139,7 +86,7 @@ namespace PreStorm
         /// <returns></returns>
         public static InsertResult<T> InsertInto<T>(this T feature, Service service, string layerName) where T : Feature
         {
-            return feature.InsertIntoAsync(service, layerName).Result;
+            return feature.InsertInto(service, service.GetLayer(layerName).id);
         }
 
         #endregion
@@ -152,7 +99,7 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static async Task<UpdateResult> UpdateAsync<T>(this T[] features) where T : Feature
+        public static UpdateResult Update<T>(this T[] features) where T : Feature
         {
             try
             {
@@ -170,7 +117,7 @@ namespace PreStorm
                 if (updates.Length == 0)
                     return new UpdateResult(true);
 
-                await Esri.ApplyEditsAsync(args, layer.id, "updates", updates.Serialize());
+                Esri.ApplyEdits(args, layer.id, "updates", updates.Serialize());
 
                 foreach (var f in features)
                     f.IsDirty = false;
@@ -189,31 +136,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static async Task<UpdateResult> UpdateAsync<T>(this T feature) where T : Feature
-        {
-            return await new[] { feature }.UpdateAsync();
-        }
-
-        /// <summary>
-        /// Updates the features in the underlying layer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="features"></param>
-        /// <returns></returns>
-        public static UpdateResult Update<T>(this T[] features) where T : Feature
-        {
-            return features.UpdateAsync().Result;
-        }
-
-        /// <summary>
-        /// Updates the feature in the underlying layer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="feature"></param>
-        /// <returns></returns>
         public static UpdateResult Update<T>(this T feature) where T : Feature
         {
-            return feature.UpdateAsync().Result;
+            return new[] { feature }.Update();
         }
 
         #endregion
@@ -226,7 +151,7 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="features"></param>
         /// <returns></returns>
-        public static async Task<DeleteResult> DeleteAsync<T>(this T[] features) where T : Feature
+        public static DeleteResult Delete<T>(this T[] features) where T : Feature
         {
             try
             {
@@ -241,7 +166,7 @@ namespace PreStorm
 
                 var deletes = string.Join(",", features.Select(f => f.OID));
 
-                await Esri.ApplyEditsAsync(args, layer.id, "deletes", deletes);
+                Esri.ApplyEdits(args, layer.id, "deletes", deletes);
 
                 foreach (var f in features)
                 {
@@ -265,31 +190,9 @@ namespace PreStorm
         /// <typeparam name="T"></typeparam>
         /// <param name="feature"></param>
         /// <returns></returns>
-        public static async Task<DeleteResult> DeleteAsync<T>(this T feature) where T : Feature
-        {
-            return await new[] { feature }.DeleteAsync();
-        }
-
-        /// <summary>
-        /// Deletes the features from the underlying layer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="features"></param>
-        /// <returns></returns>
-        public static DeleteResult Delete<T>(this T[] features) where T : Feature
-        {
-            return features.DeleteAsync().Result;
-        }
-
-        /// <summary>
-        /// Deletes the feature from the underlying layer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="feature"></param>
-        /// <returns></returns>
         public static DeleteResult Delete<T>(this T feature) where T : Feature
         {
-            return feature.DeleteAsync().Result;
+            return new[] { feature }.Delete();
         }
 
         #endregion

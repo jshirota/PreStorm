@@ -21,7 +21,7 @@ namespace PreStorm
         private static readonly Func<Type, Mapped[]> GetMappingsMemoized = Memoization.Memoize<Type, Mapped[]>(t =>
             t.GetProperties().Select(p =>
             {
-                var mapped = p.GetCustomAttribute<Mapped>();
+                var mapped = Compatibility.GetCustomAttribute<Mapped>(p);
 
                 if (mapped == null)
                     return null;

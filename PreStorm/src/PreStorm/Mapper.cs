@@ -29,7 +29,7 @@ namespace PreStorm
                 {
                     var t = m.Property.PropertyType;
 
-                    if (t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    if (Compatibility.IsGenericType(t) && t.GetGenericTypeDefinition() == typeof(Nullable<>))
                         t = new NullableConverter(t).UnderlyingType;
 
                     if (t == typeof(DateTime))

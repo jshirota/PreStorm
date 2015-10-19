@@ -11,7 +11,7 @@ namespace PreStorm
 
         private static Type Derive(Type baseType)
         {
-            var assembly = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("_" + Guid.NewGuid().ToString("N")), AssemblyBuilderAccess.Run);
+            var assembly = Compatibility.DefineDynamicAssembly();
 
             var typeBuilder = assembly.DefineDynamicModule("_").DefineType("_" + baseType.Name, TypeAttributes.Public | TypeAttributes.Class, baseType);
 
@@ -59,7 +59,7 @@ namespace PreStorm
                 propertyBuilder.SetSetMethod(setMethod);
             }
 
-            return typeBuilder.CreateTypeInfo().AsType();
+            return Compatibility.CreateType(typeBuilder);
         }
 
         public static T Create<T>()
