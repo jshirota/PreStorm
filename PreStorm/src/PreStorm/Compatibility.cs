@@ -46,26 +46,6 @@ namespace PreStorm
 #endif
         }
 
-        public static T Deserialize<T>(string json)
-        {
-#if DOTNET
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
-#else
-            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer { MaxJsonLength = int.MaxValue };
-            return serializer.Deserialize<T>(json);
-#endif
-        }
-
-        public static string Serialize(object obj)
-        {
-#if DOTNET
-            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
-#else
-            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer { MaxJsonLength = int.MaxValue };
-            return serializer.Serialize(obj);
-#endif
-        }
-
         public static AssemblyBuilder DefineDynamicAssembly()
         {
 #if DOTNET

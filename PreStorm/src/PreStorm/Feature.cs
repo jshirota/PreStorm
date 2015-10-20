@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace PreStorm
 {
@@ -60,6 +61,7 @@ namespace PreStorm
         /// <summary>
         /// Indicates if this instance is bound to an actual row in the underlying table.
         /// </summary>
+        [JsonIgnore]
         public bool IsDataBound => OID > -1;
 
         /// <summary>
@@ -134,6 +136,7 @@ namespace PreStorm
         /// <summary>
         /// Indicates if any of the mapped properties has been changed via the property setter.
         /// </summary>
+        [JsonIgnore]
         public bool IsDirty
         {
             get { return _isDirty; }
