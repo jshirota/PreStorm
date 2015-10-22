@@ -8,6 +8,11 @@ namespace PreStorm
     public interface IService
     {
         /// <summary>
+        /// The maximum number of features returned by the server.  This information may not be available for older versions of ArcGIS Server.
+        /// </summary>
+        int? MaxRecordCount { get; }
+
+        /// <summary>
         /// The url of the service.
         /// </summary>
         string Url { get; }

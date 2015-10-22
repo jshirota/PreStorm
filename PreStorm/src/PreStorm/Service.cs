@@ -12,7 +12,10 @@ namespace PreStorm
     {
         internal readonly ServiceArgs ServiceArgs;
 
-        private readonly int? _maxRecordCount;
+        /// <summary>
+        /// The maximum number of features returned by the server.  This information may not be available for older versions of ArcGIS Server.
+        /// </summary>
+        public int? MaxRecordCount { get; }
 
         /// <summary>
         /// The url of the service.
@@ -35,7 +38,7 @@ namespace PreStorm
 
             var serviceInfo = Esri.GetServiceInfo(ServiceArgs);
 
-            _maxRecordCount = serviceInfo.maxRecordCount;
+            MaxRecordCount = serviceInfo.maxRecordCount;
 
             Layers = serviceInfo.AllLayers;
             Domains = serviceInfo.AllDomains;
@@ -131,7 +134,7 @@ namespace PreStorm
 
             var objectIds = featureSet.features.Select(g => Convert.ToInt32(g.attributes[layer.GetObjectIdFieldName()])).ToArray();
 
-            if (!keepQuerying || objectIds.Length == 0 || _maxRecordCount > objectIds.Length)
+            if (!keepQuerying || objectIds.Length == 0 || MaxRecordCount > objectIds.Length)
                 yield break;
 
             var remainingObjectIds = Esri.GetOIDSet(ServiceArgs, layerId, whereClause, extraParameters).objectIds.Except(objectIds);
