@@ -309,8 +309,6 @@ namespace PreStorm
     {
         public Layer[] layers { get; set; }
         public Layer[] tables { get; set; }
-        public int? maxRecordCount { get; set; }
-
         public Layer[] AllLayers { get; set; }
         public Domain[] AllDomains { get; set; }
     }
