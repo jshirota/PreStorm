@@ -136,7 +136,7 @@ namespace PreStorm
                            from n in feature.GetFieldNames()
                            select new XElement(kml + "Data", new XAttribute("name", n),
                                       new XElement(kml + "value", feature[n]))),
-                                          ToKml(((dynamic)feature).Geometry, z, geometryElements));
+                                          feature.GetType().HasGeometry() ? ToKml(((dynamic)feature).Geometry, z, geometryElements) : null);
         }
 
         /// <summary>
