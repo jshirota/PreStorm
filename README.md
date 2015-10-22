@@ -33,8 +33,9 @@ Here are some of the key features:
 - no dependencies on IDE tools or XML mapping files
 - works well with Esri Runtime APIs
 - designed with WPF UI binding in mind (i.e. MVVM)
+- supports ArcGIS Server 10.0 and up
 - supports .NET 4.0 and up
-- supports .NET Core, ASP.NET 5 and UWP
+- supports .NET Core, ASP.NET 5 and Windows 10 UWP
 - strong support for fluent programming in C# and Visual Basic
 
 ========
