@@ -49,24 +49,11 @@ namespace PreStorm
 
         private static XElement ToKmlPolygon(this Polygon geometry, double? z, XElement[] extraElements)
         {
-            var polygons = new List<XElement>();
-
-            foreach (var ring in geometry.rings)
-            {
-                var isInnerRing = ring.IsInnerRing();
-
-                if (!isInnerRing)
-                    polygons.Add(new XElement(kml + "Polygon", extraElements));
-
-                if (polygons.Count == 0)
-                    throw new InvalidOperationException("The first ring of a polygon must be an outer ring.");
-
-                polygons.Last().Add(new XElement(kml + (isInnerRing ? "innerBoundaryIs" : "outerBoundaryIs"),
-                    new XElement(kml + "LinearRing",
-                        new XElement(kml + "coordinates", ring.ToCoordinates(z)))));
-            }
-
-            return new XElement(kml + "MultiGeometry", polygons);
+            return new XElement(kml + "MultiGeometry",
+                geometry.GroupRings().Select(p => new XElement(kml + "Polygon", extraElements,
+                    p.Select(r => new XElement(kml + (r.IsInnerRing() ? "innerBoundaryIs" : "outerBoundaryIs"),
+                        new XElement(kml + "LinearRing",
+                            new XElement(kml + "coordinates", r.ToCoordinates(z))))))));
         }
 
         /// <summary>

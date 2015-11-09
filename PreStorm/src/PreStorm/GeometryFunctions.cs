@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PreStorm
@@ -144,6 +145,26 @@ namespace PreStorm
         {
             return Enumerable.Range(0, ring.Length - 1)
                 .Sum(i => ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]) > 0;
+        }
+
+        internal static List<List<double[][]>> GroupRings(this Polygon polygon)
+        {
+            var polygons = new List<List<double[][]>>();
+
+            foreach (var ring in polygon.rings)
+            {
+                var isInnerRing = ring.IsInnerRing();
+
+                if (!isInnerRing)
+                    polygons.Add(new List<double[][]>());
+
+                if (polygons.Count == 0)
+                    throw new InvalidOperationException("The first ring of a polygon must be an outer ring.");
+
+                polygons.Last().Add(ring);
+            }
+
+            return polygons;
         }
 
         #endregion
@@ -623,8 +644,14 @@ namespace PreStorm
         {
             AssertNotNull(point);
 
-            var extent = new Envelope { xmin = point.x, ymin = point.y, xmax = point.x, ymax = point.y };
-            extent.spatialReference = point.spatialReference;
+            var extent = new Envelope
+            {
+                xmin = point.x,
+                ymin = point.y,
+                xmax = point.x,
+                ymax = point.y,
+                spatialReference = point.spatialReference
+            };
 
             return extent;
         }
