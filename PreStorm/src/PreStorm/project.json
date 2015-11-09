@@ -1,5 +1,5 @@
 {
-  "version": "1.7.9-*",
+  "version": "1.7.10-*",
   "description": "A Data Client for ArcGIS Server REST API - converts features and rows into a (lazy) sequence of strongly-typed objects.",
   "authors": [ "Jiro Shirota" ],
   "tags": [ "Esri", "ArcGIS REST API", "ORM", "LINQ" ],
