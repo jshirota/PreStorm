@@ -389,6 +389,7 @@
   <HelpKINode Title="PreStorm.Text class" Url="html/a494da54-c13d-3feb-fbd5-6fafe4a1f435.htm" />
   <HelpKINode Title="PreStorm.Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
   <HelpKINode Title="PreStorm.UpdateResult class" Url="html/71f07408-2d2d-6f49-da55-33600f227b12.htm" />
+  <HelpKINode Title="PreStorm.Wkt class" Url="html/8839337d-8b33-0ef2-408d-ff3d27f7b658.htm" />
   <HelpKINode Title="Property property" Url="html/03d99116-012b-fb84-d977-87aea7f89729.htm" />
   <HelpKINode Title="PropertyChanged event" Url="html/6c222cb2-d7bf-32ef-24a1-fa264a1a47e9.htm" />
   <HelpKINode Title="RaisePropertyChanged method" Url="html/62c4b554-935b-d1e8-763b-183ce9fba439.htm" />
@@ -461,6 +462,7 @@
   </HelpKINode>
   <HelpKINode Title="ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
   <HelpKINode Title="Touches enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
+  <HelpKINode Title="ToWkt method" Url="html/efb9a1a0-3332-3ad3-d340-42cc9a4a3e6d.htm" />
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
     <HelpKINode Title="Field.type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
@@ -483,6 +485,12 @@
   <HelpKINode Title="Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="wkid property" Url="html/dac42945-4117-b1ec-f8ab-f43e0518ca10.htm" />
+  <HelpKINode Title="Wkt class">
+    <HelpKINode Title="Wkt Class" Url="html/8839337d-8b33-0ef2-408d-ff3d27f7b658.htm" />
+    <HelpKINode Title="about Wkt class" Url="html/8839337d-8b33-0ef2-408d-ff3d27f7b658.htm" />
+    <HelpKINode Title="methods" Url="html/1d300d34-079a-1165-54d3-cf5c337d3593.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Wkt.ToWkt method" Url="html/efb9a1a0-3332-3ad3-d340-42cc9a4a3e6d.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
   <HelpKINode Title="xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
