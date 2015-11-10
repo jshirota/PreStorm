@@ -84,6 +84,7 @@
   </HelpKINode>
   <HelpKINode Title="Envelope to String conversion" Url="html/6d12af43-b4b0-79ed-63d1-4cc4c2f78129.htm" />
   <HelpKINode Title="Envelope.Envelope constructor" Url="html/42594ff8-c356-f817-83da-356b95ff8b9f.htm" />
+  <HelpKINode Title="Envelope.FromJson method" Url="html/142256fd-ab54-0ab5-22a2-33da43171dea.htm" />
   <HelpKINode Title="Envelope.xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
   <HelpKINode Title="Envelope.xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
   <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
@@ -147,6 +148,19 @@
   <HelpKINode Title="Field.type property" Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
   <HelpKINode Title="FieldName property" Url="html/288253c6-3be5-873f-567b-6e070a3de085.htm" />
   <HelpKINode Title="fields property" Url="html/52d7cbfd-8cd0-9280-686f-34c06c125e7b.htm" />
+  <HelpKINode Title="FromJson method">
+    <HelpKINode Title="Envelope.FromJson Method " Url="html/142256fd-ab54-0ab5-22a2-33da43171dea.htm" />
+    <HelpKINode Title="Multipoint.FromJson Method " Url="html/38f57d99-f615-fdec-6ad6-0ea460623975.htm" />
+    <HelpKINode Title="Point.FromJson Method " Url="html/4bbcf87a-481d-db8d-152d-38e705666812.htm" />
+    <HelpKINode Title="Polygon.FromJson Method " Url="html/2c88dad6-8607-499a-e20b-f6861ba3d765.htm" />
+    <HelpKINode Title="Polyline.FromJson Method " Url="html/331e8c6e-9730-2eb6-1868-9fd1ce25ffe5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FromWkt method">
+    <HelpKINode Title="Multipoint.FromWkt Method " Url="html/881164d2-5b00-6f46-7293-09ce4ac0df64.htm" />
+    <HelpKINode Title="Point.FromWkt Method " Url="html/f1ececce-06c1-ac3b-2f77-1f0daebc51bd.htm" />
+    <HelpKINode Title="Polygon.FromWkt Method " Url="html/dd7fe54d-79ec-8c03-7047-07de9caf899a.htm" />
+    <HelpKINode Title="Polyline.FromWkt Method " Url="html/96e819b0-bceb-571c-4cff-5d05e5008661.htm" />
+  </HelpKINode>
   <HelpKINode Title="Geometry class">
     <HelpKINode Title="Geometry Class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
     <HelpKINode Title="about Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
@@ -181,6 +195,7 @@
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
   <HelpKINode Title="GeometryFunctions.Perimeter method" Url="html/dfef3532-a3b0-08d1-6d41-168e9321160d.htm" />
+  <HelpKINode Title="GeometryFunctions.ToJson method" Url="html/28a7c310-c68e-fca7-325d-1f96805594c8.htm" />
   <HelpKINode Title="GeometryFunctions.Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="GeometryFunctions.WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
@@ -305,6 +320,8 @@
     <HelpKINode Title="type conversions" Url="html/997c3793-b918-833f-2bb5-a21d20d22cde.htm" />
   </HelpKINode>
   <HelpKINode Title="Multipoint to String conversion" Url="html/52510435-5f09-c4e5-f9c1-062d53fed3d1.htm" />
+  <HelpKINode Title="Multipoint.FromJson method" Url="html/38f57d99-f615-fdec-6ad6-0ea460623975.htm" />
+  <HelpKINode Title="Multipoint.FromWkt method" Url="html/881164d2-5b00-6f46-7293-09ce4ac0df64.htm" />
   <HelpKINode Title="Multipoint.Multipoint constructor" Url="html/be54ad31-18eb-f001-7902-6a6030a7c7ae.htm" />
   <HelpKINode Title="Multipoint.points property" Url="html/766e7f5d-1a42-b5d9-f60a-209eec45c2ab.htm" />
   <HelpKINode Title="name property">
@@ -326,6 +343,8 @@
     <HelpKINode Title="type conversions" Url="html/e14587d8-f845-d1cf-3e83-51c2ad7e09eb.htm" />
   </HelpKINode>
   <HelpKINode Title="Point to String conversion" Url="html/9ecca7a3-4efa-47ae-bf0e-c3f313dfbee1.htm" />
+  <HelpKINode Title="Point.FromJson method" Url="html/4bbcf87a-481d-db8d-152d-38e705666812.htm" />
+  <HelpKINode Title="Point.FromWkt method" Url="html/f1ececce-06c1-ac3b-2f77-1f0daebc51bd.htm" />
   <HelpKINode Title="Point.Point constructor" Url="html/c82a63b5-08c2-4ecb-9e01-f42e3e8d506a.htm" />
   <HelpKINode Title="Point.x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="Point.y property" Url="html/a516ac45-d987-f88e-aa16-9d5d8b7189df.htm" />
@@ -340,6 +359,8 @@
     <HelpKINode Title="type conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm" />
   </HelpKINode>
   <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
+  <HelpKINode Title="Polygon.FromJson method" Url="html/2c88dad6-8607-499a-e20b-f6861ba3d765.htm" />
+  <HelpKINode Title="Polygon.FromWkt method" Url="html/dd7fe54d-79ec-8c03-7047-07de9caf899a.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
   <HelpKINode Title="Polygon.rings property" Url="html/4c8abf1a-7c60-2563-5ee5-593f4b5ee5d7.htm" />
   <HelpKINode Title="PolygonColour property" Url="html/955fa8d0-478e-df79-61a1-062b7b764b07.htm" />
@@ -352,6 +373,8 @@
     <HelpKINode Title="type conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm" />
   </HelpKINode>
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
+  <HelpKINode Title="Polyline.FromJson method" Url="html/331e8c6e-9730-2eb6-1868-9fd1ce25ffe5.htm" />
+  <HelpKINode Title="Polyline.FromWkt method" Url="html/96e819b0-bceb-571c-4cff-5d05e5008661.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
   <HelpKINode Title="Polyline.Polyline constructor" Url="html/ed08ebc0-2719-dc78-5802-a8be064e9098.htm" />
   <HelpKINode Title="Post method" Url="html/2c015716-a472-fcdf-55cb-78ca27ac031b.htm" />
@@ -445,6 +468,8 @@
     <HelpKINode Title="methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm" />
   </HelpKINode>
   <HelpKINode Title="Text.ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
+  <HelpKINode Title="ToGeometry method" Url="html/21bec1bc-a630-93f0-dfe3-a40037b2322b.htm" />
+  <HelpKINode Title="ToJson method" Url="html/28a7c310-c68e-fca7-325d-1f96805594c8.htm" />
   <HelpKINode Title="Token class">
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
@@ -490,6 +515,7 @@
     <HelpKINode Title="about Wkt class" Url="html/8839337d-8b33-0ef2-408d-ff3d27f7b658.htm" />
     <HelpKINode Title="methods" Url="html/1d300d34-079a-1165-54d3-cf5c337d3593.htm" />
   </HelpKINode>
+  <HelpKINode Title="Wkt.ToGeometry method" Url="html/21bec1bc-a630-93f0-dfe3-a40037b2322b.htm" />
   <HelpKINode Title="Wkt.ToWkt method" Url="html/efb9a1a0-3332-3ad3-d340-42cc9a4a3e6d.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
