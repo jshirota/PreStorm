@@ -195,7 +195,6 @@
   <HelpKINode Title="GeometryFunctions.Intersects method" Url="html/03ee8c41-3c5f-3c78-744e-0e9cedac1349.htm" />
   <HelpKINode Title="GeometryFunctions.Length method" Url="html/fefcac76-c2ba-990e-f14f-43219859404c.htm" />
   <HelpKINode Title="GeometryFunctions.Perimeter method" Url="html/dfef3532-a3b0-08d1-6d41-168e9321160d.htm" />
-  <HelpKINode Title="GeometryFunctions.ToJson method" Url="html/28a7c310-c68e-fca7-325d-1f96805594c8.htm" />
   <HelpKINode Title="GeometryFunctions.Within method" Url="html/801535af-f5db-4cf0-78dd-845dd78fb11e.htm" />
   <HelpKINode Title="GeometryFunctions.WithinDistance method" Url="html/521adb9f-201c-3292-979c-1057dd7f4337.htm" />
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
@@ -259,6 +258,13 @@
   <HelpKINode Title="IService.Layers property" Url="html/3bde12da-bfb8-4bc9-0052-8a3b82ff6867.htm" />
   <HelpKINode Title="IService.Url property" Url="html/d5654a67-0681-19c5-4af5-e27e175e9458.htm" />
   <HelpKINode Title="Item property" Url="html/9798c243-2558-1920-9072-fc985948ab87.htm" />
+  <HelpKINode Title="Json class">
+    <HelpKINode Title="Json Class" Url="html/784fde11-a7ce-8e8b-55ce-c7c2e4aa8e69.htm" />
+    <HelpKINode Title="about Json class" Url="html/784fde11-a7ce-8e8b-55ce-c7c2e4aa8e69.htm" />
+    <HelpKINode Title="methods" Url="html/7256cdf0-c018-335f-7a90-5260bcd4082d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Json.ToGeometry method" Url="html/551ba70a-04b3-0e9f-24df-15f0317531aa.htm" />
+  <HelpKINode Title="Json.ToJson method" Url="html/0dc75f2e-a58f-5cb6-7a3d-95b15a05f257.htm" />
   <HelpKINode Title="Kml class">
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
     <HelpKINode Title="about Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
@@ -397,6 +403,7 @@
   <HelpKINode Title="PreStorm.InsertResult(Of T) class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.InsertResult&lt;T&gt; class" Url="html/f5e2a67f-d50c-cabb-94ab-33534ab4e5ee.htm" />
   <HelpKINode Title="PreStorm.IService interface" Url="html/b915d1d2-12b9-3cf7-812d-0b8661bc09aa.htm" />
+  <HelpKINode Title="PreStorm.Json class" Url="html/784fde11-a7ce-8e8b-55ce-c7c2e4aa8e69.htm" />
   <HelpKINode Title="PreStorm.Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
   <HelpKINode Title="PreStorm.KmlStyle class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
   <HelpKINode Title="PreStorm.Layer class" Url="html/4ce02e44-927e-f754-75d1-fc379880969d.htm" />
@@ -468,8 +475,11 @@
     <HelpKINode Title="methods" Url="html/bbbc76b6-887f-32d8-f536-2bcad39b55a5.htm" />
   </HelpKINode>
   <HelpKINode Title="Text.ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
-  <HelpKINode Title="ToGeometry method" Url="html/21bec1bc-a630-93f0-dfe3-a40037b2322b.htm" />
-  <HelpKINode Title="ToJson method" Url="html/28a7c310-c68e-fca7-325d-1f96805594c8.htm" />
+  <HelpKINode Title="ToGeometry method">
+    <HelpKINode Title="Json.ToGeometry Method " Url="html/551ba70a-04b3-0e9f-24df-15f0317531aa.htm" />
+    <HelpKINode Title="Wkt.ToGeometry Method " Url="html/21bec1bc-a630-93f0-dfe3-a40037b2322b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToJson method" Url="html/0dc75f2e-a58f-5cb6-7a3d-95b15a05f257.htm" />
   <HelpKINode Title="Token class">
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
