@@ -169,6 +169,20 @@ namespace PreStorm
 
         #endregion
 
+        #region JSON
+
+        /// <summary>
+        /// Returns the JSON representation of the geometry.
+        /// </summary>
+        /// <param name="geometry"></param>
+        /// <returns></returns>
+        public static string ToJson(this GeometryBase geometry)
+        {
+            return geometry?.ToString();
+        }
+
+        #endregion
+
         #region Length / Area
 
         /// <summary>

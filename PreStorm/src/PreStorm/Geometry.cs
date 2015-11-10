@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace PreStorm
 {
@@ -100,6 +99,31 @@ namespace PreStorm
         {
             return point?.ToString();
         }
+
+        /// <summary>
+        /// Creates a new point from JSON.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static Point FromJson(string json)
+        {
+            return json;
+        }
+
+        /// <summary>
+        /// Creates a new point from well-known text (WKT).
+        /// </summary>
+        /// <param name="wkt"></param>
+        /// <returns></returns>
+        public static Point FromWkt(string wkt)
+        {
+            if (wkt == null)
+                return null;
+
+            var point = new Point();
+            point.LoadWkt(wkt);
+            return point;
+        }
     }
 
     /// <summary>
@@ -130,6 +154,31 @@ namespace PreStorm
         public static implicit operator string (Multipoint multipoint)
         {
             return multipoint?.ToString();
+        }
+
+        /// <summary>
+        /// Creates a new multipoint from JSON.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static Multipoint FromJson(string json)
+        {
+            return json;
+        }
+
+        /// <summary>
+        /// Creates a new multipoint from well-known text (WKT).
+        /// </summary>
+        /// <param name="wkt"></param>
+        /// <returns></returns>
+        public static Multipoint FromWkt(string wkt)
+        {
+            if (wkt == null)
+                return null;
+
+            var multipoint = new Multipoint();
+            multipoint.LoadWkt(wkt);
+            return multipoint;
         }
     }
 
@@ -162,6 +211,31 @@ namespace PreStorm
         {
             return polyline?.ToString();
         }
+
+        /// <summary>
+        /// Creates a new polyline from JSON.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static Polyline FromJson(string json)
+        {
+            return json;
+        }
+
+        /// <summary>
+        /// Creates a new polyline from well-known text (WKT).
+        /// </summary>
+        /// <param name="wkt"></param>
+        /// <returns></returns>
+        public static Polyline FromWkt(string wkt)
+        {
+            if (wkt == null)
+                return null;
+
+            var polyline = new Polyline();
+            polyline.LoadWkt(wkt);
+            return polyline;
+        }
     }
 
     /// <summary>
@@ -192,6 +266,31 @@ namespace PreStorm
         public static implicit operator string (Polygon polygon)
         {
             return polygon?.ToString();
+        }
+
+        /// <summary>
+        /// Creates a new polygon from JSON.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static Polygon FromJson(string json)
+        {
+            return json;
+        }
+
+        /// <summary>
+        /// Creates a new polygon from well-known text (WKT).
+        /// </summary>
+        /// <param name="wkt"></param>
+        /// <returns></returns>
+        public static Polygon FromWkt(string wkt)
+        {
+            if (wkt == null)
+                return null;
+
+            var polygon = new Polygon();
+            polygon.LoadWkt(wkt);
+            return polygon;
         }
     }
 
@@ -238,6 +337,16 @@ namespace PreStorm
         public static implicit operator string (Envelope envelope)
         {
             return envelope?.ToString();
+        }
+
+        /// <summary>
+        /// Creates a new envelope from JSON.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static Envelope FromJson(string json)
+        {
+            return json;
         }
     }
 }
