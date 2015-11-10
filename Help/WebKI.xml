@@ -487,7 +487,7 @@
   </HelpKINode>
   <HelpKINode Title="ToText method" Url="html/792705ae-0c55-7c19-9cfb-92358cc38e4a.htm" />
   <HelpKINode Title="Touches enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
-  <HelpKINode Title="ToWkt method" Url="html/efb9a1a0-3332-3ad3-d340-42cc9a4a3e6d.htm" />
+  <HelpKINode Title="ToWkt method" Url="html/63fc2e3c-6535-2e1c-8848-b4382ac5f816.htm" />
   <HelpKINode Title="type property">
     <HelpKINode Title="Domain.type Property " Url="html/1c9ac291-be22-f61f-5239-dca5e3c3abb7.htm" />
     <HelpKINode Title="Field.type Property " Url="html/1ee0c08a-01e5-b08f-cc73-045e2e20ef62.htm" />
@@ -516,7 +516,7 @@
     <HelpKINode Title="methods" Url="html/1d300d34-079a-1165-54d3-cf5c337d3593.htm" />
   </HelpKINode>
   <HelpKINode Title="Wkt.ToGeometry method" Url="html/21bec1bc-a630-93f0-dfe3-a40037b2322b.htm" />
-  <HelpKINode Title="Wkt.ToWkt method" Url="html/efb9a1a0-3332-3ad3-d340-42cc9a4a3e6d.htm" />
+  <HelpKINode Title="Wkt.ToWkt method" Url="html/63fc2e3c-6535-2e1c-8848-b4382ac5f816.htm" />
   <HelpKINode Title="x property" Url="html/10c28274-1d73-991c-730a-d7d4cd714122.htm" />
   <HelpKINode Title="xmax property" Url="html/f6bf7bc3-9caa-c7d3-87b0-a6acf760b0a6.htm" />
   <HelpKINode Title="xmin property" Url="html/32c4f941-c907-b1e3-d738-d0af445e6187.htm" />
