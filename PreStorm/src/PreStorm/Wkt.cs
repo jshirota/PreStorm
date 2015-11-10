@@ -55,7 +55,7 @@ namespace PreStorm
             if (Regex.IsMatch(wkt, $@"^\s*{type}\s+EMPTY\s*$", RegexOptions.IgnoreCase))
                 return null;
 
-            return Regex.Replace(Regex.Replace(wkt, @"(?<x>\-?\d+(\.\d+))?\s+(?<y>\-?\d+(\.\d+)?)",
+            return Regex.Replace(Regex.Replace(wkt, @"(?<x>\-?\d+(\.\d+)?)\s+(?<y>\-?\d+(\.\d+)?)",
                 m => $"[{m.Groups["x"]},{m.Groups["y"]}]"), type, "", RegexOptions.IgnoreCase)
                 .Replace("(", "[")
                 .Replace(")", "]");
