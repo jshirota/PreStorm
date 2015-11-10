@@ -24,7 +24,8 @@ namespace PreStorm
 
             try
             {
-                responseText = isPost ? Http.Post(url2, requestText, r => r.Credentials = credentials) : Http.Get(url2, r => r.Credentials = credentials);
+                var requestModifier = credentials == null ? (Action<HttpWebRequest>)null : r => r.Credentials = credentials;
+                responseText = isPost ? Http.Post(url2, requestText, requestModifier) : Http.Get(url2, requestModifier);
 
                 var response = responseText.Deserialize<T>();
                 var errorMessage = "ArcGIS Server returned an error response.";
