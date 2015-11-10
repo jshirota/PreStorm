@@ -9,12 +9,7 @@ namespace PreStorm
     /// </summary>
     public static class Wkt
     {
-        /// <summary>
-        /// Converts the point to well-known text (WKT).
-        /// </summary>
-        /// <param name="point"></param>
-        /// <returns></returns>
-        public static string ToWkt(this Point point)
+        internal static string ToWkt(this Point point)
         {
             if (point == null)
                 return null;
@@ -22,12 +17,7 @@ namespace PreStorm
             return $"POINT({point.x} {point.y})";
         }
 
-        /// <summary>
-        /// Converts the multipoint to well-known text (WKT).
-        /// </summary>
-        /// <param name="multipoint"></param>
-        /// <returns></returns>
-        public static string ToWkt(this Multipoint multipoint)
+        internal static string ToWkt(this Multipoint multipoint)
         {
             if (multipoint == null)
                 return null;
@@ -38,12 +28,7 @@ namespace PreStorm
             return $"MULTIPOINT({string.Join(",", multipoint.points.Select(p => $"({p[0]} {p[1]})"))})";
         }
 
-        /// <summary>
-        /// Converts the polyline to well-known text (WKT).
-        /// </summary>
-        /// <param name="polyline"></param>
-        /// <returns></returns>
-        public static string ToWkt(this Polyline polyline)
+        internal static string ToWkt(this Polyline polyline)
         {
             if (polyline == null)
                 return null;
@@ -54,12 +39,7 @@ namespace PreStorm
             return $"MULTILINESTRING({string.Join(",", polyline.paths.Select(p => $"({string.Join(",", p.Select(c => $"{c[0]} {c[1]}"))})"))})";
         }
 
-        /// <summary>
-        /// Converts the polygon to well-known text (WKT).
-        /// </summary>
-        /// <param name="polygon"></param>
-        /// <returns></returns>
-        public static string ToWkt(this Polygon polygon)
+        internal static string ToWkt(this Polygon polygon)
         {
             if (polygon == null)
                 return null;
@@ -68,6 +48,47 @@ namespace PreStorm
                 return "MULTIPOLYGON EMPTY";
 
             return $"MULTIPOLYGON({string.Join(",", polygon.GroupRings().Select(p => $"({string.Join(",", p.Select(r => $"({string.Join(",", r.Select(c => $"{c[0]} {c[1]}"))})"))})"))})";
+        }
+
+        private static string ToJson(this string wkt, string type)
+        {
+            if (Regex.IsMatch(wkt, $@"^\s*{type}\s+EMPTY\s*$", RegexOptions.IgnoreCase))
+                return null;
+
+            return Regex.Replace(Regex.Replace(wkt, @"(?<x>\-?\d+(\.\d+))?\s+(?<y>\-?\d+(\.\d+)?)",
+                m => $"[{m.Groups["x"]},{m.Groups["y"]}]"), type, "", RegexOptions.IgnoreCase)
+                .Replace("(", "[")
+                .Replace(")", "]");
+        }
+
+        internal static void LoadWkt(this Point point, string wkt)
+        {
+            var json = wkt.ToJson("POINT");
+
+            if (json == null)
+                throw new ArgumentException("Empty point is not supported.", nameof(wkt));
+
+            var coordinates = json.Deserialize<double[][]>()[0];
+            point.x = coordinates[0];
+            point.y = coordinates[1];
+        }
+
+        internal static void LoadWkt(this Multipoint multipoint, string wkt)
+        {
+            var json = wkt.ToJson("MULTIPOINT");
+            multipoint.points = json == null ? new double[][] { } : json.Deserialize<double[][]>();
+        }
+
+        internal static void LoadWkt(this Polyline polyline, string wkt)
+        {
+            var json = wkt.ToJson("MULTILINESTRING");
+            polyline.paths = json == null ? new double[][][] { } : json.Deserialize<double[][][]>();
+        }
+
+        internal static void LoadWkt(this Polygon polygon, string wkt)
+        {
+            var json = wkt.ToJson("MULTIPOLYGON");
+            polygon.rings = json == null ? new double[][][] { } : json.Deserialize<double[][][][]>().SelectMany(p => p).ToArray();
         }
 
         /// <summary>
@@ -121,47 +142,6 @@ namespace PreStorm
                 return Polygon.FromWkt(wkt);
 
             throw new ArgumentException("This geometry type is not supported.", nameof(wkt));
-        }
-
-        private static string ToJson(this string wkt, string type)
-        {
-            if (Regex.IsMatch(wkt, $@"^\s*{type}\s+EMPTY\s*$", RegexOptions.IgnoreCase))
-                return null;
-
-            return Regex.Replace(Regex.Replace(wkt, @"(?<x>\-?\d+(\.\d+))?\s+(?<y>\-?\d+(\.\d+)?)",
-                m => $"[{m.Groups["x"]},{m.Groups["y"]}]"), type, "", RegexOptions.IgnoreCase)
-                .Replace("(", "[")
-                .Replace(")", "]");
-        }
-
-        internal static void LoadWkt(this Point point, string wkt)
-        {
-            var json = wkt.ToJson("POINT");
-
-            if (json == null)
-                throw new ArgumentException("Empty point is not supported.", nameof(wkt));
-
-            var coordinates = json.Deserialize<double[][]>()[0];
-            point.x = coordinates[0];
-            point.y = coordinates[1];
-        }
-
-        internal static void LoadWkt(this Multipoint multipoint, string wkt)
-        {
-            var json = wkt.ToJson("MULTIPOINT");
-            multipoint.points = json == null ? new double[][] { } : json.Deserialize<double[][]>();
-        }
-
-        internal static void LoadWkt(this Polyline polyline, string wkt)
-        {
-            var json = wkt.ToJson("MULTILINESTRING");
-            polyline.paths = json == null ? new double[][][] { } : json.Deserialize<double[][][]>();
-        }
-
-        internal static void LoadWkt(this Polygon polygon, string wkt)
-        {
-            var json = wkt.ToJson("MULTIPOLYGON");
-            polygon.rings = json == null ? new double[][][] { } : json.Deserialize<double[][][][]>().SelectMany(p => p).ToArray();
         }
     }
 }
