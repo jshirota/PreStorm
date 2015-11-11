@@ -81,7 +81,12 @@ namespace PreStorm
 
             if (UnmappedFields.ContainsKey(fieldName))
             {
-                return UnmappedFields[fieldName];
+                var value= UnmappedFields[fieldName];
+
+                if (value is long)
+                    return Convert.ToInt32(value);
+
+                return value;
             }
 
             throw new MissingFieldException($"Field '{fieldName}' does not exist.");
