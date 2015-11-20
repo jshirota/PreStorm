@@ -37,7 +37,7 @@ Here are some of the key features:
 - supports ArcGIS Server 10.0 and up
 - supports .NET 4.0 and up
 - supports .NET Core, ASP.NET 5 and Windows 10 UWP
-- runs on OS X via Mono
+- runs on OS X via Mono or CoreCLR
 - strong support for fluent programming in C# and Visual Basic
 
 ========
