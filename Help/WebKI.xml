@@ -269,7 +269,9 @@
     <HelpKINode Title="Kml Class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
     <HelpKINode Title="about Kml class" Url="html/4bded48e-56ec-fa39-5a8c-6fb4557c286d.htm" />
     <HelpKINode Title="methods" Url="html/74df0859-6a60-2fb0-7633-6b2a0b842113.htm" />
+    <HelpKINode Title="properties" Url="html/bb4c7614-786f-825d-704f-7d8f0b7c828d.htm" />
   </HelpKINode>
+  <HelpKINode Title="Kml.ns property" Url="html/530b7d60-9fd9-22c8-9e6c-c99ce46a878e.htm" />
   <HelpKINode Title="Kml.ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
   <HelpKINode Title="KmlStyle class">
     <HelpKINode Title="KmlStyle Class" Url="html/d709112d-0e86-2db6-60a7-f90f1fe2b2cd.htm" />
@@ -336,6 +338,7 @@
     <HelpKINode Title="Field.name Property " Url="html/06690fe0-05fb-515b-89d3-2b5e305d918a.htm" />
     <HelpKINode Title="Layer.name Property " Url="html/baf3df24-a2bd-0999-8b55-2406b681bb5f.htm" />
   </HelpKINode>
+  <HelpKINode Title="ns property" Url="html/530b7d60-9fd9-22c8-9e6c-c99ce46a878e.htm" />
   <HelpKINode Title="OID property" Url="html/17e63673-5809-1643-ab66-cc2280a73cb3.htm" />
   <HelpKINode Title="Overlaps enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
   <HelpKINode Title="paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
