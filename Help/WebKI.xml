@@ -20,6 +20,8 @@
   <HelpKINode Title="Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Crosses enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
+  <HelpKINode Title="curvePaths property" Url="html/43610951-cde2-fcd5-98b7-9b81614c39f7.htm" />
+  <HelpKINode Title="curveRings property" Url="html/48f50b11-fa8b-4011-f347-8a4f9cc5dc13.htm" />
   <HelpKINode Title="Delete method" Url="html/71eed575-a169-bfa7-c7fb-d3e69bb3f2cc.htm" />
   <HelpKINode Title="DeleteResult class">
     <HelpKINode Title="DeleteResult Class" Url="html/c3f2c95d-466a-420a-b510-474c858cf8b8.htm" />
@@ -368,6 +370,7 @@
     <HelpKINode Title="type conversions" Url="html/5acd5115-451c-132e-b9d1-a98c7c0f30e8.htm" />
   </HelpKINode>
   <HelpKINode Title="Polygon to String conversion" Url="html/6f16a15b-373d-5fdc-15b0-f1d5316a409c.htm" />
+  <HelpKINode Title="Polygon.curveRings property" Url="html/48f50b11-fa8b-4011-f347-8a4f9cc5dc13.htm" />
   <HelpKINode Title="Polygon.FromJson method" Url="html/2c88dad6-8607-499a-e20b-f6861ba3d765.htm" />
   <HelpKINode Title="Polygon.FromWkt method" Url="html/dd7fe54d-79ec-8c03-7047-07de9caf899a.htm" />
   <HelpKINode Title="Polygon.Polygon constructor" Url="html/a6142b88-2a36-d60c-e80f-26f787f2a961.htm" />
@@ -382,6 +385,7 @@
     <HelpKINode Title="type conversions" Url="html/d2af2398-0a4e-b2fd-0fac-cc7fa5c83b29.htm" />
   </HelpKINode>
   <HelpKINode Title="Polyline to String conversion" Url="html/3fae6ffd-4873-9b0c-20d8-7a3ccd1f88d3.htm" />
+  <HelpKINode Title="Polyline.curvePaths property" Url="html/43610951-cde2-fcd5-98b7-9b81614c39f7.htm" />
   <HelpKINode Title="Polyline.FromJson method" Url="html/331e8c6e-9730-2eb6-1868-9fd1ce25ffe5.htm" />
   <HelpKINode Title="Polyline.FromWkt method" Url="html/96e819b0-bceb-571c-4cff-5d05e5008661.htm" />
   <HelpKINode Title="Polyline.paths property" Url="html/4e14785f-f338-7ff4-74a1-9d55cc21f3d5.htm" />
