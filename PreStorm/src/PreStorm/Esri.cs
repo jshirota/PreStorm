@@ -350,7 +350,9 @@ namespace PreStorm
         public double? z { get; set; }
         public double[][] points { get; set; }
         public double[][][] paths { get; set; }
+        public object[][] curvePaths { get; set; }
         public double[][][] rings { get; set; }
+        public object[][] curveRings { get; set; }
     }
 
     internal class EditResult

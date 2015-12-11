@@ -95,7 +95,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static implicit operator string (Point point)
+        public static implicit operator string(Point point)
         {
             return point?.ToString();
         }
@@ -151,7 +151,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="multipoint"></param>
         /// <returns></returns>
-        public static implicit operator string (Multipoint multipoint)
+        public static implicit operator string(Multipoint multipoint)
         {
             return multipoint?.ToString();
         }
@@ -193,6 +193,12 @@ namespace PreStorm
         public double[][][] paths { get; set; }
 
         /// <summary>
+        /// The array of paths that may contain true curves.
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public object[][] curvePaths { get; set; }
+
+        /// <summary>
         /// Deserializes the JSON string into a Polyline object.
         /// </summary>
         /// <param name="json"></param>
@@ -207,7 +213,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="polyline"></param>
         /// <returns></returns>
-        public static implicit operator string (Polyline polyline)
+        public static implicit operator string(Polyline polyline)
         {
             return polyline?.ToString();
         }
@@ -249,6 +255,12 @@ namespace PreStorm
         public double[][][] rings { get; set; }
 
         /// <summary>
+        /// The array of rings that may contain true curves.
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public object[][] curveRings { get; set; }
+
+        /// <summary>
         /// Deserializes the JSON string into a Polygon object.
         /// </summary>
         /// <param name="json"></param>
@@ -263,7 +275,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static implicit operator string (Polygon polygon)
+        public static implicit operator string(Polygon polygon)
         {
             return polygon?.ToString();
         }
@@ -334,7 +346,7 @@ namespace PreStorm
         /// </summary>
         /// <param name="envelope"></param>
         /// <returns></returns>
-        public static implicit operator string (Envelope envelope)
+        public static implicit operator string(Envelope envelope)
         {
             return envelope?.ToString();
         }

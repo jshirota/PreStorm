@@ -71,9 +71,9 @@ namespace PreStorm
                 else if (g.points != null)
                     f.Geometry = new Multipoint { points = g.points };
                 else if (g.paths != null)
-                    f.Geometry = new Polyline { paths = g.paths };
+                    f.Geometry = new Polyline { paths = g.paths, curvePaths = g.curvePaths };
                 else if (g.rings != null)
-                    f.Geometry = new Polygon { rings = g.rings };
+                    f.Geometry = new Polygon { rings = g.rings, curveRings = g.curveRings };
             }
 
             feature.IsDirty = false;
