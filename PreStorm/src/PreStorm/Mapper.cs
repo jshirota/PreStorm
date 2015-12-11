@@ -70,9 +70,9 @@ namespace PreStorm
                     f.Geometry = new Point { x = g.x, y = g.y, z = g.z };
                 else if (g.points != null)
                     f.Geometry = new Multipoint { points = g.points };
-                else if (g.paths != null)
+                else if (g.paths != null || g.curvePaths != null)
                     f.Geometry = new Polyline { paths = g.paths, curvePaths = g.curvePaths };
-                else if (g.rings != null)
+                else if (g.rings != null || g.curveRings != null)
                     f.Geometry = new Polygon { rings = g.rings, curveRings = g.curveRings };
             }
 

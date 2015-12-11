@@ -45,7 +45,7 @@ namespace PreStorm
         private static XElement ToKmlPolyline(this Polyline geometry, double? z, XElement[] extraElements)
         {
             return new XElement(ns + "MultiGeometry",
-                geometry.paths.Select(p =>
+                geometry.paths?.Select(p =>
                     new XElement(ns + "LineString", extraElements,
                         new XElement(ns + "coordinates", p.ToCoordinates(z)))));
         }

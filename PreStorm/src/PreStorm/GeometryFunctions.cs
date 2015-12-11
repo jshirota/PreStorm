@@ -151,6 +151,9 @@ namespace PreStorm
         {
             var polygons = new List<List<double[][]>>();
 
+            if (polygon.rings == null)
+                return polygons;
+
             foreach (var ring in polygon.rings)
             {
                 var isInnerRing = ring.IsInnerRing();
