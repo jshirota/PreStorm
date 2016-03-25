@@ -145,7 +145,7 @@ namespace PreStorm
             var tokenUrl = url.IsArcGISOnline()
                 ? "https://www.arcgis.com/sharing/rest/generateToken"
                 : $"{Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value}/tokens/generateToken";
-            var data = $"userName={userName}&password={password}&clientid=requestip";
+            var data = $"userName={Compatibility.UrlEncode(userName)}&password={Compatibility.UrlEncode(password)}&clientid=requestip";
 
             return GetResponse<TokenInfo>(tokenUrl, data, null, null, null);
         }
