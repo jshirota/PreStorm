@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
@@ -27,10 +26,7 @@ namespace PreStorm
 
                 if (value != null)
                 {
-                    var t = m.Property.PropertyType;
-
-                    if (Compatibility.IsGenericType(t) && t.GetGenericTypeDefinition() == typeof(Nullable<>))
-                        t = new NullableConverter(t).UnderlyingType;
+                    var t = m.Property.PropertyType.GetUnderlyingType();
 
                     if (t == typeof(DateTime))
                     {

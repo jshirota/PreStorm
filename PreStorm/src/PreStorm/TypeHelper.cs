@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
@@ -34,6 +35,14 @@ namespace PreStorm
         public static Mapped[] GetMappings(this Type type)
         {
             return GetMappingsMemoized(type);
+        }
+
+        public static Type GetUnderlyingType(this Type type)
+        {
+            if (Compatibility.IsGenericType(type) && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                return new NullableConverter(type).UnderlyingType;
+
+            return type;
         }
     }
 }
