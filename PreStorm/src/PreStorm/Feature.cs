@@ -20,8 +20,8 @@ namespace PreStorm
         internal readonly List<string> ChangedFields = new List<string>();
         internal bool GeometryChanged;
 
-        internal readonly Dictionary<string, string> _propertyToField;
-        internal readonly Dictionary<string, string> _fieldToProperty;
+        private readonly Dictionary<string, string> _propertyToField;
+        private readonly Dictionary<string, string> _fieldToProperty;
 
         /// <summary>
         /// Initializes a new instance of the Feature class.
@@ -136,6 +136,43 @@ namespace PreStorm
             set { SetValue(fieldName, value); }
         }
 
+        /// <summary>
+        /// Converts this feature to a new object of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T Cast<T>() where T : Feature
+        {
+            var f = Create<T>();
+
+            f.ServiceArgs = ServiceArgs;
+            f.Layer = Layer;
+            f.OID = OID;
+
+            foreach (var fieldName in GetFieldNames())
+            {
+                var value = this[fieldName];
+
+                if (value != null && f._fieldToProperty.ContainsKey(fieldName))
+                {
+                    var p = typeof(T).GetProperty(f._fieldToProperty[fieldName]);
+                    var t = p.PropertyType.GetUnderlyingType();
+                    f[fieldName] = Convert.ChangeType(value, t);
+                }
+                else
+                {
+                    f[fieldName] = value;
+                }
+            }
+
+            if (typeof(T).HasGeometry() && GetType().HasGeometry())
+                ((dynamic)f).Geometry = ((dynamic)this).Geometry;
+
+            f.IsDirty = false;
+
+            return f;
+        }
+
         private bool _isDirty;
 
         /// <summary>
@@ -244,49 +281,5 @@ namespace PreStorm
     /// </summary>
     public class DynamicFeature : Feature<Geometry>
     {
-    }
-
-    /// <summary>
-    /// Provides extension methods for the feature object.
-    /// </summary>
-    public static class FeatureExtensions
-    {
-        /// <summary>
-        /// Converts this feature to a new object of the specified type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="feature"></param>
-        /// <returns></returns>
-        public static T Cast<T>(this Feature feature) where T : Feature
-        {
-            var f = Feature.Create<T>();
-
-            f.ServiceArgs = feature.ServiceArgs;
-            f.Layer = feature.Layer;
-            f.OID = feature.OID;
-
-            foreach (var fieldName in feature.GetFieldNames())
-            {
-                var value = feature[fieldName];
-
-                if (value != null && f._fieldToProperty.ContainsKey(fieldName))
-                {
-                    var p = typeof(T).GetProperty(f._fieldToProperty[fieldName]);
-                    var t = p.PropertyType.GetUnderlyingType();
-                    f[fieldName] = Convert.ChangeType(value, t);
-                }
-                else
-                {
-                    f[fieldName] = value;
-                }
-            }
-
-            if (typeof(T).HasGeometry() && feature.GetType().HasGeometry())
-                ((dynamic)f).Geometry = ((dynamic)feature).Geometry;
-
-            f.IsDirty = false;
-
-            return f;
-        }
     }
 }
