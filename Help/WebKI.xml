@@ -2,6 +2,8 @@
 <HelpKI>
   <HelpKINode Title="Area method" Url="html/9308d070-2764-8922-1619-25114b2f4939.htm" />
   <HelpKINode Title="Buffer method" Url="html/68387353-f0cf-ed2f-db5d-3ca2056b0bc7.htm" />
+  <HelpKINode Title="Cast(Of T) method" Url="html/64151981-1a17-4004-3fb6-21f34d791c72.htm" />
+  <HelpKINode Title="Cast&lt;T&gt; method" Url="html/64151981-1a17-4004-3fb6-21f34d791c72.htm" />
   <HelpKINode Title="Centre method" Url="html/b4a445ca-839b-93d2-5e28-1ab1a0b00543.htm" />
   <HelpKINode Title="Changed method" Url="html/bc8f0439-60ca-353f-d9f2-350522603199.htm" />
   <HelpKINode Title="code property" Url="html/45c918f6-8eb9-6c18-a970-638e07e53131.htm" />
@@ -115,6 +117,8 @@
   </HelpKINode>
   <HelpKINode Title="Feature(Of T).Feature constructor" Url="html/16c55f8d-712c-79f7-573b-081b021f0bf2.htm" />
   <HelpKINode Title="Feature(Of T).Geometry property" Url="html/246592f7-de46-f75f-6adb-1a4f2ee51c4d.htm" />
+  <HelpKINode Title="Feature.Cast(Of T) method" Url="html/64151981-1a17-4004-3fb6-21f34d791c72.htm" />
+  <HelpKINode Title="Feature.Cast&lt;T&gt; method" Url="html/64151981-1a17-4004-3fb6-21f34d791c72.htm" />
   <HelpKINode Title="Feature.Changed method" Url="html/bc8f0439-60ca-353f-d9f2-350522603199.htm" />
   <HelpKINode Title="Feature.Create(Of T) method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
   <HelpKINode Title="Feature.Create&lt;T&gt; method" Url="html/bbe4c3ea-19fd-ac90-0526-2cacbd4a7757.htm" />
