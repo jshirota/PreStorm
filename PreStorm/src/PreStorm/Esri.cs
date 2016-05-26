@@ -17,7 +17,7 @@ namespace PreStorm
 
             var isPost = data != null;
 
-            var url2 = isPost ? url : (url + "?" + queryString);
+            var url2 = isPost ? url : url + "?" + queryString;
             var requestText = isPost ? data + "&" + queryString : "";
 
             string responseText = null;
@@ -140,12 +140,12 @@ namespace PreStorm
             return Regex.IsMatch(url, @"\.arcgis\.com/", RegexOptions.IgnoreCase);
         }
 
-        public static TokenInfo GetTokenInfo(string url, string userName, string password)
+        public static TokenInfo GetTokenInfo(string url, string username, string password, int? expiration)
         {
             var tokenUrl = url.IsArcGISOnline()
                 ? "https://www.arcgis.com/sharing/rest/generateToken"
                 : $"{Regex.Match(url, @"^http.*?(?=(/rest/services/))", RegexOptions.IgnoreCase).Value}/tokens/generateToken";
-            var data = $"userName={Compatibility.UrlEncode(userName)}&password={Compatibility.UrlEncode(password)}&clientid=requestip";
+            var data = $"username={Compatibility.UrlEncode(username)}&password={Compatibility.UrlEncode(password)}&clientid=requestip&expiration={expiration}";
 
             return GetResponse<TokenInfo>(tokenUrl, data, null, null, null);
         }

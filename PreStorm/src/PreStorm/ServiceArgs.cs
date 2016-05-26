@@ -11,7 +11,7 @@ namespace PreStorm
 
         public ServiceArgs(string url, ICredentials credentials, Token token, string gdbVersion)
         {
-            if (token != null)
+            if (token != null && token.Url == null)
                 token.Url = url;
 
             Url = url;
