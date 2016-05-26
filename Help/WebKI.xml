@@ -94,10 +94,7 @@
   <HelpKINode Title="Envelope.ymax property" Url="html/6f1824bf-3bd9-cfb1-00b6-f23ca451ff4c.htm" />
   <HelpKINode Title="Envelope.ymin property" Url="html/2bec424c-f201-7604-f9cd-72d59e678e2b.htm" />
   <HelpKINode Title="EnvelopeIntersects enumeration member" Url="html/c1e71b91-0762-37ee-4a06-4d7e87c3013d.htm" />
-  <HelpKINode Title="Equals method">
-    <HelpKINode Title="KmlStyle.Equals Method " Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
-    <HelpKINode Title="Token.Equals Method " Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
-  </HelpKINode>
+  <HelpKINode Title="Equals method" Url="html/3433f515-706a-9ec3-7184-91a2442c542d.htm" />
   <HelpKINode Title="Extent method" Url="html/3ef442bd-9b88-5630-df83-2cabbd727c35.htm" />
   <HelpKINode Title="Feature class">
     <HelpKINode Title="Feature Class" Url="html/a2356d82-f666-6980-50d7-6da7d04af306.htm" />
@@ -167,6 +164,7 @@
     <HelpKINode Title="Polygon.FromWkt Method " Url="html/dd7fe54d-79ec-8c03-7047-07de9caf899a.htm" />
     <HelpKINode Title="Polyline.FromWkt Method " Url="html/96e819b0-bceb-571c-4cff-5d05e5008661.htm" />
   </HelpKINode>
+  <HelpKINode Title="GenerateToken method" Url="html/3c97979e-a9e9-5f34-669d-6408161d3238.htm" />
   <HelpKINode Title="Geometry class">
     <HelpKINode Title="Geometry Class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
     <HelpKINode Title="about Geometry class" Url="html/9eb24c1d-2189-364d-5ae0-cca8f37fe6c9.htm" />
@@ -206,10 +204,7 @@
   <HelpKINode Title="geometryType property" Url="html/052da03d-4bc7-5b36-3aea-1c1b7b152744.htm" />
   <HelpKINode Title="Get method" Url="html/ef98ad08-e759-89a2-8f6a-91cb16c56a78.htm" />
   <HelpKINode Title="GetFieldNames method" Url="html/2abba255-b26b-5ac1-4aed-b3d94e8f6a51.htm" />
-  <HelpKINode Title="GetHashCode method">
-    <HelpKINode Title="KmlStyle.GetHashCode Method " Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
-    <HelpKINode Title="Token.GetHashCode Method " Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
-  </HelpKINode>
+  <HelpKINode Title="GetHashCode method" Url="html/16493b82-e4ef-363d-68de-bbe48c25e92c.htm" />
   <HelpKINode Title="GetMappings method" Url="html/1ce70b9b-0728-eef7-d6ae-427d45b1f45d.htm" />
   <HelpKINode Title="GetObjectData method" Url="html/8a0be9f5-51f1-ef5c-2d0d-4a4ba148757c.htm" />
   <HelpKINode Title="hasZ property" Url="html/56472507-464d-d4ac-312a-5ad1049a5a85.htm" />
@@ -325,6 +320,7 @@
   <HelpKINode Title="Mapped.FieldName property" Url="html/288253c6-3be5-873f-567b-6e070a3de085.htm" />
   <HelpKINode Title="Mapped.Mapped constructor" Url="html/667e8053-b0a4-41a6-6a8c-6a729001c292.htm" />
   <HelpKINode Title="Mapped.Property property" Url="html/03d99116-012b-fb84-d977-87aea7f89729.htm" />
+  <HelpKINode Title="MinutesRemaining property" Url="html/295a3cd2-0647-4e5e-8716-2f33e9c2124f.htm" />
   <HelpKINode Title="Multipoint class">
     <HelpKINode Title="Multipoint Class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm" />
     <HelpKINode Title="about Multipoint class" Url="html/79a4212e-acc2-4561-6708-d67e7fbabc7d.htm" />
@@ -495,12 +491,16 @@
     <HelpKINode Title="Token Class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="about Token class" Url="html/a126afeb-ef0f-8fe7-4bbf-1f36f60c98f6.htm" />
     <HelpKINode Title="constructor" Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm" />
+    <HelpKINode Title="events" Url="html/0cfebdc9-0194-e43a-3ac6-d5ac83bafdc5.htm" />
     <HelpKINode Title="methods" Url="html/295e1cbf-28c9-5b4f-4d38-152b8956c640.htm" />
+    <HelpKINode Title="properties" Url="html/1d5ca44d-41ec-d6ad-507c-9da5b613fb0c.htm" />
   </HelpKINode>
-  <HelpKINode Title="Token.Equals method" Url="html/0f48287b-988a-2684-4679-f6b25549c48b.htm" />
-  <HelpKINode Title="Token.GetHashCode method" Url="html/0f16203b-e3b1-085c-01ff-7da38ecb9f0e.htm" />
+  <HelpKINode Title="Token.GenerateToken method" Url="html/3c97979e-a9e9-5f34-669d-6408161d3238.htm" />
+  <HelpKINode Title="Token.MinutesRemaining property" Url="html/295a3cd2-0647-4e5e-8716-2f33e9c2124f.htm" />
   <HelpKINode Title="Token.Token constructor" Url="html/23d7072e-480f-31d0-3478-a442499865eb.htm" />
+  <HelpKINode Title="Token.TokenGenerated event" Url="html/a92652fe-2255-f3f9-6ff0-bd2b9c943f29.htm" />
   <HelpKINode Title="Token.ToString method" Url="html/6b08200f-c381-a212-4609-7db5ca6ff442.htm" />
+  <HelpKINode Title="TokenGenerated event" Url="html/a92652fe-2255-f3f9-6ff0-bd2b9c943f29.htm" />
   <HelpKINode Title="ToKml method" Url="html/06a50772-6bec-ddeb-e24d-e38df404afbe.htm" />
   <HelpKINode Title="ToString method">
     <HelpKINode Title="GeometryBase.ToString Method " Url="html/c26d96ac-9e81-5749-0a7f-c71bba1f3559.htm" />
