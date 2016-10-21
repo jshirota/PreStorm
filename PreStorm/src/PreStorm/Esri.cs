@@ -181,12 +181,13 @@ namespace PreStorm
 
         public static string GetObjectIdFieldName(this Layer layer)
         {
-            var objectIdFields = layer.fields.Where(f => f.type == "esriFieldTypeOID").ToArray();
+            var objectIdField = layer.fields.FirstOrDefault(f => f.type == "esriFieldTypeOID")
+                ?? layer.fields.FirstOrDefault(f => f.name.Equals("OBJECTID", StringComparison.OrdinalIgnoreCase));
 
-            if (objectIdFields.Length != 1)
-                throw new InvalidOperationException($"'{layer.name}' does not have one (and only one) field of type esriFieldTypeOID.");
+            if (objectIdField == null)
+                throw new InvalidOperationException($"'{layer.name}' does not have any field of type esriFieldTypeOID (or a field named 'OBJECTID').");
 
-            return objectIdFields.Single().name;
+            return objectIdField.name;
         }
     }
 
