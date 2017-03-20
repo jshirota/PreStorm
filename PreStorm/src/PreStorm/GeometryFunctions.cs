@@ -141,7 +141,7 @@ namespace PreStorm
             return points.All(p => polygon.Contains(new Point(p[0], p[1])));
         }
 
-        internal static bool IsInnerRing(this double[][] ring)
+        internal static bool IsClockwise(this double[][] ring)
         {
             return Enumerable.Range(0, ring.Length - 1)
                 .Sum(i => ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]) > 0;
@@ -151,14 +151,16 @@ namespace PreStorm
         {
             var polygons = new List<List<double[][]>>();
 
-            if (polygon.rings == null)
+            if (polygon?.rings?.FirstOrDefault() == null)
                 return polygons;
+
+            var isClockwise = polygon.rings.First().IsClockwise();
+
+            Func<double[][], bool> isOuterRing = r => r.IsClockwise() == isClockwise;
 
             foreach (var ring in polygon.rings)
             {
-                var isInnerRing = ring.IsInnerRing();
-
-                if (!isInnerRing)
+                if (isOuterRing(ring))
                     polygons.Add(new List<double[][]>());
 
                 if (polygons.Count == 0)
@@ -886,7 +888,7 @@ namespace PreStorm
             if (Null(polygon, point))
                 return false;
 
-            return polygon.rings.Where(r => Contains(r, point)).Sum(r => r.IsInnerRing() ? -1 : 1) > 0;
+            return polygon.rings.Where(r => Contains(r, point)).Sum(r => r.IsClockwise() ? -1 : 1) > 0;
         }
 
         /// <summary>

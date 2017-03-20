@@ -54,7 +54,7 @@ namespace PreStorm
         {
             return new XElement(ns + "MultiGeometry",
                 geometry.GroupRings().Select(p => new XElement(ns + "Polygon", extraElements,
-                    p.Select(r => new XElement(ns + (r.IsInnerRing() ? "innerBoundaryIs" : "outerBoundaryIs"),
+                    p.Select(r => new XElement(ns + (r.IsClockwise() ? "innerBoundaryIs" : "outerBoundaryIs"),
                         new XElement(ns + "LinearRing",
                             new XElement(ns + "coordinates", r.ToCoordinates(z))))))));
         }
