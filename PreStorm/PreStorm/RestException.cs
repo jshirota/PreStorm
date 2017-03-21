@@ -6,7 +6,7 @@ namespace PreStorm
     /// <summary>
     /// Represents errors that occur when handling a request against the ArcGIS Rest API.
     /// </summary>
-#if !DOTNET
+#if !NETCOREAPP1_0
     [Serializable]
 #endif
     public class RestException : Exception
@@ -42,7 +42,7 @@ namespace PreStorm
             Response = response;
         }
 
-#if !DOTNET
+#if !NETCOREAPP1_0
         // ReSharper disable RedundantOverridenMember
         /// <summary>
         /// When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo with information about the exception.

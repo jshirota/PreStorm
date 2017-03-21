@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyVersion>1.8.12.0</AssemblyVersion>
+    <FileVersion>1.8.12.0</FileVersion>
+    <Description>A Data Client for ArcGIS Server REST API - converts features and rows into a (lazy) sequence of strongly-typed objects.</Description>
+    <Company>Jiro Shirota</Company>
+    <Copyright>Copyright © Jiro Shirota 2017</Copyright>
+    <Version>1.8.13</Version>
+    <Authors />
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/jshirota/PreStorm</PackageProjectUrl>
+    <PackageTags>Esri ArcGIS REST API</PackageTags>
+    <RepositoryUrl>https://github.com/jshirota/PreStorm</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\Release\netcoreapp1.0\PreStorm.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp1.0\.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
