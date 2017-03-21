@@ -29,7 +29,7 @@ Here are some of the key features:
 - flexible and succinct KML generation
 - delimiter-separated text dump
 - implicit conversion operators for JSON geometries
-- supports geometry conversion to and from well-known text (WKT)
+- supports geometry conversion to well-known text (WKT)
 - z coordinates support
 - support for extra ArcGIS Rest query string parameters
 - Unicode tested
@@ -38,7 +38,7 @@ Here are some of the key features:
 - designed with WPF UI binding in mind (i.e. MVVM)
 - supports ArcGIS Server 10.0 and up
 - supports .NET 4.0 and up
-- supports .NET Core, ASP.NET 5 and Windows 10 UWP
+- supports .NET Core and Windows 10 UWP
 - runs on OS X via Mono or CoreCLR
 - strong support for fluent programming in C# and Visual Basic
 
