@@ -593,6 +593,7 @@ span.code, span.command {
 	font-size: 105%;
 	color: #000066;
 	font-family: Consolas, Courier, monospace;
+	background-color: #f4f4f4;
 }
 span.ui {
 	font-weight: bold;
@@ -790,4 +791,13 @@ sup.citation a:link a:visited a:active {
 
 /* Placeholder for the Help 1 user data style class */
 .userDataStyle {
+}
+
+
+
+.missing
+{
+	color:  #dc143c;
+	font-size: 8.5pt;
+	font-weight: bold;
 }
