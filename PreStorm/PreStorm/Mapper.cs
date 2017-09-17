@@ -64,11 +64,11 @@ namespace PreStorm
 
                 if (g.x > double.MinValue && g.y > double.MinValue)
                     f.Geometry = new Point { x = g.x, y = g.y, z = g.z };
-                else if (g.points != null)
+                else if (g.points?.Length > 0)
                     f.Geometry = new Multipoint { points = g.points };
-                else if (g.paths != null || g.curvePaths != null)
+                else if (g.paths?.Length > 0 || g.curvePaths != null)
                     f.Geometry = new Polyline { paths = g.paths, curvePaths = g.curvePaths };
-                else if (g.rings != null || g.curveRings != null)
+                else if (g.rings?.Length > 0 || g.curveRings != null)
                     f.Geometry = new Polygon { rings = g.rings, curveRings = g.curveRings };
             }
 
