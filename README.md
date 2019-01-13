@@ -1,15 +1,9 @@
-PreStorm ![PreStorm](http://jshirota.com/PreStorm/PreStorm.png "PreStorm")
+PreStorm
 ========
 
 A Parallel REST Client for ArcGIS Server
 
-Do you have Visual Studio?  Please try:
-
-http://jshirota.com/PreStorm/
-
 PreStorm is an ultra-lightweight HTTP client for ArcGIS Server feature services.
-
-![PreStorm](http://jshirota.com/PreStorm/demo.png "PreStorm")
 
 Here are some of the key features:
 
