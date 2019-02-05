@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
-    <AssemblyVersion>1.8.17.0</AssemblyVersion>
-    <FileVersion>1.8.17.0</FileVersion>
+    <AssemblyVersion>1.8.18.0</AssemblyVersion>
+    <FileVersion>1.8.18.0</FileVersion>
     <Description>A Data Client for ArcGIS Server REST API - converts features and rows into a (lazy) sequence of strongly-typed objects.</Description>
     <Company>Jiro Shirota</Company>
-    <Copyright>Copyright © Jiro Shirota 2017</Copyright>
-    <Version>1.8.17</Version>
+    <Copyright>Copyright © Jiro Shirota 2019</Copyright>
+    <Version>1.8.18</Version>
     <Authors />
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/jshirota/PreStorm</PackageProjectUrl>

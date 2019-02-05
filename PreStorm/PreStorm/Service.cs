@@ -27,6 +27,11 @@ namespace PreStorm
         /// </summary>
         public Domain[] Domains { get; }
 
+        static Service()
+        {
+            Compatibility.EnableTls12();
+        }
+
         private Service(string url, ICredentials credentials, Token token, string gdbVersion)
         {
             ServiceArgs = new ServiceArgs(url, credentials, token, gdbVersion);

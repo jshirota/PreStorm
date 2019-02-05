@@ -9,6 +9,15 @@ namespace PreStorm
 {
     internal static class Compatibility
     {
+        public static void EnableTls12()
+        {
+#if NETCOREAPP1_0
+
+#else
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
+#endif
+        }
+
         public static string UrlEncode(string value)
         {
 #if NETCOREAPP1_0
