@@ -69,7 +69,7 @@ namespace PreStorm
 
         public static ServiceInfo GetServiceInfo(ServiceArgs args)
         {
-            var url = $"{Regex.Replace(args.Url, @"/FeatureServer($|/)", args.Url.IsArcGISOnline() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
+            var url = $"{Regex.Replace(args.Url, @"/FeatureServer($|/)", args.Url.IsHosted() ? "/FeatureServer" : "/MapServer", RegexOptions.IgnoreCase)}/layers";
 
             var serviceInfo = GetResponse<ServiceInfo>(url, null, args.Credentials, args.Token, args.GdbVersion);
 
@@ -138,6 +138,11 @@ namespace PreStorm
         public static bool IsArcGISOnline(this string url)
         {
             return Regex.IsMatch(url, @"\.arcgis\.com/", RegexOptions.IgnoreCase);
+        }
+
+        public static bool IsHosted(this string url)
+        {
+            return IsArcGISOnline(url) || Regex.IsMatch(url, @"/services/Hosted/", RegexOptions.IgnoreCase);
         }
 
         public static TokenInfo GetTokenInfo(string url, string username, string password, int? expiration)
