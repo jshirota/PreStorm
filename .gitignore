@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/PreStorm/.vs/PreStorm/v16
+/PreStorm/PreStorm/obj
+/PreStorm/PreStorm/bin

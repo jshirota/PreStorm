@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyVersion>1.8.19.0</AssemblyVersion>
     <FileVersion>1.8.19.0</FileVersion>
     <Description>A Data Client for ArcGIS Server REST API - converts features and rows into a (lazy) sequence of strongly-typed objects.</Description>
@@ -17,16 +17,16 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Release\netcoreapp1.0\PreStorm.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net5\PreStorm.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp1.0\.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net5\.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
-    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
   </ItemGroup>
 
 </Project>
